@@ -1,0 +1,11 @@
+input_dir: Resources
+output_dir: ${DERIVED_SOURCES_DIR}
+
+strings:
+  inputs:
+    - Strings/en.lproj
+  outputs:
+    - templateName: structured-swift5
+      params:
+        enumName: Strings
+      output: Strings.swift

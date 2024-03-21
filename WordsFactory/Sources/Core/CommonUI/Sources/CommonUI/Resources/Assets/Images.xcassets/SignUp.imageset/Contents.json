@@ -1,6 +1,7 @@
 {
-  "colors" : [
+  "images" : [
     {
+      "filename" : "SignUp.pdf",
       "idiom" : "universal"
     }
   ],

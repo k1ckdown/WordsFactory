@@ -7,18 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4916A5F32BAA20CD00991B00 /* CommonUI in Frameworks */ = {isa = PBXBuildFile; productRef = 4916A5F22BAA20CD00991B00 /* CommonUI */; };
+		4916A5F52BAA20CD00991B00 /* OnBoarding in Frameworks */ = {isa = PBXBuildFile; productRef = 4916A5F42BAA20CD00991B00 /* OnBoarding */; };
+		492C5B992BA981E40018E008 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 492C5B982BA981E40018E008 /* Images.xcassets */; };
 		4946D6BC2BA814E500558F8A /* WordsFactoryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4946D6BB2BA814E500558F8A /* WordsFactoryApp.swift */; };
 		4946D6BE2BA814E500558F8A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4946D6BD2BA814E500558F8A /* ContentView.swift */; };
-		4946D6C02BA814E600558F8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4946D6BF2BA814E600558F8A /* Assets.xcassets */; };
 		4946D6C32BA814E600558F8A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4946D6C22BA814E600558F8A /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		490C6FDD2BAA1C66002A8BC6 /* CommonUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = CommonUI; sourceTree = "<group>"; };
+		490C6FDE2BAA1C68002A8BC6 /* OnBoarding */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = OnBoarding; sourceTree = "<group>"; };
+		492C5B982BA981E40018E008 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4946D6B82BA814E500558F8A /* WordsFactory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordsFactory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4946D6BB2BA814E500558F8A /* WordsFactoryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsFactoryApp.swift; sourceTree = "<group>"; };
 		4946D6BD2BA814E500558F8A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		4946D6BF2BA814E600558F8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4946D6C22BA814E600558F8A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4949DEC02BAB5FDA0094AD9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,17 +31,56 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4916A5F32BAA20CD00991B00 /* CommonUI in Frameworks */,
+				4916A5F52BAA20CD00991B00 /* OnBoarding in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		492C5B952BA981930018E008 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				4946D6BD2BA814E500558F8A /* ContentView.swift */,
+				4946D6BB2BA814E500558F8A /* WordsFactoryApp.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		492C5B962BA981BD0018E008 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				492C5B952BA981930018E008 /* Application */,
+				4998964E2BAA1FF00078B41B /* Core */,
+				4998964F2BAA1FF50078B41B /* Features */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		492C5B972BA981C90018E008 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4949DEC02BAB5FDA0094AD9D /* Info.plist */,
+				492C5B982BA981E40018E008 /* Images.xcassets */,
+				4946D6C12BA814E600558F8A /* Preview Content */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		492C5B9D2BA989FD0018E008 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4946D6AF2BA814E500558F8A = {
 			isa = PBXGroup;
 			children = (
 				4946D6BA2BA814E500558F8A /* WordsFactory */,
 				4946D6B92BA814E500558F8A /* Products */,
+				492C5B9D2BA989FD0018E008 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -51,10 +95,8 @@
 		4946D6BA2BA814E500558F8A /* WordsFactory */ = {
 			isa = PBXGroup;
 			children = (
-				4946D6BB2BA814E500558F8A /* WordsFactoryApp.swift */,
-				4946D6BD2BA814E500558F8A /* ContentView.swift */,
-				4946D6BF2BA814E600558F8A /* Assets.xcassets */,
-				4946D6C12BA814E600558F8A /* Preview Content */,
+				492C5B972BA981C90018E008 /* Resources */,
+				492C5B962BA981BD0018E008 /* Sources */,
 			);
 			path = WordsFactory;
 			sourceTree = "<group>";
@@ -65,6 +107,22 @@
 				4946D6C22BA814E600558F8A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4998964E2BAA1FF00078B41B /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				490C6FDD2BAA1C66002A8BC6 /* CommonUI */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		4998964F2BAA1FF50078B41B /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				490C6FDE2BAA1C68002A8BC6 /* OnBoarding */,
+			);
+			path = Features;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +141,10 @@
 			dependencies = (
 			);
 			name = WordsFactory;
+			packageProductDependencies = (
+				4916A5F22BAA20CD00991B00 /* CommonUI */,
+				4916A5F42BAA20CD00991B00 /* OnBoarding */,
+			);
 			productName = WordsFactory;
 			productReference = 4946D6B82BA814E500558F8A /* WordsFactory.app */;
 			productType = "com.apple.product-type.application";
@@ -108,9 +170,12 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				ru,
 				Base,
 			);
 			mainGroup = 4946D6AF2BA814E500558F8A;
+			packageReferences = (
+			);
 			productRefGroup = 4946D6B92BA814E500558F8A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,8 +190,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				492C5B992BA981E40018E008 /* Images.xcassets in Resources */,
 				4946D6C32BA814E600558F8A /* Preview Assets.xcassets in Resources */,
-				4946D6C02BA814E600558F8A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,23 +336,25 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"WordsFactory/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"WordsFactory/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = 9KT4MKX52L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WordsFactory/Resources/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sem.WordsFactory;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = sem.WordsFactory;
+				PRODUCT_NAME = WordsFactory;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -301,23 +368,25 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"WordsFactory/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"WordsFactory/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = 9KT4MKX52L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WordsFactory/Resources/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sem.WordsFactory;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = sem.WordsFactory;
+				PRODUCT_NAME = WordsFactory;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -346,6 +415,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4916A5F22BAA20CD00991B00 /* CommonUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CommonUI;
+		};
+		4916A5F42BAA20CD00991B00 /* OnBoarding */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = OnBoarding;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4946D6B02BA814E500558F8A /* Project object */;
 }
