@@ -19,13 +19,13 @@
 /* Begin PBXFileReference section */
 		490C6FDD2BAA1C66002A8BC6 /* CommonUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = CommonUI; sourceTree = "<group>"; };
 		490C6FDE2BAA1C68002A8BC6 /* OnBoarding */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = OnBoarding; sourceTree = "<group>"; };
-		492885312BAD5D9D00013DBB /* Auth */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Auth; path = ../../../../Auth; sourceTree = "<group>"; };
 		492C5B982BA981E40018E008 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4946D6B82BA814E500558F8A /* WordsFactory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordsFactory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4946D6BB2BA814E500558F8A /* WordsFactoryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsFactoryApp.swift; sourceTree = "<group>"; };
 		4946D6BD2BA814E500558F8A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4946D6C22BA814E600558F8A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4949DEC02BAB5FDA0094AD9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49F733512BADB2C40012AF9B /* Auth */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Auth; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +123,7 @@
 		4998964F2BAA1FF50078B41B /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				492885312BAD5D9D00013DBB /* Auth */,
+				49F733512BADB2C40012AF9B /* Auth */,
 				490C6FDE2BAA1C68002A8BC6 /* OnBoarding */,
 			);
 			path = Features;

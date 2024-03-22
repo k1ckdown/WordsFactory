@@ -1,0 +1,20 @@
+/* 
+  Localizable.strings
+  
+
+  Created by Ivan Semenov on 22.03.2024.
+  
+*/
+
+"SignIn" = "Войти";
+"SignUp" = "Зарегистрироваться";
+
+"Registration" = "Регистрация";
+"CreateAccount" = "Создайте свою учетную запись";
+
+"Name" = "Имя";
+"Email" = "Почта";
+"Password" = "Пароль";
+
+"NoAccount" = "Еще нет аккаунта?";
+"HaveAccount" = "Уже есть аккаунт?";

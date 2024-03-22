@@ -1,0 +1,21 @@
+/* 
+  Localizable.strings
+  
+
+  Created by Ivan Semenov on 22.03.2024.
+  
+*/
+
+"SignIn" = "Sign in";
+"SignUp" = "Sign up";
+
+"Registration" = "Sign up";
+"CreateAccount" = "Create your account";
+
+"Name" = "Name";
+"Email" = "Email";
+"Password" = "Password";
+
+"NoAccount" = "Don't have an account yet?";
+"HaveAccount" = "Already have an account?";
+
