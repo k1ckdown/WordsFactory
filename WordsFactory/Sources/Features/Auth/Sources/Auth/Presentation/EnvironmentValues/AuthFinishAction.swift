@@ -7,26 +7,21 @@
 
 import SwiftUI
 
-public struct AuthFinishAction {
-    let action: () -> Void
-    public func callAsFunction() {
-        action()
-    }
-}
+public typealias AuthFinishAction = () -> Void
 
 struct AuthFinishActionKey: EnvironmentKey {
     static let defaultValue: AuthFinishAction? = nil
 }
 
-public extension EnvironmentValues {
+extension EnvironmentValues {
     var authFinish: AuthFinishAction? {
         get { self[AuthFinishActionKey.self] }
         set { self[AuthFinishActionKey.self] = newValue }
     }
 }
 
-extension View {
-    func onAuthFinish(_ action: @escaping () -> Void) -> some View {
-        environment(\.authFinish, AuthFinishAction(action: action))
+public extension View {
+    func onAuthFinish(_ action: @escaping AuthFinishAction) -> some View {
+        environment(\.authFinish, action)
     }
 }

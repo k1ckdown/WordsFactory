@@ -9,8 +9,7 @@ import SwiftUI
 
 struct MainButtonStyle: ButtonStyle {
 
-    @Environment(\.isEnabled)
-    private var isEnabled: Bool
+    @Environment(\.isEnabled) private var isEnabled
 
     private var opacity: Double {
         isEnabled ? Constants.opacityEnabled : Constants.opacityDisabled

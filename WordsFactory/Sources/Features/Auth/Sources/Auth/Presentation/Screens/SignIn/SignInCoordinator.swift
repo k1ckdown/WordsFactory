@@ -18,22 +18,24 @@ protocol SignInRouteState: ObservableObject {
 }
 
 struct SignInCoordinator<Content: View, State: SignInRouteState>: View {
-    
+
     private let content: Content
     @ObservedObject private var state: State
-    
+    @Environment(\.authFinish) private var authFinish
+
     init(content: Content, state: State) {
         self.content = content
         self.state = state
     }
-    
+
     var body: some View {
         screenView
             .onChange(of: state.route) { route in
                 guard case .main = route else { return }
+                authFinish?()
             }
     }
-    
+
     @ViewBuilder
     private var screenView: some View {
         switch state.route {
