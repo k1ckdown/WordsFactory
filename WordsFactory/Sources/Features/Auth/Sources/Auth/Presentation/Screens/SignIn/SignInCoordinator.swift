@@ -9,7 +9,7 @@ import SwiftUI
 import CommonUI
 
 enum SignInRoute: CaseIterable {
-    case main
+    case finish
     case signUp
 }
 
@@ -31,7 +31,7 @@ struct SignInCoordinator<Content: View, State: SignInRouteState>: View {
     var body: some View {
         screenView
             .onChange(of: state.route) { route in
-                guard case .main = route else { return }
+                guard case .finish = route else { return }
                 authFinish?()
             }
     }

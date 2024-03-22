@@ -15,7 +15,7 @@ final class SignUpViewModel: ObservableObject, SignUpRouteState {
     func handle(_ event: Event) {
         switch event {
         case .signUpTapped:
-            route = .main
+            route = .finish
         case .signInTapped:
             route = .signIn
         case .emailChanged(let email):
