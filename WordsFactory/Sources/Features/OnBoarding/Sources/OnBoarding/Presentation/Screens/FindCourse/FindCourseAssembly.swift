@@ -10,8 +10,8 @@ enum FindCourseAssembly {
     static func assemble() -> FindCourseCoordinator<FindCourseView, FindCourseViewModel> {
         let viewModel = FindCourseViewModel()
         let view = FindCourseView(viewModel: viewModel)
-        let Coordinator = FindCourseCoordinator(content: view, state: viewModel)
+        let coordinator = FindCourseCoordinator(content: view, state: viewModel)
         
-        return Coordinator
+        return coordinator
     }
 }

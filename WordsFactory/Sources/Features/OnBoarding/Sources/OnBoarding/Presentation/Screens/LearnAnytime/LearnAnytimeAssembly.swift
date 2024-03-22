@@ -10,8 +10,8 @@ enum LearnAnytimeAssembly {
     static func assemble() -> LearnAnytimeCoordinator<LearnAnytimeView, LearnAnytimeViewModel> {
         let viewModel = LearnAnytimeViewModel()
         let view = LearnAnytimeView(viewModel: viewModel)
-        let Coordinator = LearnAnytimeCoordinator(content: view, state: viewModel)
+        let coordinator = LearnAnytimeCoordinator(content: view, state: viewModel)
 
-        return Coordinator
+        return coordinator
     }
 }

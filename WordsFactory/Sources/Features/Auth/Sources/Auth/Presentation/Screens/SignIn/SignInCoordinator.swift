@@ -18,30 +18,27 @@ protocol SignInRouteState: ObservableObject {
 }
 
 struct SignInCoordinator<Content: View, State: SignInRouteState>: View {
-
+    
     private let content: Content
-    private let showMainScene: () -> Void
     @ObservedObject private var state: State
-
-    init(content: Content, showMainScene: @escaping () -> Void, state: State) {
+    
+    init(content: Content, state: State) {
         self.content = content
-        self.showMainScene = showMainScene
         self.state = state
     }
-
+    
     var body: some View {
         screenView
             .onChange(of: state.route) { route in
                 guard case .main = route else { return }
-                showMainScene()
             }
     }
-
+    
     @ViewBuilder
     private var screenView: some View {
         switch state.route {
         case .signUp:
-            SignUpAssembly.assemble(showMainScene: showMainScene)
+            SignUpAssembly.assemble()
         default:
             content
         }

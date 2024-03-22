@@ -6,12 +6,12 @@
 //
 
 enum SignUpAssembly {
-
-    static func assemble(showMainScene: @escaping () -> Void) -> SignUpCoordinator<SignUpView, SignUpViewModel> {
+    
+    static func assemble() -> SignUpCoordinator<SignUpView, SignUpViewModel> {
         let viewModel = SignUpViewModel()
         let view = SignUpView(viewModel: viewModel)
-        let Coordinator = SignUpCoordinator(content: view, showMainScene: showMainScene, state: viewModel)
-
-        return Coordinator
+        let coordinator = SignUpCoordinator(content: view, state: viewModel)
+        
+        return coordinator
     }
 }

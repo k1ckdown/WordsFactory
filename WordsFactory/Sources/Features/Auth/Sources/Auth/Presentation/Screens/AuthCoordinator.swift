@@ -8,12 +8,12 @@
 import SwiftUI
 
 public struct AuthCoordinator: View {
-
+    
     public init() {}
-
+    
     public var body: some View {
         NavigationView {
-            SignUpAssembly.assemble {}
+            SignUpAssembly.assemble()
         }
     }
 }

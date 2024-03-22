@@ -7,11 +7,11 @@
 
 enum SignInAssembly {
 
-    static func assemble(showMainScene: @escaping () -> Void) -> SignInCoordinator<SignInView, SignInViewModel> {
+    static func assemble() -> SignInCoordinator<SignInView, SignInViewModel> {
         let viewModel = SignInViewModel()
         let view = SignInView(viewModel: viewModel)
-        let Coordinator = SignInCoordinator(content: view, showMainScene: showMainScene, state: viewModel)
+        let coordinator = SignInCoordinator(content: view, state: viewModel)
 
-        return Coordinator
+        return coordinator
     }
 }
