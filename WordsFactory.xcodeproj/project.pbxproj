@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4916A5F32BAA20CD00991B00 /* CommonUI in Frameworks */ = {isa = PBXBuildFile; productRef = 4916A5F22BAA20CD00991B00 /* CommonUI */; };
 		4916A5F52BAA20CD00991B00 /* OnBoarding in Frameworks */ = {isa = PBXBuildFile; productRef = 4916A5F42BAA20CD00991B00 /* OnBoarding */; };
+		492885332BAD60C600013DBB /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 492885322BAD60C600013DBB /* Auth */; };
 		492C5B992BA981E40018E008 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 492C5B982BA981E40018E008 /* Images.xcassets */; };
 		4946D6BC2BA814E500558F8A /* WordsFactoryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4946D6BB2BA814E500558F8A /* WordsFactoryApp.swift */; };
 		4946D6BE2BA814E500558F8A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4946D6BD2BA814E500558F8A /* ContentView.swift */; };
@@ -18,6 +19,7 @@
 /* Begin PBXFileReference section */
 		490C6FDD2BAA1C66002A8BC6 /* CommonUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = CommonUI; sourceTree = "<group>"; };
 		490C6FDE2BAA1C68002A8BC6 /* OnBoarding */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = OnBoarding; sourceTree = "<group>"; };
+		492885312BAD5D9D00013DBB /* Auth */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Auth; path = ../../../../Auth; sourceTree = "<group>"; };
 		492C5B982BA981E40018E008 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4946D6B82BA814E500558F8A /* WordsFactory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordsFactory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4946D6BB2BA814E500558F8A /* WordsFactoryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsFactoryApp.swift; sourceTree = "<group>"; };
@@ -33,6 +35,7 @@
 			files = (
 				4916A5F32BAA20CD00991B00 /* CommonUI in Frameworks */,
 				4916A5F52BAA20CD00991B00 /* OnBoarding in Frameworks */,
+				492885332BAD60C600013DBB /* Auth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,6 +123,7 @@
 		4998964F2BAA1FF50078B41B /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				492885312BAD5D9D00013DBB /* Auth */,
 				490C6FDE2BAA1C68002A8BC6 /* OnBoarding */,
 			);
 			path = Features;
@@ -144,6 +148,7 @@
 			packageProductDependencies = (
 				4916A5F22BAA20CD00991B00 /* CommonUI */,
 				4916A5F42BAA20CD00991B00 /* OnBoarding */,
+				492885322BAD60C600013DBB /* Auth */,
 			);
 			productName = WordsFactory;
 			productReference = 4946D6B82BA814E500558F8A /* WordsFactory.app */;
@@ -424,6 +429,10 @@
 		4916A5F42BAA20CD00991B00 /* OnBoarding */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = OnBoarding;
+		};
+		492885322BAD60C600013DBB /* Auth */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Auth;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

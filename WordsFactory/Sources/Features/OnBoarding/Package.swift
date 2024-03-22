@@ -22,9 +22,6 @@ let package = Package(
             dependencies: [
                 .product(name: "CommonUI", package: "CommonUI")
             ],
-            resources: [
-                .process("Resources")
-            ],
             plugins: [
                 .plugin(name: "SwiftGenPlugin", package: "SwiftGenPlugin")
             ]

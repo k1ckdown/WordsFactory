@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
-import OnBoarding
+import Auth
 
 struct ContentView: View {
 
     var body: some View {
-        OnBoardingRouter()
+        AuthRouter()
+            .preferredColorScheme(.light)
     }
 }
 

@@ -25,7 +25,7 @@ struct ImproveSkillsView: View {
             buttonTitle: Strings.letStart
         ) {
             viewModel.handle(.skipTapped)
-        } continueHandler: {
+        } continueAction: {
             viewModel.handle(.letStartTapped)
         }
     }

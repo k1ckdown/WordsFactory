@@ -25,7 +25,7 @@ struct LearnAnytimeView: View {
             buttonTitle: Strings.next
         ) {
             viewModel.handle(.skipTapped)
-        } continueHandler: {
+        } continueAction: {
             viewModel.handle(.nextTapped)
         }
     }

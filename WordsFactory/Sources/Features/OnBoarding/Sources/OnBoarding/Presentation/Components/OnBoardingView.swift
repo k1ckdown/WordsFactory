@@ -15,8 +15,8 @@ struct OnBoardingView: View {
     let title: String
     let subtitle: String
     let buttonTitle: String
-    let skipHandler: () -> Void
-    let continueHandler: () -> Void
+    let skipAction: () -> Void
+    let continueAction: () -> Void
 
     var body: some View {
         VStack {
@@ -45,27 +45,23 @@ struct OnBoardingView: View {
             }
             .frame(maxHeight: .infinity)
 
-            Button(buttonTitle) {
-                continueHandler()
-            }
-            .mainButtonStyle()
-            .offset(y: Constants.Button.offsetY)
+            Button(buttonTitle, action: continueAction)
+                .mainButtonStyle()
+                .offset(y: Constants.Button.offsetY)
         }
         .padding(.horizontal, Constants.Content.insetHorizontal)
         .backgroundColor()
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
-                Button(Strings.skip) {
-                    skipHandler()
-                }
-                .font(Fonts.buttonSmall)
-                .foregroundStyle(Colors.appDarkGray.swiftUIColor)
+                Button(Strings.skip, action: skipAction)
+                    .font(Fonts.buttonSmall)
+                    .foregroundStyle(Colors.appDarkGray.swiftUIColor)
             }
         }
         .gesture(DragGesture()
             .onEnded {
                 if $0.translation.width < 0 {
-                    continueHandler()
+                    continueAction()
                 }
             }
         )

@@ -5,8 +5,6 @@
 //  Created by Ivan Semenov on 22.03.2024.
 //
 
-import Foundation
-
 enum LearnAnytimeAssembly {
 
     static func assemble() -> LearnAnytimeRouter<LearnAnytimeView, LearnAnytimeViewModel> {
