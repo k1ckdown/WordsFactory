@@ -7,11 +7,11 @@
 
 enum SignUpAssembly {
 
-    static func assemble() -> SignUpRouter<SignUpView, SignUpViewModel> {
+    static func assemble(showMainScene: @escaping () -> Void) -> SignUpCoordinator<SignUpView, SignUpViewModel> {
         let viewModel = SignUpViewModel()
         let view = SignUpView(viewModel: viewModel)
-        let router = SignUpRouter(content: view, state: viewModel)
+        let Coordinator = SignUpCoordinator(content: view, showMainScene: showMainScene, state: viewModel)
 
-        return router
+        return Coordinator
     }
 }

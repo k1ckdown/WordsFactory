@@ -1,5 +1,5 @@
 //
-//  FindCourseRouter.swift
+//  LearnAnytimeCoordinator.swift
 //
 //
 //  Created by Ivan Semenov on 21.03.2024.
@@ -8,19 +8,19 @@
 import SwiftUI
 import CommonUI
 
-enum FindCourseRoute: CaseIterable {
-    case improveSkills
+enum LearnAnytimeRoute: CaseIterable {
+    case findCourse
 }
 
-protocol FindCourseRouteState: ObservableObject {
-    var route: FindCourseRoute? { get set }
+protocol LearnAnytimeRouteState: ObservableObject {
+    var route: LearnAnytimeRoute? { get set }
 }
 
-struct FindCourseRouter<Content: View, State: FindCourseRouteState>: View {
-
+struct LearnAnytimeCoordinator<Content: View, State: LearnAnytimeRouteState>: View {
+    
     private let content: Content
     @ObservedObject private var state: State
-
+    
     init(content: Content, state: State) {
         self.content = content
         self.state = state
@@ -32,8 +32,8 @@ struct FindCourseRouter<Content: View, State: FindCourseRouteState>: View {
                 .navigationBarBackButtonHidden()
         } destination: { route in
             switch route {
-            case .improveSkills:
-                ImproveSkillsAssembly.assemble()
+            case .findCourse:
+                FindCourseAssembly.assemble()
             }
         }
     }

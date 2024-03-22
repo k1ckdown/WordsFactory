@@ -9,8 +9,10 @@
 "SignIn" = "Войти";
 "SignUp" = "Зарегистрироваться";
 
+"Entrance" = "Вход";
 "Registration" = "Регистрация";
-"CreateAccount" = "Создайте свою учетную запись";
+"CreateAccount" = "Создайте свой аккаунт";
+"SignInAccount" = "Войдите в свой аккаунт";
 
 "Name" = "Имя";
 "Email" = "Почта";

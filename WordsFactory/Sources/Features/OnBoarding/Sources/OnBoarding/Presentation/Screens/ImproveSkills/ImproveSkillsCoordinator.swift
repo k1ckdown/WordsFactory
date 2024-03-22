@@ -1,5 +1,5 @@
 //
-//  ImproveSkillsRouter.swift
+//  ImproveSkillsCoordinator.swift
 //
 //
 //  Created by Ivan Semenov on 21.03.2024.
@@ -15,7 +15,7 @@ protocol ImproveSkillsRouteState: ObservableObject {
     var route: ImproveSkillsRoute? { get set }
 }
 
-struct ImproveSkillsRouter<Content: View, State: ImproveSkillsRouteState>: View {
+struct ImproveSkillsCoordinator<Content: View, State: ImproveSkillsRouteState>: View {
     
     private let content: Content
     @ObservedObject private var state: State

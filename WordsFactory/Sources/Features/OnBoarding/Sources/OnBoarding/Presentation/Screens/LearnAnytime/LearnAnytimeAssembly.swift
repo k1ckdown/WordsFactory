@@ -7,11 +7,11 @@
 
 enum LearnAnytimeAssembly {
 
-    static func assemble() -> LearnAnytimeRouter<LearnAnytimeView, LearnAnytimeViewModel> {
+    static func assemble() -> LearnAnytimeCoordinator<LearnAnytimeView, LearnAnytimeViewModel> {
         let viewModel = LearnAnytimeViewModel()
         let view = LearnAnytimeView(viewModel: viewModel)
-        let router = LearnAnytimeRouter(content: view, state: viewModel)
+        let Coordinator = LearnAnytimeCoordinator(content: view, state: viewModel)
 
-        return router
+        return Coordinator
     }
 }

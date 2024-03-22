@@ -1,5 +1,5 @@
 //
-//  AuthRouter.swift
+//  AuthCoordinator.swift
 //
 //
 //  Created by Ivan Semenov on 22.03.2024.
@@ -7,17 +7,17 @@
 
 import SwiftUI
 
-public struct AuthRouter: View {
+public struct AuthCoordinator: View {
 
     public init() {}
 
     public var body: some View {
         NavigationView {
-            SignUpAssembly.assemble()
+            SignUpAssembly.assemble {}
         }
     }
 }
 
 #Preview {
-    AuthRouter()
+    AuthCoordinator()
 }

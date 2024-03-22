@@ -11,7 +11,7 @@ import Auth
 struct ContentView: View {
 
     var body: some View {
-        AuthRouter()
+        AuthCoordinator()
             .preferredColorScheme(.light)
     }
 }

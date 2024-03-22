@@ -7,11 +7,11 @@
 
 enum ImproveSkillsAssembly {
 
-    static func assemble() -> ImproveSkillsRouter<ImproveSkillsView, ImproveSkillsViewModel> {
+    static func assemble() -> ImproveSkillsCoordinator<ImproveSkillsView, ImproveSkillsViewModel> {
         let viewModel = ImproveSkillsViewModel()
         let view = ImproveSkillsView(viewModel: viewModel)
-        let router = ImproveSkillsRouter(content: view, state: viewModel)
+        let Coordinator = ImproveSkillsCoordinator(content: view, state: viewModel)
 
-        return router
+        return Coordinator
     }
 }

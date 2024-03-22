@@ -1,5 +1,5 @@
 //
-//  OnBoardingRouter.swift
+//  OnBoardingCoordinator.swift
 //
 //
 //  Created by Ivan Semenov on 20.03.2024.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct OnBoardingRouter: View {
+public struct OnBoardingCoordinator: View {
 
     public init() {}
 
@@ -19,5 +19,5 @@ public struct OnBoardingRouter: View {
 }
 
 #Preview {
-    OnBoardingRouter()
+    OnBoardingCoordinator()
 }

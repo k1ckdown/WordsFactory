@@ -10,7 +10,6 @@ import CommonUI
 
 struct AuthView<Content: View>: View {
 
-    let image: Image
     let title: String
     let subtitle: String
 
@@ -25,17 +24,17 @@ struct AuthView<Content: View>: View {
     var body: some View {
         VStack {
             VStack(spacing: Constants.spacing) {
-                Images.signUp.swiftUIImage
+                Images.auth.swiftUIImage
                     .resizable()
                     .scaledToFit()
                     .frame(maxHeight: Constants.imageMaxHeight)
 
                 VStack(spacing: Constants.titleSpacing) {
-                    Text(Strings.registration)
+                    Text(title)
                         .font(Fonts.headline4)
                         .foregroundStyle(Colors.appDark.swiftUIColor)
 
-                    Text(Strings.createAccount)
+                    Text(subtitle)
                         .font(Fonts.paragraphMedium)
                         .foregroundStyle(Colors.appDarkGray.swiftUIColor)
                 }

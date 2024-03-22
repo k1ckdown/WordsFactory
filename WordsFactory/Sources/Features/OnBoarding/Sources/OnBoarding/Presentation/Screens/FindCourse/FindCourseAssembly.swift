@@ -7,11 +7,11 @@
 
 enum FindCourseAssembly {
 
-    static func assemble() -> FindCourseRouter<FindCourseView, FindCourseViewModel> {
+    static func assemble() -> FindCourseCoordinator<FindCourseView, FindCourseViewModel> {
         let viewModel = FindCourseViewModel()
         let view = FindCourseView(viewModel: viewModel)
-        let router = FindCourseRouter(content: view, state: viewModel)
+        let Coordinator = FindCourseCoordinator(content: view, state: viewModel)
         
-        return router
+        return Coordinator
     }
 }

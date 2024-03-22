@@ -9,8 +9,10 @@
 "SignIn" = "Sign in";
 "SignUp" = "Sign up";
 
+"Entrance" = "Sign in";
 "Registration" = "Sign up";
 "CreateAccount" = "Create your account";
+"SignInAccount" = "Sign in to your account";
 
 "Name" = "Name";
 "Email" = "Email";

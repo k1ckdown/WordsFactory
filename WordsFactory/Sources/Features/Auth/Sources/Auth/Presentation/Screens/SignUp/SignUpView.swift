@@ -23,11 +23,10 @@ struct SignUpView: View {
 
     var body: some View {
         AuthView(
-            image: Images.signUp.swiftUIImage,
-            title: Strings.signUp,
+            title: Strings.registration,
             subtitle: Strings.createAccount,
             buttonTitle: Strings.signUp,
-            promptText: Strings.noAccount,
+            promptText: Strings.haveAccount,
             promptTitle: Strings.signIn,
             action: {
                 viewModel.handle(.signUpTapped)
@@ -85,8 +84,4 @@ private extension SignUpView {
             set: { viewModel.handle(.usernameChanged($0)) }
         )
     }
-}
-
-#Preview {
-    SignUpAssembly.assemble()
 }

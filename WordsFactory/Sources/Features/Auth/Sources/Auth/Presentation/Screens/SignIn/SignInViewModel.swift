@@ -1,5 +1,5 @@
 //
-//  SignUpViewModel.swift
+//  SignInViewModel.swift
 //
 //
 //  Created by Ivan Semenov on 22.03.2024.
@@ -7,23 +7,21 @@
 
 import Foundation
 
-final class SignUpViewModel: ObservableObject, SignUpRouteState {
+final class SignInViewModel: ObservableObject, SignInRouteState {
 
-    @Published var route: SignUpRoute?
+    @Published var route: SignInRoute?
     @Published private(set) var state = ViewState()
 
     func handle(_ event: Event) {
         switch event {
-        case .signUpTapped:
-            route = .main
         case .signInTapped:
-            route = .signIn
+            route = .main
+        case .signUpTapped:
+            route = .signUp
         case .emailChanged(let email):
             state.email = email
         case .passwordChanged(let password):
             state.password = password
-        case .usernameChanged(let username):
-            state.username = username
         }
     }
 }
