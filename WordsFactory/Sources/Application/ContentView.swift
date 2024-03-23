@@ -11,11 +11,10 @@ import Auth
 struct ContentView: View {
 
     var body: some View {
-        AuthCoordinator()
-            .preferredColorScheme(.light)
-            .onAuthFinish {
-                print("Auth Finished")
-            }
+        AuthCoordinatorAssembly.assemble {
+
+        }
+        .preferredColorScheme(.light)
     }
 }
 

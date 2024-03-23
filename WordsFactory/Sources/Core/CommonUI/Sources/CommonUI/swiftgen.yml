@@ -32,3 +32,12 @@ fonts:
         forceProvidesNamespaces: true
         publicAccess: true
       output: Fonts.swift
+
+strings:
+  inputs:
+    - Strings/en.lproj
+  outputs:
+    - templateName: structured-swift5
+      params:
+        enumName: Strings
+      output: Strings.swift

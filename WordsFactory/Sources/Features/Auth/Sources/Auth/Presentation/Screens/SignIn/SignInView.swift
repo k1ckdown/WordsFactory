@@ -71,7 +71,3 @@ private extension SignInView {
         )
     }
 }
-
-#Preview {
-    SignInView(viewModel: .init())
-}

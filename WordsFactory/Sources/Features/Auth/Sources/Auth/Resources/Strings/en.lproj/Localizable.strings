@@ -21,3 +21,10 @@
 "NoAccount" = "Don't have an account yet?";
 "HaveAccount" = "Already have an account?";
 
+"EmailIsRequired" = "Email is required";
+"UsernameIsRequired" = "Username is required";
+"PasswordIsRequired" = "Password is required";
+"InvalidEmail" = "Invalid email";
+"MissingKeySign" = "Invalid email. Missing @ sign";
+"InvalidPassword" = "Invalid password. Must be at least %d characters";
+"InvalidUsername" = "Invalid username. Can only contain letters or digits";
