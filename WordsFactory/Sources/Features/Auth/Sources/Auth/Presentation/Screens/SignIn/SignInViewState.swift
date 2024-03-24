@@ -10,6 +10,7 @@ extension SignInViewModel {
     struct ViewState {
         var email = ""
         var password = ""
+        var isLoading = false
     }
 
     enum Event {

@@ -51,6 +51,11 @@ final class SignUpViewModel: ObservableObject {
 
 private extension SignUpViewModel {
 
+    @MainActor
+    func isLoading(_ value: Bool) {
+        state.isLoading = value
+    }
+
     func signUp() async throws {
         let userRegister = UserRegister(name: state.name, email: state.email, password: state.password)
         try await signUpUseCase.execute(userRegister)
@@ -65,10 +70,12 @@ private extension SignUpViewModel {
     func signUpTapped() async {
         do {
             try validateForm()
+            await isLoading(true)
             try await signUp()
             await coordinator.finish()
         } catch {
             await coordinator.showError(message: error.localizedDescription)
         }
+        await isLoading(false)
     }
 }

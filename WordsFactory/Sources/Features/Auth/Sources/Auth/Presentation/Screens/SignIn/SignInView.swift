@@ -28,6 +28,7 @@ struct SignInView: View {
             buttonTitle: Strings.signIn,
             promptText: Strings.noAccount,
             promptTitle: Strings.signUp,
+            isLoading: viewModel.state.isLoading,
             action: {
                 viewModel.handle(.signInTapped)
             },

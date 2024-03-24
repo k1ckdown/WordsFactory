@@ -17,6 +17,7 @@ struct AuthView<Content: View>: View {
     let promptText: String
     let promptTitle: String
 
+    let isLoading: Bool
     let action: () -> Void
     let promptAction: () -> Void
     @ViewBuilder let content: Content
@@ -42,6 +43,11 @@ struct AuthView<Content: View>: View {
                 content
                     .autocorrectionDisabled()
                     .textInputAutocapitalization(.never)
+
+                if isLoading {
+                    ProgressView()
+                        .tintColor()
+                }
 
                 Button(buttonTitle, action: action)
                     .mainButtonStyle()

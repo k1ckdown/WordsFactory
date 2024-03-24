@@ -11,6 +11,7 @@ extension SignUpViewModel {
         var name = ""
         var email = ""
         var password = ""
+        var isLoading = false
     }
 
     enum Event {

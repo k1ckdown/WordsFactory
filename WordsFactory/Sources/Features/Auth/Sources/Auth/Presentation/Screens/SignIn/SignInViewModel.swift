@@ -46,11 +46,16 @@ final class SignInViewModel: ObservableObject {
 
 private extension SignInViewModel {
 
+    @MainActor
+    func isLoading(_ value: Bool) {
+        state.isLoading = value
+    }
+
     func signIn() async throws {
         let credentials = LoginCredentials(email: state.email, password: state.password)
         try await signInUseCase.execute(credentials)
     }
-
+    
     func validateForm() throws {
         try validateEmailUseCase.execute(state.email)
         try validatePasswordUseCase.execute(state.password)
@@ -59,10 +64,12 @@ private extension SignInViewModel {
     func signInTapped() async {
         do {
             try validateForm()
+            await isLoading(true)
             try await signIn()
             await coordinator.finish()
         } catch {
             await coordinator.showError(message: error.localizedDescription)
         }
+        await isLoading(false)
     }
 }
