@@ -8,17 +8,17 @@
 extension SignUpViewModel {
 
     struct ViewState {
+        var name = ""
         var email = ""
         var password = ""
-        var username = ""
     }
 
     enum Event {
         case signUpTapped
         case signInTapped
 
+        case nameChanged(String)
         case emailChanged(String)
         case passwordChanged(String)
-        case usernameChanged(String)
     }
 }

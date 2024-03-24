@@ -22,6 +22,7 @@ final class SignUpCoordinator: ObservableObject {
 
 // MARK: - Public methods
 
+@MainActor
 extension SignUpCoordinator {
 
     func finish() {

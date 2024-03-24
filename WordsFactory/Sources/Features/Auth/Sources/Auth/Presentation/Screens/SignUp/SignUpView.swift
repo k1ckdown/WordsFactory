@@ -80,8 +80,8 @@ private extension SignUpView {
 
     var username: Binding<String> {
         Binding(
-            get: { viewModel.state.username },
-            set: { viewModel.handle(.usernameChanged($0)) }
+            get: { viewModel.state.name },
+            set: { viewModel.handle(.nameChanged($0)) }
         )
     }
 }

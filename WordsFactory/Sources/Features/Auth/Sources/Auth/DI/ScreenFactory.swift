@@ -21,6 +21,7 @@ extension ScreenFactory: SignInScreenFactory {
     func makeSignIn(coordinator: SignInCoordinator) -> SignInView {
         let viewModel = SignInViewModel(
             coordinator: coordinator,
+            signInUseCase: useCaseFactory.makeSignInUseCase(),
             validateEmailUseCase: useCaseFactory.makeValidateEmailUseCase(),
             validatePasswordUseCase: useCaseFactory.makeValidatePasswordUseCase()
         )
@@ -37,6 +38,7 @@ extension ScreenFactory: SignUpScreenFactory {
     func makeSignUp(coordinator: SignUpCoordinator) -> SignUpView {
         let viewModel = SignUpViewModel(
             coordinator: coordinator,
+            signUpUseCase: useCaseFactory.makeSignUpUseCase(),
             validateEmailUseCase: useCaseFactory.makeValidateEmailUseCase(),
             validatePasswordUseCase: useCaseFactory.makeValidatePasswordUseCase(),
             validateUsernameUseCase: useCaseFactory.makeValidateUsernameUseCase()
