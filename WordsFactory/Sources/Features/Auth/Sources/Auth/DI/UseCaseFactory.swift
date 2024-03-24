@@ -6,26 +6,39 @@
 //
 
 final class UseCaseFactory {
-    
+
     private let repositoryFactory: RepositoryFactory
-    
+
     init(repositoryFactory: RepositoryFactory) {
         self.repositoryFactory = repositoryFactory
     }
 }
 
-// MARK: - Factory methods
+// MARK: - Auth
 
 extension UseCaseFactory {
-    
+
+    func makeSignInUseCase() -> SignInUseCase {
+        SignInUseCase(authRepository: repositoryFactory.makeAuthRepository())
+    }
+
+    func makeSignUpUseCase() -> SignUpUseCase {
+        SignUpUseCase(authRepository: repositoryFactory.makeAuthRepository())
+    }
+}
+
+// MARK: - Validation
+
+extension UseCaseFactory {
+
     func makeValidateEmailUseCase() -> ValidateEmailUseCase {
         ValidateEmailUseCase()
     }
-    
+
     func makeValidatePasswordUseCase() -> ValidatePasswordUseCase {
         ValidatePasswordUseCase()
     }
-    
+
     func makeValidateUsernameUseCase() -> ValidateUsernameUseCase {
         ValidateUsernameUseCase()
     }
