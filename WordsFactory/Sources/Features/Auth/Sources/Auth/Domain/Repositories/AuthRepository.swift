@@ -6,6 +6,6 @@
 //
 
 protocol AuthRepository {
-    func signUp(user: UserRegister) async throws
+    func signUp(userRegister: UserRegister) async throws
     func signIn(credentials: LoginCredentials) async throws
 }
