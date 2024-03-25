@@ -14,6 +14,7 @@
 		4946D6BC2BA814E500558F8A /* WordsFactoryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4946D6BB2BA814E500558F8A /* WordsFactoryApp.swift */; };
 		4946D6BE2BA814E500558F8A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4946D6BD2BA814E500558F8A /* ContentView.swift */; };
 		4946D6C32BA814E600558F8A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4946D6C22BA814E600558F8A /* Preview Assets.xcassets */; };
+		49B9F44B2BB09711006D5585 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 49B9F44A2BB09711006D5585 /* Networking */; };
 		49FCDC242BAFF8CC00418DCB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49FCDC222BAFF77800418DCB /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -21,6 +22,7 @@
 		490C6FDD2BAA1C66002A8BC6 /* CommonUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = CommonUI; sourceTree = "<group>"; };
 		490C6FDE2BAA1C68002A8BC6 /* OnBoarding */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = OnBoarding; sourceTree = "<group>"; };
 		492C5B982BA981E40018E008 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		4933AA4C2BB0996300515FAC /* Networking */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Networking; sourceTree = "<group>"; };
 		4946D6B82BA814E500558F8A /* WordsFactory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordsFactory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4946D6BB2BA814E500558F8A /* WordsFactoryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsFactoryApp.swift; sourceTree = "<group>"; };
 		4946D6BD2BA814E500558F8A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -37,6 +39,7 @@
 			files = (
 				4916A5F32BAA20CD00991B00 /* CommonUI in Frameworks */,
 				4916A5F52BAA20CD00991B00 /* OnBoarding in Frameworks */,
+				49B9F44B2BB09711006D5585 /* Networking in Frameworks */,
 				492885332BAD60C600013DBB /* Auth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -118,6 +121,7 @@
 		4998964E2BAA1FF00078B41B /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				4933AA4C2BB0996300515FAC /* Networking */,
 				490C6FDD2BAA1C66002A8BC6 /* CommonUI */,
 			);
 			path = Core;
@@ -152,6 +156,7 @@
 				4916A5F22BAA20CD00991B00 /* CommonUI */,
 				4916A5F42BAA20CD00991B00 /* OnBoarding */,
 				492885322BAD60C600013DBB /* Auth */,
+				49B9F44A2BB09711006D5585 /* Networking */,
 			);
 			productName = WordsFactory;
 			productReference = 4946D6B82BA814E500558F8A /* WordsFactory.app */;
@@ -345,7 +350,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"WordsFactory/Resources/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "WordsFactory/Resources/Preview\\ Content";
 				DEVELOPMENT_TEAM = 9KT4MKX52L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -377,7 +382,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"WordsFactory/Resources/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "WordsFactory/Resources/Preview\\ Content";
 				DEVELOPMENT_TEAM = 9KT4MKX52L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -437,6 +442,10 @@
 		492885322BAD60C600013DBB /* Auth */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Auth;
+		};
+		49B9F44A2BB09711006D5585 /* Networking */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Networking;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
