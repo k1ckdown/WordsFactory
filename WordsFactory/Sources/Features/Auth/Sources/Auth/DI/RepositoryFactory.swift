@@ -7,10 +7,15 @@
 
 final class RepositoryFactory {
 
-    private lazy var authRepository = AuthRepositoryImpl()
     private lazy var userRepository: UserRepositoryImpl = {
         let remoteDataSource = UserRemoteDataSource()
         return UserRepositoryImpl(remoteDataSource: remoteDataSource)
+    }()
+
+    private lazy var authRepository: AuthRepositoryImpl = {
+        let repository = AuthRepositoryImpl()
+        repository.delegate = userRepository
+        return repository
     }()
 }
 
@@ -18,12 +23,11 @@ final class RepositoryFactory {
 
 extension RepositoryFactory {
 
-    func makeUserRepository() -> UserRepository {
-        userRepository
+    func makeAuthRepository() -> AuthRepository {
+        authRepository
     }
 
-    func makeAuthRepository() -> AuthRepository {
-        authRepository.delegate = userRepository
-        return authRepository
+    func makeUserRepository() -> UserRepository {
+        userRepository
     }
 }
