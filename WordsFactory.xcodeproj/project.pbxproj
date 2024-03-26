@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		490BF2062BB288AA0023C80C /* Dictionary in Frameworks */ = {isa = PBXBuildFile; productRef = 490BF2052BB288AA0023C80C /* Dictionary */; };
 		4916A5F32BAA20CD00991B00 /* CommonUI in Frameworks */ = {isa = PBXBuildFile; productRef = 4916A5F22BAA20CD00991B00 /* CommonUI */; };
 		4916A5F52BAA20CD00991B00 /* OnBoarding in Frameworks */ = {isa = PBXBuildFile; productRef = 4916A5F42BAA20CD00991B00 /* OnBoarding */; };
 		492885332BAD60C600013DBB /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 492885322BAD60C600013DBB /* Auth */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		490BF2072BB28D6D0023C80C /* Dictionary */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Dictionary; sourceTree = "<group>"; };
 		490C6FDD2BAA1C66002A8BC6 /* CommonUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = CommonUI; sourceTree = "<group>"; };
 		490C6FDE2BAA1C68002A8BC6 /* OnBoarding */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = OnBoarding; sourceTree = "<group>"; };
 		492C5B982BA981E40018E008 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -39,6 +41,7 @@
 			files = (
 				4916A5F32BAA20CD00991B00 /* CommonUI in Frameworks */,
 				4916A5F52BAA20CD00991B00 /* OnBoarding in Frameworks */,
+				490BF2062BB288AA0023C80C /* Dictionary in Frameworks */,
 				49B9F44B2BB09711006D5585 /* Networking in Frameworks */,
 				492885332BAD60C600013DBB /* Auth in Frameworks */,
 			);
@@ -130,6 +133,7 @@
 		4998964F2BAA1FF50078B41B /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				490BF2072BB28D6D0023C80C /* Dictionary */,
 				49F733512BADB2C40012AF9B /* Auth */,
 				490C6FDE2BAA1C68002A8BC6 /* OnBoarding */,
 			);
@@ -157,6 +161,7 @@
 				4916A5F42BAA20CD00991B00 /* OnBoarding */,
 				492885322BAD60C600013DBB /* Auth */,
 				49B9F44A2BB09711006D5585 /* Networking */,
+				490BF2052BB288AA0023C80C /* Dictionary */,
 			);
 			productName = WordsFactory;
 			productReference = 4946D6B82BA814E500558F8A /* WordsFactory.app */;
@@ -431,6 +436,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		490BF2052BB288AA0023C80C /* Dictionary */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Dictionary;
+		};
 		4916A5F22BAA20CD00991B00 /* CommonUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CommonUI;
