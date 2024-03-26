@@ -48,9 +48,10 @@ private extension MeaningCardView {
 
     enum Constants {
         static let cornerRadius: CGFloat = 15
+        static let dividerOffsetY: CGFloat = 15
+
         static let contentSpacing: CGFloat = 20
         static let definitionSpacing: CGFloat = 30
-        static let dividerOffsetY: CGFloat = 15
     }
 }
 
