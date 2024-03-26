@@ -7,15 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		490BF2062BB288AA0023C80C /* Dictionary in Frameworks */ = {isa = PBXBuildFile; productRef = 490BF2052BB288AA0023C80C /* Dictionary */; };
-		4916A5F32BAA20CD00991B00 /* CommonUI in Frameworks */ = {isa = PBXBuildFile; productRef = 4916A5F22BAA20CD00991B00 /* CommonUI */; };
 		4916A5F52BAA20CD00991B00 /* OnBoarding in Frameworks */ = {isa = PBXBuildFile; productRef = 4916A5F42BAA20CD00991B00 /* OnBoarding */; };
-		492885332BAD60C600013DBB /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 492885322BAD60C600013DBB /* Auth */; };
 		492C5B992BA981E40018E008 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 492C5B982BA981E40018E008 /* Images.xcassets */; };
 		4946D6BC2BA814E500558F8A /* WordsFactoryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4946D6BB2BA814E500558F8A /* WordsFactoryApp.swift */; };
 		4946D6BE2BA814E500558F8A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4946D6BD2BA814E500558F8A /* ContentView.swift */; };
 		4946D6C32BA814E600558F8A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4946D6C22BA814E600558F8A /* Preview Assets.xcassets */; };
-		49B9F44B2BB09711006D5585 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 49B9F44A2BB09711006D5585 /* Networking */; };
+		4981167E2BB2C27100C99D0B /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 4981167D2BB2C27100C99D0B /* Auth */; };
+		498116802BB2C49300C99D0B /* Dictionary in Frameworks */ = {isa = PBXBuildFile; productRef = 4981167F2BB2C49300C99D0B /* Dictionary */; };
 		49FCDC242BAFF8CC00418DCB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49FCDC222BAFF77800418DCB /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -39,11 +37,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4916A5F32BAA20CD00991B00 /* CommonUI in Frameworks */,
 				4916A5F52BAA20CD00991B00 /* OnBoarding in Frameworks */,
-				490BF2062BB288AA0023C80C /* Dictionary in Frameworks */,
-				49B9F44B2BB09711006D5585 /* Networking in Frameworks */,
-				492885332BAD60C600013DBB /* Auth in Frameworks */,
+				498116802BB2C49300C99D0B /* Dictionary in Frameworks */,
+				4981167E2BB2C27100C99D0B /* Auth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,11 +153,9 @@
 			);
 			name = WordsFactory;
 			packageProductDependencies = (
-				4916A5F22BAA20CD00991B00 /* CommonUI */,
 				4916A5F42BAA20CD00991B00 /* OnBoarding */,
-				492885322BAD60C600013DBB /* Auth */,
-				49B9F44A2BB09711006D5585 /* Networking */,
-				490BF2052BB288AA0023C80C /* Dictionary */,
+				4981167D2BB2C27100C99D0B /* Auth */,
+				4981167F2BB2C49300C99D0B /* Dictionary */,
 			);
 			productName = WordsFactory;
 			productReference = 4946D6B82BA814E500558F8A /* WordsFactory.app */;
@@ -436,25 +430,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		490BF2052BB288AA0023C80C /* Dictionary */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Dictionary;
-		};
-		4916A5F22BAA20CD00991B00 /* CommonUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = CommonUI;
-		};
 		4916A5F42BAA20CD00991B00 /* OnBoarding */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = OnBoarding;
 		};
-		492885322BAD60C600013DBB /* Auth */ = {
+		4981167D2BB2C27100C99D0B /* Auth */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Auth;
 		};
-		49B9F44A2BB09711006D5585 /* Networking */ = {
+		4981167F2BB2C49300C99D0B /* Dictionary */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = Networking;
+			productName = Dictionary;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

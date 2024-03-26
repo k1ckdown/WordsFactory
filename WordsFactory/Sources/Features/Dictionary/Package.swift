@@ -8,22 +8,21 @@ let package = Package(
     defaultLocalization: "en",
     platforms: [.iOS(.v15)],
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "Dictionary",
             targets: ["Dictionary"]),
     ],
     dependencies: [
-        .package(name: "CommonUI", path: "../CommonUI"),
+        .package(path: "../../Core/CommonUI"),
+        .package(path: "../../Core/Networking"),
         .package(url: "https://github.com/SwiftGen/SwiftGenPlugin", from: .init(6, 6, 2))
     ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "Dictionary",
             dependencies: [
-                .product(name: "CommonUI", package: "CommonUI")
+                .product(name: "CommonUI", package: "CommonUI"),
+                .product(name: "Networking", package: "Networking")
             ],
             plugins: [
                 .plugin(name: "SwiftGenPlugin", package: "SwiftGenPlugin")

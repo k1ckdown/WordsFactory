@@ -13,7 +13,7 @@ let package = Package(
             targets: ["Auth"]),
     ],
     dependencies: [
-        .package(name: "CommonUI", path: "../CommonUI"),
+        .package(path: "../../Core/CommonUI"),
         .package(url: "https://github.com/SwiftGen/SwiftGenPlugin", from: .init(6, 6, 2)),
         .package(url: "https://github.com/firebase/firebase-ios-sdk", from: .init(10, 23, 0))
     ],
