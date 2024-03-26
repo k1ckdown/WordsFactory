@@ -34,7 +34,7 @@ private extension MainButtonStyle {
 
     enum Constants {
         static let height: CGFloat = 56
-        static let cornerRadius: CGFloat = 17
+        static let cornerRadius: CGFloat = 16
 
         static let scaleEffect: CGFloat = 1
         static let scaleEffectPressed: CGFloat = 0.98

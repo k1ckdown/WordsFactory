@@ -22,7 +22,7 @@ struct RoundedBorderViewModifier: ViewModifier {
 }
 
 public extension View {
-    func roundedBorder(_ cornerRadius: CGFloat = 10) -> some View {
+    func roundedBorder(_ cornerRadius: CGFloat = 12) -> some View {
         modifier(RoundedBorderViewModifier(cornerRadius: cornerRadius))
     }
 }
