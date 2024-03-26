@@ -18,7 +18,7 @@ struct MeaningCardView: View {
                 Text("\(Strings.partOfSpeech):")
                     .font(Fonts.buttonMedium)
 
-                Text(viewModel.partOfSpeech)
+                Text(viewModel.partOfSpeech.capitalized)
                     .font(Fonts.paragraphMedium)
             }
 
@@ -53,27 +53,4 @@ private extension MeaningCardView {
         static let contentSpacing: CGFloat = 20
         static let definitionSpacing: CGFloat = 30
     }
-}
-
-#Preview {
-    let viewModel = MeaningCardViewModel(
-        partOfSpeech: "verb",
-        definitions: [
-            .init(
-                definition: "To prepare (food) for eating by heating it, often by combining it with other ingredients.",
-                example: "I'm cooking bangers and mash."
-            ),
-            .init(
-                definition: "To prepare (unspecified) food for eating by heating it, often by combining it with other ingredients.",
-                example: "He's in the kitchen, cooking."
-            ),
-            .init(
-                definition: "To be cooked.",
-                example: "The dinner is cooking on the stove."
-            )
-        ]
-    )
-
-    return MeaningCardView(viewModel: viewModel)
-        .padding(.horizontal)
 }
