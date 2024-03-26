@@ -24,20 +24,9 @@ struct MeaningCardView: View {
 
             VStack(alignment: .leading, spacing: Constants.definitionSpacing) {
                 ForEach(viewModel.definitions, id: \.self) { definition in
-                    VStack(spacing: .zero) {
-                        MeaningDefinitionCardView(viewModel: definition)
-
-                        if definition != viewModel.definitions.last {
-                            Divider().offset(y: Constants.dividerOffsetY)
-                        }
-                    }
+                    MeaningDefinitionCardView(viewModel: definition)
                 }
             }
-        }
-        .padding()
-        .overlay {
-            RoundedRectangle(cornerRadius: Constants.cornerRadius)
-                .stroke(Colors.appGray.swiftUIColor)
         }
     }
 }
@@ -47,10 +36,7 @@ struct MeaningCardView: View {
 private extension MeaningCardView {
 
     enum Constants {
-        static let cornerRadius: CGFloat = 15
-        static let dividerOffsetY: CGFloat = 15
-
-        static let contentSpacing: CGFloat = 20
-        static let definitionSpacing: CGFloat = 30
+        static let contentSpacing: CGFloat = 15
+        static let definitionSpacing: CGFloat = 13
     }
 }

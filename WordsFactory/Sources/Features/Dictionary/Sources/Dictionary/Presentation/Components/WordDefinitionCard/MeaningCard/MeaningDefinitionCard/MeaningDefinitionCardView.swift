@@ -15,6 +15,7 @@ struct MeaningDefinitionCardView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: Constants.spacing) {
             Text(viewModel.definition)
+                .lineSpacing(Constants.definitionLineSpacing)
 
             if let example = viewModel.example {
                 HStack {
@@ -27,6 +28,8 @@ struct MeaningDefinitionCardView: View {
         }
         .font(Fonts.paragraphMedium)
         .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.vertical)
+        .roundedBorder(Constants.cornerRadius)
     }
 }
 
@@ -35,6 +38,8 @@ struct MeaningDefinitionCardView: View {
 private extension MeaningDefinitionCardView {
 
     enum Constants {
-        static let spacing: CGFloat = 10
+        static let spacing: CGFloat = 15
+        static let cornerRadius: CGFloat = 16
+        static let definitionLineSpacing: CGFloat = 5
     }
 }

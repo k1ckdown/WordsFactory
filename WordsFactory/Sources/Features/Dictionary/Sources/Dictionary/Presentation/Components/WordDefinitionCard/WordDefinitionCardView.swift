@@ -15,9 +15,10 @@ struct WordDefinitionCardView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: Constants.contentSpacing) {
-            VStack(alignment: .leading, spacing: Constants.wordSpacing) {
+            HStack(alignment: .bottom, spacing: Constants.wordSpacing) {
                 Text(viewModel.word.capitalized)
                     .font(Fonts.headline4)
+                    .frame(maxHeight: .infinity, alignment: .top)
 
                 WrappingHStack(
                     viewModel.phonetics,
@@ -39,13 +40,19 @@ struct WordDefinitionCardView: View {
                 }
             }
 
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: Constants.meaningsHeaderSpacing) {
                 Text("\(Strings.meanings):")
                     .font(Fonts.headline5)
 
                 VStack(spacing: Constants.meaningCardSpacing) {
                     ForEach(viewModel.meanings, id: \.self) { meaning in
-                        MeaningCardView(viewModel: meaning)
+                        VStack(spacing: .zero) {
+                            MeaningCardView(viewModel: meaning)
+
+                            if meaning != viewModel.meanings.last {
+                                Divider().offset(y: Constants.dividerOffsetY)
+                            }
+                        }
                     }
                 }
             }
@@ -58,10 +65,12 @@ struct WordDefinitionCardView: View {
 private extension WordDefinitionCardView {
 
     enum Constants {
-        static let wordSpacing: CGFloat = 10
+        static let wordSpacing: CGFloat = 16
         static let contentSpacing: CGFloat = 20
         static let phoneticSpacing: CGFloat = 15
-        static let meaningCardSpacing: CGFloat = 20
+        static let meaningCardSpacing: CGFloat = 30
+        static let meaningsHeaderSpacing: CGFloat = 11
         static let phoneticContentSpacing: CGFloat = 10
+        static let dividerOffsetY: CGFloat = Constants.meaningCardSpacing / 2
     }
 }
