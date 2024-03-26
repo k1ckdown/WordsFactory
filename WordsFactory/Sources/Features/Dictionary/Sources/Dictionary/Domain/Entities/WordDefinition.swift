@@ -7,7 +7,7 @@
 
 struct WordDefinition {
     let word: String
-    let phonetic: String
+    let phonetic: String?
     let meanings: [Meaning]
     let phonetics: [Phonetic]
 }

@@ -6,6 +6,6 @@
 //
 
 struct Phonetic {
-    let text: String
-    let audio: String
+    let text: String?
+    let audio: String?
 }
