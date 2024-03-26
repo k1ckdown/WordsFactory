@@ -5,7 +5,7 @@
 //  Created by Ivan Semenov on 26.03.2024.
 //
 
-final class FetchWordDefinitionsUseCase {
+final class GetWordDefinitionsUseCase {
 
     private let wordDefinitionRepository: WordDefinitionRepository
 
@@ -14,6 +14,6 @@ final class FetchWordDefinitionsUseCase {
     }
 
     func execute(_ word: String) async throws -> [WordDefinition] {
-        try await wordDefinitionRepository.getDefinitions(of: word)
+        try await wordDefinitionRepository.getDefinitionList(of: word)
     }
 }
