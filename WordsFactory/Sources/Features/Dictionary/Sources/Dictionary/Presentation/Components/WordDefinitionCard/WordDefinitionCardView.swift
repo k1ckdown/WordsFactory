@@ -30,7 +30,7 @@ struct WordDefinitionCardView: View {
                         Text(phonetic)
 
                         Button {
-                            viewModel.phoneticTapped(phonetic)
+                            viewModel.phoneticAction(phonetic)
                         } label: {
                             Images.speakerIcon.swiftUIImage
                         }

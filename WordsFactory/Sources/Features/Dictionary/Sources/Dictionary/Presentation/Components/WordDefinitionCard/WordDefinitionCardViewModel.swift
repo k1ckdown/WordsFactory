@@ -9,5 +9,5 @@ struct WordDefinitionCardViewModel {
     let word: String
     let phonetics: [String]
     let meanings: [MeaningCardViewModel]
-    let phoneticTapped: (String) -> Void
+    let phoneticAction: (String) -> Void
 }

@@ -34,7 +34,7 @@ final class SignUpViewModel: ObservableObject {
     func handle(_ event: Event) {
         switch event {
         case .signUpTapped:
-            Task { await signUpTapped() }
+            Task { await handleSignUpTap() }
         case .signInTapped:
             Task { await coordinator.showSignIn() }
         case .emailChanged(let email):
@@ -67,7 +67,7 @@ private extension SignUpViewModel {
         try validatePasswordUseCase.execute(state.password)
     }
 
-    func signUpTapped() async {
+    func handleSignUpTap() async {
         do {
             try validateForm()
             await isLoading(true)
