@@ -10,3 +10,5 @@
 "Example" = "Example";
 "Meanings" = "Meanings";
 "PartOfSpeech" = "Part of Speech";
+"NoWord" = "No word";
+"FindInDictionary" = "Input something to find it in dictionary";
