@@ -21,7 +21,7 @@ final class DictionaryViewModel: ObservableObject {
     func handle(_ event: Event) {
         switch event {
         case .cardSelected(let index):
-            Task { await handleCardSelect(at: index) }
+            handleCardSelect(at: index)
         case .addToDictionaryTapped:
             Task { await handleAddToDictionaryTap() }
         case .searchWordChanged(let word):
@@ -35,45 +35,35 @@ final class DictionaryViewModel: ObservableObject {
 private extension DictionaryViewModel {
 
     @MainActor
-    func loading() {
-        state = .loading
-    }
-
-    @MainActor
-    func handleError(_ error: Error) {
-        print(error)
-        state = .error(error.localizedDescription)
-    }
-
-    @MainActor
     func handleDefinitions(_ definitions: [WordDefinition]) {
         let viewModels = definitions.map { WordDefinitionCardViewModel($0, phoneticAction: handlePhoneticTap) }
         let viewData = ViewState.ViewData(definitionCards: viewModels)
         state = .loaded(viewData)
     }
 
-    func handleCardSelect(at index: Int) async {
+    func handleCardSelect(at index: Int) {
         guard case .loaded(let viewData) = state else { return }
 
-        state = await viewData.selectedDefinitionIndex == nil
+        state = viewData.selectedDefinitionIndex == nil
         ? state.selectDefinition(at: index)
         : state.unselectDefinition()
     }
 
     func handleAddToDictionaryTap() async {
-        await state = state.unselectDefinition()
+        await MainActor.run { state = state.unselectDefinition() }
     }
 
     func handlePhoneticTap(_ phonetic: String) {
+
     }
 
     func fetchDefinitions(of word: String) async {
-        await loading()
+        await MainActor.run { state = .loading }
         do {
             definitions = try await fetchWordDefinitionsUseCase.execute(word)
             await handleDefinitions(definitions)
         } catch {
-            await handleError(error)
+            await MainActor.run { state = .error(error.localizedDescription) }
         }
     }
 }

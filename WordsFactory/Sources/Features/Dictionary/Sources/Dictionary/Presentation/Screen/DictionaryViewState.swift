@@ -32,7 +32,6 @@ extension DictionaryViewModel {
 
 // MARK: - Mutating
 
-@MainActor
 extension DictionaryViewModel.ViewState {
     
     func unselectDefinition() -> Self {

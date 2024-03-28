@@ -6,15 +6,13 @@
 //
 
 import SwiftUI
-import Auth
+import Dictionary
 
 struct ContentView: View {
 
     var body: some View {
-        AuthCoordinatorAssembly.assemble {
-
-        }
-        .preferredColorScheme(.light)
+        DictionaryViewAssembly.assemble()
+            .preferredColorScheme(.light)
     }
 }
 

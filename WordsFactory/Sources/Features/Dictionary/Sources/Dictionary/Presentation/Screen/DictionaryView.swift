@@ -8,7 +8,7 @@
 import SwiftUI
 import CommonUI
 
-struct DictionaryView: View {
+public struct DictionaryView: View {
 
     @StateObject private var viewModel: DictionaryViewModel
 
@@ -16,7 +16,7 @@ struct DictionaryView: View {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
 
-    var body: some View {
+    public var body: some View {
         VStack {
             SearchBar { word in
                 viewModel.handle(.searchWordChanged(word))
@@ -83,9 +83,7 @@ private extension DictionaryView {
         }.overlay(alignment: .bottom) {
             if viewData.isAddToDictionaryShowing {
                 Button(Strings.addToDictionary) {
-                    withAnimation {
-                        viewModel.handle(.addToDictionaryTapped)
-                    }
+                    viewModel.handle(.addToDictionaryTapped)
                 }
                 .mainButtonStyle()
                 .padding(.horizontal, Constants.AddToDictionary.insetHorizontal)
@@ -110,4 +108,8 @@ private extension DictionaryView {
             static let listInsetBottom: CGFloat = 75
         }
     }
+}
+
+#Preview {
+    DictionaryViewAssembly.assemble()
 }
