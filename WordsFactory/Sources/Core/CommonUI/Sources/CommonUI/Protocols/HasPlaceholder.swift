@@ -8,11 +8,11 @@
 import SwiftUI
 
 public protocol HasPlaceholder {
-    static func placeholder<T: Hashable>(id: T) -> Self
+    static func placeholder(id: String) -> Self
 }
 
 public extension Array where Element: HasPlaceholder {
     static func placeholders(_ count: Int) -> [Element] {
-        (0..<count).map { .placeholder(id: $0) }
+        (0..<count).map { .placeholder(id: "\($0)") }
     }
 }

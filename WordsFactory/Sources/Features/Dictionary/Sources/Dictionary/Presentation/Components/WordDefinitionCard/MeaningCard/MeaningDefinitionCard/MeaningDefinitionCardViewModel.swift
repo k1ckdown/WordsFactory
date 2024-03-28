@@ -5,9 +5,11 @@
 //  Created by Ivan Semenov on 26.03.2024.
 //
 
+import Foundation
 import CommonUI
 
-struct MeaningDefinitionCardViewModel: Hashable {
+struct MeaningDefinitionCardViewModel: Identifiable, Hashable {
+    let id = UUID()
     let definition: String
     let example: String?
 }
@@ -22,7 +24,7 @@ extension MeaningDefinitionCardViewModel {
 // MARK: - Placeholder
 
 extension MeaningDefinitionCardViewModel: HasPlaceholder {
-    static func placeholder<T: Hashable>(id: T) -> MeaningDefinitionCardViewModel {
+    static func placeholder(id: String) -> MeaningDefinitionCardViewModel {
         .init(definition: .placeholder(80), example: .placeholder(20))
     }
 }

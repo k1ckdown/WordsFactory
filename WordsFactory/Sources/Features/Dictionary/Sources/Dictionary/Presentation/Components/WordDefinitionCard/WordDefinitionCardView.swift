@@ -48,7 +48,7 @@ struct WordDefinitionCardView: View {
                     .font(Fonts.headline5)
 
                 VStack(spacing: Constants.meaningCardSpacing) {
-                    ForEach(viewModel.meanings, id: \.self) { meaning in
+                    ForEach(viewModel.meanings) { meaning in
                         VStack(spacing: .zero) {
                             MeaningCardView(viewModel: meaning)
 

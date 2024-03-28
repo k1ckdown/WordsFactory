@@ -44,7 +44,7 @@ extension DictionaryViewModel.ViewState {
     func selectDefinition(at index: Int) -> Self {
         guard case .loaded(var viewData) = self else { return self }
 
-        viewData.selectedDefinitionIndex = viewData.selectedDefinitionIndex == nil ? index : nil
+        viewData.selectedDefinitionIndex = index == viewData.selectedDefinitionIndex ? nil : index
         return .loaded(viewData)
     }
 }

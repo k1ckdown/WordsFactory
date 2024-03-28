@@ -34,7 +34,7 @@ extension WordDefinitionCardViewModel {
 // MARK: - Placeholder
 
 extension WordDefinitionCardViewModel: HasPlaceholder {
-    static func placeholder<T: Hashable>(id: T) -> WordDefinitionCardViewModel {
+    static func placeholder(id: String) -> WordDefinitionCardViewModel {
         .init(
             word: .placeholder(7),
             phonetics: .init(repeating: .placeholder(7), count: 2),

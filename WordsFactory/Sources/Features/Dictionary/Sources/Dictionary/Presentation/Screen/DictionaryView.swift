@@ -63,6 +63,7 @@ private extension DictionaryView {
             LazyVStack(spacing: Constants.Definition.spacing) {
                 ForEach(Array(viewData.definitionCards.enumerated()), id: \.element.id) { index, card in
                     WordDefinitionCardView(viewModel: card, isSelected: index == viewData.selectedDefinitionIndex)
+                        .contentShape(Rectangle())
                         .onTapGesture {
                             withAnimation {
                                 viewModel.handle(.definitionSelected(index))

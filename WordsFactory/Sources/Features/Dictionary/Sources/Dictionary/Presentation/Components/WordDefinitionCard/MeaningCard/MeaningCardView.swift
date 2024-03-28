@@ -23,7 +23,7 @@ struct MeaningCardView: View {
             }
 
             VStack(alignment: .leading, spacing: Constants.definitionSpacing) {
-                ForEach(viewModel.definitions, id: \.self) { definition in
+                ForEach(viewModel.definitions) { definition in
                     MeaningDefinitionCardView(viewModel: definition)
                 }
             }
