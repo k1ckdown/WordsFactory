@@ -29,7 +29,7 @@ struct SearchBar: View {
             }
         }
         .frame(height: Constants.height)
-        .roundedBorder()
+        .roundedBorderField()
     }
 }
 

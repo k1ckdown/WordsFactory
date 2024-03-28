@@ -8,4 +8,9 @@
 struct MeaningDefinitionCardViewModel: Hashable {
     let definition: String
     let example: String?
+
+    init(_ meaningDefinition: MeaningDefinition) {
+        definition = meaningDefinition.definition
+        example = meaningDefinition.example
+    }
 }

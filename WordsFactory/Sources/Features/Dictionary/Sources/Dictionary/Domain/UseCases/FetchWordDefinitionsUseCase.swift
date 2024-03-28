@@ -5,7 +5,7 @@
 //  Created by Ivan Semenov on 26.03.2024.
 //
 
-final class GetWordDefinitionsUseCase {
+final class FetchWordDefinitionsUseCase {
 
     private let wordDefinitionRepository: WordDefinitionRepository
 

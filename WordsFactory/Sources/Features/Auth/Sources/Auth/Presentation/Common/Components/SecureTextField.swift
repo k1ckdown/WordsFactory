@@ -29,7 +29,7 @@ struct SecureTextField: View {
                 (isSecure ? Images.eyeIcon : Images.eyeSlashIcon).swiftUIImage
             }
         }
-        .roundedBorder()
+        .roundedBorderField()
     }
 
     @ViewBuilder

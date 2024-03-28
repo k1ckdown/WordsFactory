@@ -24,32 +24,34 @@ struct OnBoardingView: View {
                 image
                     .resizable()
                     .scaledToFit()
-                    .clipShape(.rect(cornerRadius: Constants.Image.cornerRadius))
                     .frame(height: Constants.Image.height)
 
-                VStack(spacing: Constants.Titles.spacing) {
-                    Text(title)
-                        .font(Fonts.headline4)
-                        .foregroundStyle(Colors.appDark.swiftUIColor)
+                Group {
+                    VStack(spacing: Constants.Titles.spacing) {
+                        Text(title)
+                            .font(Fonts.headline4)
+                            .foregroundStyle(Colors.appDark.swiftUIColor)
 
-                    Text(subtitle)
-                        .font(Fonts.paragraphMedium)
-                        .foregroundStyle(Colors.appDarkGray.swiftUIColor)
+                        Text(subtitle)
+                            .font(Fonts.paragraphMedium)
+                            .foregroundStyle(Colors.appDarkGray.swiftUIColor)
+                    }
+                    .multilineTextAlignment(.center)
+                    .lineSpacing(Constants.Titles.lineSpacing)
+                    .padding(.top, Constants.Titles.insetTop)
+
+                    PageIndicator(page)
+                        .padding(.top, Constants.PageIndicator.insetTop)
                 }
-                .multilineTextAlignment(.center)
-                .lineSpacing(Constants.Titles.lineSpacing)
-                .padding(.top, Constants.Titles.insetTop)
-
-                PageIndicator(page)
-                    .padding(.top, Constants.PageIndicator.insetTop)
+                .padding(.horizontal, Constants.Titles.insetHorizontal)
             }
             .frame(maxHeight: .infinity)
 
             Button(buttonTitle, action: continueAction)
                 .mainButtonStyle()
                 .offset(y: Constants.Button.offsetY)
+                .padding(.horizontal, Constants.Button.insetHorizontal)
         }
-        .padding(.horizontal, Constants.Content.insetHorizontal)
         .backgroundColor()
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
@@ -74,19 +76,15 @@ private extension OnBoardingView {
 
     enum Constants {
 
-        enum Content {
-            static let insetHorizontal: CGFloat = 30
-        }
-
         enum Image {
             static let height: CGFloat = 264
-            static let cornerRadius: CGFloat = 15
         }
 
         enum Titles {
             static let spacing: CGFloat = 13
-            static let insetTop: CGFloat = 18
+            static let insetTop: CGFloat = 25
             static let lineSpacing: CGFloat = 3
+            static let insetHorizontal: CGFloat = 17
         }
 
         enum PageIndicator {
@@ -95,6 +93,7 @@ private extension OnBoardingView {
 
         enum Button {
             static let offsetY: CGFloat = -15
+            static let insetHorizontal: CGFloat = 32
         }
     }
 }

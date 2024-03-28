@@ -28,8 +28,11 @@ struct MeaningDefinitionCardView: View {
         }
         .font(Fonts.paragraphMedium)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(.vertical)
-        .roundedBorder(Constants.cornerRadius)
+        .padding()
+        .overlay {
+            RoundedRectangle(cornerRadius: Constants.cornerRadius)
+                .stroke(Colors.appDarkGray.swiftUIColor)
+        }
     }
 }
 

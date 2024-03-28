@@ -13,6 +13,9 @@ struct DictionaryPlaceholderView: View {
     var body: some View {
         VStack(spacing: Constants.imageSpacing) {
             Images.dictionaryPlaceholder.swiftUIImage
+                .resizable()
+                .scaledToFit()
+                .frame(height: Constants.imageHeight)
 
             VStack(spacing: Constants.textSpacing) {
                 Text(Strings.noWord)
@@ -34,5 +37,6 @@ private extension DictionaryPlaceholderView {
     enum Constants {
         static let textSpacing: CGFloat = 8
         static let imageSpacing: CGFloat = 32
+        static let imageHeight: CGFloat = 253
     }
 }

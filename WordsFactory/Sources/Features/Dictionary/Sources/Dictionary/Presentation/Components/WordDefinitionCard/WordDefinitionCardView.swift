@@ -18,25 +18,26 @@ struct WordDefinitionCardView: View {
             HStack(alignment: .bottom, spacing: Constants.wordSpacing) {
                 Text(viewModel.word.capitalized)
                     .font(Fonts.headline4)
-                    .frame(maxHeight: .infinity, alignment: .top)
 
-                WrappingHStack(
-                    viewModel.phonetics,
-                    id: \.self,
-                    spacing: .constant(Constants.phoneticSpacing),
-                    lineSpacing: Constants.phoneticSpacing
-                ) { phonetic in
-                    HStack(spacing: Constants.phoneticContentSpacing) {
-                        Text(phonetic)
+                if viewModel.isPhoneticsShowing {
+                    WrappingHStack(
+                        viewModel.phonetics,
+                        id: \.self,
+                        spacing: .constant(Constants.phoneticSpacing),
+                        lineSpacing: Constants.phoneticSpacing
+                    ) { phonetic in
+                        HStack(spacing: Constants.phoneticContentSpacing) {
+                            Text(phonetic)
 
-                        Button {
-                            viewModel.phoneticAction(phonetic)
-                        } label: {
-                            Images.speakerIcon.swiftUIImage
+                            Button {
+                                viewModel.phoneticAction(phonetic)
+                            } label: {
+                                Images.speakerIcon.swiftUIImage
+                            }
                         }
+                        .font(Fonts.paragraphMedium)
+                        .foregroundStyle(Colors.appOrange.swiftUIColor)
                     }
-                    .font(Fonts.paragraphMedium)
-                    .foregroundStyle(Colors.appOrange.swiftUIColor)
                 }
             }
 
@@ -69,7 +70,7 @@ private extension WordDefinitionCardView {
         static let contentSpacing: CGFloat = 20
         static let phoneticSpacing: CGFloat = 15
         static let meaningCardSpacing: CGFloat = 30
-        static let meaningsHeaderSpacing: CGFloat = 11
+        static let meaningsHeaderSpacing: CGFloat = 10
         static let phoneticContentSpacing: CGFloat = 10
         static let dividerOffsetY: CGFloat = Constants.meaningCardSpacing / 2
     }

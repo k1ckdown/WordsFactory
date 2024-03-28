@@ -12,7 +12,7 @@ struct AuthBorderedTextFieldStyle: TextFieldStyle {
     func _body(configuration: TextField<Self._Label>) -> some View {
         configuration
             .authTextFieldStyle()
-            .roundedBorder()
+            .roundedBorderField()
     }
 }
 
