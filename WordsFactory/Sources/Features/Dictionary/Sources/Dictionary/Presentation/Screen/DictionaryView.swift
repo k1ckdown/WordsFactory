@@ -33,13 +33,12 @@ public struct DictionaryView: View {
         switch viewModel.state {
         case .idle:
             DictionaryPlaceholderView()
-
         case .loading:
-            ProgressView().tintColor()
-
+            definitionList(.init(
+                definitionCards: .placeholders(Constants.Definition.placeholders)
+            ))
         case .error(let message):
             Text(message)
-
         case .loaded(let viewData):
             loadedView(viewData)
         }
@@ -80,7 +79,9 @@ private extension DictionaryView {
             }
             .padding([.top, .horizontal])
             .padding(.bottom, Constants.Definition.listInsetBottom)
-        }.overlay(alignment: .bottom) {
+        }
+        .redacted(if: viewModel.state == .loading)
+        .overlay(alignment: .bottom) {
             if viewData.isAddToDictionaryShowing {
                 Button(Strings.addToDictionary) {
                     viewModel.handle(.addToDictionaryTapped)
@@ -104,6 +105,7 @@ private extension DictionaryView {
         }
 
         enum Definition {
+            static let placeholders = 2
             static let cornerRadius: CGFloat = 16
             static let listInsetBottom: CGFloat = 75
         }
