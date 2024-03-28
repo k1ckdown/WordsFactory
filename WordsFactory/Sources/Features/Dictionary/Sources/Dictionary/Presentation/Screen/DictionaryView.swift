@@ -60,19 +60,12 @@ private extension DictionaryView {
 
     func definitionList(_ viewData: DictionaryViewModel.ViewState.ViewData) -> some View {
         ScrollView {
-            LazyVStack {
+            LazyVStack(spacing: Constants.Definition.spacing) {
                 ForEach(Array(viewData.definitionCards.enumerated()), id: \.element.id) { index, card in
-                    WordDefinitionCardView(viewModel: card)
-                        .padding()
-                        .overlay {
-                            if let selected = viewData.selectedDefinitionIndex, selected == index {
-                                RoundedRectangle(cornerRadius: Constants.Definition.cornerRadius)
-                                    .stroke(Colors.appOrange.swiftUIColor)
-                            }
-                        }
+                    WordDefinitionCardView(viewModel: card, isSelected: index == viewData.selectedDefinitionIndex)
                         .onTapGesture {
                             withAnimation {
-                                viewModel.handle(.cardSelected(index))
+                                viewModel.handle(.definitionSelected(index))
                             }
                         }
                 }
@@ -106,6 +99,7 @@ private extension DictionaryView {
 
         enum Definition {
             static let placeholders = 2
+            static let spacing: CGFloat = 30
             static let cornerRadius: CGFloat = 16
             static let listInsetBottom: CGFloat = 75
         }

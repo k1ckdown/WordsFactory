@@ -12,12 +12,14 @@ import WrappingHStack
 struct WordDefinitionCardView: View {
 
     let viewModel: WordDefinitionCardViewModel
+    let isSelected: Bool
 
     var body: some View {
         VStack(alignment: .leading, spacing: Constants.contentSpacing) {
             HStack(alignment: .bottom, spacing: Constants.wordSpacing) {
                 Text(viewModel.word.capitalized)
                     .font(Fonts.headline4)
+                    .foregroundStyle(isSelected ? Colors.appOrange.swiftUIColor : Color(.label))
 
                 if viewModel.isPhoneticsShowing {
                     WrappingHStack(

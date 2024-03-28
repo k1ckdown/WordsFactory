@@ -6,26 +6,26 @@
 //
 
 extension DictionaryViewModel {
-    
+
     enum ViewState: Equatable {
         case idle
         case loading
         case error(String)
         case loaded(ViewData)
-        
+
         struct ViewData: Equatable {
             var selectedDefinitionIndex: Int?
             var definitionCards: [WordDefinitionCardViewModel]
-            
+
             var isAddToDictionaryShowing: Bool {
                 selectedDefinitionIndex != nil
             }
         }
     }
-    
+
     enum Event {
-        case cardSelected(Int)
         case addToDictionaryTapped
+        case definitionSelected(Int)
         case searchWordChanged(String)
     }
 }
@@ -33,18 +33,18 @@ extension DictionaryViewModel {
 // MARK: - Mutating
 
 extension DictionaryViewModel.ViewState {
-    
+
     func unselectDefinition() -> Self {
         guard case .loaded(var viewData) = self else { return self }
-        
+
         viewData.selectedDefinitionIndex = nil
         return .loaded(viewData)
     }
-    
+
     func selectDefinition(at index: Int) -> Self {
         guard case .loaded(var viewData) = self else { return self }
-        
-        viewData.selectedDefinitionIndex = index
+
+        viewData.selectedDefinitionIndex = viewData.selectedDefinitionIndex == nil ? index : nil
         return .loaded(viewData)
     }
 }

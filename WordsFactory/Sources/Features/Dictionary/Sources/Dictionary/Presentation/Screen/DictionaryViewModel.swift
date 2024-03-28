@@ -20,8 +20,8 @@ final class DictionaryViewModel: ObservableObject {
 
     func handle(_ event: Event) {
         switch event {
-        case .cardSelected(let index):
-            handleCardSelect(at: index)
+        case .definitionSelected(let index):
+            state = state.selectDefinition(at: index)
         case .addToDictionaryTapped:
             Task { await handleAddToDictionaryTap() }
         case .searchWordChanged(let word):
@@ -39,14 +39,6 @@ private extension DictionaryViewModel {
         let viewModels = definitions.map { WordDefinitionCardViewModel($0, phoneticAction: handlePhoneticTap) }
         let viewData = ViewState.ViewData(definitionCards: viewModels)
         state = .loaded(viewData)
-    }
-
-    func handleCardSelect(at index: Int) {
-        guard case .loaded(let viewData) = state else { return }
-
-        state = viewData.selectedDefinitionIndex == nil
-        ? state.selectDefinition(at: index)
-        : state.unselectDefinition()
     }
 
     func handleAddToDictionaryTap() async {
