@@ -10,7 +10,6 @@ import Networking
 import Auth
 import OnBoarding
 import Dictionary
-import DictionaryAPI
 
 final class AppFactory {
     private lazy var networkService = NetworkService()
@@ -25,7 +24,7 @@ extension AppFactory {
     }
 
     func makeAuthCoordinator(onFlowFinish: @escaping () -> Void) -> AuthCoordinatorView {
-        return AuthCoordinatorAssembly.assemble(onFlowFinish: onFlowFinish)
+        AuthCoordinatorAssembly.assemble(onFlowFinish: onFlowFinish)
     }
 
     func makeDictionaryViewAssembly() -> DictionaryViewAssembly {
