@@ -1,5 +1,5 @@
 //
-//  AuthCoordinator.swift
+//  AuthCoordinatorView.swift
 //
 //
 //  Created by Ivan Semenov on 22.03.2024.
@@ -19,12 +19,12 @@ public struct AuthCoordinatorView: View {
 
     public var body: some View {
         NavigationView {
-            screenView
+            sceneCoordinator
         }
     }
 
     @ViewBuilder
-    private var screenView: some View {
+    private var sceneCoordinator: some View {
         switch coordinator.scene {
         case .signIn:
             SignInCoordinatorView(coordinator: coordinator.signInCoordinator, screenFactory: screenFactory)
