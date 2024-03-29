@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class LearnAnytimeViewModel: ObservableObject, LearnAnytimeRouteState {
+final class LearnAnytimeViewModel: LearnAnytimeRouteState {
 
     enum Event {
         case skipTapped
@@ -19,7 +19,7 @@ final class LearnAnytimeViewModel: ObservableObject, LearnAnytimeRouteState {
     func handle(_ event: Event) {
         switch event {
         case .skipTapped:
-            break
+            route = .finish
         case .nextTapped:
             route = .findCourse
         }

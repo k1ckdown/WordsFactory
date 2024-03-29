@@ -7,19 +7,19 @@
 
 import Foundation
 
-final class FindCourseViewModel: ObservableObject, FindCourseRouteState {
-    
+final class FindCourseViewModel: FindCourseRouteState {
+
     enum Event {
         case skipTapped
         case nextTapped
     }
-    
+
     @Published var route: FindCourseRoute?
-    
+
     func handle(_ event: Event) {
         switch event {
         case .skipTapped:
-            break
+            route = .finish
         case .nextTapped:
             route = .improveSkills
         }

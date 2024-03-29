@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class ImproveSkillsViewModel: ObservableObject, ImproveSkillsRouteState {
+final class ImproveSkillsViewModel: ImproveSkillsRouteState {
     
     enum Event {
         case skipTapped
@@ -19,9 +19,9 @@ final class ImproveSkillsViewModel: ObservableObject, ImproveSkillsRouteState {
     func handle(_ event: Event) {
         switch event {
         case .skipTapped:
-            break
+            route = .finish
         case .letStartTapped:
-            break
+            route = .next
         }
     }
 }

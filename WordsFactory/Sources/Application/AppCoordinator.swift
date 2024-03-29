@@ -16,7 +16,7 @@ struct AppCoordinator: View {
     }
 
     private let factory: AppFactory
-    @State private var scene = Scene.auth
+    @State private var scene = Scene.onBoarding
 
     init(factory: AppFactory) {
         self.factory = factory
@@ -34,8 +34,13 @@ struct AppCoordinator: View {
             factory.makeAuthCoordinator { scene = .mainTabBar }
         case .onBoarding:
             factory.makeOnBoardingCoordinator()
+                .onBoardingFinish { scene = .auth }
         case .mainTabBar:
             factory.makeDictionaryViewAssembly().assemble()
         }
     }
+}
+
+#Preview {
+    AppCoordinator(factory: .init())
 }
