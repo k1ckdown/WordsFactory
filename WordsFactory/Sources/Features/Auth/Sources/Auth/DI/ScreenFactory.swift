@@ -35,7 +35,7 @@ extension ScreenFactory: SignInScreenFactory {
 
 extension ScreenFactory: SignUpScreenFactory {
 
-    func makeSignUpScreen(coordinator: SignUpCoordinator) -> SignUpView {
+    func makeSignUpScreen(coordinator: SignUpCoordinatorProtocol) -> SignUpView {
         let viewModel = SignUpViewModel(
             coordinator: coordinator,
             signUpUseCase: useCaseFactory.makeSignUpUseCase(),

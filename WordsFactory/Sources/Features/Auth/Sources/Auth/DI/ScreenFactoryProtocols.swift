@@ -10,5 +10,5 @@ protocol SignInScreenFactory {
 }
 
 protocol SignUpScreenFactory {
-    func makeSignUpScreen(coordinator: SignUpCoordinator) -> SignUpView
+    func makeSignUpScreen(coordinator: SignUpCoordinatorProtocol) -> SignUpView
 }
