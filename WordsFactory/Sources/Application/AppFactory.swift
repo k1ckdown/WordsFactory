@@ -27,8 +27,8 @@ extension AppFactory {
         AuthCoordinatorAssembly.assemble(onFlowFinish: onFlowFinish)
     }
 
-    func makeDictionaryViewAssembly() -> DictionaryViewAssembly {
+    func makeDictionaryCoordinatorAssembly() -> DictionaryCoordinatorAssembly {
         let dependencies = ModuleDependencies(networkService: networkService)
-        return DictionaryViewAssembly(dependencies: dependencies)
+        return DictionaryCoordinatorAssembly(dependencies: dependencies)
     }
 }

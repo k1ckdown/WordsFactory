@@ -19,9 +19,24 @@ final class DictionaryFactory {
     }
 }
 
-// MARK: - Factory methods
+// MARK: - DictionaryScreenFactory
 
-extension DictionaryFactory {
+extension DictionaryFactory: DictionaryScreenFactory {
+
+    func makeDictionaryScreen(coordinator: DictionaryCoordinatorProtocol) -> DictionaryView {
+        let viewModel = DictionaryViewModel(
+            coordinator: coordinator,
+            fetchWordDefinitionsUseCase: makeFetchWordDefinitionsUseCase()
+        )
+        
+        let view = DictionaryView(viewModel: viewModel)
+        return view
+    }
+}
+
+// MARK: - Use Cases
+
+private extension DictionaryFactory {
 
     func makeFetchWordDefinitionsUseCase() -> FetchWordDefinitionsUseCase {
         FetchWordDefinitionsUseCase(wordDefinitionRepository: wordDefinitionRepository)

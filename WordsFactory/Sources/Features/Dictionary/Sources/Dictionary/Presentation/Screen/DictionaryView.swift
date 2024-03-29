@@ -8,7 +8,7 @@
 import SwiftUI
 import CommonUI
 
-public struct DictionaryView: View {
+struct DictionaryView: View {
 
     @StateObject private var viewModel: DictionaryViewModel
 
@@ -16,7 +16,7 @@ public struct DictionaryView: View {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
 
-    public var body: some View {
+    var body: some View {
         VStack {
             SearchBar { word in
                 viewModel.handle(.searchWordChanged(word))
@@ -37,8 +37,6 @@ public struct DictionaryView: View {
             definitionList(.init(
                 definitionCards: .placeholders(Constants.Definition.placeholders)
             ))
-        case .error(let message):
-            Text(message)
         case .loaded(let viewData):
             loadedView(viewData)
         }

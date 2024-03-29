@@ -27,9 +27,9 @@ public struct AuthCoordinatorView: View {
     private var sceneCoordinator: some View {
         switch coordinator.scene {
         case .signIn:
-            SignInCoordinatorView(coordinator: coordinator.signInCoordinator, screenFactory: screenFactory)
+            SignInCoordinatorView(factory: screenFactory, coordinator: coordinator.signInCoordinator)
         case .signUp:
-            SignUpCoordinatorView(coordinator: coordinator.signUpCoordinator, screenFactory: screenFactory)
+            SignUpCoordinatorView(factory: screenFactory, coordinator: coordinator.signUpCoordinator)
         }
     }
 }

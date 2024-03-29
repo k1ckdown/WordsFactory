@@ -12,9 +12,11 @@ final class DictionaryViewModel: ObservableObject {
     @Published private(set) var state = ViewState.idle
 
     private var definitions = [WordDefinition]()
+    private let coordinator: DictionaryCoordinatorProtocol
     private let fetchWordDefinitionsUseCase: FetchWordDefinitionsUseCase
 
-    init(fetchWordDefinitionsUseCase: FetchWordDefinitionsUseCase) {
+    init(coordinator: DictionaryCoordinatorProtocol, fetchWordDefinitionsUseCase: FetchWordDefinitionsUseCase) {
+        self.coordinator = coordinator
         self.fetchWordDefinitionsUseCase = fetchWordDefinitionsUseCase
     }
 
@@ -55,7 +57,10 @@ private extension DictionaryViewModel {
             definitions = try await fetchWordDefinitionsUseCase.execute(word)
             await handleDefinitions(definitions)
         } catch {
-            await MainActor.run { state = .error(error.localizedDescription) }
+            await MainActor.run {
+                state = .idle
+                coordinator.showError(message: error.localizedDescription)
+            }
         }
     }
 }

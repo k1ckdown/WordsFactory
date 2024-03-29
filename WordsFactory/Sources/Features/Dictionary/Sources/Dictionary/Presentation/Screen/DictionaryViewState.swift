@@ -10,7 +10,6 @@ extension DictionaryViewModel {
     enum ViewState: Equatable {
         case idle
         case loading
-        case error(String)
         case loaded(ViewData)
 
         struct ViewData: Equatable {

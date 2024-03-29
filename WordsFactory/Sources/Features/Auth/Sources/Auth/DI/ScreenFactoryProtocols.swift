@@ -6,9 +6,9 @@
 //
 
 protocol SignInScreenFactory {
-    func makeSignIn(coordinator: SignInCoordinator) -> SignInView
+    func makeSignInScreen(coordinator: SignInCoordinator) -> SignInView
 }
 
 protocol SignUpScreenFactory {
-    func makeSignUp(coordinator: SignUpCoordinator) -> SignUpView
+    func makeSignUpScreen(coordinator: SignUpCoordinator) -> SignUpView
 }

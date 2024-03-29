@@ -10,16 +10,16 @@ import SwiftUI
 struct SignUpCoordinatorView: View {
     typealias Factory = SignUpScreenFactory
 
-    private let screenFactory: Factory
+    private let factory: Factory
     @ObservedObject private var coordinator: SignUpCoordinator
-    
-    init(coordinator: SignUpCoordinator, screenFactory: Factory) {
-        self.screenFactory = screenFactory
+
+    init(factory: Factory, coordinator: SignUpCoordinator) {
+        self.factory = factory
         self.coordinator = coordinator
     }
-    
+
     var body: some View {
-        screenFactory.makeSignUp(coordinator: coordinator)
+        factory.makeSignUpScreen(coordinator: coordinator)
             .errorAlert($coordinator.errorMessage)
     }
 }
