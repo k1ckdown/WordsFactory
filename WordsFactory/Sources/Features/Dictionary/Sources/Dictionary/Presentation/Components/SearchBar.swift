@@ -15,7 +15,7 @@ struct SearchBar: View {
 
     var body: some View {
         HStack {
-            TextField(Strings.search, text: $text)
+            TextField("", text: $text)
                 .tintColor()
                 .submitLabel(.search)
                 .font(Fonts.paragraphMedium)

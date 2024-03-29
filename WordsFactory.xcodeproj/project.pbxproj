@@ -31,9 +31,9 @@
 		4946D6C22BA814E600558F8A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4949DEC02BAB5FDA0094AD9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		495876332BB6A1AF008D7A1D /* NetworkingAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = NetworkingAPI; sourceTree = "<group>"; };
-		495876392BB6AEC9008D7A1D /* DictionaryAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DictionaryAPI; path = ../../../../../DictionaryAPI; sourceTree = "<group>"; };
 		4958763E2BB6B2F7008D7A1D /* AppFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
 		495876402BB6CB5C008D7A1D /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		495876422BB70B9F008D7A1D /* DictionaryAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DictionaryAPI; sourceTree = "<group>"; };
 		49F733512BADB2C40012AF9B /* Auth */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Auth; sourceTree = "<group>"; };
 		49FCDC222BAFF77800418DCB /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -137,7 +137,7 @@
 		495876382BB6AEB0008D7A1D /* API */ = {
 			isa = PBXGroup;
 			children = (
-				495876392BB6AEC9008D7A1D /* DictionaryAPI */,
+				495876422BB70B9F008D7A1D /* DictionaryAPI */,
 			);
 			path = API;
 			sourceTree = "<group>";
