@@ -18,7 +18,7 @@ final class ScreenFactory {
 
 extension ScreenFactory: SignInScreenFactory {
 
-    func makeSignInScreen(coordinator: SignInCoordinator) -> SignInView {
+    func makeSignInScreen(coordinator: SignInCoordinatorProtocol) -> SignInView {
         let viewModel = SignInViewModel(
             coordinator: coordinator,
             signInUseCase: useCaseFactory.makeSignInUseCase(),

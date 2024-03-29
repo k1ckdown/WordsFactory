@@ -7,6 +7,13 @@
 
 import Foundation
 
+@MainActor
+protocol SignInCoordinatorProtocol {
+    func finish()
+    func showSignUp()
+    func showError(message: String)
+}
+
 final class SignInCoordinator: ObservableObject {
 
     @Published var errorMessage: String?
@@ -20,10 +27,9 @@ final class SignInCoordinator: ObservableObject {
     }
 }
 
-// MARK: - Public methods
+// MARK: - SignInCoordinatorProtocol
 
-@MainActor
-extension SignInCoordinator {
+extension SignInCoordinator: SignInCoordinatorProtocol {
 
     func finish() {
         onFlowFinish()

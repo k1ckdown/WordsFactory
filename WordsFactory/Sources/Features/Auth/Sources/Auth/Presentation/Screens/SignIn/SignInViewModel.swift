@@ -11,13 +11,13 @@ final class SignInViewModel: ObservableObject {
 
     @Published private(set) var state = ViewState()
 
-    private let coordinator: SignInCoordinator
+    private let coordinator: SignInCoordinatorProtocol
     private let signInUseCase: SignInUseCase
     private let validateEmailUseCase: ValidateEmailUseCase
     private let validatePasswordUseCase: ValidatePasswordUseCase
 
     init(
-        coordinator: SignInCoordinator,
+        coordinator: SignInCoordinatorProtocol,
         signInUseCase: SignInUseCase,
         validateEmailUseCase: ValidateEmailUseCase,
         validatePasswordUseCase: ValidatePasswordUseCase
