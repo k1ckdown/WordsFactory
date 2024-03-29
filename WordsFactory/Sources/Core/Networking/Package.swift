@@ -11,9 +11,16 @@ let package = Package(
             name: "Networking",
             targets: ["Networking"]),
     ],
+    dependencies: [
+        .package(path: "../API/NetworkingAPI")
+    ],
     targets: [
         .target(
-            name: "Networking"),
+            name: "Networking",
+            dependencies: [
+                .product(name: "NetworkingAPI", package: "NetworkingAPI")
+            ]
+        ),
         .testTarget(
             name: "NetworkingTests",
             dependencies: ["Networking"]),

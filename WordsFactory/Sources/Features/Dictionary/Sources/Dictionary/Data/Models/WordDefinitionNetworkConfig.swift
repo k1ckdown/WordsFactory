@@ -5,7 +5,7 @@
 //  Created by Ivan Semenov on 26.03.2024.
 //
 
-import Networking
+import NetworkingAPI
 
 enum WordDefinitionNetworkConfig: NetworkConfig {
     case list(String)

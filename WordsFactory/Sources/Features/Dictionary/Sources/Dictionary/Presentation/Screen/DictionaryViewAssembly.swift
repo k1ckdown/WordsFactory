@@ -5,18 +5,16 @@
 //  Created by Ivan Semenov on 28.03.2024.
 //
 
-import Networking
+public struct DictionaryViewAssembly {
 
-public enum DictionaryViewAssembly {
+    private let factory: DictionaryFactory
 
-    public static func assemble() -> DictionaryView {
-        let networkService = NetworkService()
-        let wordDefinitionRemoteDataSource = WordDefinitionRemoteDataSource(networkService: networkService)
-        let wordDefinitionRepository = WordDefinitionRepositoryImpl(remoteDataSource: wordDefinitionRemoteDataSource)
+    public init(dependencies: ModuleDependencies) {
+        factory = DictionaryFactory(dependencies: dependencies)
+    }
 
-        let fetchWordDefinitionsUseCase = FetchWordDefinitionsUseCase(wordDefinitionRepository: wordDefinitionRepository)
-        let viewModel = DictionaryViewModel(fetchWordDefinitionsUseCase: fetchWordDefinitionsUseCase)
-
+    public func assemble() -> DictionaryView {
+        let viewModel = DictionaryViewModel(fetchWordDefinitionsUseCase: factory.makeFetchWordDefinitionsUseCase())
         return DictionaryView(viewModel: viewModel)
     }
 }

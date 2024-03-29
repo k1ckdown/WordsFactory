@@ -14,7 +14,7 @@ let package = Package(
     ],
     dependencies: [
         .package(path: "../../Core/CommonUI"),
-        .package(path: "../../Core/Networking"),
+        .package(path: "../../Core/API/NetworkingAPI"),
         .package(url: "https://github.com/dkk/WrappingHStack.git", from: .init(2, 2, 11)),
         .package(url: "https://github.com/SwiftGen/SwiftGenPlugin", from: .init(6, 6, 2))
     ],
@@ -23,7 +23,7 @@ let package = Package(
             name: "Dictionary",
             dependencies: [
                 .product(name: "CommonUI", package: "CommonUI"),
-                .product(name: "Networking", package: "Networking"),
+                .product(name: "NetworkingAPI", package: "NetworkingAPI"),
                 .product(name: "WrappingHStack", package: "WrappingHStack")
             ],
             plugins: [

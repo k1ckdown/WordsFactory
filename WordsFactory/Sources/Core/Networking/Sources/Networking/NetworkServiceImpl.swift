@@ -1,13 +1,14 @@
 //
-//  NetworkService.swift
+//  NetworkServiceImpl.swift
 //
 //
 //  Created by Ivan Semenov on 24.03.2024.
 //
 
 import Foundation
+import NetworkingAPI
 
-public final class NetworkService {
+public final class NetworkServiceImpl {
 
     private let encoder = JSONEncoder()
     private let decoder = JSONDecoder()
@@ -15,15 +16,15 @@ public final class NetworkService {
     public init() {}
 }
 
-// MARK: - Public methods
+// MARK: - NetworkService
 
-public extension NetworkService {
+extension NetworkServiceImpl: NetworkService {
 
-    func request(config: NetworkConfig) async throws {
+    public func request(config: NetworkConfig) async throws {
         try await makeRequest(config: config)
     }
 
-    func request<T: Decodable>(config: NetworkConfig) async throws -> T {
+    public func request<T: Decodable>(config: NetworkConfig) async throws -> T {
         let data = try await makeRequest(config: config)
         return try decode(data: data)
     }
@@ -31,7 +32,7 @@ public extension NetworkService {
 
 // MARK: - Private methods
 
-private extension NetworkService {
+private extension NetworkServiceImpl {
 
     typealias DataRequestResponse = (data: Data, urlResponse: URLResponse)
 
@@ -110,7 +111,7 @@ private extension NetworkService {
 
 // MARK: - Constants
 
-private extension NetworkService {
+private extension NetworkServiceImpl {
 
     enum Constants {
         static let successfulCodes = 200...299

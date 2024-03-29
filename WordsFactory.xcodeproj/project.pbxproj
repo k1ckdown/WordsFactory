@@ -12,6 +12,8 @@
 		4946D6BC2BA814E500558F8A /* WordsFactoryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4946D6BB2BA814E500558F8A /* WordsFactoryApp.swift */; };
 		4946D6BE2BA814E500558F8A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4946D6BD2BA814E500558F8A /* ContentView.swift */; };
 		4946D6C32BA814E600558F8A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4946D6C22BA814E600558F8A /* Preview Assets.xcassets */; };
+		495876352BB6ADC5008D7A1D /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 495876342BB6ADC5008D7A1D /* Networking */; };
+		495876372BB6ADD8008D7A1D /* NetworkingAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 495876362BB6ADD8008D7A1D /* NetworkingAPI */; };
 		4981167E2BB2C27100C99D0B /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 4981167D2BB2C27100C99D0B /* Auth */; };
 		498116802BB2C49300C99D0B /* Dictionary in Frameworks */ = {isa = PBXBuildFile; productRef = 4981167F2BB2C49300C99D0B /* Dictionary */; };
 		49FCDC242BAFF8CC00418DCB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49FCDC222BAFF77800418DCB /* GoogleService-Info.plist */; };
@@ -28,6 +30,7 @@
 		4946D6BD2BA814E500558F8A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4946D6C22BA814E600558F8A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4949DEC02BAB5FDA0094AD9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		495876332BB6A1AF008D7A1D /* NetworkingAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = NetworkingAPI; sourceTree = "<group>"; };
 		49F733512BADB2C40012AF9B /* Auth */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Auth; sourceTree = "<group>"; };
 		49FCDC222BAFF77800418DCB /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -37,8 +40,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				495876372BB6ADD8008D7A1D /* NetworkingAPI in Frameworks */,
 				4916A5F52BAA20CD00991B00 /* OnBoarding in Frameworks */,
 				498116802BB2C49300C99D0B /* Dictionary in Frameworks */,
+				495876352BB6ADC5008D7A1D /* Networking in Frameworks */,
 				4981167E2BB2C27100C99D0B /* Auth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -117,9 +122,18 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		495876312BB69F2B008D7A1D /* API */ = {
+			isa = PBXGroup;
+			children = (
+				495876332BB6A1AF008D7A1D /* NetworkingAPI */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		4998964E2BAA1FF00078B41B /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				495876312BB69F2B008D7A1D /* API */,
 				4933AA4C2BB0996300515FAC /* Networking */,
 				490C6FDD2BAA1C66002A8BC6 /* CommonUI */,
 			);
@@ -156,6 +170,8 @@
 				4916A5F42BAA20CD00991B00 /* OnBoarding */,
 				4981167D2BB2C27100C99D0B /* Auth */,
 				4981167F2BB2C49300C99D0B /* Dictionary */,
+				495876342BB6ADC5008D7A1D /* Networking */,
+				495876362BB6ADD8008D7A1D /* NetworkingAPI */,
 			);
 			productName = WordsFactory;
 			productReference = 4946D6B82BA814E500558F8A /* WordsFactory.app */;
@@ -433,6 +449,14 @@
 		4916A5F42BAA20CD00991B00 /* OnBoarding */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = OnBoarding;
+		};
+		495876342BB6ADC5008D7A1D /* Networking */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Networking;
+		};
+		495876362BB6ADD8008D7A1D /* NetworkingAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NetworkingAPI;
 		};
 		4981167D2BB2C27100C99D0B /* Auth */ = {
 			isa = XCSwiftPackageProductDependency;

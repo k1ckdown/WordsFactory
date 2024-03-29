@@ -106,7 +106,3 @@ private extension DictionaryView {
         }
     }
 }
-
-#Preview {
-    DictionaryViewAssembly.assemble()
-}

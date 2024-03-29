@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import NetworkingAPI
 
 enum URLParameterEncoder {
 
