@@ -26,7 +26,7 @@ struct WordsFactoryApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AppCoordinator(factory: AppFactory())
         }
     }
 }

@@ -8,9 +8,9 @@
 import NetworkingAPI
 
 public struct ModuleDependencies {
-    let networkService: NetworkService
+    let networkService: NetworkServiceProtocol
 
-    public init(networkService: NetworkService) {
+    public init(networkService: NetworkServiceProtocol) {
         self.networkService = networkService
     }
 }
