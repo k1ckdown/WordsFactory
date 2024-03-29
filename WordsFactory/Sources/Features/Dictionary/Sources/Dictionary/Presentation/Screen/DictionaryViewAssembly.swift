@@ -7,7 +7,7 @@
 
 import DictionaryAPI
 
-public struct DictionaryAssembly: DictionaryAssemblyProtocol {
+public struct DictionaryViewAssemblyImpl: DictionaryViewAssembly {
 
     private let factory: DictionaryFactory
 
