@@ -5,7 +5,9 @@
 //  Created by Ivan Semenov on 28.03.2024.
 //
 
-public struct DictionaryViewAssembly {
+import DictionaryAPI
+
+public struct DictionaryAssembly: DictionaryAssemblyProtocol {
 
     private let factory: DictionaryFactory
 

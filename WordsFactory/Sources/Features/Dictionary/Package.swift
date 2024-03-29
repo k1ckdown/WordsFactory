@@ -13,6 +13,7 @@ let package = Package(
             targets: ["Dictionary"]),
     ],
     dependencies: [
+        .package(path: "../API/DictionaryAPI"),
         .package(path: "../../Core/CommonUI"),
         .package(path: "../../Core/API/NetworkingAPI"),
         .package(url: "https://github.com/dkk/WrappingHStack.git", from: .init(2, 2, 11)),
@@ -22,6 +23,7 @@ let package = Package(
         .target(
             name: "Dictionary",
             dependencies: [
+                .product(name: "DictionaryAPI", package: "DictionaryAPI"),
                 .product(name: "CommonUI", package: "CommonUI"),
                 .product(name: "NetworkingAPI", package: "NetworkingAPI"),
                 .product(name: "WrappingHStack", package: "WrappingHStack")
