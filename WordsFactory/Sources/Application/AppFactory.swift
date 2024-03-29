@@ -19,8 +19,8 @@ final class AppFactory {
 
 extension AppFactory {
 
-    func makeOnBoardingCoordinator() -> OnBoardingCoordinator {
-        OnBoardingCoordinator()
+    func makeOnBoardingCoordinator(onFlowFinish: @escaping () -> Void) -> OnBoardingCoordinatorView {
+        OnBoardingCoordinatorAssembly().assemble(onFlowFinish: onFlowFinish)
     }
 
     func makeAuthCoordinator(onFlowFinish: @escaping () -> Void) -> AuthCoordinatorView {

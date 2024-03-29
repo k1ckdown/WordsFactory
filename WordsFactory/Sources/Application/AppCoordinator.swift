@@ -17,14 +17,16 @@ struct AppCoordinator: View {
 
     private let factory: AppFactory
     @State private var scene = Scene.onBoarding
-
+    
     init(factory: AppFactory) {
         self.factory = factory
     }
 
     var body: some View {
-        sceneCoordinator
-            .preferredColorScheme(.light)
+        NavigationView {
+            sceneCoordinator
+        }
+        .preferredColorScheme(.light)
     }
 
     @ViewBuilder
@@ -33,8 +35,7 @@ struct AppCoordinator: View {
         case .auth:
             factory.makeAuthCoordinator { scene = .mainTabBar }
         case .onBoarding:
-            factory.makeOnBoardingCoordinator()
-                .onBoardingFinish { scene = .auth }
+            factory.makeOnBoardingCoordinator { scene = .auth }
         case .mainTabBar:
             factory.makeDictionaryCoordinatorAssembly().assemble()
         }

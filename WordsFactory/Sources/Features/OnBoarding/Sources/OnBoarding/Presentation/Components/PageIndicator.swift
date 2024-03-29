@@ -20,7 +20,7 @@ struct PageIndicator: View {
 
     var body: some View {
         HStack(spacing: Constants.spacing) {
-            ForEach(1...numberOfPages, id: \.self) { index in
+            ForEach(0..<numberOfPages, id: \.self) { index in
                 indicatorView(for: index)
             }
         }

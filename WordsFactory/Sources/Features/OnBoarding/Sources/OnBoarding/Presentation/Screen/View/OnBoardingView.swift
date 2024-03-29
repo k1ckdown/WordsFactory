@@ -2,7 +2,7 @@
 //  OnBoardingView.swift
 //
 //
-//  Created by Ivan Semenov on 20.03.2024.
+//  Created by Ivan Semenov on 29.03.2024.
 //
 
 import SwiftUI
@@ -10,29 +10,27 @@ import CommonUI
 
 struct OnBoardingView: View {
 
-    let page: Int
-    let image: Image
-    let title: String
-    let subtitle: String
-    let buttonTitle: String
-    let skipAction: () -> Void
-    let continueAction: () -> Void
+    @StateObject private var viewModel: OnBoardingViewModel
+
+    init(viewModel: OnBoardingViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
 
     var body: some View {
         VStack {
             VStack(spacing: .zero) {
-                image
+                viewModel.state.style.image
                     .resizable()
                     .scaledToFit()
                     .frame(height: Constants.Image.height)
 
                 Group {
                     VStack(spacing: Constants.Titles.spacing) {
-                        Text(title)
+                        Text(viewModel.state.style.title)
                             .font(Fonts.headline4)
                             .foregroundStyle(Colors.appDark.swiftUIColor)
 
-                        Text(subtitle)
+                        Text(viewModel.state.style.subtitle)
                             .font(Fonts.paragraphMedium)
                             .foregroundStyle(Colors.appDarkGray.swiftUIColor)
                     }
@@ -40,14 +38,14 @@ struct OnBoardingView: View {
                     .lineSpacing(Constants.Titles.lineSpacing)
                     .padding(.top, Constants.Titles.insetTop)
 
-                    PageIndicator(page)
+                    PageIndicator(viewModel.state.style.page)
                         .padding(.top, Constants.PageIndicator.insetTop)
                 }
                 .padding(.horizontal, Constants.Titles.insetHorizontal)
             }
             .frame(maxHeight: .infinity)
 
-            Button(buttonTitle, action: continueAction)
+            Button(viewModel.state.style.buttonTitle, action: nextTapped)
                 .mainButtonStyle()
                 .offset(y: Constants.Button.offsetY)
                 .padding(.horizontal, Constants.Button.insetHorizontal)
@@ -55,18 +53,26 @@ struct OnBoardingView: View {
         .backgroundColor()
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
-                Button(Strings.skip, action: skipAction)
-                    .font(Fonts.buttonSmall)
-                    .foregroundStyle(Colors.appDarkGray.swiftUIColor)
+                Button(Strings.skip) {
+                    viewModel.handle(.skipTapped)
+                }
+                .font(Fonts.buttonSmall)
+                .foregroundStyle(Colors.appDarkGray.swiftUIColor)
             }
         }
         .gesture(DragGesture()
             .onEnded {
                 if $0.translation.width < 0 {
-                    continueAction()
+                    nextTapped()
                 }
             }
         )
+    }
+
+    private func nextTapped() {
+        withAnimation(.easeInOut) {
+            viewModel.handle(.nextTapped)
+        }
     }
 }
 
@@ -96,4 +102,8 @@ private extension OnBoardingView {
             static let insetHorizontal: CGFloat = 32
         }
     }
+}
+
+#Preview {
+    OnBoardingCoordinatorView(factory: .init(), coordinator: .init(onFlowFinish: {}))
 }
