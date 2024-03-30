@@ -11,30 +11,31 @@ final class DictionaryViewModel: ObservableObject {
 
     @Published private(set) var state = ViewState.idle
 
-    private var definitions = [WordDefinition]()
+    private var definitions: [WordDefinition] = []
     private let audioManager: AudioManager
     private let coordinator: DictionaryCoordinatorProtocol
-    private let saveWordDefinitionUseCase: SaveWordDefinitionUseCase
-    private let fetchWordDefinitionsUseCase: FetchWordDefinitionsUseCase
+    private let saveWordDefinitionsUseCase: SaveWordDefinitionsUseCase
+    private let deleteWordDefinitionsUseCase: DeleteWordDefinitionsUseCase
+    private let fetchWordDefinitionsUseCase: FetchWordDefinitionListUseCase
 
     init(
         audioManager: AudioManager,
         coordinator: DictionaryCoordinatorProtocol,
-        saveWordDefinitionUseCase: SaveWordDefinitionUseCase,
-        fetchWordDefinitionsUseCase: FetchWordDefinitionsUseCase
+        saveWordDefinitionsUseCase: SaveWordDefinitionsUseCase,
+        deleteWordDefinitionsUseCase: DeleteWordDefinitionsUseCase,
+        fetchWordDefinitionsUseCase: FetchWordDefinitionListUseCase
     ) {
         self.audioManager = audioManager
         self.coordinator = coordinator
-        self.saveWordDefinitionUseCase = saveWordDefinitionUseCase
+        self.saveWordDefinitionsUseCase = saveWordDefinitionsUseCase
+        self.deleteWordDefinitionsUseCase = deleteWordDefinitionsUseCase
         self.fetchWordDefinitionsUseCase = fetchWordDefinitionsUseCase
     }
 
     func handle(_ event: Event) {
         switch event {
-        case .definitionSelected(let index):
-            state = state.selectDefinition(at: index)
-        case .addToDictionaryTapped:
-            handleAddToDictionaryTap()
+        case .dictionaryTapped:
+            handleDictionaryTap()
         case .searchWordChanged(let word):
             Task { await fetchDefinitions(of: word) }
         }
@@ -46,9 +47,9 @@ final class DictionaryViewModel: ObservableObject {
 private extension DictionaryViewModel {
 
     @MainActor
-    func handleDefinitions(_ definitions: [WordDefinition]) {
-        let viewModels = definitions.map { WordDefinitionCardViewModel($0, phoneticAction: handlePhoneticTap) }
-        let viewData = ViewState.ViewData(definitionCards: viewModels)
+    func handleDefinitionList(_ list: WordDefinitionList) {
+        let viewModels = list.definitions.map { WordDefinitionCardViewModel($0, phoneticAction: handlePhoneticTap) }
+        let viewData = ViewState.ViewData(isDefinitionsSaved: list.isSaved, definitionCards: viewModels)
         state = .loaded(viewData)
     }
 
@@ -61,29 +62,36 @@ private extension DictionaryViewModel {
         audioManager.play(url: audioUrl)
     }
 
-    func handleAddToDictionaryTap() {
-        guard
-            case .loaded(let viewData) = state,
-            let selectedDefinitionIndex = viewData.selectedDefinitionIndex
-        else { return }
+    func handleDictionaryTap() {
+        guard case .loaded(let viewData) = state else { return }
 
-        saveDefinition(definitions[selectedDefinitionIndex])
-        state = state.unselectDefinition()
-    }
-
-    func saveDefinition(_ definition: WordDefinition) {
         do {
-            try saveWordDefinitionUseCase.execute(definition)
+            try viewData.isDefinitionsSaved ? deleteDefinitions() : saveDefinitions()
         } catch {
             coordinator.showError(message: error.localizedDescription)
         }
     }
 
+    func saveDefinitions() throws {
+        guard definitions.isEmpty == false else { return }
+
+        try saveWordDefinitionsUseCase.execute(definitions)
+        state = state.saveDefinition()
+    }
+
+    func deleteDefinitions() throws {
+        guard let word = definitions.first?.word else { return }
+
+        try deleteWordDefinitionsUseCase.execute(word)
+        state = state.deleteDefinition()
+    }
+
     func fetchDefinitions(of word: String) async {
         await MainActor.run { state = .loading }
         do {
-            definitions = try await fetchWordDefinitionsUseCase.execute(word)
-            await handleDefinitions(definitions)
+            let definitionList = try await fetchWordDefinitionsUseCase.execute(word)
+            definitions = definitionList.definitions
+            await handleDefinitionList(definitionList)
         } catch {
             await MainActor.run {
                 state = .idle

@@ -13,18 +13,13 @@ extension DictionaryViewModel {
         case loaded(ViewData)
 
         struct ViewData: Equatable {
-            var selectedDefinitionIndex: Int?
+            var isDefinitionsSaved: Bool
             var definitionCards: [WordDefinitionCardViewModel]
-
-            var isAddToDictionaryShowing: Bool {
-                selectedDefinitionIndex != nil
-            }
         }
     }
 
     enum Event {
-        case addToDictionaryTapped
-        case definitionSelected(Int)
+        case dictionaryTapped
         case searchWordChanged(String)
     }
 }
@@ -33,17 +28,17 @@ extension DictionaryViewModel {
 
 extension DictionaryViewModel.ViewState {
 
-    func unselectDefinition() -> Self {
+    func saveDefinition() -> Self {
         guard case .loaded(var viewData) = self else { return self }
 
-        viewData.selectedDefinitionIndex = nil
+        viewData.isDefinitionsSaved = true
         return .loaded(viewData)
     }
 
-    func selectDefinition(at index: Int) -> Self {
+    func deleteDefinition() -> Self {
         guard case .loaded(var viewData) = self else { return self }
 
-        viewData.selectedDefinitionIndex = index == viewData.selectedDefinitionIndex ? nil : index
+        viewData.isDefinitionsSaved = false
         return .loaded(viewData)
     }
 }

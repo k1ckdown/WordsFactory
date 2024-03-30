@@ -12,4 +12,5 @@
 "PartOfSpeech" = "Part of Speech";
 "NoWord" = "No word";
 "AddToDictionary" = "Add to Dictionary";
+"DeleteFromDictionary" = "Delete from Dictionary";
 "FindInDictionary" = "Input something to find it in dictionary";

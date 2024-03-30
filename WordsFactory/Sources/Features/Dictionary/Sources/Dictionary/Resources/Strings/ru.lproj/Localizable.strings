@@ -12,4 +12,5 @@
 "PartOfSpeech" = "Часть речи";
 "NoWord" = "Слов нет";
 "AddToDictionary" = "Добавить в словарь";
+"DeleteFromDictionary" = "Удалить из словаря";
 "FindInDictionary" = "Введите что-нибудь, чтобы найти это в словаре";

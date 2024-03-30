@@ -6,6 +6,7 @@
 //
 
 protocol WordDefinitionRepository: AnyObject {
-    func saveDefinition(_ definition: WordDefinition) throws
-    func getDefinitionList(of word: String) async throws -> [WordDefinition]
+    func deleteDefinitions(of word: String) throws
+    func saveDefinitions(_ definitions: [WordDefinition]) throws
+    func getDefinitionList(of word: String) async throws -> WordDefinitionList
 }

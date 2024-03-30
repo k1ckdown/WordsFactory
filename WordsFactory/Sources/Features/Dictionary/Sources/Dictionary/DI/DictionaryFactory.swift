@@ -29,7 +29,8 @@ extension DictionaryFactory: DictionaryScreenFactory {
         let viewModel = DictionaryViewModel(
             audioManager: makeAudioManager(),
             coordinator: coordinator,
-            saveWordDefinitionUseCase: makeSaveWordDefinitionUseCase(),
+            saveWordDefinitionsUseCase: makeSaveWordDefinitionsUseCase(),
+            deleteWordDefinitionsUseCase: makeDeleteWordDefinitionsUseCase(),
             fetchWordDefinitionsUseCase: makeFetchWordDefinitionsUseCase()
         )
 
@@ -51,11 +52,15 @@ private extension DictionaryFactory {
 
 private extension DictionaryFactory {
 
-    func makeFetchWordDefinitionsUseCase() -> FetchWordDefinitionsUseCase {
-        FetchWordDefinitionsUseCase(wordDefinitionRepository: wordDefinitionRepository)
+    func makeFetchWordDefinitionsUseCase() -> FetchWordDefinitionListUseCase {
+        FetchWordDefinitionListUseCase(wordDefinitionRepository: wordDefinitionRepository)
     }
 
-    func makeSaveWordDefinitionUseCase() -> SaveWordDefinitionUseCase {
-        SaveWordDefinitionUseCase(wordDefinitionRepository: wordDefinitionRepository)
+    func makeSaveWordDefinitionsUseCase() -> SaveWordDefinitionsUseCase {
+        SaveWordDefinitionsUseCase(wordDefinitionRepository: wordDefinitionRepository)
+    }
+
+    func makeDeleteWordDefinitionsUseCase() -> DeleteWordDefinitionsUseCase {
+        DeleteWordDefinitionsUseCase(wordDefinitionRepository: wordDefinitionRepository)
     }
 }

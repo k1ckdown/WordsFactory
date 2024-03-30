@@ -1,11 +1,11 @@
 //
-//  SaveWordDefinitionUseCase.swift
+//  SaveWordDefinitionsUseCase.swift
 //
 //
 //  Created by Ivan Semenov on 30.03.2024.
 //
 
-final class SaveWordDefinitionUseCase {
+final class SaveWordDefinitionsUseCase {
 
     private let wordDefinitionRepository: WordDefinitionRepository
 
@@ -13,7 +13,7 @@ final class SaveWordDefinitionUseCase {
         self.wordDefinitionRepository = wordDefinitionRepository
     }
 
-    func execute(_ definition: WordDefinition) throws {
-        try wordDefinitionRepository.saveDefinition(definition)
+    func execute(_ definitions: [WordDefinition]) throws {
+        try wordDefinitionRepository.saveDefinitions(definitions)
     }
 }

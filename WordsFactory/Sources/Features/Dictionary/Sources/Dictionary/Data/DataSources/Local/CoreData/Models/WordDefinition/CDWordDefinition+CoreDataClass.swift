@@ -12,6 +12,10 @@ import CoreData
 @objc(CDWordDefinition)
 public class CDWordDefinition: NSManagedObject {
 
+    static func insert(_ wordDefinitions: [WordDefinition], context: NSManagedObjectContext) {
+        wordDefinitions.forEach { insert($0, context: context) }
+    }
+
     static func insert(_ wordDefinition: WordDefinition, context: NSManagedObjectContext) {
         let cdModel = CDWordDefinition(context: context)
 

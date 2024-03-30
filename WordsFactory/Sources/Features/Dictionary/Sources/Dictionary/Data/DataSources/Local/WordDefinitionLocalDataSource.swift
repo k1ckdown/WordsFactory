@@ -15,17 +15,32 @@ final class WordDefinitionLocalDataSource {
         self.context = context
     }
 
-    func saveDefinition(_ definition: WordDefinition) throws {
-        CDWordDefinition.insert(definition, context: context)
+    func saveDefinitions(_ definitions: [WordDefinition]) throws {
+        CDWordDefinition.insert(definitions, context: context)
         try context.save()
     }
 
+    func deleteDefinitions(of word: String) throws {
+        guard let fetchRequest = getFetchRequest(by: word) as? NSFetchRequest<NSFetchRequestResult> else { return }
+
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        try context.execute(deleteRequest)
+    }
+
     func fetchDefinitionList(of word: String) throws -> [WordDefinition] {
+        let fetchRequest = getFetchRequest(by: word)
+        let cdDefinitions = try context.fetch(fetchRequest)
+
+        return cdDefinitions.map { $0.toDomain() }
+    }
+}
+
+private extension WordDefinitionLocalDataSource {
+
+    func getFetchRequest(by word: String) -> NSFetchRequest<CDWordDefinition> {
         let fetchRequest = CDWordDefinition.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: Constants.wordPredicate, word.lowercased())
-
-        let cdDefinitions = try context.fetch(fetchRequest)
-        return cdDefinitions.map { $0.toDomain() }
+        return fetchRequest
     }
 }
 

@@ -35,6 +35,7 @@ struct DictionaryView: View {
             DictionaryPlaceholderView()
         case .loading:
             definitionList(.init(
+                isDefinitionsSaved: false,
                 definitionCards: .placeholders(Constants.Definition.placeholders)
             ))
         case .loaded(let viewData):
@@ -60,13 +61,7 @@ private extension DictionaryView {
         ScrollView {
             LazyVStack(spacing: Constants.Definition.spacing) {
                 ForEach(Array(viewData.definitionCards.enumerated()), id: \.element.id) { index, card in
-                    WordDefinitionCardView(viewModel: card, isSelected: index == viewData.selectedDefinitionIndex)
-                        .contentShape(Rectangle())
-                        .onTapGesture {
-                            withAnimation {
-                                viewModel.handle(.definitionSelected(index))
-                            }
-                        }
+                    WordDefinitionCardView(viewModel: card).contentShape(Rectangle())
                 }
             }
             .padding([.top, .horizontal])
@@ -74,13 +69,12 @@ private extension DictionaryView {
         }
         .redacted(if: viewModel.state == .loading)
         .overlay(alignment: .bottom) {
-            if viewData.isAddToDictionaryShowing {
-                Button(Strings.addToDictionary) {
-                    viewModel.handle(.addToDictionaryTapped)
+            if case .loaded = viewModel.state {
+                Button(viewData.isDefinitionsSaved ? Strings.deleteFromDictionary : Strings.addToDictionary) {
+                    viewModel.handle(.dictionaryTapped)
                 }
                 .mainButtonStyle()
                 .padding(.horizontal, Constants.AddToDictionary.insetHorizontal)
-                .transition(.opacity)
             }
         }
     }
