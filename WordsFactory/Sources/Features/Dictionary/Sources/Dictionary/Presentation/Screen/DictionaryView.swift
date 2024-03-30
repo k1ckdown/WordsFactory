@@ -61,7 +61,7 @@ private extension DictionaryView {
         ScrollView {
             LazyVStack(spacing: Constants.Definition.spacing) {
                 ForEach(Array(viewData.definitionCards.enumerated()), id: \.element.id) { index, card in
-                    WordDefinitionCardView(viewModel: card).contentShape(Rectangle())
+                    WordDefinitionCardView(viewModel: card)
                 }
             }
             .padding([.top, .horizontal])

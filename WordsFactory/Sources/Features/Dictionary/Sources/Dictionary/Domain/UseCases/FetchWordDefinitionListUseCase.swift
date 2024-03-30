@@ -1,5 +1,5 @@
 //
-//  FetchWordDefinitionsUseCase.swift
+//  FetchWordDefinitionListUseCase.swift
 //
 //
 //  Created by Ivan Semenov on 26.03.2024.
