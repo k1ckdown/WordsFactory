@@ -14,7 +14,7 @@ struct MeaningCardView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: Constants.contentSpacing) {
-            HStack {
+            HStack(alignment: .bottom) {
                 Text("\(Strings.partOfSpeech):")
                     .font(Fonts.buttonMedium)
 

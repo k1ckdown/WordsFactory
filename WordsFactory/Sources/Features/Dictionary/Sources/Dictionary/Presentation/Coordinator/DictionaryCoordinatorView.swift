@@ -21,5 +21,6 @@ public struct DictionaryCoordinatorView: View {
     public var body: some View {
         factory.makeDictionaryScreen(coordinator: coordinator)
             .errorAlert($coordinator.errorMessage)
+            .navigationBarHidden(true)
     }
 }

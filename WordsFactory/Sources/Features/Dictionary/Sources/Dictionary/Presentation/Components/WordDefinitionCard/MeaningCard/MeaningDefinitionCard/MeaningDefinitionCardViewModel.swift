@@ -8,7 +8,7 @@
 import Foundation
 import CommonUI
 
-struct MeaningDefinitionCardViewModel: Identifiable, Hashable {
+struct MeaningDefinitionCardViewModel: Identifiable, Equatable {
     let id = UUID()
     let definition: String
     let example: String?

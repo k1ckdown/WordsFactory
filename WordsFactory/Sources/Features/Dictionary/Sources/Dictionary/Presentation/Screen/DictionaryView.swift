@@ -60,7 +60,7 @@ private extension DictionaryView {
     func definitionList(_ viewData: DictionaryViewModel.ViewState.ViewData) -> some View {
         ScrollView {
             LazyVStack(spacing: Constants.Definition.spacing) {
-                ForEach(Array(viewData.definitionCards.enumerated()), id: \.element.id) { index, card in
+                ForEach(viewData.definitionCards) { card in
                     WordDefinitionCardView(viewModel: card)
                 }
             }
