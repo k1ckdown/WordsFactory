@@ -19,7 +19,7 @@ struct MeaningDefinitionCardView: View {
 
             if let example = viewModel.example {
                 HStack {
-                    Text(Strings.example)
+                    Text("\(Strings.example):")
                         .foregroundStyle(Colors.appBlue.swiftUIColor)
 
                     Text(example)

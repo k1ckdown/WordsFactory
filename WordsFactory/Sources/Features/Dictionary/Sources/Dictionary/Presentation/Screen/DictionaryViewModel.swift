@@ -12,15 +12,18 @@ final class DictionaryViewModel: ObservableObject {
     @Published private(set) var state = ViewState.idle
 
     private var definitions = [WordDefinition]()
+    private let audioManager: AudioManager
     private let coordinator: DictionaryCoordinatorProtocol
     private let saveWordDefinitionUseCase: SaveWordDefinitionUseCase
     private let fetchWordDefinitionsUseCase: FetchWordDefinitionsUseCase
 
     init(
+        audioManager: AudioManager,
         coordinator: DictionaryCoordinatorProtocol,
         saveWordDefinitionUseCase: SaveWordDefinitionUseCase,
         fetchWordDefinitionsUseCase: FetchWordDefinitionsUseCase
     ) {
+        self.audioManager = audioManager
         self.coordinator = coordinator
         self.saveWordDefinitionUseCase = saveWordDefinitionUseCase
         self.fetchWordDefinitionsUseCase = fetchWordDefinitionsUseCase
@@ -50,7 +53,12 @@ private extension DictionaryViewModel {
     }
 
     func handlePhoneticTap(_ phonetic: String) {
+        guard
+            let audio = definitions.flatMap({ $0.phonetics }).first(where: { $0.text == phonetic })?.audio,
+            let audioUrl = URL(string: audio)
+        else { return }
 
+        audioManager.play(url: audioUrl)
     }
 
     func handleAddToDictionaryTap() {

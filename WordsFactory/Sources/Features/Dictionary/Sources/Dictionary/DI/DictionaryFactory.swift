@@ -27,6 +27,7 @@ extension DictionaryFactory: DictionaryScreenFactory {
 
     func makeDictionaryScreen(coordinator: DictionaryCoordinatorProtocol) -> DictionaryView {
         let viewModel = DictionaryViewModel(
+            audioManager: makeAudioManager(),
             coordinator: coordinator,
             saveWordDefinitionUseCase: makeSaveWordDefinitionUseCase(),
             fetchWordDefinitionsUseCase: makeFetchWordDefinitionsUseCase()
@@ -34,6 +35,15 @@ extension DictionaryFactory: DictionaryScreenFactory {
 
         let view = DictionaryView(viewModel: viewModel)
         return view
+    }
+}
+
+// MARK: - Media
+
+private extension DictionaryFactory {
+
+    func makeAudioManager() -> AudioManager {
+        AudioManager()
     }
 }
 
