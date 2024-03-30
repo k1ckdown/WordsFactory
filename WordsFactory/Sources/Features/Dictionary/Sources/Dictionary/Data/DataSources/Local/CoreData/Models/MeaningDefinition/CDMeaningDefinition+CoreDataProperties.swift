@@ -16,10 +16,10 @@ extension CDMeaningDefinition {
         return NSFetchRequest<CDMeaningDefinition>(entityName: "CDMeaningDefinition")
     }
 
-    @NSManaged public var antonyms: [String]?
-    @NSManaged public var definition: String?
+    @NSManaged public var antonyms: [String]
+    @NSManaged public var definition: String
     @NSManaged public var example: String?
-    @NSManaged public var synonyms: [String]?
+    @NSManaged public var synonyms: [String]
     @NSManaged public var meaning: CDMeaning?
 
 }

@@ -7,7 +7,6 @@
 
 import Foundation
 
-@MainActor
 protocol DictionaryCoordinatorProtocol: AnyObject {
     func showError(message: String)
 }

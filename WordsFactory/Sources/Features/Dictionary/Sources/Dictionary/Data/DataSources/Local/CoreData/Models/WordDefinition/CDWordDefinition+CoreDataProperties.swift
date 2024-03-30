@@ -17,9 +17,9 @@ extension CDWordDefinition {
     }
 
     @NSManaged public var phonetic: String?
-    @NSManaged public var word: String?
-    @NSManaged public var meanings: NSSet?
-    @NSManaged public var phonetics: NSSet?
+    @NSManaged public var word: String
+    @NSManaged public var meanings: NSSet
+    @NSManaged public var phonetics: NSSet
 
 }
 

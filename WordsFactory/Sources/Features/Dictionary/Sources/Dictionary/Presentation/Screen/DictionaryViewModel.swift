@@ -13,10 +13,16 @@ final class DictionaryViewModel: ObservableObject {
 
     private var definitions = [WordDefinition]()
     private let coordinator: DictionaryCoordinatorProtocol
+    private let saveWordDefinitionUseCase: SaveWordDefinitionUseCase
     private let fetchWordDefinitionsUseCase: FetchWordDefinitionsUseCase
 
-    init(coordinator: DictionaryCoordinatorProtocol, fetchWordDefinitionsUseCase: FetchWordDefinitionsUseCase) {
+    init(
+        coordinator: DictionaryCoordinatorProtocol,
+        saveWordDefinitionUseCase: SaveWordDefinitionUseCase,
+        fetchWordDefinitionsUseCase: FetchWordDefinitionsUseCase
+    ) {
         self.coordinator = coordinator
+        self.saveWordDefinitionUseCase = saveWordDefinitionUseCase
         self.fetchWordDefinitionsUseCase = fetchWordDefinitionsUseCase
     }
 
@@ -25,7 +31,7 @@ final class DictionaryViewModel: ObservableObject {
         case .definitionSelected(let index):
             state = state.selectDefinition(at: index)
         case .addToDictionaryTapped:
-            Task { await handleAddToDictionaryTap() }
+            handleAddToDictionaryTap()
         case .searchWordChanged(let word):
             Task { await fetchDefinitions(of: word) }
         }
@@ -43,12 +49,26 @@ private extension DictionaryViewModel {
         state = .loaded(viewData)
     }
 
-    func handleAddToDictionaryTap() async {
-        await MainActor.run { state = state.unselectDefinition() }
-    }
-
     func handlePhoneticTap(_ phonetic: String) {
 
+    }
+
+    func handleAddToDictionaryTap() {
+        guard
+            case .loaded(let viewData) = state,
+            let selectedDefinitionIndex = viewData.selectedDefinitionIndex
+        else { return }
+
+        saveDefinition(definitions[selectedDefinitionIndex])
+        state = state.unselectDefinition()
+    }
+
+    func saveDefinition(_ definition: WordDefinition) {
+        do {
+            try saveWordDefinitionUseCase.execute(definition)
+        } catch {
+            coordinator.showError(message: error.localizedDescription)
+        }
     }
 
     func fetchDefinitions(of word: String) async {

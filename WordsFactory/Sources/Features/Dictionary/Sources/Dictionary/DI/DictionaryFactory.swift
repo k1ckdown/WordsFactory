@@ -8,10 +8,12 @@
 final class DictionaryFactory {
 
     private let dependencies: ModuleDependencies
+    private lazy var coreDataProvider = CoreDataProvider()
 
     private lazy var wordDefinitionRepository: WordDefinitionRepository = {
+        let localDataSource = WordDefinitionLocalDataSource(context: coreDataProvider.context)
         let remoteDataSource = WordDefinitionRemoteDataSource(networkService: dependencies.networkService)
-        return WordDefinitionRepositoryImpl(remoteDataSource: remoteDataSource)
+        return WordDefinitionRepositoryImpl(localDataSource: localDataSource, remoteDataSource: remoteDataSource)
     }()
 
     init(dependencies: ModuleDependencies) {
@@ -26,9 +28,10 @@ extension DictionaryFactory: DictionaryScreenFactory {
     func makeDictionaryScreen(coordinator: DictionaryCoordinatorProtocol) -> DictionaryView {
         let viewModel = DictionaryViewModel(
             coordinator: coordinator,
+            saveWordDefinitionUseCase: makeSaveWordDefinitionUseCase(),
             fetchWordDefinitionsUseCase: makeFetchWordDefinitionsUseCase()
         )
-        
+
         let view = DictionaryView(viewModel: viewModel)
         return view
     }
@@ -40,5 +43,9 @@ private extension DictionaryFactory {
 
     func makeFetchWordDefinitionsUseCase() -> FetchWordDefinitionsUseCase {
         FetchWordDefinitionsUseCase(wordDefinitionRepository: wordDefinitionRepository)
+    }
+
+    func makeSaveWordDefinitionUseCase() -> SaveWordDefinitionUseCase {
+        SaveWordDefinitionUseCase(wordDefinitionRepository: wordDefinitionRepository)
     }
 }
