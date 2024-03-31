@@ -17,6 +17,7 @@
 		495876412BB6CB5C008D7A1D /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495876402BB6CB5C008D7A1D /* AppCoordinator.swift */; };
 		4981167E2BB2C27100C99D0B /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 4981167D2BB2C27100C99D0B /* Auth */; };
 		498116802BB2C49300C99D0B /* Dictionary in Frameworks */ = {isa = PBXBuildFile; productRef = 4981167F2BB2C49300C99D0B /* Dictionary */; };
+		49CAC3032BB9375300A09571 /* Video in Frameworks */ = {isa = PBXBuildFile; productRef = 49CAC3022BB9375300A09571 /* Video */; };
 		49FCDC242BAFF8CC00418DCB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49FCDC222BAFF77800418DCB /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,8 @@
 		4958763E2BB6B2F7008D7A1D /* AppFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
 		495876402BB6CB5C008D7A1D /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		495876422BB70B9F008D7A1D /* DictionaryAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DictionaryAPI; sourceTree = "<group>"; };
+		49CAC3012BB935CF00A09571 /* Video */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Video; sourceTree = "<group>"; };
+		49CAC3042BB9583C00A09571 /* VideoAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = VideoAPI; sourceTree = "<group>"; };
 		49F733512BADB2C40012AF9B /* Auth */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Auth; sourceTree = "<group>"; };
 		49FCDC222BAFF77800418DCB /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -43,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49CAC3032BB9375300A09571 /* Video in Frameworks */,
 				495876372BB6ADD8008D7A1D /* NetworkingAPI in Frameworks */,
 				4916A5F52BAA20CD00991B00 /* OnBoarding in Frameworks */,
 				498116802BB2C49300C99D0B /* Dictionary in Frameworks */,
@@ -137,6 +141,7 @@
 		495876382BB6AEB0008D7A1D /* API */ = {
 			isa = PBXGroup;
 			children = (
+				49CAC3042BB9583C00A09571 /* VideoAPI */,
 				495876422BB70B9F008D7A1D /* DictionaryAPI */,
 			);
 			path = API;
@@ -156,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				495876382BB6AEB0008D7A1D /* API */,
+				49CAC3012BB935CF00A09571 /* Video */,
 				490BF2072BB28D6D0023C80C /* Dictionary */,
 				49F733512BADB2C40012AF9B /* Auth */,
 				490C6FDE2BAA1C68002A8BC6 /* OnBoarding */,
@@ -185,6 +191,7 @@
 				4981167F2BB2C49300C99D0B /* Dictionary */,
 				495876342BB6ADC5008D7A1D /* Networking */,
 				495876362BB6ADD8008D7A1D /* NetworkingAPI */,
+				49CAC3022BB9375300A09571 /* Video */,
 			);
 			productName = WordsFactory;
 			productReference = 4946D6B82BA814E500558F8A /* WordsFactory.app */;
@@ -479,6 +486,10 @@
 		4981167F2BB2C49300C99D0B /* Dictionary */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Dictionary;
+		};
+		49CAC3022BB9375300A09571 /* Video */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Video;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

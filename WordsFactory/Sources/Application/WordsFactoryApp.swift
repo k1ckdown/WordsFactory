@@ -20,7 +20,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 @main
 struct WordsFactoryApp: App {
-
+    
     @UIApplicationDelegateAdaptor(AppDelegate.self)
     private var delegate
 
