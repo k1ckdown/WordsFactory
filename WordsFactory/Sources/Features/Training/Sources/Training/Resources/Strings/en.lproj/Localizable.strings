@@ -7,3 +7,6 @@
 */
 
 "Go" = "GO";
+"Start" = "Start";
+"StartTraining" = "Start the Training";
+"DictionaryWords" = "There are **%d** words in your Dictionary.";

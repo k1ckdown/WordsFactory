@@ -7,3 +7,6 @@
 */
 
 "Go" = "GO";
+"Start" = "Начать";
+"StartTraining" = "Начинаем тренировку"
+"DictionaryWords" = "В вашем словаре **%d** слов.";

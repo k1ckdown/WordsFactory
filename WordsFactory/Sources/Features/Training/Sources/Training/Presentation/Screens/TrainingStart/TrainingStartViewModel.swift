@@ -17,7 +17,7 @@ final class TrainingStartViewModel: ObservableObject {
             getTotalWords()
         case .startTapped:
             state = state.startCountDown(Constants.countdownDuration)
-        case .startCounterUpdated(let value):
+        case .countdownUpdated(let value):
             handleCounterUpdate(value)
         }
     }

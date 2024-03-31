@@ -1,5 +1,5 @@
 //
-//  CountDownView.swift
+//  CountdownView.swift
 //
 //
 //  Created by Ivan Semenov on 31.03.2024.
@@ -8,23 +8,30 @@
 import SwiftUI
 import CommonUI
 
-struct CountDownView: View {
+struct CountdownView: View {
 
-    let total: Double
-    @Binding var counter: Double
+    let duration: Double
+    let countHandler: (Double) -> Void
+
+    @State private var counter: Double
+
+    init(duration: Double, countHandler: @escaping (Double) -> Void) {
+        self.duration = duration
+        self.countHandler = countHandler
+        _counter = State(initialValue: duration)
+    }
 
     private let timer = Timer.publish(every: Constants.interval, on: .main, in: .common).autoconnect()
 
     var body: some View {
-        Text(counter.isZero ? "\(Strings.go)!" : "\(Int(counter))")
-            .font(Fonts.headline1)
-            .frame(width: Constants.size, height: Constants.size)
+        Circle()
+            .trim(from: 0, to: CGFloat(counter / duration))
+            .stroke(style: StrokeStyle(lineWidth: Constants.borderWidth, lineCap: .round))
+            .rotationEffect(.degrees(Constants.degrees))
+            .animation(.linear(duration: Constants.interval), value: counter)
             .overlay {
-                Circle()
-                    .trim(from: 0, to: CGFloat(counter / total))
-                    .stroke(style: StrokeStyle(lineWidth: Constants.borderWidth, lineCap: .round))
-                    .rotationEffect(.degrees(Constants.degrees))
-                    .animation(.linear(duration: Constants.interval), value: counter)
+                Text(counter.isZero ? "\(Strings.go)!" : "\(Int(counter))")
+                    .font(Fonts.headline1)
             }
             .foregroundStyle(color)
             .onReceive(timer) { _ in
@@ -37,7 +44,7 @@ struct CountDownView: View {
     }
 
     private var color: Color {
-        let asset: ColorAsset = switch counter / total {
+        let asset: ColorAsset = switch counter / duration {
         case 0.8..<1: Colors.appBlue
         case 0.6..<0.8: Colors.appGreen
         case 0.4..<0.6: Colors.appYellow
@@ -56,10 +63,9 @@ struct CountDownView: View {
 
 // MARK: - Constants
 
-private extension CountDownView {
+private extension CountdownView {
 
     enum Constants {
-        static let size: CGFloat = 110
         static let interval: Double = 1
         static let degrees: CGFloat = 270
         static let borderWidth: CGFloat = 7

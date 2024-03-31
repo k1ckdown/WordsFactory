@@ -13,14 +13,14 @@ extension TrainingStartViewModel {
 
         struct ViewData: Equatable {
             let totalWords: Int
-            var startCounter: Double?
+            var countdownDuration: Double?
         }
     }
 
     enum Event {
         case onAppear
         case startTapped
-        case startCounterUpdated(Double)
+        case countdownUpdated(Double)
     }
 }
 
@@ -31,7 +31,7 @@ extension TrainingStartViewModel.ViewState {
     func startCountDown(_ duration: Double) -> Self {
         guard case .loaded(var viewData) = self else { return self }
 
-        viewData.startCounter = duration
+        viewData.countdownDuration = duration
         return .loaded(viewData)
     }
 }
