@@ -15,9 +15,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Auth"
-               BuildableName = "Auth"
-               BlueprintName = "Auth"
+               BlueprintIdentifier = "Training"
+               BuildableName = "Training"
+               BlueprintName = "Training"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
@@ -50,9 +50,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "Auth"
-            BuildableName = "Auth"
-            BlueprintName = "Auth"
+            BlueprintIdentifier = "Training"
+            BuildableName = "Training"
+            BlueprintName = "Training"
             ReferencedContainer = "container:">
          </BuildableReference>
       </MacroExpansion>

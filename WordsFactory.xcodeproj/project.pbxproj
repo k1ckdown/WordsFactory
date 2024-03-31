@@ -7,17 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4916A5F52BAA20CD00991B00 /* OnBoarding in Frameworks */ = {isa = PBXBuildFile; productRef = 4916A5F42BAA20CD00991B00 /* OnBoarding */; };
+		4903F7332BB9799100578062 /* Training in Frameworks */ = {isa = PBXBuildFile; productRef = 4903F7322BB9799100578062 /* Training */; };
+		4915A0DB2BB97A4500751B6C /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 4915A0DA2BB97A4500751B6C /* Networking */; };
+		4915A0DD2BB97A5700751B6C /* Video in Frameworks */ = {isa = PBXBuildFile; productRef = 4915A0DC2BB97A5700751B6C /* Video */; };
 		492C5B992BA981E40018E008 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 492C5B982BA981E40018E008 /* Images.xcassets */; };
 		4946D6BC2BA814E500558F8A /* WordsFactoryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4946D6BB2BA814E500558F8A /* WordsFactoryApp.swift */; };
 		4946D6C32BA814E600558F8A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4946D6C22BA814E600558F8A /* Preview Assets.xcassets */; };
-		495876352BB6ADC5008D7A1D /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 495876342BB6ADC5008D7A1D /* Networking */; };
-		495876372BB6ADD8008D7A1D /* NetworkingAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 495876362BB6ADD8008D7A1D /* NetworkingAPI */; };
 		4958763F2BB6B2F7008D7A1D /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4958763E2BB6B2F7008D7A1D /* AppFactory.swift */; };
 		495876412BB6CB5C008D7A1D /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495876402BB6CB5C008D7A1D /* AppCoordinator.swift */; };
-		4981167E2BB2C27100C99D0B /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 4981167D2BB2C27100C99D0B /* Auth */; };
-		498116802BB2C49300C99D0B /* Dictionary in Frameworks */ = {isa = PBXBuildFile; productRef = 4981167F2BB2C49300C99D0B /* Dictionary */; };
-		49CAC3032BB9375300A09571 /* Video in Frameworks */ = {isa = PBXBuildFile; productRef = 49CAC3022BB9375300A09571 /* Video */; };
+		49CAC3082BB978D500A09571 /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 49CAC3072BB978D500A09571 /* Auth */; };
+		49CAC30A2BB978D500A09571 /* CommonUI in Frameworks */ = {isa = PBXBuildFile; productRef = 49CAC3092BB978D500A09571 /* CommonUI */; };
+		49CAC30C2BB978D500A09571 /* Dictionary in Frameworks */ = {isa = PBXBuildFile; productRef = 49CAC30B2BB978D500A09571 /* Dictionary */; };
+		49CAC30E2BB978D500A09571 /* OnBoarding in Frameworks */ = {isa = PBXBuildFile; productRef = 49CAC30D2BB978D500A09571 /* OnBoarding */; };
 		49FCDC242BAFF8CC00418DCB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49FCDC222BAFF77800418DCB /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,7 @@
 		49CAC3012BB935CF00A09571 /* Video */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Video; sourceTree = "<group>"; };
 		49CAC3042BB9583C00A09571 /* VideoAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = VideoAPI; sourceTree = "<group>"; };
 		49CAC3052BB9755900A09571 /* TrainingAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = TrainingAPI; sourceTree = "<group>"; };
+		49CAC3062BB9771700A09571 /* Training */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Training; sourceTree = "<group>"; };
 		49F733512BADB2C40012AF9B /* Auth */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Auth; sourceTree = "<group>"; };
 		49FCDC222BAFF77800418DCB /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -47,12 +49,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49CAC3032BB9375300A09571 /* Video in Frameworks */,
-				495876372BB6ADD8008D7A1D /* NetworkingAPI in Frameworks */,
-				4916A5F52BAA20CD00991B00 /* OnBoarding in Frameworks */,
-				498116802BB2C49300C99D0B /* Dictionary in Frameworks */,
-				495876352BB6ADC5008D7A1D /* Networking in Frameworks */,
-				4981167E2BB2C27100C99D0B /* Auth in Frameworks */,
+				4915A0DB2BB97A4500751B6C /* Networking in Frameworks */,
+				4903F7332BB9799100578062 /* Training in Frameworks */,
+				49CAC3082BB978D500A09571 /* Auth in Frameworks */,
+				49CAC30E2BB978D500A09571 /* OnBoarding in Frameworks */,
+				49CAC30C2BB978D500A09571 /* Dictionary in Frameworks */,
+				49CAC30A2BB978D500A09571 /* CommonUI in Frameworks */,
+				4915A0DD2BB97A5700751B6C /* Video in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				495876382BB6AEB0008D7A1D /* API */,
+				49CAC3062BB9771700A09571 /* Training */,
 				49CAC3012BB935CF00A09571 /* Video */,
 				490BF2072BB28D6D0023C80C /* Dictionary */,
 				49F733512BADB2C40012AF9B /* Auth */,
@@ -188,12 +192,13 @@
 			);
 			name = WordsFactory;
 			packageProductDependencies = (
-				4916A5F42BAA20CD00991B00 /* OnBoarding */,
-				4981167D2BB2C27100C99D0B /* Auth */,
-				4981167F2BB2C49300C99D0B /* Dictionary */,
-				495876342BB6ADC5008D7A1D /* Networking */,
-				495876362BB6ADD8008D7A1D /* NetworkingAPI */,
-				49CAC3022BB9375300A09571 /* Video */,
+				49CAC3072BB978D500A09571 /* Auth */,
+				49CAC3092BB978D500A09571 /* CommonUI */,
+				49CAC30B2BB978D500A09571 /* Dictionary */,
+				49CAC30D2BB978D500A09571 /* OnBoarding */,
+				4903F7322BB9799100578062 /* Training */,
+				4915A0DA2BB97A4500751B6C /* Networking */,
+				4915A0DC2BB97A5700751B6C /* Video */,
 			);
 			productName = WordsFactory;
 			productReference = 4946D6B82BA814E500558F8A /* WordsFactory.app */;
@@ -469,29 +474,33 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4916A5F42BAA20CD00991B00 /* OnBoarding */ = {
+		4903F7322BB9799100578062 /* Training */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = OnBoarding;
+			productName = Training;
 		};
-		495876342BB6ADC5008D7A1D /* Networking */ = {
+		4915A0DA2BB97A4500751B6C /* Networking */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Networking;
 		};
-		495876362BB6ADD8008D7A1D /* NetworkingAPI */ = {
+		4915A0DC2BB97A5700751B6C /* Video */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = NetworkingAPI;
+			productName = Video;
 		};
-		4981167D2BB2C27100C99D0B /* Auth */ = {
+		49CAC3072BB978D500A09571 /* Auth */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Auth;
 		};
-		4981167F2BB2C49300C99D0B /* Dictionary */ = {
+		49CAC3092BB978D500A09571 /* CommonUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CommonUI;
+		};
+		49CAC30B2BB978D500A09571 /* Dictionary */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Dictionary;
 		};
-		49CAC3022BB9375300A09571 /* Video */ = {
+		49CAC30D2BB978D500A09571 /* OnBoarding */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = Video;
+			productName = OnBoarding;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
