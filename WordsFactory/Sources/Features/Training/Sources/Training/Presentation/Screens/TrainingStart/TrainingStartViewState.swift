@@ -5,22 +5,25 @@
 //  Created by Ivan Semenov on 31.03.2024.
 //
 
+import Foundation
+
 extension TrainingStartViewModel {
 
     enum ViewState: Equatable {
         case idle
+        case failed
         case loaded(ViewData)
 
         struct ViewData: Equatable {
             let totalWords: Int
-            var countdownDuration: Double?
+            let countdown: TimerViewModel
+            var isCountdownShowing = false
         }
     }
 
     enum Event {
         case onAppear
         case startTapped
-        case countdownUpdated(Double)
     }
 }
 
@@ -28,10 +31,10 @@ extension TrainingStartViewModel {
 
 extension TrainingStartViewModel.ViewState {
 
-    func startCountDown(_ duration: Double) -> Self {
+    func showCountdown() -> Self {
         guard case .loaded(var viewData) = self else { return self }
 
-        viewData.countdownDuration = duration
+        viewData.isCountdownShowing = true
         return .loaded(viewData)
     }
 }

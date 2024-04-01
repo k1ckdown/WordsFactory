@@ -7,6 +7,8 @@
 */
 
 "Go" = "GO";
+"Of" = "%d из %d";
 "Start" = "Начать";
 "StartTraining" = "Начинаем тренировку"
+"AddWordsToDictionary" = "Добавьте слова в словарь";
 "DictionaryWords" = "В вашем словаре **%d** слов.";

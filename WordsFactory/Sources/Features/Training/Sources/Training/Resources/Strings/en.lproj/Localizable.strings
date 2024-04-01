@@ -7,6 +7,8 @@
 */
 
 "Go" = "GO";
+"Of" = "%d of %d";
 "Start" = "Start";
 "StartTraining" = "Start the Training";
+"AddWordsToDictionary" = "Add words to the dictionary";
 "DictionaryWords" = "There are **%d** words in your Dictionary.";

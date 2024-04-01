@@ -16,9 +16,7 @@ final class TrainingStartViewModel: ObservableObject {
         case .onAppear:
             getTotalWords()
         case .startTapped:
-            state = state.startCountDown(Constants.countdownDuration)
-        case .countdownUpdated(let value):
-            handleCounterUpdate(value)
+            handleStartTap()
         }
     }
 }
@@ -27,13 +25,23 @@ final class TrainingStartViewModel: ObservableObject {
 
 private extension TrainingStartViewModel {
 
-    func handleCounterUpdate(_ value: Double) {
-        guard value.isZero else { return }
-    }
-
     func getTotalWords() {
         let totalWords = 25
-        state = .loaded(.init(totalWords: totalWords))
+        state = .loaded(.init(totalWords: totalWords, countdown: makeTimer()))
+    }
+
+    func makeTimer() -> TimerViewModel {
+        let timer = TimerViewModel(total: Constants.countdownDuration)
+        return timer
+    }
+
+    func handleStartTap() {
+        guard case .loaded(let viewData) = state else { return }
+
+        state = state.showCountdown()
+        DispatchQueue.main.asyncAfter(deadline: .now() + Constants.delayShowCountdown) {
+            viewData.countdown.startTimer()
+        }
     }
 }
 
@@ -42,6 +50,7 @@ private extension TrainingStartViewModel {
 private extension TrainingStartViewModel {
 
     enum Constants {
+        static let delayShowCountdown = 0.25
         static let countdownDuration: Double = 5
     }
 }

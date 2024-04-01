@@ -26,7 +26,7 @@ struct TrainingStartView: View {
     @ViewBuilder
     private var contentView: some View {
         switch viewModel.state {
-        case .idle:
+        case .idle, .failed:
             ZStack { EmptyView() }
         case .loaded(let viewData):
             loadedView(viewData)
@@ -38,10 +38,16 @@ struct TrainingStartView: View {
 
 private extension TrainingStartView {
 
+    @ViewBuilder
     func loadedView(_ viewData: TrainingStartViewModel.ViewState.ViewData) -> some View {
-        VStack(spacing: .zero) {
-            titlesView(totalWords: viewData.totalWords)
-            countdownView(duration: viewData.countdownDuration)
+        if viewData.totalWords == 0 {
+            Text(Strings.addWordsToDictionary)
+                .font(Fonts.headline5)
+        } else {
+            VStack(spacing: .zero) {
+                titlesView(totalWords: viewData.totalWords)
+                countdownView(viewData.countdown, isShowing: viewData.isCountdownShowing)
+            }
         }
     }
 
@@ -60,12 +66,10 @@ private extension TrainingStartView {
         .padding(.horizontal, Constants.titlesHorizontalInset)
     }
 
-    func countdownView(duration: Double?) -> some View {
+    func countdownView(_ timerViewModel: TimerViewModel, isShowing: Bool) -> some View {
         Group {
-            if let duration {
-                CountdownView(duration: duration) {
-                    viewModel.handle(.countdownUpdated($0))
-                }
+            if isShowing {
+                CountdownView(viewModel: timerViewModel)
             } else {
                 Button(Strings.start) {
                     viewModel.handle(.startTapped)
