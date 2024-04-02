@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22757" systemVersion="23E224" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="CDMeaning" representedClassName="CDMeaning" syncable="YES">
+        <attribute name="antonyms" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
+        <attribute name="partOfSpeech" attributeType="String"/>
+        <attribute name="synonyms" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
+        <relationship name="definitions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDMeaningDefinition" inverseName="meaning" inverseEntity="CDMeaningDefinition"/>
+        <relationship name="word" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDWord" inverseName="meanings" inverseEntity="CDWord"/>
+    </entity>
+    <entity name="CDMeaningDefinition" representedClassName="CDMeaningDefinition" syncable="YES">
+        <attribute name="antonyms" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
+        <attribute name="definition" attributeType="String"/>
+        <attribute name="example" optional="YES" attributeType="String"/>
+        <attribute name="synonyms" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
+        <relationship name="meaning" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDMeaning" inverseName="definitions" inverseEntity="CDMeaning"/>
+    </entity>
+    <entity name="CDPhonetic" representedClassName="CDPhonetic" syncable="YES">
+        <attribute name="audio" optional="YES" attributeType="String"/>
+        <attribute name="text" optional="YES" attributeType="String"/>
+        <relationship name="word" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDWord" inverseName="phonetics" inverseEntity="CDWord"/>
+    </entity>
+    <entity name="CDWord" representedClassName="CDWord" syncable="YES">
+        <attribute name="phonetic" optional="YES" attributeType="String"/>
+        <attribute name="studyCoefficient" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="text" attributeType="String"/>
+        <relationship name="meanings" toMany="YES" deletionRule="Nullify" destinationEntity="CDMeaning" inverseName="word" inverseEntity="CDMeaning"/>
+        <relationship name="phonetics" toMany="YES" deletionRule="Nullify" destinationEntity="CDPhonetic" inverseName="word" inverseEntity="CDPhonetic"/>
+    </entity>
+</model>

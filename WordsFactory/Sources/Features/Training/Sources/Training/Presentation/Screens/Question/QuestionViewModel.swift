@@ -14,7 +14,7 @@ final class QuestionViewModel: ObservableObject {
 
     private var questionNumber = 1
     private var questions: [WordQuestion] = []
-    private var cancellables = Set<AnyCancellable>()
+    private var subscriptions = Set<AnyCancellable>()
 
     func handle(_ event: Event) {
         switch event {
@@ -80,7 +80,7 @@ private extension QuestionViewModel {
             .sink { [weak self] in
                 if $0.isLess(than: 0) { self?.setNextQuestion() }
             }
-            .store(in: &cancellables)
+            .store(in: &subscriptions)
 
         return timer
     }

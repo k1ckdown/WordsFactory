@@ -8,13 +8,6 @@
 final class DictionaryFactory {
 
     private let dependencies: ModuleDependencies
-    private lazy var coreDataProvider = CoreDataProvider()
-
-    private lazy var wordRepository: WordRepository = {
-        let localDataSource = WordLocalDataSource(context: coreDataProvider.context)
-        let remoteDataSource = WordRemoteDataSource(networkService: dependencies.networkService)
-        return WordRepositoryImpl(localDataSource: localDataSource, remoteDataSource: remoteDataSource)
-    }()
 
     init(dependencies: ModuleDependencies) {
         self.dependencies = dependencies
@@ -53,14 +46,14 @@ private extension DictionaryFactory {
 private extension DictionaryFactory {
 
     func makeGetWordListUseCase() -> GetWordListUseCase {
-        GetWordListUseCase(wordRepository: wordRepository)
+        GetWordListUseCase(wordRepository: dependencies.wordRepository)
     }
 
     func makeSaveWordListUseCase() -> SaveWordListUseCase {
-        SaveWordListUseCase(wordRepository: wordRepository)
+        SaveWordListUseCase(wordRepository: dependencies.wordRepository)
     }
 
     func makeRemoveWordListUseCase() -> RemoveWordListUseCase {
-        RemoveWordListUseCase(wordRepository: wordRepository)
+        RemoveWordListUseCase(wordRepository: dependencies.wordRepository)
     }
 }

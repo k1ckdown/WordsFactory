@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import WordModuleAPI
 
 final class DictionaryViewModel: ObservableObject {
 
@@ -80,9 +81,9 @@ private extension DictionaryViewModel {
     }
 
     func removeWords() throws {
-        guard let word = words.first?.text else { return }
+        guard let text = words.first?.text else { return }
 
-        try removeWordListUseCase.execute(word)
+        try removeWordListUseCase.execute(text)
         state = state.removeWords()
     }
 

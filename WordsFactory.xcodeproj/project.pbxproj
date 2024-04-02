@@ -15,6 +15,7 @@
 		4946D6C32BA814E600558F8A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4946D6C22BA814E600558F8A /* Preview Assets.xcassets */; };
 		4958763F2BB6B2F7008D7A1D /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4958763E2BB6B2F7008D7A1D /* AppFactory.swift */; };
 		495876412BB6CB5C008D7A1D /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495876402BB6CB5C008D7A1D /* AppCoordinator.swift */; };
+		4990F6E52BBC193F009F5086 /* WordModule in Frameworks */ = {isa = PBXBuildFile; productRef = 4990F6E42BBC193F009F5086 /* WordModule */; };
 		49CAC3082BB978D500A09571 /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 49CAC3072BB978D500A09571 /* Auth */; };
 		49CAC30A2BB978D500A09571 /* CommonUI in Frameworks */ = {isa = PBXBuildFile; productRef = 49CAC3092BB978D500A09571 /* CommonUI */; };
 		49CAC30C2BB978D500A09571 /* Dictionary in Frameworks */ = {isa = PBXBuildFile; productRef = 49CAC30B2BB978D500A09571 /* Dictionary */; };
@@ -36,6 +37,8 @@
 		4958763E2BB6B2F7008D7A1D /* AppFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
 		495876402BB6CB5C008D7A1D /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		495876422BB70B9F008D7A1D /* DictionaryAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DictionaryAPI; sourceTree = "<group>"; };
+		4964B44F2BBC131600D849FC /* WordModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = WordModule; sourceTree = "<group>"; };
+		4991A2CC2BBC268A005EC551 /* WordModuleAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = WordModuleAPI; sourceTree = "<group>"; };
 		49CAC3012BB935CF00A09571 /* Video */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Video; sourceTree = "<group>"; };
 		49CAC3042BB9583C00A09571 /* VideoAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = VideoAPI; sourceTree = "<group>"; };
 		49CAC3052BB9755900A09571 /* TrainingAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = TrainingAPI; sourceTree = "<group>"; };
@@ -53,6 +56,7 @@
 				4903F7332BB9799100578062 /* Training in Frameworks */,
 				49CAC3082BB978D500A09571 /* Auth in Frameworks */,
 				49CAC30E2BB978D500A09571 /* OnBoarding in Frameworks */,
+				4990F6E52BBC193F009F5086 /* WordModule in Frameworks */,
 				49CAC30C2BB978D500A09571 /* Dictionary in Frameworks */,
 				49CAC30A2BB978D500A09571 /* CommonUI in Frameworks */,
 				4915A0DD2BB97A5700751B6C /* Video in Frameworks */,
@@ -76,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				492C5B952BA981930018E008 /* Application */,
+				4964B44E2BBC12EE00D849FC /* Shared */,
 				4998964E2BAA1FF00078B41B /* Core */,
 				4998964F2BAA1FF50078B41B /* Features */,
 			);
@@ -152,6 +157,23 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		4964B44E2BBC12EE00D849FC /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				4991A2CB2BBC2675005EC551 /* API */,
+				4964B44F2BBC131600D849FC /* WordModule */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		4991A2CB2BBC2675005EC551 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				4991A2CC2BBC268A005EC551 /* WordModuleAPI */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		4998964E2BAA1FF00078B41B /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +221,7 @@
 				4903F7322BB9799100578062 /* Training */,
 				4915A0DA2BB97A4500751B6C /* Networking */,
 				4915A0DC2BB97A5700751B6C /* Video */,
+				4990F6E42BBC193F009F5086 /* WordModule */,
 			);
 			productName = WordsFactory;
 			productReference = 4946D6B82BA814E500558F8A /* WordsFactory.app */;
@@ -485,6 +508,10 @@
 		4915A0DC2BB97A5700751B6C /* Video */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Video;
+		};
+		4990F6E42BBC193F009F5086 /* WordModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = WordModule;
 		};
 		49CAC3072BB978D500A09571 /* Auth */ = {
 			isa = XCSwiftPackageProductDependency;

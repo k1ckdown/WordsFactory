@@ -5,11 +5,13 @@
 //  Created by Ivan Semenov on 30.03.2024.
 //
 
+import WordModuleAPI
+
 final class RemoveWordListUseCase {
 
-    private let wordRepository: WordRepository
+    private let wordRepository: WordRepositoryProtocol
 
-    init(wordRepository: WordRepository) {
+    init(wordRepository: WordRepositoryProtocol) {
         self.wordRepository = wordRepository
     }
 

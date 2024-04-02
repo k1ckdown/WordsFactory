@@ -11,9 +11,11 @@ import OnBoarding
 import Auth
 import Video
 import Dictionary
+import WordModule
 
 final class AppFactory {
     private lazy var networkService = NetworkService()
+    private lazy var wordRepository = WordRepositoryAssembly.assemble(networkService: networkService)
 }
 
 // MARK: - Factory methods
@@ -33,7 +35,7 @@ extension AppFactory {
     }
 
     func makeDictionaryCoordinatorAssembly() -> DictionaryCoordinatorAssembly {
-        let dependencies = ModuleDependencies(networkService: networkService)
+        let dependencies = ModuleDependencies(networkService: networkService, wordRepository: wordRepository)
         return DictionaryCoordinatorAssembly(dependencies: dependencies)
     }
 }

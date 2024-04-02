@@ -7,6 +7,7 @@
 
 import Foundation
 import CommonUI
+import WordModuleAPI
 
 struct MeaningDefinitionCardViewModel: Identifiable, Equatable {
     let id = UUID()
