@@ -31,6 +31,10 @@ extension WordRepository: WordRepositoryProtocol {
         try localDataSource.remove(by: text)
     }
 
+    func getDictionary() throws -> [Word] {
+        try localDataSource.fetchAll()
+    }
+
     func getAll(by text: String) async throws -> WordList {
         do {
             return try await fetchRemoteWordList(of: text)

@@ -33,11 +33,16 @@ extension WordLocalDataSource {
         try contextProvider.context.execute(deleteRequest)
     }
 
+    func fetchAll() throws -> [Word] {
+        let cdWords = try contextProvider.context.fetch(CDWord.fetchRequest())
+        return cdWords.toDomain()
+    }
+
     func fetchAll(by text: String) throws -> [Word] {
         let fetchRequest = getFetchRequest(by: text)
-        let cdDefinitions = try contextProvider.context.fetch(fetchRequest)
+        let cdWords = try contextProvider.context.fetch(fetchRequest)
 
-        return cdDefinitions.map { $0.toDomain() }
+        return cdWords.toDomain()
     }
 }
 

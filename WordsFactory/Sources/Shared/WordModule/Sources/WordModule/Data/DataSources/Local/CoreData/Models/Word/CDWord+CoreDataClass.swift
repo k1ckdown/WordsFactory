@@ -35,3 +35,9 @@ public class CDWord: NSManagedObject {
         )
     }
 }
+
+extension [CDWord] {
+    func toDomain() -> [Word] {
+        map { $0.toDomain() }
+    }
+}
