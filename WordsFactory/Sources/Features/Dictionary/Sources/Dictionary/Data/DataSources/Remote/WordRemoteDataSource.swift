@@ -1,5 +1,5 @@
 //
-//  WordDefinitionRemoteDataSource.swift
+//  WordRemoteDataSource.swift
 //
 //
 //  Created by Ivan Semenov on 26.03.2024.
@@ -7,7 +7,7 @@
 
 import NetworkingAPI
 
-final class WordDefinitionRemoteDataSource {
+final class WordRemoteDataSource {
 
     private let networkService: NetworkServiceProtocol
 
@@ -18,10 +18,10 @@ final class WordDefinitionRemoteDataSource {
 
 // MARK: - Public methods
 
-extension WordDefinitionRemoteDataSource {
+extension WordRemoteDataSource {
 
-    func fetchDefinitionList(of word: String) async throws -> [WordDefinitionDTO] {
-        let networkConfig = WordDefinitionNetworkConfig.list(word)
+    func fetchAll(by word: String) async throws -> [WordDTO] {
+        let networkConfig = WordNetworkConfig.list(word)
         return try await networkService.request(config: networkConfig)
     }
 }

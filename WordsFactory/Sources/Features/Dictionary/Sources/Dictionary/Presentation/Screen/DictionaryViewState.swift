@@ -9,12 +9,13 @@ extension DictionaryViewModel {
 
     enum ViewState: Equatable {
         case idle
+        case failed
         case loading
         case loaded(ViewData)
 
         struct ViewData: Equatable {
-            var isDefinitionsSaved: Bool
-            var definitionCards: [WordDefinitionCardViewModel]
+            var isWordsSaved: Bool
+            var wordCards: [WordCardViewModel]
         }
     }
 
@@ -28,17 +29,17 @@ extension DictionaryViewModel {
 
 extension DictionaryViewModel.ViewState {
 
-    func saveDefinition() -> Self {
+    func saveWords() -> Self {
         guard case .loaded(var viewData) = self else { return self }
 
-        viewData.isDefinitionsSaved = true
+        viewData.isWordsSaved = true
         return .loaded(viewData)
     }
 
-    func deleteDefinition() -> Self {
+    func removeWords() -> Self {
         guard case .loaded(var viewData) = self else { return self }
 
-        viewData.isDefinitionsSaved = false
+        viewData.isWordsSaved = false
         return .loaded(viewData)
     }
 }

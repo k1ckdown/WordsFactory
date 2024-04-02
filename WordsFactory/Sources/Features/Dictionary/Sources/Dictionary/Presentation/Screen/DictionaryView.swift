@@ -31,12 +31,12 @@ struct DictionaryView: View {
     @ViewBuilder
     private var contentView: some View {
         switch viewModel.state {
-        case .idle:
+        case .idle, .failed:
             DictionaryPlaceholderView()
         case .loading:
-            definitionList(.init(
-                isDefinitionsSaved: false,
-                definitionCards: .placeholders(Constants.Definition.placeholders)
+            wordList(.init(
+                isWordsSaved: false,
+                wordCards: .placeholders(Constants.WordList.placeholders)
             ))
         case .loaded(let viewData):
             loadedView(viewData)
@@ -50,27 +50,27 @@ private extension DictionaryView {
 
     @ViewBuilder
     func loadedView(_ viewData: DictionaryViewModel.ViewState.ViewData) -> some View {
-        if viewData.definitionCards.isEmpty {
+        if viewData.wordCards.isEmpty {
             DictionaryPlaceholderView()
         } else {
-            definitionList(viewData)
+            wordList(viewData)
         }
     }
 
-    func definitionList(_ viewData: DictionaryViewModel.ViewState.ViewData) -> some View {
+    func wordList(_ viewData: DictionaryViewModel.ViewState.ViewData) -> some View {
         ScrollView {
-            LazyVStack(spacing: Constants.Definition.spacing) {
-                ForEach(viewData.definitionCards) { card in
-                    WordDefinitionCardView(viewModel: card)
+            LazyVStack(spacing: Constants.WordList.spacing) {
+                ForEach(viewData.wordCards) { card in
+                    WordCardView(viewModel: card)
                 }
             }
             .padding([.top, .horizontal])
-            .padding(.bottom, Constants.Definition.listInsetBottom)
+            .padding(.bottom, Constants.WordList.listInsetBottom)
         }
         .redacted(if: viewModel.state == .loading)
         .overlay(alignment: .bottom) {
             if case .loaded = viewModel.state {
-                Button(viewData.isDefinitionsSaved ? Strings.deleteFromDictionary : Strings.addToDictionary) {
+                Button(viewData.isWordsSaved ? Strings.deleteFromDictionary : Strings.addToDictionary) {
                     viewModel.handle(.dictionaryTapped)
                 }
                 .mainButtonStyle()
@@ -90,7 +90,7 @@ private extension DictionaryView {
             static let insetHorizontal: CGFloat = 33
         }
 
-        enum Definition {
+        enum WordList {
             static let placeholders = 2
             static let spacing: CGFloat = 30
             static let cornerRadius: CGFloat = 16

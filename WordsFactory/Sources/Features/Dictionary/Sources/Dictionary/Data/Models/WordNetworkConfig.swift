@@ -1,5 +1,5 @@
 //
-//  WordDefinitionNetworkConfig.swift
+//  WordNetworkConfig.swift
 //
 //
 //  Created by Ivan Semenov on 26.03.2024.
@@ -7,7 +7,7 @@
 
 import NetworkingAPI
 
-enum WordDefinitionNetworkConfig: NetworkConfig {
+enum WordNetworkConfig: NetworkConfig {
     case list(String)
 
     var path: String {
@@ -35,7 +35,7 @@ enum WordDefinitionNetworkConfig: NetworkConfig {
 
 // MARK: - Constants
 
-private extension WordDefinitionNetworkConfig {
+private extension WordNetworkConfig {
 
     enum Constants {
         static let path = "https://api.dictionaryapi.dev/api/v2/entries/en/"

@@ -1,12 +1,12 @@
 //
-//  WordDefinition.swift
+//  Word.swift
 //
 //
 //  Created by Ivan Semenov on 26.03.2024.
 //
 
-struct WordDefinition {
-    let word: String
+struct Word {
+    let text: String
     let phonetic: String?
     let meanings: [Meaning]
     let phonetics: [Phonetic]

@@ -1,11 +1,11 @@
 //
-//  WordDefinitionDTO.swift
+//  WordDTO.swift
 //
 //
 //  Created by Ivan Semenov on 26.03.2024.
 //
 
-struct WordDefinitionDTO: Decodable {
+struct WordDTO: Decodable {
     let word: String
     let phonetic: String?
     let meanings: [MeaningDTO]

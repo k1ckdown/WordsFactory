@@ -1,5 +1,5 @@
 //
-//  WordDefinitionCardView.swift
+//  WordCardView.swift
 //
 //
 //  Created by Ivan Semenov on 26.03.2024.
@@ -9,14 +9,14 @@ import SwiftUI
 import CommonUI
 import WrappingHStack
 
-struct WordDefinitionCardView: View {
+struct WordCardView: View {
 
-    let viewModel: WordDefinitionCardViewModel
+    let viewModel: WordCardViewModel
 
     var body: some View {
         VStack(alignment: .leading, spacing: Constants.contentSpacing) {
             HStack(alignment: .bottom, spacing: Constants.wordSpacing) {
-                Text(viewModel.word.capitalized)
+                Text(viewModel.text.capitalized)
                     .font(Fonts.headline4)
 
                 if viewModel.isPhoneticsShowing {
@@ -63,7 +63,7 @@ struct WordDefinitionCardView: View {
 
 // MARK: - Constants
 
-private extension WordDefinitionCardView {
+private extension WordCardView {
 
     enum Constants {
         static let wordSpacing: CGFloat = 16

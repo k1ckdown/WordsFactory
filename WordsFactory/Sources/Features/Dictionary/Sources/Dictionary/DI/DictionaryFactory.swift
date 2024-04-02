@@ -10,10 +10,10 @@ final class DictionaryFactory {
     private let dependencies: ModuleDependencies
     private lazy var coreDataProvider = CoreDataProvider()
 
-    private lazy var wordDefinitionRepository: WordDefinitionRepository = {
-        let localDataSource = WordDefinitionLocalDataSource(context: coreDataProvider.context)
-        let remoteDataSource = WordDefinitionRemoteDataSource(networkService: dependencies.networkService)
-        return WordDefinitionRepositoryImpl(localDataSource: localDataSource, remoteDataSource: remoteDataSource)
+    private lazy var wordRepository: WordRepository = {
+        let localDataSource = WordLocalDataSource(context: coreDataProvider.context)
+        let remoteDataSource = WordRemoteDataSource(networkService: dependencies.networkService)
+        return WordRepositoryImpl(localDataSource: localDataSource, remoteDataSource: remoteDataSource)
     }()
 
     init(dependencies: ModuleDependencies) {
@@ -29,9 +29,9 @@ extension DictionaryFactory: DictionaryScreenFactory {
         let viewModel = DictionaryViewModel(
             audioManager: makeAudioManager(),
             coordinator: coordinator,
-            saveWordDefinitionsUseCase: makeSaveWordDefinitionsUseCase(),
-            deleteWordDefinitionsUseCase: makeDeleteWordDefinitionsUseCase(),
-            fetchWordDefinitionsUseCase: makeFetchWordDefinitionsUseCase()
+            getWordListUseCase: makeGetWordListUseCase(),
+            saveWordListUseCase: makeSaveWordListUseCase(),
+            removeWordListUseCase: makeRemoveWordListUseCase()
         )
 
         let view = DictionaryView(viewModel: viewModel)
@@ -52,15 +52,15 @@ private extension DictionaryFactory {
 
 private extension DictionaryFactory {
 
-    func makeFetchWordDefinitionsUseCase() -> FetchWordDefinitionListUseCase {
-        FetchWordDefinitionListUseCase(wordDefinitionRepository: wordDefinitionRepository)
+    func makeGetWordListUseCase() -> GetWordListUseCase {
+        GetWordListUseCase(wordRepository: wordRepository)
     }
 
-    func makeSaveWordDefinitionsUseCase() -> SaveWordDefinitionsUseCase {
-        SaveWordDefinitionsUseCase(wordDefinitionRepository: wordDefinitionRepository)
+    func makeSaveWordListUseCase() -> SaveWordListUseCase {
+        SaveWordListUseCase(wordRepository: wordRepository)
     }
 
-    func makeDeleteWordDefinitionsUseCase() -> DeleteWordDefinitionsUseCase {
-        DeleteWordDefinitionsUseCase(wordDefinitionRepository: wordDefinitionRepository)
+    func makeRemoveWordListUseCase() -> RemoveWordListUseCase {
+        RemoveWordListUseCase(wordRepository: wordRepository)
     }
 }
