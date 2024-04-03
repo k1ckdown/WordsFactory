@@ -6,7 +6,6 @@
 //
 
 import CoreData
-import WordModuleAPI
 
 final class WordLocalDataSource {
 
@@ -21,8 +20,17 @@ final class WordLocalDataSource {
 
 extension WordLocalDataSource {
 
-    func save(_ words: [Word]) throws {
-        CDWord.insert(words, context: contextProvider.context)
+    func fetchAll() throws -> [CDWord] {
+        try contextProvider.context.fetch(CDWord.fetchRequest())
+    }
+
+    func fetch(by text: String) throws -> CDWord? {
+        let fetchRequest = getFetchRequest(by: text)
+        return try contextProvider.context.fetch(fetchRequest).first
+    }
+
+    func save(_ wordProvider: CDModelProvider<CDWord>) throws {
+        let _ = wordProvider(contextProvider.context)
         try contextProvider.context.save()
     }
 
@@ -32,18 +40,6 @@ extension WordLocalDataSource {
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         try contextProvider.context.execute(deleteRequest)
     }
-
-    func fetchAll() throws -> [Word] {
-        let cdWords = try contextProvider.context.fetch(CDWord.fetchRequest())
-        return cdWords.toDomain()
-    }
-
-    func fetchAll(by text: String) throws -> [Word] {
-        let fetchRequest = getFetchRequest(by: text)
-        let cdWords = try contextProvider.context.fetch(fetchRequest)
-
-        return cdWords.toDomain()
-    }
 }
 
 // MARK: - Private methods
@@ -52,7 +48,10 @@ private extension WordLocalDataSource {
 
     func getFetchRequest(by text: String) -> NSFetchRequest<CDWord> {
         let fetchRequest = CDWord.fetchRequest()
+
+        fetchRequest.fetchLimit = 1
         fetchRequest.predicate = NSPredicate(format: Constants.textPredicate, text.lowercased())
+
         return fetchRequest
     }
 }

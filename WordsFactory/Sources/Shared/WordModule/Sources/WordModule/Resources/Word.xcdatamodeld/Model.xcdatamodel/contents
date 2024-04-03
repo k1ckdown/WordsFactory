@@ -5,7 +5,7 @@
         <attribute name="partOfSpeech" attributeType="String"/>
         <attribute name="synonyms" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
         <relationship name="definitions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDMeaningDefinition" inverseName="meaning" inverseEntity="CDMeaningDefinition"/>
-        <relationship name="word" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDWord" inverseName="meanings" inverseEntity="CDWord"/>
+        <relationship name="wordDefinition" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDWordDefinition" inverseName="meanings" inverseEntity="CDWordDefinition"/>
     </entity>
     <entity name="CDMeaningDefinition" representedClassName="CDMeaningDefinition" syncable="YES">
         <attribute name="antonyms" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
@@ -17,13 +17,17 @@
     <entity name="CDPhonetic" representedClassName="CDPhonetic" syncable="YES">
         <attribute name="audio" optional="YES" attributeType="String"/>
         <attribute name="text" optional="YES" attributeType="String"/>
-        <relationship name="word" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDWord" inverseName="phonetics" inverseEntity="CDWord"/>
+        <relationship name="wordDefinition" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDWordDefinition" inverseName="phonetics" inverseEntity="CDWordDefinition"/>
     </entity>
     <entity name="CDWord" representedClassName="CDWord" syncable="YES">
-        <attribute name="phonetic" optional="YES" attributeType="String"/>
-        <attribute name="studyCoefficient" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="studyCoefficient" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="text" attributeType="String"/>
-        <relationship name="meanings" toMany="YES" deletionRule="Nullify" destinationEntity="CDMeaning" inverseName="word" inverseEntity="CDMeaning"/>
-        <relationship name="phonetics" toMany="YES" deletionRule="Nullify" destinationEntity="CDPhonetic" inverseName="word" inverseEntity="CDPhonetic"/>
+        <relationship name="definitions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDWordDefinition" inverseName="word" inverseEntity="CDWordDefinition"/>
+    </entity>
+    <entity name="CDWordDefinition" representedClassName="CDWordDefinition" syncable="YES">
+        <attribute name="phonetic" optional="YES" attributeType="String"/>
+        <relationship name="meanings" toMany="YES" deletionRule="Nullify" destinationEntity="CDMeaning" inverseName="wordDefinition" inverseEntity="CDMeaning"/>
+        <relationship name="phonetics" toMany="YES" deletionRule="Nullify" destinationEntity="CDPhonetic" inverseName="wordDefinition" inverseEntity="CDPhonetic"/>
+        <relationship name="word" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDWord" inverseName="definitions" inverseEntity="CDWord"/>
     </entity>
 </model>

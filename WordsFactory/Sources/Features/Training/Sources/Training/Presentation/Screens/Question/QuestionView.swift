@@ -45,11 +45,11 @@ private extension QuestionView {
                     .font(Fonts.paragraphLarge)
                     .foregroundStyle(Colors.appDarkGray.swiftUIColor)
 
-                Text(viewData.question.meaning)
+                Text(viewData.question.definition)
                     .font(Fonts.headline4)
                     .foregroundStyle(Colors.appDark.swiftUIColor)
                     .multilineTextAlignment(.center)
-                    .padding(.top, Constants.meaningInsetTop)
+                    .padding(.top, Constants.definitionInsetTop)
 
                 VStack(spacing: Constants.choiceSpacing) {
                     ForEach(viewData.question.choices) { choice in
@@ -75,14 +75,9 @@ private extension QuestionView {
 
     enum Constants {
         static let choiceSpacing: CGFloat = 16
-        static let meaningInsetTop: CGFloat = 8
+        static let definitionInsetTop: CGFloat = 8
         static let choicesInsetTop: CGFloat = 25
         static let timerOffsetY: CGFloat = -30
         static let questionOffsetY: CGFloat = -90
     }
-}
-
-
-#Preview {
-    QuestionView(viewModel: .init())
 }

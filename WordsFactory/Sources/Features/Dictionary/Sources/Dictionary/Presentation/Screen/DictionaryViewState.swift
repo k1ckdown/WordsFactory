@@ -14,8 +14,8 @@ extension DictionaryViewModel {
         case loaded(ViewData)
 
         struct ViewData: Equatable {
-            var isWordsSaved: Bool
-            var wordCards: [WordCardViewModel]
+            var isWordSaved: Bool
+            let wordCards: [WordCardViewModel]
         }
     }
 
@@ -29,17 +29,17 @@ extension DictionaryViewModel {
 
 extension DictionaryViewModel.ViewState {
 
-    func saveWords() -> Self {
+    func saveWord() -> Self {
         guard case .loaded(var viewData) = self else { return self }
 
-        viewData.isWordsSaved = true
+        viewData.isWordSaved = true
         return .loaded(viewData)
     }
 
-    func removeWords() -> Self {
+    func removeWord() -> Self {
         guard case .loaded(var viewData) = self else { return self }
 
-        viewData.isWordsSaved = false
+        viewData.isWordSaved = false
         return .loaded(viewData)
     }
 }

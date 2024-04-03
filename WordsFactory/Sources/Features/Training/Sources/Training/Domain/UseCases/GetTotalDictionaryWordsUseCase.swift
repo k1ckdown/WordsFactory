@@ -16,7 +16,7 @@ final class GetTotalDictionaryWordsUseCase {
     }
 
     func execute() throws -> Int {
-        let dictionaryWords = try wordRepository.getDictionary()
+        let dictionaryWords = try wordRepository.getAllDictionary()
         return dictionaryWords.count
     }
 }

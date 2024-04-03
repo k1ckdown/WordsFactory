@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "Dictionary",
+    name: "",
     defaultLocalization: "en",
     platforms: [.iOS(.v15)],
     products: [

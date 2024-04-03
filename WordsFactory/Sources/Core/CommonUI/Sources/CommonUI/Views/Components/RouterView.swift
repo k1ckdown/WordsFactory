@@ -7,35 +7,35 @@
 
 import SwiftUI
 
-public struct RouterView<Route, Root, Destination>: View where Root: View,
+public struct RouterView<Route, Content, Destination>: View where Content: View,
                                                                Destination: View,
                                                                Route: Hashable,
                                                                Route: CaseIterable,
                                                                Route.AllCases == Array<Route> {
-    let rootView: Root
+    let content: Content
     @Binding var selection: Route?
     let destination: (Route) -> Destination
 
     public init(
         selection: Binding<Route?>,
-        @ViewBuilder rootView: @escaping () -> Root,
+        @ViewBuilder content: @escaping () -> Content,
         @ViewBuilder destination: @escaping (Route) -> Destination
     ) {
         _selection = selection
-        self.rootView = rootView()
+        self.content = content()
         self.destination = destination
     }
     
     public var body: some View {
         ZStack {
-            rootView
+            content
 
             ForEach(Route.allCases, id: \.self) { screen in
                 NavigationLink(
                     tag: screen,
                     selection: $selection
                 ) {
-                    destination(screen)
+                    NavigationLazyView(destination(screen))
                 } label: {
                     EmptyView()
                 }

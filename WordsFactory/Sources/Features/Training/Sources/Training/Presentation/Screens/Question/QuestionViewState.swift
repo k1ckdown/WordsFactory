@@ -15,7 +15,7 @@ extension QuestionViewModel {
         struct ViewData: Equatable {
             struct Question: Equatable {
                 let number: Int
-                let meaning: String
+                let definition: String
                 let choices: [AnswerChoiceViewModel]
             }
 

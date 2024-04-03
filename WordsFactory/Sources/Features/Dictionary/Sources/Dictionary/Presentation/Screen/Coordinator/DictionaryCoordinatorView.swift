@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct DictionaryCoordinatorView: View {
+struct DictionaryCoordinatorView: View {
     typealias Factory = DictionaryScreenFactory
 
     private let factory: Factory
@@ -18,7 +18,7 @@ public struct DictionaryCoordinatorView: View {
         self.coordinator = coordinator
     }
 
-    public var body: some View {
+    var body: some View {
         factory.makeDictionaryScreen(coordinator: coordinator)
             .errorAlert($coordinator.errorMessage)
             .navigationBarHidden(true)

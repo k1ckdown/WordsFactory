@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct AuthCoordinatorView: View {
+struct AuthCoordinatorView: View {
 
     private let screenFactory: ScreenFactory
     @ObservedObject private var coordinator: AuthCoordinator
@@ -17,10 +17,8 @@ public struct AuthCoordinatorView: View {
         self.screenFactory = screenFactory
     }
 
-    public var body: some View {
-        NavigationView {
-            sceneCoordinator
-        }
+    var body: some View {
+        sceneCoordinator
     }
 
     @ViewBuilder

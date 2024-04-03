@@ -5,6 +5,7 @@
 //  Created by Ivan Semenov on 29.03.2024.
 //
 
+import SwiftUI
 import DictionaryAPI
 
 public struct DictionaryCoordinatorAssembly: DictionaryCoordinatorAssemblyProtocol {
@@ -15,7 +16,7 @@ public struct DictionaryCoordinatorAssembly: DictionaryCoordinatorAssemblyProtoc
         factory = DictionaryFactory(dependencies: dependencies)
     }
 
-    public func assemble() -> DictionaryCoordinatorView {
+    public func assemble() -> some View {
         let coordinator = DictionaryCoordinator()
         let coordinatorView = DictionaryCoordinatorView(factory: factory, coordinator: coordinator)
 

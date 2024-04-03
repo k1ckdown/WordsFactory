@@ -7,14 +7,12 @@
 
 public struct Word {
     public let text: String
-    public let phonetic: String?
-    public let meanings: [Meaning]
-    public let phonetics: [Phonetic]
+    public let isDictionary: Bool
+    public let definitions: [WordDefinition]
 
-    public init(text: String, phonetic: String?, meanings: [Meaning], phonetics: [Phonetic]) {
+    public init(text: String, isDictionary: Bool, definitions: [WordDefinition]) {
         self.text = text
-        self.phonetic = phonetic
-        self.meanings = meanings
-        self.phonetics = phonetics
+        self.isDictionary = isDictionary
+        self.definitions = definitions
     }
 }

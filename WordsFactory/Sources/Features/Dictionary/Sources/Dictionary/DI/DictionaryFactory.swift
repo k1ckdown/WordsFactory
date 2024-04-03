@@ -22,9 +22,9 @@ extension DictionaryFactory: DictionaryScreenFactory {
         let viewModel = DictionaryViewModel(
             audioManager: makeAudioManager(),
             coordinator: coordinator,
-            getWordListUseCase: makeGetWordListUseCase(),
-            saveWordListUseCase: makeSaveWordListUseCase(),
-            removeWordListUseCase: makeRemoveWordListUseCase()
+            getWordUseCase: makeGetWordUseCase(),
+            saveDictionaryWordUseCase: makeSaveDictionaryWordUseCase(),
+            removeDictionaryWordUseCase: makeRemoveDictionaryWordUseCase()
         )
 
         let view = DictionaryView(viewModel: viewModel)
@@ -45,15 +45,15 @@ private extension DictionaryFactory {
 
 private extension DictionaryFactory {
 
-    func makeGetWordListUseCase() -> GetWordListUseCase {
-        GetWordListUseCase(wordRepository: dependencies.wordRepository)
+    func makeGetWordUseCase() -> GetWordUseCase {
+        GetWordUseCase(wordRepository: dependencies.wordRepository)
     }
 
-    func makeSaveWordListUseCase() -> SaveWordListUseCase {
-        SaveWordListUseCase(wordRepository: dependencies.wordRepository)
+    func makeSaveDictionaryWordUseCase() -> SaveDictionaryWordUseCase {
+        SaveDictionaryWordUseCase(wordRepository: dependencies.wordRepository)
     }
 
-    func makeRemoveWordListUseCase() -> RemoveWordListUseCase {
-        RemoveWordListUseCase(wordRepository: dependencies.wordRepository)
+    func makeRemoveDictionaryWordUseCase() -> RemoveDictionaryWordUseCase {
+        RemoveDictionaryWordUseCase(wordRepository: dependencies.wordRepository)
     }
 }

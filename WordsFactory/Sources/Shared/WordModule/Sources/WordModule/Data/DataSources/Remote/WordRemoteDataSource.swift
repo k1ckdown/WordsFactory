@@ -20,7 +20,7 @@ final class WordRemoteDataSource {
 
 extension WordRemoteDataSource {
 
-    func fetchAll(by word: String) async throws -> [WordDTO] {
+    func fetchAll(by word: String) async throws -> [WordDefinitionDTO] {
         let networkConfig = WordNetworkConfig.list(word)
         return try await networkService.request(config: networkConfig)
     }

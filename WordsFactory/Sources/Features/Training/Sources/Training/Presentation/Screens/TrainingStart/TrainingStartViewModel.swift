@@ -5,11 +5,21 @@
 //  Created by Ivan Semenov on 31.03.2024.
 //
 
+import Combine
 import Foundation
 
 final class TrainingStartViewModel: ObservableObject {
 
     @Published private(set) var state = ViewState.idle
+
+    private var subscriptions: Set<AnyCancellable> = []
+    private let coordinator: TrainingStartCoordinatorProtocol
+    private let getTotalDictionaryWordsUseCase: GetTotalDictionaryWordsUseCase
+
+    init(coordinator: TrainingStartCoordinatorProtocol, getTotalDictionaryWordsUseCase: GetTotalDictionaryWordsUseCase) {
+        self.coordinator = coordinator
+        self.getTotalDictionaryWordsUseCase = getTotalDictionaryWordsUseCase
+    }
 
     func handle(_ event: Event) {
         switch event {
@@ -26,12 +36,24 @@ final class TrainingStartViewModel: ObservableObject {
 private extension TrainingStartViewModel {
 
     func getTotalWords() {
-        let totalWords = 25
-        state = .loaded(.init(totalWords: totalWords, countdown: makeTimer()))
+        do {
+            let totalWords = try getTotalDictionaryWordsUseCase.execute()
+            state = .loaded(.init(totalWords: totalWords, countdown: makeTimer()))
+        } catch {
+            state = .failed
+        }
     }
 
     func makeTimer() -> TimerViewModel {
         let timer = TimerViewModel(total: Constants.countdownDuration)
+
+        timer.$progress
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] in
+                if $0.isLess(than: 0) { self?.coordinator.showQuestion() }
+            }
+            .store(in: &subscriptions)
+
         return timer
     }
 

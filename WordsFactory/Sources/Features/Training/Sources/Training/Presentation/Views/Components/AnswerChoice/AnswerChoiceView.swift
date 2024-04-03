@@ -17,7 +17,7 @@ struct AnswerChoiceView: View {
         HStack(spacing: .zero) {
             Text("\(viewModel.key).")
 
-            Text(viewModel.value)
+            Text(viewModel.value.capitalized)
                 .padding(.leading)
         }
         .font(Fonts.paragraphLarge)

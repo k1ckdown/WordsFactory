@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct OnBoardingCoordinatorView: View {
+struct OnBoardingCoordinatorView: View {
 
     private let factory: ScreenFactory
     @ObservedObject private var coordinator: OnBoardingCoordinator
@@ -17,7 +17,7 @@ public struct OnBoardingCoordinatorView: View {
         self.coordinator = coordinator
     }
 
-    public var body: some View {
+    var body: some View {
         factory.makeOnBoardingScreen(coordinator: coordinator)
     }
 }

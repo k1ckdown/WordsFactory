@@ -31,11 +31,13 @@ struct DictionaryView: View {
     @ViewBuilder
     private var contentView: some View {
         switch viewModel.state {
-        case .idle, .failed:
+        case .idle:
             DictionaryPlaceholderView()
+        case .failed:
+            EmptyView()
         case .loading:
             wordList(.init(
-                isWordsSaved: false,
+                isWordSaved: false,
                 wordCards: .placeholders(Constants.WordList.placeholders)
             ))
         case .loaded(let viewData):
@@ -70,7 +72,7 @@ private extension DictionaryView {
         .redacted(if: viewModel.state == .loading)
         .overlay(alignment: .bottom) {
             if case .loaded = viewModel.state {
-                Button(viewData.isWordsSaved ? Strings.deleteFromDictionary : Strings.addToDictionary) {
+                Button(viewData.isWordSaved ? Strings.deleteFromDictionary : Strings.addToDictionary) {
                     viewModel.handle(.dictionaryTapped)
                 }
                 .mainButtonStyle()

@@ -12,6 +12,7 @@ import Auth
 import Video
 import Dictionary
 import WordModule
+import Training
 
 final class AppFactory {
     private lazy var networkService = NetworkService()
@@ -22,11 +23,11 @@ final class AppFactory {
 
 extension AppFactory {
 
-    func makeAuthCoordinator(onFlowFinish: @escaping () -> Void) -> AuthCoordinatorView {
+    func makeAuthCoordinator(onFlowFinish: @escaping () -> Void) -> some View {
         AuthCoordinatorAssembly().assemble(onFlowFinish: onFlowFinish)
     }
 
-    func makeOnBoardingCoordinator(onFlowFinish: @escaping () -> Void) -> OnBoardingCoordinatorView {
+    func makeOnBoardingCoordinator(onFlowFinish: @escaping () -> Void) -> some View {
         OnBoardingCoordinatorAssembly().assemble(onFlowFinish: onFlowFinish)
     }
 
@@ -37,5 +38,10 @@ extension AppFactory {
     func makeDictionaryCoordinatorAssembly() -> DictionaryCoordinatorAssembly {
         let dependencies = ModuleDependencies(networkService: networkService, wordRepository: wordRepository)
         return DictionaryCoordinatorAssembly(dependencies: dependencies)
+    }
+
+    func makeTrainingCoordinatorAssembly() -> TrainingCoordinatorAssembly {
+        let dependencies = Training.ModuleDependencies(wordRepository: wordRepository)
+        return TrainingCoordinatorAssembly(dependencies: dependencies)
     }
 }

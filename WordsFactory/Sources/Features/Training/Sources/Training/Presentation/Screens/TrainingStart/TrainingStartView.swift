@@ -95,7 +95,3 @@ private extension TrainingStartView {
         static let startButtonHorizontalInset: CGFloat = 33
     }
 }
-
-#Preview {
-    TrainingStartView(viewModel: .init())
-}

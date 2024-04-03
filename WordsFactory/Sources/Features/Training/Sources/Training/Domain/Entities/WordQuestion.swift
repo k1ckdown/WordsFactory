@@ -7,6 +7,6 @@
 
 struct WordQuestion {
     let answer: String
-    let meaning: String
+    let definition: String
     let choices: [String: String]
 }

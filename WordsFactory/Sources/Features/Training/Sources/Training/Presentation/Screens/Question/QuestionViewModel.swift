@@ -14,7 +14,15 @@ final class QuestionViewModel: ObservableObject {
 
     private var questionNumber = 1
     private var questions: [WordQuestion] = []
-    private var subscriptions = Set<AnyCancellable>()
+    private var subscriptions: Set<AnyCancellable> = []
+
+    private let coordinator: QuestionCoordinatorProtocol
+    private let getWordQuestionsUseCase: GetWordQuestionsUseCase
+
+    init(coordinator: QuestionCoordinatorProtocol, getWordQuestionsUseCase: GetWordQuestionsUseCase) {
+        self.coordinator = coordinator
+        self.getWordQuestionsUseCase = getWordQuestionsUseCase
+    }
 
     func handle(_ event: Event) {
         switch event {
@@ -45,8 +53,13 @@ private extension QuestionViewModel {
     }
 
     func fetchQuestions() {
-        questions = []
-        handleQuestions(questions)
+        do {
+            questions = try getWordQuestionsUseCase.execute()
+            handleQuestions(questions)
+        } catch {
+            state = .failed
+            coordinator.showError(message: error.localizedDescription)
+        }
     }
 
     func handleQuestions(_ questions: [WordQuestion]) {
@@ -69,7 +82,7 @@ private extension QuestionViewModel {
             AnswerChoiceViewModel(key: key, value: value, chooseHandler: { self.handleChoiceTap(key) })
         }
 
-        return .init(number: number, meaning: question.meaning, choices: choices)
+        return .init(number: number, definition: question.definition, choices: choices)
     }
 
     func makeTimer() -> TimerViewModel {

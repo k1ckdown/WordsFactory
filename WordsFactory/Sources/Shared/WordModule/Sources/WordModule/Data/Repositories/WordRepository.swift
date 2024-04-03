@@ -23,25 +23,26 @@ final class WordRepository {
 
 extension WordRepository: WordRepositoryProtocol {
 
-    func save(_ words: [Word]) throws {
-        try localDataSource.save(words)
+    func save(_ word: Word) throws {
+        try localDataSource.save { CDWord(word, context: $0) }
     }
 
     func remove(by text: String) throws {
         try localDataSource.remove(by: text)
     }
 
-    func getDictionary() throws -> [Word] {
-        try localDataSource.fetchAll()
+    func getAllDictionary() throws -> [DictionaryWord] {
+        let localWords = try localDataSource.fetchAll()
+        return localWords.map { $0.toDictionary() }
     }
 
-    func getAll(by text: String) async throws -> WordList {
+    func get(by text: String) async throws -> Word? {
         do {
-            return try await fetchRemoteWordList(of: text)
+            return try await fetchRemoteWord(by: text)
         } catch NetworkError.requestFailed(.notFound, _) {
-            return WordList(words: [], isSaved: false)
+            return nil
         } catch NetworkError.notConnected {
-            return try fetchLocalWordList(by: text)
+            return try fetchLocalWord(by: text)
         } catch {
             throw error
         }
@@ -52,18 +53,15 @@ extension WordRepository: WordRepositoryProtocol {
 
 private extension WordRepository {
 
-    func fetchLocalWordList(by text: String) throws -> WordList {
-        let localWords = try localDataSource.fetchAll(by: text)
-        let isSaved = localWords.isEmpty == false
-
-        return WordList(words: localWords, isSaved: isSaved)
+    func fetchLocalWord(by text: String) throws -> Word? {
+        let localWord = try localDataSource.fetch(by: text)
+        return localWord?.toDomain()
     }
 
-    func fetchRemoteWordList(of text: String) async throws -> WordList {
-        let localWords = try fetchLocalWordList(by: text)
-        let dtoList = try await remoteDataSource.fetchAll(by: text)
-        let domainList = WordMapper.toDomainList(dtoList)
+    func fetchRemoteWord(by text: String) async throws -> Word? {
+        let isDictionary = try localDataSource.fetch(by: text) != nil
+        let remoteDefinitions = try await remoteDataSource.fetchAll(by: text)
 
-        return WordList(words: domainList, isSaved: localWords.isSaved)
+        return remoteDefinitions.toWord(isDictionary: isDictionary)
     }
 }

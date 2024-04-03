@@ -6,8 +6,8 @@
 //
 
 public protocol WordRepositoryProtocol: AnyObject {
-    func save(_ words: [Word]) throws
+    func save(_ word: Word) throws
     func remove(by text: String) throws
-    func getDictionary() throws -> [Word]
-    func getAll(by text: String) async throws -> WordList
+    func get(by text: String) async throws -> Word?
+    func getAllDictionary() throws -> [DictionaryWord]
 }
