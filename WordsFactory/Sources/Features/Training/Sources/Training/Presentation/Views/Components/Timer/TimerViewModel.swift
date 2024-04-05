@@ -10,7 +10,7 @@ import Foundation
 final class TimerViewModel: ObservableObject, Equatable {
 
     var fractionRemained: Double {
-        progress / total
+        max(0, progress / total)
     }
 
     @Published private(set) var progress: Double

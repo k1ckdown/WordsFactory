@@ -26,6 +26,7 @@ struct AppCoordinator: View {
         NavigationView {
             sceneCoordinator
         }
+        .navigationViewStyle(.stack)
         .preferredColorScheme(.light)
     }
 

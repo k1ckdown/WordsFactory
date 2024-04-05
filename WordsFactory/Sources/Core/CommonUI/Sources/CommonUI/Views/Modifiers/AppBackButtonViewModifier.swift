@@ -10,6 +10,7 @@ import SwiftUI
 struct AppBackButtonViewModifier: ViewModifier {
 
     let action: (() -> Void)?
+    let backHandler: (() -> Void)?
     @Environment(\.dismiss) private var dismiss
 
     func body(content: Content) -> some View {
@@ -18,7 +19,8 @@ struct AppBackButtonViewModifier: ViewModifier {
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button {
-                        action?() ?? dismiss()
+                        action?()
+                        backHandler?() ?? dismiss()
                     } label: {
                         Images.arrowLeftIcon.swiftUIImage
                             .resizable()
@@ -49,7 +51,7 @@ private extension AppBackButtonViewModifier {
 }
 
 public extension View {
-    func appBackButton(_ action: (() -> Void)? = nil) -> some View {
-        modifier(AppBackButtonViewModifier(action: action))
+    func appBackButton(_ backHandler: (() -> Void)? = nil, action: (() -> Void)? = nil) -> some View {
+        modifier(AppBackButtonViewModifier(action: action, backHandler: backHandler))
     }
 }

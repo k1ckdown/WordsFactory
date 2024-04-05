@@ -100,7 +100,7 @@ private extension QuestionViewModel {
             AnswerChoiceViewModel(
                 key: key,
                 value: value,
-                chooseHandler: { self.handleChoiceTap(key: key, questionNumber: number) }
+                chooseHandler: { [weak self] in self?.handleChoiceTap(key: key, questionNumber: number) }
             )
         }
 
