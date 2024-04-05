@@ -15,4 +15,4 @@
 "StartTraining" = "Start the Training";
 "TrainingFinished" = "Training is finished";
 "AddWordsToDictionary" = "Add words to the dictionary";
-"DictionaryWords" = "There are **%d** words in your Dictionary.";
+"DictionaryWords" = "There are **%d** words\nin your Dictionary.";
