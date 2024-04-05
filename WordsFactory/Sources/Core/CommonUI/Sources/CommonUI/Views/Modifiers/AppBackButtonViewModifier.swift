@@ -51,7 +51,7 @@ private extension AppBackButtonViewModifier {
 }
 
 public extension View {
-    func appBackButton(_ backHandler: (() -> Void)? = nil, action: (() -> Void)? = nil) -> some View {
+    func appBackButton(backHandler: (() -> Void)? = nil, action: (() -> Void)? = nil) -> some View {
         modifier(AppBackButtonViewModifier(action: action, backHandler: backHandler))
     }
 }
