@@ -11,6 +11,7 @@ import CommonUI
 struct TrainingFinishCoordinatorView<Content: View>: View {
     
     private let content: () -> Content
+    @Environment(\.dismiss) private var dismiss
     @ObservedObject private var coordinator: TrainingFinishCoordinator
     
     init(content: @autoclosure @escaping () -> Content, coordinator: TrainingFinishCoordinator) {
@@ -22,5 +23,9 @@ struct TrainingFinishCoordinatorView<Content: View>: View {
         content()
             .appBackButton()
             .errorAlert($coordinator.errorMessage)
+            .onChange(of: coordinator.screen) { screen in
+                guard case .question = screen else { return }
+                dismiss()
+            }
     }
 }

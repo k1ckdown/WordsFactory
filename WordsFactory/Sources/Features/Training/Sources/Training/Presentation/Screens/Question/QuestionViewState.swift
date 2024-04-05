@@ -28,7 +28,6 @@ extension QuestionViewModel {
 
     enum Event {
         case onAppear
-        case choiceTapped
     }
 }
 
@@ -40,6 +39,8 @@ extension QuestionViewModel.ViewState {
         guard case .loaded(var viewData) = self else { return self }
 
         viewData.isChoiceDisabled = true
+        viewData.timer.pauseTimer()
+
         return .loaded(viewData)
     }
 

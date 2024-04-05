@@ -33,7 +33,7 @@ final class TrainingFinishViewModel: ObservableObject {
         case .onAppear:
             handleOnAppear()
         case .againTapped:
-            break
+            coordinator.showQuestion()
         }
     }
 }

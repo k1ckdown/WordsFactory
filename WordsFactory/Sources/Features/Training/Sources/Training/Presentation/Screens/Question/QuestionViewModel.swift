@@ -12,9 +12,9 @@ final class QuestionViewModel: ObservableObject {
 
     @Published private(set) var state = ViewState.idle
 
-    private var questionNumber = 1
     private var answers: [WordTestAnswer] = []
     private var subscriptions: Set<AnyCancellable> = []
+    private var questionNumber = Constants.initialQuestionNumber
 
     private let coordinator: QuestionCoordinatorProtocol
     private let getWordQuestionsUseCase: GetWordQuestionsUseCase
@@ -28,8 +28,6 @@ final class QuestionViewModel: ObservableObject {
         switch event {
         case .onAppear:
             getQuestions()
-        case .choiceTapped:
-            setNextQuestion()
         }
     }
 }
@@ -38,13 +36,18 @@ final class QuestionViewModel: ObservableObject {
 
 private extension QuestionViewModel {
 
+    func updateQuestionState() {
+        questionNumber == answers.count ? goToFinish() : setNextQuestion()
+    }
+
+    func goToFinish() {
+        subscriptions.removeAll()
+        coordinator.showTrainingFinish(answers)
+    }
+
     func setNextQuestion() {
-        if questionNumber == answers.count {
-            coordinator.showTrainingFinish(answers)
-        } else {
-            questionNumber += 1
-            state = state.setQuestion(makeQuestionViewData(at: questionNumber))
-        }
+        questionNumber += 1
+        state = state.setQuestion(makeQuestionViewData(at: questionNumber))
     }
 
     func getQuestions() {
@@ -62,14 +65,16 @@ private extension QuestionViewModel {
         state = state.disableChoice()
 
         DispatchQueue.main.asyncAfter(deadline: .now() + Constants.delayNextQuestion) {
-            self.setNextQuestion()
+            self.updateQuestionState()
         }
     }
 
     func handleQuestions(_ questions: [WordTestQuestion]) {
         guard questions.isEmpty == false else { return }
 
+        questionNumber = Constants.initialQuestionNumber
         answers = questions.map { .init(question: $0) }
+
         let timer = makeTimer()
         let viewData = ViewState.ViewData(
             question: makeQuestionViewData(at: questionNumber),
@@ -87,7 +92,7 @@ private extension QuestionViewModel {
         timer.$progress
             .receive(on: DispatchQueue.main)
             .sink { [weak self] in
-                if $0.isLess(than: 0) { self?.setNextQuestion() }
+                if $0.isLess(than: 0) { self?.updateQuestionState() }
             }
             .store(in: &subscriptions)
 
@@ -114,5 +119,6 @@ private extension QuestionViewModel {
 
     enum Constants {
         static let delayNextQuestion = 0.3
+        static let initialQuestionNumber = 1
     }
 }
