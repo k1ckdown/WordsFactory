@@ -24,6 +24,7 @@ struct QuestionCoordinatorView<Content: View>: View {
     var body: some View {
         RouterView(selection: $coordinator.screen, content: {
             content()
+                .appBackButton()
                 .errorAlert($coordinator.errorMessage)
         }, destination: destination)
     }

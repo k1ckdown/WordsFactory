@@ -20,6 +20,7 @@ struct TrainingFinishCoordinatorView<Content: View>: View {
     
     var body: some View {
         content()
+            .appBackButton()
             .errorAlert($coordinator.errorMessage)
     }
 }

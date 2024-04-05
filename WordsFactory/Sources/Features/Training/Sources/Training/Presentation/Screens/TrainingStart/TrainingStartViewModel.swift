@@ -45,7 +45,7 @@ private extension TrainingStartViewModel {
     }
 
     func makeTimer() -> TimerViewModel {
-        let timer = TimerViewModel(total: Constants.countdownDuration)
+        let timer = TimerViewModel()
 
         timer.$progress
             .receive(on: DispatchQueue.main)
@@ -73,6 +73,5 @@ private extension TrainingStartViewModel {
 
     enum Constants {
         static let delayShowCountdown = 0.25
-        static let countdownDuration: Double = 5
     }
 }
