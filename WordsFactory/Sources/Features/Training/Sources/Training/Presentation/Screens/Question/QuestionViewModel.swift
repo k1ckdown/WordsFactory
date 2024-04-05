@@ -13,7 +13,7 @@ final class QuestionViewModel: ObservableObject {
     @Published private(set) var state = ViewState.idle
 
     private var questionNumber = 1
-    private var questions: [WordQuestion] = []
+    private var answers: [WordTestAnswer] = []
     private var subscriptions: Set<AnyCancellable> = []
 
     private let coordinator: QuestionCoordinatorProtocol
@@ -27,7 +27,7 @@ final class QuestionViewModel: ObservableObject {
     func handle(_ event: Event) {
         switch event {
         case .onAppear:
-            fetchQuestions()
+            getQuestions()
         case .choiceTapped:
             setNextQuestion()
         }
@@ -38,23 +38,18 @@ final class QuestionViewModel: ObservableObject {
 
 private extension QuestionViewModel {
 
-    func handleChoiceTap(_ key: String) {
-        state = state.disableChoice()
-        DispatchQueue.main.asyncAfter(deadline: .now() + Constants.delayNextQuestion) {
-            self.setNextQuestion()
+    func setNextQuestion() {
+        if questionNumber == answers.count {
+            coordinator.showTrainingFinish(answers)
+        } else {
+            questionNumber += 1
+            state = state.setQuestion(makeQuestionViewData(at: questionNumber))
         }
     }
 
-    func setNextQuestion() {
-        guard questionNumber != questions.count else { return }
-
-        questionNumber += 1
-        state = state.setQuestion(getQuestionViewData(at: questionNumber))
-    }
-
-    func fetchQuestions() {
+    func getQuestions() {
         do {
-            questions = try getWordQuestionsUseCase.execute()
+            let questions = try getWordQuestionsUseCase.execute()
             handleQuestions(questions)
         } catch {
             state = .failed
@@ -62,27 +57,28 @@ private extension QuestionViewModel {
         }
     }
 
-    func handleQuestions(_ questions: [WordQuestion]) {
+    func handleChoiceTap(key: String, questionNumber: Int) {
+        answers[questionNumber - 1].key = key
+        state = state.disableChoice()
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + Constants.delayNextQuestion) {
+            self.setNextQuestion()
+        }
+    }
+
+    func handleQuestions(_ questions: [WordTestQuestion]) {
         guard questions.isEmpty == false else { return }
 
+        answers = questions.map { .init(question: $0) }
         let timer = makeTimer()
         let viewData = ViewState.ViewData(
-            question: getQuestionViewData(at: questionNumber),
+            question: makeQuestionViewData(at: questionNumber),
             totalQuestions: questions.count,
             timer: timer
         )
 
         state = .loaded(viewData)
         timer.startTimer()
-    }
-
-    func getQuestionViewData(at number: Int) -> ViewState.ViewData.Question {
-        let question = questions[number - 1]
-        let choices = question.choices.sorted(by: <).map { key, value in
-            AnswerChoiceViewModel(key: key, value: value, chooseHandler: { self.handleChoiceTap(key) })
-        }
-
-        return .init(number: number, definition: question.definition, choices: choices)
     }
 
     func makeTimer() -> TimerViewModel {
@@ -96,6 +92,19 @@ private extension QuestionViewModel {
             .store(in: &subscriptions)
 
         return timer
+    }
+
+    func makeQuestionViewData(at number: Int) -> ViewState.ViewData.Question {
+        let question = answers[number - 1].question
+        let choices = question.choices.sorted(by: <).map { key, value in
+            AnswerChoiceViewModel(
+                key: key,
+                value: value,
+                chooseHandler: { self.handleChoiceTap(key: key, questionNumber: number) }
+            )
+        }
+
+        return .init(number: number, definition: question.answerWord.definition, choices: choices)
     }
 }
 

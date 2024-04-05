@@ -8,10 +8,9 @@
 import SwiftUI
 
 public struct RouterView<Route, Content, Destination>: View where Content: View,
-                                                               Destination: View,
-                                                               Route: Hashable,
-                                                               Route: CaseIterable,
-                                                               Route.AllCases == Array<Route> {
+                                                                  Destination: View,
+                                                                  Route: Routable,
+                                                                  Route.AllCases == Array<Route> {
     let content: Content
     @Binding var selection: Route?
     let destination: (Route) -> Destination
@@ -25,15 +24,15 @@ public struct RouterView<Route, Content, Destination>: View where Content: View,
         self.content = content()
         self.destination = destination
     }
-    
+
     public var body: some View {
         ZStack {
             content
 
-            ForEach(Route.allCases, id: \.self) { screen in
+            ForEach(Route.allCases) { screen in
                 NavigationLink(
                     tag: screen,
-                    selection: $selection
+                    selection: activeLink
                 ) {
                     NavigationLazyView(destination(screen))
                 } label: {
@@ -41,5 +40,12 @@ public struct RouterView<Route, Content, Destination>: View where Content: View,
                 }
             }
         }
+    }
+
+    private var activeLink: Binding<Route?> {
+        Binding(
+            get: { selection?.navigationLink },
+            set: { selection = $0 }
+        )
     }
 }

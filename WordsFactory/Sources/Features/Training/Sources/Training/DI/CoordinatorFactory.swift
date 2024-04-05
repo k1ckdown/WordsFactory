@@ -9,25 +9,10 @@ import Foundation
 
 final class CoordinatorFactory {
 
-    private let useCaseFactory: UseCaseFactory
+    private let screenFactory: ScreenFactory
 
-    init(useCaseFactory: UseCaseFactory) {
-        self.useCaseFactory = useCaseFactory
-    }
-}
-
-// MARK: - TrainingStartCoordinatorFactory
-
-extension CoordinatorFactory: TrainingStartCoordinatorFactory {
-    func makeTrainingStartCoordinator() -> TrainingStartCoordinatorView<TrainingStartView> {
-        let coordinator = TrainingStartCoordinator()
-        let coordinatorView = TrainingStartCoordinatorView(
-            factory: self,
-            content: self.makeTrainingStartScreen(coordinator: coordinator),
-            coordinator: coordinator
-        )
-
-        return coordinatorView
+    init(screenFactory: ScreenFactory) {
+        self.screenFactory = screenFactory
     }
 }
 
@@ -38,7 +23,7 @@ extension CoordinatorFactory: QuestionCoordinatorFactory {
         let coordinator = QuestionCoordinator()
         let coordinatorView = QuestionCoordinatorView(
             factory: self,
-            content: self.makeQuestionScreen(coordinator: coordinator),
+            content: self.screenFactory.makeQuestionScreen(coordinator: coordinator),
             coordinator: coordinator
         )
 
@@ -46,27 +31,31 @@ extension CoordinatorFactory: QuestionCoordinatorFactory {
     }
 }
 
-// MARK: - Screens
+// MARK: - TrainingStartCoordinatorFactory
 
-private extension CoordinatorFactory {
-
-    func makeQuestionScreen(coordinator: QuestionCoordinatorProtocol) -> QuestionView {
-        let viewModel = QuestionViewModel(
-            coordinator: coordinator,
-            getWordQuestionsUseCase: useCaseFactory.makeGetWordQuestionsUseCase()
+extension CoordinatorFactory: TrainingStartCoordinatorFactory {
+    func makeTrainingStartCoordinator() -> TrainingStartCoordinatorView<TrainingStartView> {
+        let coordinator = TrainingStartCoordinator()
+        let coordinatorView = TrainingStartCoordinatorView(
+            factory: self,
+            content: self.screenFactory.makeTrainingStartScreen(coordinator: coordinator),
+            coordinator: coordinator
         )
 
-        let view = QuestionView(viewModel: viewModel)
-        return view
+        return coordinatorView
     }
+}
 
-    func makeTrainingStartScreen(coordinator: TrainingStartCoordinatorProtocol) -> TrainingStartView {
-        let viewModel = TrainingStartViewModel(
-            coordinator: coordinator,
-            getTotalDictionaryWordsUseCase: useCaseFactory.makeGetTotalDictionaryWordsUseCase()
+// MARK: - TrainingFinishCoordinatorFactory
+
+extension CoordinatorFactory: TrainingFinishCoordinatorFactory {
+    func makeTrainingFinishCoordinator(answers: [WordTestAnswer]) -> TrainingFinishCoordinatorView<TrainingFinishView> {
+        let coordinator = TrainingFinishCoordinator()
+        let coordinatorView = TrainingFinishCoordinatorView(
+            content: self.screenFactory.makeTrainingFinishScreen(answers: answers, coordinator: coordinator),
+            coordinator: coordinator
         )
 
-        let view = TrainingStartView(viewModel: viewModel)
-        return view
+        return coordinatorView
     }
 }

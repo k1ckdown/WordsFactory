@@ -9,7 +9,7 @@ import SwiftUI
 import CommonUI
 
 struct QuestionCoordinatorView<Content: View>: View {
-    typealias Factory = CoordinatorFactory
+    typealias Factory = TrainingFinishCoordinatorFactory
 
     private let factory: Factory
     private let content: () -> Content
@@ -22,7 +22,19 @@ struct QuestionCoordinatorView<Content: View>: View {
     }
 
     var body: some View {
-        content()
-            .errorAlert($coordinator.errorMessage)
+        RouterView(selection: $coordinator.screen, content: {
+            content()
+                .errorAlert($coordinator.errorMessage)
+        }, destination: destination)
+    }
+
+    @ViewBuilder
+    private func destination(_ screen: QuestionCoordinator.Screen) -> some View {
+        switch (screen, coordinator.screen) {
+        case (.trainingFinish, .trainingFinishParameterized(let answers)):
+            factory.makeTrainingFinishCoordinator(answers: answers)
+        default:
+            EmptyView()
+        }
     }
 }

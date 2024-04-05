@@ -9,6 +9,10 @@
 "Go" = "GO";
 "Of" = "%d of %d";
 "Start" = "Start";
+"Again" = "Again";
+"Correct" = "Correct";
+"Incorrect" = "Incorrect";
 "StartTraining" = "Start the Training";
+"TrainingFinished" = "Training is finished";
 "AddWordsToDictionary" = "Add words to the dictionary";
 "DictionaryWords" = "There are **%d** words in your Dictionary.";

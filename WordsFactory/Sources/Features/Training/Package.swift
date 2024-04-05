@@ -14,6 +14,7 @@ let package = Package(
     ],
     dependencies: [
         .package(path: "../API/TrainingAPI"),
+        .package(path: "../../Shared/API/WordModuleAPI"),
         .package(path: "../../Core/CommonUI"),
         .package(url: "https://github.com/SwiftGen/SwiftGenPlugin", from: .init(6, 6, 2))
     ],
@@ -22,6 +23,7 @@ let package = Package(
             name: "Training",
             dependencies: [
                 .product(name: "TrainingAPI", package: "TrainingAPI"),
+                .product(name: "WordModuleAPI", package: "WordModuleAPI"),
                 .product(name: "CommonUI", package: "CommonUI")
             ],
             plugins: [

@@ -23,17 +23,21 @@ final class WordRepository {
 
 extension WordRepository: WordRepositoryProtocol {
 
-    func save(_ word: Word) throws {
-        try localDataSource.save { CDWord(word, context: $0) }
+    func saveDictionary(_ word: Word) throws {
+        try localDataSource.saveDictionary(word)
     }
 
-    func remove(by text: String) throws {
-        try localDataSource.remove(by: text)
+    func removeDictionary(by text: String) throws {
+        try localDataSource.removeDictionary(by: text)
+    }
+
+    func updateStudyCoefficient(_ coefficient: Int, of word: String) throws {
+        try localDataSource.updateStudyCoefficient(coefficient, of: word)
     }
 
     func getAllDictionary() throws -> [DictionaryWord] {
-        let localWords = try localDataSource.fetchAll()
-        return localWords.map { $0.toDictionary() }
+        let localWords = try localDataSource.fetchAllDictionary()
+        return localWords.map { $0.toDomainDictionary() }
     }
 
     func get(by text: String) async throws -> Word? {

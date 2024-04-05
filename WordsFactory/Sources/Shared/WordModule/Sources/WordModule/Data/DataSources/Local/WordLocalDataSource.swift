@@ -6,6 +6,7 @@
 //
 
 import CoreData
+import WordModuleAPI
 
 final class WordLocalDataSource {
 
@@ -20,7 +21,7 @@ final class WordLocalDataSource {
 
 extension WordLocalDataSource {
 
-    func fetchAll() throws -> [CDWord] {
+    func fetchAllDictionary() throws -> [CDWord] {
         try contextProvider.context.fetch(CDWord.fetchRequest())
     }
 
@@ -29,12 +30,19 @@ extension WordLocalDataSource {
         return try contextProvider.context.fetch(fetchRequest).first
     }
 
-    func save(_ wordProvider: CDModelProvider<CDWord>) throws {
-        let _ = wordProvider(contextProvider.context)
+    func saveDictionary(_ word: Word) throws {
+        let _ = CDWord(word, context: contextProvider.context)
         try contextProvider.context.save()
     }
 
-    func remove(by text: String) throws {
+    func updateStudyCoefficient(_ coefficient: Int, of word: String) throws {
+        guard let cdWord = try fetch(by: word) else { return }
+
+        cdWord.studyCoefficient = Int64(truncatingIfNeeded: coefficient)
+        try contextProvider.context.save()
+    }
+
+    func removeDictionary(by text: String) throws {
         guard let fetchRequest = getFetchRequest(by: text) as? NSFetchRequest<NSFetchRequestResult> else { return }
 
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)

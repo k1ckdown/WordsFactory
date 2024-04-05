@@ -16,6 +16,6 @@ final class RemoveDictionaryWordUseCase {
     }
 
     func execute(_ text: String) throws {
-        try wordRepository.remove(by: text)
+        try wordRepository.removeDictionary(by: text)
     }
 }

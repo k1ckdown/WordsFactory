@@ -20,8 +20,16 @@ final class UseCaseFactory {
 
 extension UseCaseFactory {
 
+    func makeGetWordTestResultUseCase() -> GetWordTestResultUseCase {
+        GetWordTestResultUseCase()
+    }
+
     func makeGetWordQuestionsUseCase() -> GetWordQuestionsUseCase {
         GetWordQuestionsUseCase(wordRepository: wordRepository)
+    }
+
+    func makeHandleWordTestResultUseCase() -> HandleWordTestResultUseCase {
+        HandleWordTestResultUseCase(wordRepository: wordRepository)
     }
 
     func makeGetTotalDictionaryWordsUseCase() -> GetTotalDictionaryWordsUseCase {

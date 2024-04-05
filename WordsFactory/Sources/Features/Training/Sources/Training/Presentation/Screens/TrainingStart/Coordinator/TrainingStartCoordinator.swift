@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CommonUI
 
 protocol TrainingStartCoordinatorProtocol: AnyObject {
     func showQuestion()
@@ -13,7 +14,7 @@ protocol TrainingStartCoordinatorProtocol: AnyObject {
 
 final class TrainingStartCoordinator: ObservableObject {
 
-    enum Screen: CaseIterable {
+    enum Screen: Routable {
         case question
     }
 

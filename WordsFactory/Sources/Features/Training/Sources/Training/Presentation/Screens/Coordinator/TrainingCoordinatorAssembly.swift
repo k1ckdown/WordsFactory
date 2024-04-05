@@ -14,7 +14,9 @@ public struct TrainingCoordinatorAssembly: TrainingCoordinatorAssemblyProtocol {
 
     public init(dependencies: ModuleDependencies) {
         let useCaseFactory = UseCaseFactory(wordRepository: dependencies.wordRepository)
-        coordinatorFactory = CoordinatorFactory(useCaseFactory: useCaseFactory)
+        let screenFactory = ScreenFactory(useCaseFactory: useCaseFactory)
+
+        coordinatorFactory = CoordinatorFactory(screenFactory: screenFactory)
     }
 
     public func assemble() -> some View {

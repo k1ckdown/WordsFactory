@@ -17,7 +17,7 @@ extension CDWord {
         )
     }
 
-    func toDictionary() -> DictionaryWord {
+    func toDomainDictionary() -> DictionaryWord {
         DictionaryWord(
             text: text,
             studyCoefficient: Int(studyCoefficient),

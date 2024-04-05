@@ -15,11 +15,12 @@ final class GetWordQuestionsUseCase {
         self.wordRepository = wordRepository
     }
 
-    func execute() throws -> [WordQuestion] {
+    func execute() throws -> [WordTestQuestion] {
         let words = try wordRepository.getAllDictionary()
         let testWords = words
             .sorted { $0.studyCoefficient < $1.studyCoefficient }
             .prefix(Constants.numberOfQuestions)
+            .shuffled()
 
         let dictionary = words.count >= Constants.keys.count ? words.map { $0.text } : Constants.defaultDictionary
         return testWords.compactMap { makeQuestion(for: $0, from: dictionary) }
@@ -30,7 +31,16 @@ final class GetWordQuestionsUseCase {
 
 private extension GetWordQuestionsUseCase {
 
-    func makeQuestion(for word: DictionaryWord, from dictionary: [String]) -> WordQuestion? {
+    func makeTestWord(from word: DictionaryWord, answerKey: String, definition: String) -> TestWord {
+        TestWord(
+            answerKey: answerKey,
+            text: word.text,
+            definition: definition,
+            studyCoefficient: word.studyCoefficient
+        )
+    }
+
+    func makeQuestion(for word: DictionaryWord, from dictionary: [String]) -> WordTestQuestion? {
         guard
             let answerKey = Constants.keys.randomElement(),
             let definition = word.definitions.randomElement()?.meanings.randomElement()?.definitions.randomElement()?.definition
@@ -44,7 +54,8 @@ private extension GetWordQuestionsUseCase {
                 result[pair.element] = wordChoices[pair.offset]
             }
 
-        return WordQuestion(answer: answerKey, definition: definition, choices: answerChoices)
+        let testWord = makeTestWord(from: word, answerKey: answerKey, definition: definition)
+        return WordTestQuestion(answerWord: testWord, choices: answerChoices)
     }
 }
 

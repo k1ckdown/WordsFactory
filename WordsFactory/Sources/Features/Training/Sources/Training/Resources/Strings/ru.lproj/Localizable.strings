@@ -9,6 +9,10 @@
 "Go" = "GO";
 "Of" = "%d из %d";
 "Start" = "Начать";
+"Again" = "Заново";
+"Correct" = "Правильных";
+"Incorrect" = "Неправильных";
 "StartTraining" = "Начинаем тренировку";
+"TrainingFinished" = "Тренировка закончена";
 "AddWordsToDictionary" = "Добавьте слова в словарь";
 "DictionaryWords" = "В вашем словаре **%d** слов.";

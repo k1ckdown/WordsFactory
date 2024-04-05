@@ -16,6 +16,6 @@ final class SaveDictionaryWordUseCase {
     }
 
     func execute(_ word: Word) throws {
-        try wordRepository.save(word)
+        try wordRepository.saveDictionary(word)
     }
 }

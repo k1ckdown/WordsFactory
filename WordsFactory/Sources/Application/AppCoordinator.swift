@@ -37,7 +37,7 @@ struct AppCoordinator: View {
         case .onBoarding:
             factory.makeOnBoardingCoordinator { scene = .auth }
         case .mainTabBar:
-            factory.makeDictionaryCoordinatorAssembly().assemble()
+            factory.makeTrainingCoordinatorAssembly().assemble()
         }
     }
 }

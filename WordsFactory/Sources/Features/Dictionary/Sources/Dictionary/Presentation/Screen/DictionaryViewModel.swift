@@ -50,7 +50,7 @@ private extension DictionaryViewModel {
     @MainActor
     func handleWord(_ word: Word?) {
         self.word = word
-        state = .loaded(getViewData(of: word))
+        state = .loaded(makeViewData(of: word))
     }
 
     func handlePhoneticTap(_ phonetic: String) {
@@ -95,7 +95,7 @@ private extension DictionaryViewModel {
         }
     }
 
-    func getViewData(of word: Word?) -> ViewState.ViewData {
+    func makeViewData(of word: Word?) -> ViewState.ViewData {
         guard let word else { return .init(isWordSaved: false, wordCards: []) }
 
         let wordViewModels = word.definitions.map {
