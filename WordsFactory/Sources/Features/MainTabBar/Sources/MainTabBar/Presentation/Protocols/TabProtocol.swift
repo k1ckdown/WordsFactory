@@ -7,7 +7,13 @@
 
 import SwiftUI
 
-protocol TabProtocol: Hashable, CaseIterable where AllCases == Array<Self> {
+protocol TabProtocol: Identifiable, Hashable, CaseIterable where AllCases == Array<Self> {
     var icon: Image { get }
     var title: String { get }
+}
+
+extension TabProtocol {
+    var id: Self {
+        self
+    }
 }

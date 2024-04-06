@@ -20,6 +20,11 @@ final class TrainingFinishCoordinator: ObservableObject {
 
     @Published var screen: Screen?
     @Published var errorMessage: String?
+    private(set) var showStartHandler: (() -> Void)?
+
+    init(showStartHandler: (() -> Void)?) {
+        self.showStartHandler = showStartHandler
+    }
 }
 
 // MARK: - TrainingFinishCoordinatorProtocol

@@ -25,7 +25,7 @@ struct MainTabView<Tab: TabProtocol, Content: View>: View {
             }
 
             HStack(spacing: .zero) {
-                ForEach(Tab.allCases, id: \.self) { tab in
+                ForEach(Tab.allCases) { tab in
                     TabBarItem(tag: tab, selection: $selection)
                 }
             }

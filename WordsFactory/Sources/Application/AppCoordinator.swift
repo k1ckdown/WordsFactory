@@ -24,14 +24,14 @@ struct AppCoordinator: View {
 
     var body: some View {
         NavigationView {
-            sceneCoordinator
+            sceneView
         }
         .navigationViewStyle(.stack)
         .preferredColorScheme(.light)
     }
 
     @ViewBuilder
-    private var sceneCoordinator: some View {
+    private var sceneView: some View {
         switch scene {
         case .auth:
             factory.makeAuthCoordinator { scene = .mainTabBar }

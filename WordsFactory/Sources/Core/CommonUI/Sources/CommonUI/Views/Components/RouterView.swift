@@ -11,7 +11,7 @@ public struct RouterView<Route, Content, Destination>: View where Content: View,
                                                                   Destination: View,
                                                                   Route: Routable,
                                                                   Route.AllCases == Array<Route> {
-    let content: Content
+    let content: () -> Content
     @Binding var selection: Route?
     let destination: (Route) -> Destination
 
@@ -21,13 +21,13 @@ public struct RouterView<Route, Content, Destination>: View where Content: View,
         @ViewBuilder destination: @escaping (Route) -> Destination
     ) {
         _selection = selection
-        self.content = content()
+        self.content = content
         self.destination = destination
     }
 
     public var body: some View {
         ZStack {
-            content
+            content()
 
             ForEach(Route.allCases) { screen in
                 NavigationLink(

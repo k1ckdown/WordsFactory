@@ -30,14 +30,24 @@ struct MainTabBarCoordinatorView: View {
 
     var body: some View {
         MainTabView(selection: $selectedTab) {
-            dictionaryCoordinatorAssembly.assemble()
-                .tag(Tab.dictionary)
-
-            trainingCoordinatorAssembly.assemble()
-                .tag(Tab.training)
-
-            videoCoordinatorAssembly.assemble()
-                .tag(Tab.video)
+            ForEach(Tab.allCases) { tab in
+                sceneView(tab)
+            }
         }
+    }
+
+    @ViewBuilder
+    private func sceneView(_ tab: Tab) -> some View {
+        Group {
+            switch tab {
+            case .dictionary:
+                dictionaryCoordinatorAssembly.assemble()
+            case .training:
+                trainingCoordinatorAssembly.assemble()
+            case .video:
+                videoCoordinatorAssembly.assemble()
+            }
+        }
+        .tag(tab)
     }
 }

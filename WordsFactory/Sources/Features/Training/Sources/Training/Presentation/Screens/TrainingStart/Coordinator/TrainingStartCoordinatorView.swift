@@ -29,7 +29,7 @@ struct TrainingStartCoordinatorView<Content: View>: View {
     private func destination(_ screen: TrainingStartCoordinator.Screen) -> some View {
         switch screen {
         case .question:
-            factory.makeQuestionCoordinator()
+            factory.makeQuestionCoordinator { coordinator.screen = .none }
         }
     }
 }

@@ -22,18 +22,16 @@ struct QuestionCoordinatorView<Content: View>: View {
     }
 
     var body: some View {
-        RouterView(selection: $coordinator.screen, content: {
-            content()
-                .appBackButton()
-                .errorAlert($coordinator.errorMessage)
-        }, destination: destination)
+        RouterView(selection: $coordinator.screen, content: content, destination: destination)
+            .appBackButton()
+            .errorAlert($coordinator.errorMessage)
     }
 
     @ViewBuilder
     private func destination(_ screen: QuestionCoordinator.Screen) -> some View {
         switch (screen, coordinator.screen) {
         case (.trainingFinish, .trainingFinishParameterized(let answers)):
-            factory.makeTrainingFinishCoordinator(answers: answers)
+            factory.makeTrainingFinishCoordinator(answers: answers, showStartHandler: coordinator.showStartHandler)
         default:
             EmptyView()
         }

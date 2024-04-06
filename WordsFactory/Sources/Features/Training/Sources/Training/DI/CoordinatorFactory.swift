@@ -16,21 +16,6 @@ final class CoordinatorFactory {
     }
 }
 
-// MARK: - QuestionCoordinatorFactory
-
-extension CoordinatorFactory: QuestionCoordinatorFactory {
-    func makeQuestionCoordinator() -> QuestionCoordinatorView<QuestionView> {
-        let coordinator = QuestionCoordinator()
-        let coordinatorView = QuestionCoordinatorView(
-            factory: self,
-            content: self.screenFactory.makeQuestionScreen(coordinator: coordinator),
-            coordinator: coordinator
-        )
-
-        return coordinatorView
-    }
-}
-
 // MARK: - TrainingStartCoordinatorFactory
 
 extension CoordinatorFactory: TrainingStartCoordinatorFactory {
@@ -46,11 +31,26 @@ extension CoordinatorFactory: TrainingStartCoordinatorFactory {
     }
 }
 
+// MARK: - QuestionCoordinatorFactory
+
+extension CoordinatorFactory: QuestionCoordinatorFactory {
+    func makeQuestionCoordinator(showStartHandler: (() -> Void)?) -> QuestionCoordinatorView<QuestionView> {
+        let coordinator = QuestionCoordinator(showStartHandler: showStartHandler)
+        let coordinatorView = QuestionCoordinatorView(
+            factory: self,
+            content: self.screenFactory.makeQuestionScreen(coordinator: coordinator),
+            coordinator: coordinator
+        )
+
+        return coordinatorView
+    }
+}
+
 // MARK: - TrainingFinishCoordinatorFactory
 
 extension CoordinatorFactory: TrainingFinishCoordinatorFactory {
-    func makeTrainingFinishCoordinator(answers: [WordTestAnswer]) -> TrainingFinishCoordinatorView<TrainingFinishView> {
-        let coordinator = TrainingFinishCoordinator()
+    func makeTrainingFinishCoordinator(answers: [WordTestAnswer], showStartHandler: (() -> Void)?) -> TrainingFinishCoordinatorView<TrainingFinishView> {
+        let coordinator = TrainingFinishCoordinator(showStartHandler: showStartHandler)
         let coordinatorView = TrainingFinishCoordinatorView(
             content: self.screenFactory.makeTrainingFinishScreen(answers: answers, coordinator: coordinator),
             coordinator: coordinator
