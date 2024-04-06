@@ -19,8 +19,8 @@ public struct TrainingCoordinatorAssembly: TrainingCoordinatorAssemblyProtocol {
         coordinatorFactory = CoordinatorFactory(screenFactory: screenFactory)
     }
 
-    public func assemble() -> some View {
+    public func assemble() -> AnyView {
         let coordinatorView = TrainingCoordinatorView(factory: coordinatorFactory)
-        return coordinatorView
+        return AnyView(coordinatorView)
     }
 }

@@ -13,13 +13,14 @@ import Video
 import Dictionary
 import WordModule
 import Training
+import MainTabBar
 
 final class AppFactory {
     private lazy var networkService = NetworkService()
     private lazy var wordRepository = WordRepositoryAssembly.assemble(networkService: networkService)
 }
 
-// MARK: - Factory methods
+// MARK: - Public methods
 
 extension AppFactory {
 
@@ -31,17 +32,32 @@ extension AppFactory {
         OnBoardingCoordinatorAssembly().assemble(onFlowFinish: onFlowFinish)
     }
 
+    func makeMainTabBarCoordinator() -> some View {
+        let dependencies = MainTabBar.ModuleDependencies(
+            videoCoordinatorAssembly: makeVideoCoordinatorAssembly(),
+            trainingCoordinatorAssembly: makeTrainingCoordinatorAssembly(),
+            dictionaryCoordinatorAssembly: makeDictionaryCoordinatorAssembly()
+        )
+
+        return MainTabBarCoordinatorAssembly(dependencies: dependencies).assemble()
+    }
+}
+
+// MARK: - Private methods
+
+private extension AppFactory {
+
     func makeVideoCoordinatorAssembly() -> VideoCoordinatorAssembly {
         VideoCoordinatorAssembly()
-    }
-
-    func makeDictionaryCoordinatorAssembly() -> DictionaryCoordinatorAssembly {
-        let dependencies = ModuleDependencies(networkService: networkService, wordRepository: wordRepository)
-        return DictionaryCoordinatorAssembly(dependencies: dependencies)
     }
 
     func makeTrainingCoordinatorAssembly() -> TrainingCoordinatorAssembly {
         let dependencies = Training.ModuleDependencies(wordRepository: wordRepository)
         return TrainingCoordinatorAssembly(dependencies: dependencies)
+    }
+
+    func makeDictionaryCoordinatorAssembly() -> DictionaryCoordinatorAssembly {
+        let dependencies = ModuleDependencies(networkService: networkService, wordRepository: wordRepository)
+        return DictionaryCoordinatorAssembly(dependencies: dependencies)
     }
 }

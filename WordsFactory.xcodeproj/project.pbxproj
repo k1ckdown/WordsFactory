@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4900A2A52BC13E780067FE0D /* MainTabBar in Frameworks */ = {isa = PBXBuildFile; productRef = 4900A2A42BC13E780067FE0D /* MainTabBar */; };
 		4903F7332BB9799100578062 /* Training in Frameworks */ = {isa = PBXBuildFile; productRef = 4903F7322BB9799100578062 /* Training */; };
 		4915A0DB2BB97A4500751B6C /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 4915A0DA2BB97A4500751B6C /* Networking */; };
 		4915A0DD2BB97A5700751B6C /* Video in Frameworks */ = {isa = PBXBuildFile; productRef = 4915A0DC2BB97A5700751B6C /* Video */; };
@@ -58,6 +59,7 @@
 				49CAC3082BB978D500A09571 /* Auth in Frameworks */,
 				49CAC30E2BB978D500A09571 /* OnBoarding in Frameworks */,
 				4990F6E52BBC193F009F5086 /* WordModule in Frameworks */,
+				4900A2A52BC13E780067FE0D /* MainTabBar in Frameworks */,
 				49CAC30C2BB978D500A09571 /* Dictionary in Frameworks */,
 				49CAC30A2BB978D500A09571 /* CommonUI in Frameworks */,
 				4915A0DD2BB97A5700751B6C /* Video in Frameworks */,
@@ -224,6 +226,7 @@
 				4915A0DA2BB97A4500751B6C /* Networking */,
 				4915A0DC2BB97A5700751B6C /* Video */,
 				4990F6E42BBC193F009F5086 /* WordModule */,
+				4900A2A42BC13E780067FE0D /* MainTabBar */,
 			);
 			productName = WordsFactory;
 			productReference = 4946D6B82BA814E500558F8A /* WordsFactory.app */;
@@ -499,6 +502,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4900A2A42BC13E780067FE0D /* MainTabBar */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MainTabBar;
+		};
 		4903F7322BB9799100578062 /* Training */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Training;

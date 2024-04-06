@@ -12,7 +12,7 @@ public struct VideoCoordinatorAssembly: VideoCoordinatorAssemblyProtocol {
 
     public init() {}
 
-    public func assemble() -> some View {
-        VideoCoordinatorView()
+    public func assemble() -> AnyView {
+        AnyView(VideoCoordinatorView())
     }
 }

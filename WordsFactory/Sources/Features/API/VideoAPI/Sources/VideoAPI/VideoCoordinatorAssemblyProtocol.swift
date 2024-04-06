@@ -8,6 +8,5 @@
 import SwiftUI
 
 public protocol VideoCoordinatorAssemblyProtocol {
-    associatedtype V: View
-    func assemble() -> V
+    func assemble() -> AnyView
 }

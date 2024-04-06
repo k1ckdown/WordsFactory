@@ -16,10 +16,10 @@ public struct DictionaryCoordinatorAssembly: DictionaryCoordinatorAssemblyProtoc
         factory = DictionaryFactory(dependencies: dependencies)
     }
 
-    public func assemble() -> some View {
+    public func assemble() -> AnyView {
         let coordinator = DictionaryCoordinator()
         let coordinatorView = DictionaryCoordinatorView(factory: factory, coordinator: coordinator)
 
-        return coordinatorView
+        return AnyView(coordinatorView)
     }
 }
