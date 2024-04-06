@@ -43,6 +43,7 @@
 		49CAC3042BB9583C00A09571 /* VideoAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = VideoAPI; sourceTree = "<group>"; };
 		49CAC3052BB9755900A09571 /* TrainingAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = TrainingAPI; sourceTree = "<group>"; };
 		49CAC3062BB9771700A09571 /* Training */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Training; sourceTree = "<group>"; };
+		49CDBECA2BC12C0E00762BBD /* MainTabBar */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MainTabBar; sourceTree = "<group>"; };
 		49F733512BADB2C40012AF9B /* Auth */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Auth; sourceTree = "<group>"; };
 		49FCDC222BAFF77800418DCB /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -188,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				495876382BB6AEB0008D7A1D /* API */,
+				49CDBECA2BC12C0E00762BBD /* MainTabBar */,
 				49CAC3062BB9771700A09571 /* Training */,
 				49CAC3012BB935CF00A09571 /* Video */,
 				490BF2072BB28D6D0023C80C /* Dictionary */,
