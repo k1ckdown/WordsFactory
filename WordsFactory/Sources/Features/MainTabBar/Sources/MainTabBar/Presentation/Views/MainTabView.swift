@@ -38,11 +38,11 @@ struct MainTabView<Tab: TabProtocol, Content: View>: View {
 
     @ViewBuilder
     private var background: some View {
-        let rectangle = RoundedRectangle(cornerRadius: Constants.cornerRadius)
+        let shape = RoundedCorner(radius: Constants.cornerRadius, corners: [.topLeft, .topRight])
 
-        rectangle
+        shape
             .stroke(Colors.appGray.swiftUIColor)
-            .background(rectangle.fill(.white))
+            .background(shape.fill(.white))
     }
 }
 
@@ -52,6 +52,6 @@ private extension MainTabView {
 
     enum Constants {
         static var height: CGFloat { 98 }
-        static var cornerRadius: CGFloat { 17 }
+        static var cornerRadius: CGFloat { 14 }
     }
 }
