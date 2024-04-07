@@ -14,7 +14,7 @@ struct RoundedBorderFieldViewModifier: ViewModifier {
             .padding(.horizontal)
             .overlay {
                 RoundedRectangle(cornerRadius: Constants.cornerRadius)
-                    .stroke(Colors.appDarkGray.swiftUIColor)
+                    .stroke(Colors.appGray.swiftUIColor)
             }
     }
 }
