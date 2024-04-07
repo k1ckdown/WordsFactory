@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "",
+    name: "Dictionary",
     defaultLocalization: "en",
     platforms: [.iOS(.v15)],
     products: [
@@ -16,7 +16,6 @@ let package = Package(
         .package(path: "../API/DictionaryAPI"),
         .package(path: "../../Shared/API/WordModuleAPI"),
         .package(path: "../../Core/CommonUI"),
-        .package(url: "https://github.com/dkk/WrappingHStack.git", from: .init(2, 2, 11)),
         .package(url: "https://github.com/SwiftGen/SwiftGenPlugin", from: .init(6, 6, 2))
     ],
     targets: [
@@ -25,8 +24,7 @@ let package = Package(
             dependencies: [
                 .product(name: "DictionaryAPI", package: "DictionaryAPI"),
                 .product(name: "WordModuleAPI", package: "WordModuleAPI"),
-                .product(name: "CommonUI", package: "CommonUI"),
-                .product(name: "WrappingHStack", package: "WrappingHStack")
+                .product(name: "CommonUI", package: "CommonUI")
             ],
             plugins: [
                 .plugin(name: "SwiftGenPlugin", package: "SwiftGenPlugin")

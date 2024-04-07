@@ -12,10 +12,9 @@ import WordModuleAPI
 struct WordCardViewModel: Equatable, Identifiable {
     let id = UUID()
     let text: String
-    let phonetics: [String]
-    let meanings: [MeaningCardViewModel]
     let isPhoneticsShowing: Bool
-    let phoneticHandler: (String) -> Void
+    let meanings: [MeaningCardViewModel]
+    let phonetics: [PhoneticItemViewModel]
 
     static func == (lhs: WordCardViewModel, rhs: WordCardViewModel) -> Bool {
         lhs.id == rhs.id
@@ -23,12 +22,13 @@ struct WordCardViewModel: Equatable, Identifiable {
 }
 
 extension WordCardViewModel {
-    init(text: String, definition: WordDefinition, phoneticHandler: @escaping (String) -> Void) {
+    init(text: String, definition: WordDefinition, phoneticHandler: @escaping (String?) -> Void) {
         self.text = text
-        phonetics = definition.phonetics.compactMap { $0.text }
+        isPhoneticsShowing = definition.phonetics.isEmpty == false
         meanings = definition.meanings.map { .init($0) }
-        isPhoneticsShowing = phonetics.isEmpty == false
-        self.phoneticHandler = phoneticHandler
+        phonetics = definition.phonetics.map { phonetic in
+            PhoneticItemViewModel(phonetic: phonetic, tapHandler: { phoneticHandler(phonetic.audio) })
+        }
     }
 }
 
@@ -38,10 +38,9 @@ extension WordCardViewModel: HasPlaceholder {
     static func placeholder(id: String) -> WordCardViewModel {
         .init(
             text: .placeholder(7),
-            phonetics: .init(repeating: .placeholder(7), count: 2),
-            meanings: .placeholders(2),
             isPhoneticsShowing: true,
-            phoneticHandler: { _ in }
+            meanings: .placeholders(2),
+            phonetics: .placeholders(2)
         )
     }
 }

@@ -53,9 +53,9 @@ private extension DictionaryViewModel {
         state = .loaded(makeViewData(of: word))
     }
 
-    func handlePhoneticTap(_ phonetic: String) {
+    func handlePhoneticTap(_ audio: String?) {
         guard
-            let audio = word?.definitions.flatMap({ $0.phonetics }).first(where: { $0.text == phonetic })?.audio,
+            let audio,
             let audioUrl = URL(string: audio)
         else { return }
 
@@ -74,14 +74,18 @@ private extension DictionaryViewModel {
 
     func saveWord(_ word: Word) throws {
         try saveDictionaryWordUseCase.execute(word)
+
+        self.word?.isDictionary = true
         state = state.saveWord()
     }
 
     func removeWord(_ word: Word) throws {
         try removeDictionaryWordUseCase.execute(word.text)
+
+        self.word?.isDictionary = false
         state = state.removeWord()
     }
-
+    
     func getWord(by text: String) async {
         await MainActor.run { state = .loading }
         do {

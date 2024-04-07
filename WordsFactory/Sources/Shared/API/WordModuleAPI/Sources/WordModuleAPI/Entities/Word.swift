@@ -7,7 +7,7 @@
 
 public struct Word {
     public let text: String
-    public let isDictionary: Bool
+    public var isDictionary: Bool
     public let definitions: [WordDefinition]
 
     public init(text: String, isDictionary: Bool, definitions: [WordDefinition]) {

@@ -7,7 +7,6 @@
 
 import SwiftUI
 import CommonUI
-import WrappingHStack
 
 struct WordCardView: View {
 
@@ -20,23 +19,12 @@ struct WordCardView: View {
                     .font(Fonts.headline4)
 
                 if viewModel.isPhoneticsShowing {
-                    WrappingHStack(
-                        viewModel.phonetics,
-                        id: \.self,
-                        spacing: .constant(Constants.phoneticSpacing),
-                        lineSpacing: Constants.phoneticSpacing
-                    ) { phonetic in
-                        HStack(spacing: Constants.phoneticContentSpacing) {
-                            Text(phonetic)
-
-                            Button {
-                                viewModel.phoneticHandler(phonetic)
-                            } label: {
-                                Images.speakerIcon.swiftUIImage
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: Constants.phoneticSpacing) {
+                            ForEach(viewModel.phonetics) { phonetic in
+                                PhoneticItemView(viewModel: phonetic)
                             }
                         }
-                        .font(Fonts.paragraphMedium)
-                        .foregroundStyle(Colors.appOrange.swiftUIColor)
                     }
                 }
             }
@@ -71,7 +59,6 @@ private extension WordCardView {
         static let phoneticSpacing: CGFloat = 15
         static let meaningCardSpacing: CGFloat = 30
         static let meaningsHeaderSpacing: CGFloat = 10
-        static let phoneticContentSpacing: CGFloat = 10
         static let dividerOffsetY: CGFloat = Constants.meaningCardSpacing / 2
     }
 }

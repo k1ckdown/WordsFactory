@@ -34,7 +34,7 @@ struct DictionaryView: View {
         case .idle:
             placeholderView
         case .failed:
-            EmptyView()
+            ZStack { EmptyView() }
         case .loading:
             wordList(.placeholders(Constants.WordList.placeholders))
         case .loaded(let viewData):

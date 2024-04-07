@@ -10,6 +10,13 @@ import WordModuleAPI
 extension PhoneticDTO {
 
     func toDomain() -> Phonetic {
-        Phonetic(text: text, audio: audio)
+        let phoneticAudio: String?
+        if let audio, audio.isEmpty == false {
+            phoneticAudio = audio
+        } else {
+            phoneticAudio = nil
+        }
+
+        return Phonetic(text: text, audio: phoneticAudio)
     }
 }
