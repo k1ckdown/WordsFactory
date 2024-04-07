@@ -12,7 +12,7 @@ struct SecureTextField: View {
 
     let placeholder: String
     @Binding var text: String
-    @State private var isSecure = false
+    @State private var isSecure = true
 
     init(_ placeholder: String, text: Binding<String>) {
         _text = text
