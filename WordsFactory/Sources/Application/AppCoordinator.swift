@@ -16,8 +16,8 @@ struct AppCoordinator: View {
     }
 
     private let factory: AppFactory
-    @State private var scene = Scene.onBoarding
-    
+    @State private var scene = Scene.mainTabBar
+
     init(factory: AppFactory) {
         self.factory = factory
     }
