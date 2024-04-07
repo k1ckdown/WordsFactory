@@ -50,7 +50,6 @@ struct OnBoardingView: View {
                 .offset(y: Constants.Button.offsetY)
                 .padding(.horizontal, Constants.Button.insetHorizontal)
         }
-        .backgroundColor()
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button(Strings.skip) {

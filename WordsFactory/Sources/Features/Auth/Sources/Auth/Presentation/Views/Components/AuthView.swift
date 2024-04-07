@@ -58,7 +58,6 @@ struct AuthView<Content: View>: View {
                 .padding(.vertical, Constants.promptInsetVertical)
         }
         .padding(.horizontal, Constants.insetHorizontal)
-        .backgroundColor()
     }
 }
 
