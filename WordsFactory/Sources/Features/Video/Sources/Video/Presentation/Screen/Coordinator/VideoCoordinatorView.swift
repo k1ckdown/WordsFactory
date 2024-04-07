@@ -11,5 +11,6 @@ struct VideoCoordinatorView: View {
 
     var body: some View {
         VideoView()
+            .navigationBarHidden(true)
     }
 }

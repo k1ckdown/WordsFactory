@@ -91,7 +91,7 @@ private extension TrainingStartView {
         static let subtitleInsetTop: CGFloat = 35
         static let titlesHorizontalInset: CGFloat = 50
         static let countdownHeight: CGFloat = 120
-        static let countdownTopInset: CGFloat = 180
+        static let countdownTopInset: CGFloat = 190
         static let startButtonHorizontalInset: CGFloat = 33
     }
 }

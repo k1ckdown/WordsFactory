@@ -21,6 +21,8 @@ final class TrainingStartCoordinator: ObservableObject {
     @Published var screen: Screen?
 }
 
+// MARK: - TrainingStartCoordinatorProtocol
+
 extension TrainingStartCoordinator: TrainingStartCoordinatorProtocol {
 
     func showQuestion() {
