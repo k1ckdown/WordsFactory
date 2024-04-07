@@ -1,28 +1,35 @@
 //
-//  DictionaryPlaceholderView.swift
+//  PlaceholderView.swift
 //
 //
 //  Created by Ivan Semenov on 27.03.2024.
 //
 
 import SwiftUI
-import CommonUI
 
-struct DictionaryPlaceholderView: View {
-
-    var body: some View {
+public struct PlaceholderView: View {
+    
+    let title: String
+    let subtitle: String
+    
+    public init(title: String, subtitle: String) {
+        self.title = title
+        self.subtitle = subtitle
+    }
+    
+    public var body: some View {
         VStack(spacing: Constants.imageSpacing) {
             Images.dictionaryPlaceholder.swiftUIImage
                 .resizable()
                 .scaledToFit()
                 .frame(height: Constants.imageHeight)
-
+            
             VStack(spacing: Constants.textSpacing) {
-                Text(Strings.noWord)
+                Text(title)
                     .font(Fonts.headline4)
                     .foregroundStyle(Colors.appDark.swiftUIColor)
-
-                Text(Strings.findInDictionary)
+                
+                Text(subtitle)
                     .font(Fonts.paragraphMedium)
                     .foregroundStyle(Colors.appDarkGray.swiftUIColor)
             }
@@ -32,7 +39,7 @@ struct DictionaryPlaceholderView: View {
 
 // MARK: - Constants
 
-private extension DictionaryPlaceholderView {
+private extension PlaceholderView {
     
     enum Constants {
         static let textSpacing: CGFloat = 8

@@ -32,7 +32,7 @@ struct DictionaryView: View {
     private var contentView: some View {
         switch viewModel.state {
         case .idle:
-            DictionaryPlaceholderView()
+            placeholderView
         case .failed:
             EmptyView()
         case .loading:
@@ -47,10 +47,14 @@ struct DictionaryView: View {
 
 private extension DictionaryView {
 
+    var placeholderView: some View {
+        PlaceholderView(title: Strings.noWord, subtitle: Strings.findInDictionary)
+    }
+
     @ViewBuilder
     func loadedView(_ viewData: DictionaryViewModel.ViewState.ViewData) -> some View {
         if viewData.wordCards.isEmpty {
-            DictionaryPlaceholderView()
+            placeholderView
         } else {
             wordContentView(viewData)
         }

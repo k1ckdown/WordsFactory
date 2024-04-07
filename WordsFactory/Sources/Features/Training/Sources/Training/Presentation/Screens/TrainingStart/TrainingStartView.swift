@@ -41,8 +41,7 @@ private extension TrainingStartView {
     @ViewBuilder
     func loadedView(_ viewData: TrainingStartViewModel.ViewState.ViewData) -> some View {
         if viewData.totalWords == 0 {
-            Text(Strings.addWordsToDictionary)
-                .font(Fonts.headline5)
+            PlaceholderView(title: Strings.dictionaryEmpty, subtitle: Strings.addWordsToDictionary)
         } else {
             VStack(spacing: .zero) {
                 titlesView(totalWords: viewData.totalWords)

@@ -14,5 +14,6 @@
 "Incorrect" = "Incorrect";
 "StartTraining" = "Start the Training";
 "TrainingFinished" = "Training is finished";
+"DictionaryEmpty" = "The dictionary is empty";
 "AddWordsToDictionary" = "Add words to the dictionary";
 "DictionaryWords" = "There are **%d** words\nin your Dictionary.";
