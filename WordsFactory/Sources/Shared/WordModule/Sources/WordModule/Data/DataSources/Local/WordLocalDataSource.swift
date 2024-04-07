@@ -31,6 +31,8 @@ extension WordLocalDataSource {
     }
 
     func saveDictionary(_ word: Word) throws {
+        guard try fetch(by: word.text) == nil else { return }
+
         let _ = CDWord(word, context: contextProvider.context)
         try contextProvider.context.save()
     }
