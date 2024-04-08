@@ -15,7 +15,7 @@ final class RemoveDictionaryWordUseCase {
         self.wordRepository = wordRepository
     }
 
-    func execute(_ text: String) throws {
-        try wordRepository.removeDictionary(by: text)
+    func execute(_ text: String) async throws {
+        try await wordRepository.removeDictionary(by: text)
     }
 }

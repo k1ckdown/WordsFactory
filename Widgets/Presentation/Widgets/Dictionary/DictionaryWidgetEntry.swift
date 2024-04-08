@@ -9,10 +9,10 @@ import WidgetKit
 
 struct DictionaryWidgetEntry: TimelineEntry {
     var date = Date.now
-    let totalWords: Int
-    let totalRememberWords: Int
+    let totalWordCount: Int
+    let rememberedWordCount: Int
 }
 
 extension DictionaryWidgetEntry {
-    static let placeholder = DictionaryWidgetEntry(totalWords: 3125, totalRememberWords: 41)
+    static let placeholder = DictionaryWidgetEntry(totalWordCount: 3125, rememberedWordCount: 41)
 }

@@ -36,7 +36,7 @@ final class DictionaryViewModel: ObservableObject {
     func handle(_ event: Event) {
         switch event {
         case .dictionaryTapped:
-            handleDictionaryTap()
+            Task { await handleDictionaryTap() }
         case .searchWordChanged(let text):
             Task { await getWord(by: text) }
         }
@@ -62,30 +62,30 @@ private extension DictionaryViewModel {
         audioManager.play(url: audioUrl)
     }
 
-    func handleDictionaryTap() {
+    func handleDictionaryTap() async {
         guard let word else { return }
 
         do {
-            try word.isDictionary ? removeWord(word) : saveWord(word)
+            try await word.isDictionary ? removeWord(word) : saveWord(word)
         } catch {
-            coordinator.showError(message: error.localizedDescription)
+            await MainActor.run { coordinator.showError(message: error.localizedDescription) }
         }
     }
 
-    func saveWord(_ word: Word) throws {
-        try saveDictionaryWordUseCase.execute(word)
+    func saveWord(_ word: Word) async throws {
+        try await saveDictionaryWordUseCase.execute(word)
 
         self.word?.isDictionary = true
-        state = state.saveWord()
+        await MainActor.run { state = state.saveWord() }
     }
 
-    func removeWord(_ word: Word) throws {
-        try removeDictionaryWordUseCase.execute(word.text)
+    func removeWord(_ word: Word) async throws {
+        try await removeDictionaryWordUseCase.execute(word.text)
 
         self.word?.isDictionary = false
-        state = state.removeWord()
+        await MainActor.run { state = state.removeWord() }
     }
-    
+
     func getWord(by text: String) async {
         await MainActor.run { state = .loading }
         do {

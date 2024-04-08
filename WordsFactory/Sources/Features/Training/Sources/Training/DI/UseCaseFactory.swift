@@ -32,7 +32,7 @@ extension UseCaseFactory {
         HandleWordTestResultUseCase(wordRepository: wordRepository)
     }
 
-    func makeGetTotalDictionaryWordsUseCase() -> GetTotalDictionaryWordsUseCase {
-        GetTotalDictionaryWordsUseCase(wordRepository: wordRepository)
+    func makeGetDictionaryWordCountUseCase() -> GetDictionaryWordCountUseCase {
+        GetDictionaryWordCountUseCase(wordRepository: wordRepository)
     }
 }

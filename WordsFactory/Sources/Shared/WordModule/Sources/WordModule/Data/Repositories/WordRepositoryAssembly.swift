@@ -11,8 +11,7 @@ import NetworkingAPI
 public enum WordRepositoryAssembly {
 
     public static func assemble(networkService: NetworkServiceProtocol) -> WordRepositoryProtocol {
-        let coreDataContextProvider = CoreDataContextProvider()
-        let localDataSource = WordLocalDataSource(contextProvider: coreDataContextProvider)
+        let localDataSource = WordLocalDataSource()
         let remoteDataSource = WordRemoteDataSource(networkService: networkService)
 
         let repository = WordRepository(localDataSource: localDataSource, remoteDataSource: remoteDataSource)

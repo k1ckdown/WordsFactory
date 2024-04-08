@@ -31,7 +31,7 @@ extension ScreenFactory {
     func makeTrainingStartScreen(coordinator: TrainingStartCoordinatorProtocol) -> TrainingStartView {
         let viewModel = TrainingStartViewModel(
             coordinator: coordinator,
-            getTotalDictionaryWordsUseCase: useCaseFactory.makeGetTotalDictionaryWordsUseCase()
+            getDictionaryWordCountUseCase: useCaseFactory.makeGetDictionaryWordCountUseCase()
         )
 
         let view = TrainingStartView(viewModel: viewModel)

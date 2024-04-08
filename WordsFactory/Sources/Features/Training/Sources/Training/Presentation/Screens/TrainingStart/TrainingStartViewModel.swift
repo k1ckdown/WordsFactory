@@ -14,17 +14,17 @@ final class TrainingStartViewModel: ObservableObject {
 
     private var subscriptions: Set<AnyCancellable> = []
     private let coordinator: TrainingStartCoordinatorProtocol
-    private let getTotalDictionaryWordsUseCase: GetTotalDictionaryWordsUseCase
+    private let getDictionaryWordCountUseCase: GetDictionaryWordCountUseCase
 
-    init(coordinator: TrainingStartCoordinatorProtocol, getTotalDictionaryWordsUseCase: GetTotalDictionaryWordsUseCase) {
+    init(coordinator: TrainingStartCoordinatorProtocol, getDictionaryWordCountUseCase: GetDictionaryWordCountUseCase) {
         self.coordinator = coordinator
-        self.getTotalDictionaryWordsUseCase = getTotalDictionaryWordsUseCase
+        self.getDictionaryWordCountUseCase = getDictionaryWordCountUseCase
     }
 
     func handle(_ event: Event) {
         switch event {
         case .onAppear:
-            getTotalWords()
+            Task { await getWordCount() }
         case .startTapped:
             handleStartTap()
         }
@@ -35,13 +35,24 @@ final class TrainingStartViewModel: ObservableObject {
 
 private extension TrainingStartViewModel {
 
-    func getTotalWords() {
-        do {
-            let totalWords = try getTotalDictionaryWordsUseCase.execute()
-            state = .loaded(.init(totalWords: totalWords, countdown: makeTimer()))
-        } catch {
-            state = .failed
+    func handleStartTap() {
+        guard case .loaded(let viewData) = state else { return }
+
+        state = state.showCountdown()
+        DispatchQueue.main.asyncAfter(deadline: .now() + Constants.delayShowCountdown) {
+            viewData.countdown.startTimer()
         }
+    }
+
+    func getWordCount() async {
+        let viewState: ViewState
+        do {
+            let wordCount = try await getDictionaryWordCountUseCase.execute()
+            viewState = .loaded(.init(wordCount: wordCount, countdown: makeTimer()))
+        } catch {
+            viewState = .failed
+        }
+        await MainActor.run { state = viewState }
     }
 
     func makeTimer() -> TimerViewModel {
@@ -55,15 +66,6 @@ private extension TrainingStartViewModel {
             .store(in: &subscriptions)
 
         return timer
-    }
-
-    func handleStartTap() {
-        guard case .loaded(let viewData) = state else { return }
-
-        state = state.showCountdown()
-        DispatchQueue.main.asyncAfter(deadline: .now() + Constants.delayShowCountdown) {
-            viewData.countdown.startTimer()
-        }
     }
 }
 

@@ -27,7 +27,7 @@ final class QuestionViewModel: ObservableObject {
     func handle(_ event: Event) {
         switch event {
         case .onAppear:
-            getQuestions()
+            Task { await getQuestions() }
         }
     }
 }
@@ -50,14 +50,10 @@ private extension QuestionViewModel {
         state = state.setQuestion(makeQuestionViewData(at: questionNumber))
     }
 
-    func getQuestions() {
-        do {
-            let questions = try getWordQuestionsUseCase.execute()
-            handleQuestions(questions)
-        } catch {
-            state = .failed
-            coordinator.showError(message: error.localizedDescription)
-        }
+    @MainActor
+    func startTest(with viewData: ViewState.ViewData) {
+        state = .loaded(viewData)
+        viewData.timer.startTimer()
     }
 
     func handleChoiceTap(key: String, questionNumber: Int) {
@@ -69,21 +65,37 @@ private extension QuestionViewModel {
         }
     }
 
-    func handleQuestions(_ questions: [WordTestQuestion]) {
+    func handleQuestions(_ questions: [WordTestQuestion]) async {
         guard questions.isEmpty == false else { return }
 
         questionNumber = Constants.initialQuestionNumber
         answers = questions.map { .init(question: $0) }
+        await startTest(with: makeViewData())
+    }
 
-        let timer = makeTimer()
-        let viewData = ViewState.ViewData(
+    func getQuestions() async {
+        do {
+            let questions = try await getWordQuestionsUseCase.execute()
+            await handleQuestions(questions)
+        } catch {
+            await MainActor.run {
+                state = .failed
+                coordinator.showError(message: error.localizedDescription)
+            }
+        }
+    }
+}
+
+// MARK: - View Data
+
+private extension QuestionViewModel {
+
+    func makeViewData() -> ViewState.ViewData {
+        ViewState.ViewData(
             question: makeQuestionViewData(at: questionNumber),
-            totalQuestions: questions.count,
-            timer: timer
+            totalQuestions: answers.count,
+            timer: makeTimer()
         )
-
-        state = .loaded(viewData)
-        timer.startTimer()
     }
 
     func makeTimer() -> TimerViewModel {

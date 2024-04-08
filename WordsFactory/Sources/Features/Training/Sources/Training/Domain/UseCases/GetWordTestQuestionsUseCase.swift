@@ -15,8 +15,8 @@ final class GetWordQuestionsUseCase {
         self.wordRepository = wordRepository
     }
 
-    func execute() throws -> [WordTestQuestion] {
-        let words = try wordRepository.getAllDictionary()
+    func execute() async throws -> [WordTestQuestion] {
+        let words = try await wordRepository.getAllDictionary()
         let testWords = words
             .sorted { $0.studyCoefficient < $1.studyCoefficient }
             .prefix(Constants.numberOfQuestions)

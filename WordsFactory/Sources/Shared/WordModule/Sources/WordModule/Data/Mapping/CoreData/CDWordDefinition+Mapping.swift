@@ -17,14 +17,3 @@ extension CDWordDefinition {
         )
     }
 }
-
-//extension [CDWord] {
-//
-//    func toDomain() -> [Word] {
-//        map { $0.toDomain() }
-//    }
-//
-//    func toDomainDictionary() -> [DictionaryWord] {
-//        map { $0.toDictionary() }
-//    }
-//}

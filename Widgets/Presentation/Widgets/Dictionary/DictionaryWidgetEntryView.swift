@@ -17,8 +17,8 @@ struct DictionaryWidgetEntryView: View {
             titleView
 
             VStack {
-                totalWordsView(name: "My Dictionary", count: entry.totalWords)
-                totalWordsView(name: "I already remember", count: entry.totalRememberWords)
+                totalWordsView(name: "My Dictionary", count: entry.totalWordCount)
+                totalWordsView(name: "I already remember", count: entry.rememberedWordCount)
             }
             .padding(.top, Constants.totalWordsInsetTop)
             .padding([.bottom, .horizontal])
@@ -34,7 +34,11 @@ private extension DictionaryWidgetEntryView {
 
     var titleView: some View {
         ZStack(alignment: .leading) {
-            Color.orange
+            LinearGradient(
+                colors: [Colors.appOrange.swiftUIColor, Colors.appYellow.swiftUIColor],
+                startPoint: .leading,
+                endPoint: .trailing
+            )
 
             Text("WordsFactory")
                 .font(Fonts.headline3)

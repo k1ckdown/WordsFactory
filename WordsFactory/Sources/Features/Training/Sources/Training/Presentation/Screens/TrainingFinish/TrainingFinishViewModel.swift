@@ -31,7 +31,7 @@ final class TrainingFinishViewModel: ObservableObject {
     func handle(_ event: Event) {
         switch event {
         case .onAppear:
-            handleOnAppear()
+            getTestResult()
         case .againTapped:
             coordinator.showQuestion()
         }
@@ -42,18 +42,18 @@ final class TrainingFinishViewModel: ObservableObject {
 
 private extension TrainingFinishViewModel {
 
-    func handleOnAppear() {
+    func getTestResult() {
         let testResult = getWordTestResultUseCase.execute(answers)
-        handleTestResult(testResult)
+        Task { await handleTestResult(testResult) }
 
         state = .loaded(.init(correct: testResult.correct.count, incorrect: testResult.incorrect.count))
     }
 
-    func handleTestResult(_ result: WordTestResult) {
+    func handleTestResult(_ result: WordTestResult) async {
         do {
-            try handleWordTestResultUseCase.execute(result)
+            try await handleWordTestResultUseCase.execute(result)
         } catch {
-            coordinator.showError(message: error.localizedDescription)
+            await MainActor.run { coordinator.showError(message: error.localizedDescription) }
         }
     }
 }

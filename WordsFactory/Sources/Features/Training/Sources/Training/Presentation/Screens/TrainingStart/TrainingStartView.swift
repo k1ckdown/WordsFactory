@@ -40,20 +40,20 @@ private extension TrainingStartView {
 
     @ViewBuilder
     func loadedView(_ viewData: TrainingStartViewModel.ViewState.ViewData) -> some View {
-        if viewData.totalWords == 0 {
+        if viewData.wordCount == 0 {
             PlaceholderView(title: Strings.dictionaryEmpty, subtitle: Strings.addWordsToDictionary)
         } else {
             VStack(spacing: .zero) {
-                titlesView(totalWords: viewData.totalWords)
+                titlesView(wordCount: viewData.wordCount)
                 countdownView(viewData.countdown, isShowing: viewData.isCountdownShowing)
             }
         }
     }
 
-    func titlesView(totalWords: Int) -> some View {
+    func titlesView(wordCount: Int) -> some View {
         VStack(spacing: .zero) {
             HighlightedText(
-                Strings.dictionaryWords(totalWords),
+                Strings.dictionaryWords(wordCount),
                 color: Colors.appOrange.swiftUIColor
             )
 

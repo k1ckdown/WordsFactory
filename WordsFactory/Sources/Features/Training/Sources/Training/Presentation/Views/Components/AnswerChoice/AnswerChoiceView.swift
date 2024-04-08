@@ -26,6 +26,7 @@ struct AnswerChoiceView: View {
         .padding(.horizontal, Constants.insetHorizontal)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(background)
+        .contentShape(.rect)
         .onTapGesture {
             isChosen.toggle()
             viewModel.chooseHandler()

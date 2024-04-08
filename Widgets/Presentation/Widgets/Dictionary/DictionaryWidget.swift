@@ -7,13 +7,22 @@
 
 import SwiftUI
 import WidgetKit
+import WordModule
+import Networking
 
 struct DictionaryWidget: Widget {
 
     private let kind = WidgetType.dictionary.kind
+    private let factory = UseCaseFactory()
 
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: kind, provider: DictionaryWidgetProvider()) {
+        StaticConfiguration(
+            kind: kind,
+            provider: DictionaryWidgetProvider(
+                getDictionaryWordCountUseCase: factory.makeGetDictionaryWordCountUseCase(),
+                getRememberedWordCountUseCase: factory.makeGetRememberedWordCountUseCase()
+            )
+        ) {
             DictionaryWidgetEntryView(entry: $0)
         }
         .contentMarginsDisabled()

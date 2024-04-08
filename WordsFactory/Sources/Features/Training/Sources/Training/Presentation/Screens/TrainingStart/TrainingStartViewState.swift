@@ -15,7 +15,7 @@ extension TrainingStartViewModel {
         case loaded(ViewData)
 
         struct ViewData: Equatable {
-            let totalWords: Int
+            let wordCount: Int
             let countdown: TimerViewModel
             var isCountdownShowing = false
         }

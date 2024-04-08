@@ -1,5 +1,5 @@
 //
-//  GetTotalDictionaryWordsUseCase.swift
+//  GetDictionaryWordCountUseCase.swift
 //
 //
 //  Created by Ivan Semenov on 02.04.2024.
@@ -7,7 +7,7 @@
 
 import WordModuleAPI
 
-final class GetTotalDictionaryWordsUseCase {
+final class GetDictionaryWordCountUseCase {
 
     private let wordRepository: WordRepositoryProtocol
 
@@ -15,8 +15,8 @@ final class GetTotalDictionaryWordsUseCase {
         self.wordRepository = wordRepository
     }
 
-    func execute() throws -> Int {
-        let dictionaryWords = try wordRepository.getAllDictionary()
+    func execute() async throws -> Int {
+        let dictionaryWords = try await wordRepository.getAllDictionary()
         return dictionaryWords.count
     }
 }

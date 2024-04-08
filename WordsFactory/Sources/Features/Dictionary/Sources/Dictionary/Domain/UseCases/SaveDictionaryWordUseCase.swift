@@ -15,7 +15,7 @@ final class SaveDictionaryWordUseCase {
         self.wordRepository = wordRepository
     }
 
-    func execute(_ word: Word) throws {
-        try wordRepository.saveDictionary(word)
+    func execute(_ word: Word) async throws {
+        try await wordRepository.saveDictionary(word)
     }
 }

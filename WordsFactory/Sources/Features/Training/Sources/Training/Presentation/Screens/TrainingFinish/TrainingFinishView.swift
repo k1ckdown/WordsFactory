@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CommonUI
+import WidgetKit
 
 struct TrainingFinishView: View {
 
@@ -20,6 +21,7 @@ struct TrainingFinishView: View {
         contentView
             .onAppear {
                 viewModel.handle(.onAppear)
+                WidgetCenter.shared.reloadAllTimelines()
             }
     }
 
