@@ -9,7 +9,8 @@ import Networking
 import WordModule
 
 final class UseCaseFactory {
-    private lazy var wordRepository = WordRepositoryAssembly.assemble(networkService: NetworkService())
+    private lazy var networkService = NetworkService()
+    private lazy var wordRepository = WordRepositoryAssembly.assemble(networkService: networkService)
 }
 
 // MARK: - Public methods
