@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import WidgetKit
+import Notifications
 
 final class TrainingFinishViewModel: ObservableObject {
 
@@ -31,7 +33,7 @@ final class TrainingFinishViewModel: ObservableObject {
     func handle(_ event: Event) {
         switch event {
         case .onAppear:
-            getTestResult()
+            handleOnAppear()
         case .againTapped:
             coordinator.showQuestion()
         }
@@ -41,6 +43,12 @@ final class TrainingFinishViewModel: ObservableObject {
 // MARK: - Private methods
 
 private extension TrainingFinishViewModel {
+
+    func handleOnAppear() {
+        WidgetCenter.shared.reloadAllTimelines()
+        TrainingNotificationManager.shared.removeForToday()
+        getTestResult()
+    }
 
     func getTestResult() {
         let testResult = getWordTestResultUseCase.execute(answers)

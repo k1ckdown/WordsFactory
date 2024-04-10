@@ -7,8 +7,6 @@
 
 import SwiftUI
 import CommonUI
-import WidgetKit
-import Notifications
 
 struct TrainingFinishCoordinatorView<Content: View>: View {
 
@@ -25,10 +23,6 @@ struct TrainingFinishCoordinatorView<Content: View>: View {
         content()
             .appBackButton(backHandler: coordinator.showStartHandler)
             .errorAlert($coordinator.errorMessage)
-            .onAppear {
-                WidgetCenter.shared.reloadAllTimelines()
-                TrainingNotificationManager.shared.removeForToday()
-            }
             .onChange(of: coordinator.screen) { screen in
                 guard case .question = screen else { return }
                 dismiss()

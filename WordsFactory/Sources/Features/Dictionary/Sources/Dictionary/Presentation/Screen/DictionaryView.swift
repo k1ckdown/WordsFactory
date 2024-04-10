@@ -7,7 +7,6 @@
 
 import SwiftUI
 import CommonUI
-import WidgetKit
 
 struct DictionaryView: View {
 
@@ -72,7 +71,6 @@ private extension DictionaryView {
     func dictionaryButton(isWordSaved: Bool) -> some View {
         Button(isWordSaved ? Strings.deleteFromDictionary : Strings.addToDictionary) {
             viewModel.handle(.dictionaryTapped)
-            WidgetCenter.shared.reloadAllTimelines()
         }
         .mainButtonStyle()
         .padding(.horizontal, Constants.DictionaryButton.insetHorizontal)
