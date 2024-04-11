@@ -17,8 +17,8 @@ struct DictionaryWidgetEntryView: View {
             titleView
 
             VStack {
-                totalWordsView(name: "My Dictionary", count: entry.totalWordCount)
-                totalWordsView(name: "I already remember", count: entry.rememberedWordCount)
+                totalWordsView(name: Strings.myDictionary, count: entry.totalWordCount)
+                totalWordsView(name: Strings.alreadyRemember, count: entry.rememberedWordCount)
             }
             .padding(.top, Constants.totalWordsInsetTop)
             .padding([.bottom, .horizontal])
@@ -40,7 +40,7 @@ private extension DictionaryWidgetEntryView {
                 endPoint: .trailing
             )
 
-            Text("WordsFactory")
+            Text(Strings.appName)
                 .font(Fonts.headline3)
                 .foregroundStyle(.white)
                 .padding(.leading)
@@ -54,7 +54,7 @@ private extension DictionaryWidgetEntryView {
                 .font(Fonts.headline5)
                 .frame(maxWidth: .infinity, alignment: .leading)
 
-            Text("\(count) Words")
+            Text(Strings.words(count))
                 .font(Fonts.paragraphMedium)
                 .foregroundStyle(.gray)
                 .padding(.top, Constants.wordsLabelInsetTop)

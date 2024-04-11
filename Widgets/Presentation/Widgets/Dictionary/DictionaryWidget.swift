@@ -22,8 +22,8 @@ struct DictionaryWidget: Widget {
             DictionaryWidgetEntryView(entry: $0)
         }
         .contentMarginsDisabled()
-        .configurationDisplayName("Dictionary")
-        .description("Shows an overview of your dictionary")
+        .configurationDisplayName(LocalizedStringKey(Strings.dictionary))
+        .description(LocalizedStringKey(Strings.dictionaryOverview))
         .supportedFamilies([.systemMedium])
     }
 }
