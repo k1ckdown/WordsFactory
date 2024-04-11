@@ -7,6 +7,7 @@
 
 import Foundation
 import WidgetKit
+import WordModuleAPI
 import Notifications
 
 final class TrainingFinishViewModel: ObservableObject {
@@ -45,7 +46,7 @@ final class TrainingFinishViewModel: ObservableObject {
 private extension TrainingFinishViewModel {
 
     func handleOnAppear() {
-        WidgetCenter.shared.reloadAllTimelines()
+        WidgetCenter.shared.reloadTimelines(ofKind: WidgetType.dictionary.kind)
         TrainingNotificationManager.shared.removeForToday()
         getTestResult()
     }

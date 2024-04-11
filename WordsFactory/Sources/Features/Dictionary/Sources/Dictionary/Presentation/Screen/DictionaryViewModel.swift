@@ -68,7 +68,7 @@ private extension DictionaryViewModel {
 
         do {
             try await word.isDictionary ? removeWord(word) : saveWord(word)
-            WidgetCenter.shared.reloadAllTimelines()
+            WidgetCenter.shared.reloadTimelines(ofKind: WidgetType.dictionary.kind)
         } catch {
             await MainActor.run { coordinator.showError(message: error.localizedDescription) }
         }

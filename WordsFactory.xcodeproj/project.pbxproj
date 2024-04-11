@@ -24,7 +24,6 @@
 		49CAC30A2BB978D500A09571 /* CommonUI in Frameworks */ = {isa = PBXBuildFile; productRef = 49CAC3092BB978D500A09571 /* CommonUI */; };
 		49CAC30C2BB978D500A09571 /* Dictionary in Frameworks */ = {isa = PBXBuildFile; productRef = 49CAC30B2BB978D500A09571 /* Dictionary */; };
 		49CAC30E2BB978D500A09571 /* OnBoarding in Frameworks */ = {isa = PBXBuildFile; productRef = 49CAC30D2BB978D500A09571 /* OnBoarding */; };
-		49D2DE602BC6F7F4007ED922 /* WidgetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E385252BC31680004EBCEF /* WidgetType.swift */; };
 		49D3FF892BC4778F005E2CCA /* GetRememberedWordCountUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D3FF882BC4778F005E2CCA /* GetRememberedWordCountUseCase.swift */; };
 		49D3FF8E2BC488F5005E2CCA /* UseCaseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D3FF8D2BC488F5005E2CCA /* UseCaseFactory.swift */; };
 		49E385072BC311B6004EBCEF /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E385062BC311B6004EBCEF /* WidgetKit.framework */; };
@@ -105,7 +104,6 @@
 		49E3851F2BC312C1004EBCEF /* View+WidgetBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+WidgetBackground.swift"; sourceTree = "<group>"; };
 		49E385212BC312DF004EBCEF /* DictionaryWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryWidgetEntryView.swift; sourceTree = "<group>"; };
 		49E385232BC3134A004EBCEF /* DictionaryWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryWidget.swift; sourceTree = "<group>"; };
-		49E385252BC31680004EBCEF /* WidgetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetType.swift; sourceTree = "<group>"; };
 		49F733512BADB2C40012AF9B /* Auth */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Auth; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -284,7 +282,7 @@
 		49D3FF852BC47648005E2CCA /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				49D3FF902BC48C50005E2CCA /* Common */,
+				49E3851E2BC312AA004EBCEF /* Extensions */,
 				49D3FF8F2BC48C46005E2CCA /* Widgets */,
 			);
 			path = Presentation;
@@ -320,15 +318,6 @@
 				49E385192BC31221004EBCEF /* Dictionary */,
 			);
 			path = Widgets;
-			sourceTree = "<group>";
-		};
-		49D3FF902BC48C50005E2CCA /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				49E385252BC31680004EBCEF /* WidgetType.swift */,
-				49E3851E2BC312AA004EBCEF /* Extensions */,
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		49E3850A2BC311B6004EBCEF /* Widgets */ = {
@@ -511,7 +500,6 @@
 				49D3FF892BC4778F005E2CCA /* GetRememberedWordCountUseCase.swift in Sources */,
 				49E3851B2BC3127E004EBCEF /* DictionaryWidgetProvider.swift in Sources */,
 				49E3851D2BC3128E004EBCEF /* DictionaryWidgetEntry.swift in Sources */,
-				49D2DE602BC6F7F4007ED922 /* WidgetType.swift in Sources */,
 				49D3FF8E2BC488F5005E2CCA /* UseCaseFactory.swift in Sources */,
 				49E385202BC312C1004EBCEF /* View+WidgetBackground.swift in Sources */,
 			);

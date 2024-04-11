@@ -7,8 +7,7 @@
 
 import SwiftUI
 import WidgetKit
-import WordModule
-import Networking
+import WordModuleAPI
 
 struct DictionaryWidget: Widget {
 
