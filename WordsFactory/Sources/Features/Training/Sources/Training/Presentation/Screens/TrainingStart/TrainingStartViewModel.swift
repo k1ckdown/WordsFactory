@@ -7,6 +7,7 @@
 
 import Combine
 import Foundation
+import WordModuleAPI
 
 final class TrainingStartViewModel: ObservableObject {
 
@@ -14,9 +15,12 @@ final class TrainingStartViewModel: ObservableObject {
 
     private var subscriptions: Set<AnyCancellable> = []
     private let coordinator: TrainingStartCoordinatorProtocol
-    private let getDictionaryWordCountUseCase: GetDictionaryWordCountUseCase
+    private let getDictionaryWordCountUseCase: GetDictionaryWordCountUseCaseProtocol
 
-    init(coordinator: TrainingStartCoordinatorProtocol, getDictionaryWordCountUseCase: GetDictionaryWordCountUseCase) {
+    init(
+        coordinator: TrainingStartCoordinatorProtocol,
+        getDictionaryWordCountUseCase: GetDictionaryWordCountUseCaseProtocol
+    ) {
         self.coordinator = coordinator
         self.getDictionaryWordCountUseCase = getDictionaryWordCountUseCase
     }

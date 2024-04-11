@@ -10,9 +10,14 @@ import WordModuleAPI
 final class UseCaseFactory {
 
     private let wordRepository: WordRepositoryProtocol
+    private let getDictionaryWordCountUseCaseProvider: GetDictionaryWordCountUseCaseProvider
 
-    init(wordRepository: WordRepositoryProtocol) {
+    init(
+        wordRepository: WordRepositoryProtocol,
+        getDictionaryWordCountUseCaseProvider: @escaping GetDictionaryWordCountUseCaseProvider
+    ) {
         self.wordRepository = wordRepository
+        self.getDictionaryWordCountUseCaseProvider = getDictionaryWordCountUseCaseProvider
     }
 }
 
@@ -32,7 +37,7 @@ extension UseCaseFactory {
         HandleWordTestResultUseCase(wordRepository: wordRepository)
     }
 
-    func makeGetDictionaryWordCountUseCase() -> GetDictionaryWordCountUseCase {
-        GetDictionaryWordCountUseCase(wordRepository: wordRepository)
+    func makeGetDictionaryWordCountUseCase() -> GetDictionaryWordCountUseCaseProtocol {
+        getDictionaryWordCountUseCaseProvider()
     }
 }

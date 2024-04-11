@@ -7,15 +7,15 @@
 
 import WordModuleAPI
 
-final class GetDictionaryWordCountUseCase {
+public final class GetDictionaryWordCountUseCase: GetDictionaryWordCountUseCaseProtocol {
 
     private let wordRepository: WordRepositoryProtocol
 
-    init(wordRepository: WordRepositoryProtocol) {
+    public init(wordRepository: WordRepositoryProtocol) {
         self.wordRepository = wordRepository
     }
 
-    func execute() async throws -> Int {
+    public func execute() async throws -> Int {
         let dictionaryWords = try await wordRepository.getAllDictionary()
         return dictionaryWords.count
     }

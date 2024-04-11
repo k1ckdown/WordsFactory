@@ -47,17 +47,25 @@ extension AppFactory {
 
 private extension AppFactory {
 
-    func makeVideoCoordinatorAssembly() -> VideoCoordinatorAssembly {
-        VideoCoordinatorAssembly()
+    func makeGetDictionaryWordCountUseCase() -> GetDictionaryWordCountUseCase {
+        GetDictionaryWordCountUseCase(wordRepository: wordRepository)
     }
 
-    func makeTrainingCoordinatorAssembly() -> TrainingCoordinatorAssembly {
-        let dependencies = Training.ModuleDependencies(wordRepository: wordRepository)
-        return TrainingCoordinatorAssembly(dependencies: dependencies)
+    func makeVideoCoordinatorAssembly() -> VideoCoordinatorAssembly {
+        VideoCoordinatorAssembly()
     }
 
     func makeDictionaryCoordinatorAssembly() -> DictionaryCoordinatorAssembly {
         let dependencies = ModuleDependencies(networkService: networkService, wordRepository: wordRepository)
         return DictionaryCoordinatorAssembly(dependencies: dependencies)
+    }
+
+    func makeTrainingCoordinatorAssembly() -> TrainingCoordinatorAssembly {
+        let dependencies = Training.ModuleDependencies(
+            wordRepository: wordRepository,
+            getDictionaryWordCountUseCase: self.makeGetDictionaryWordCountUseCase()
+        )
+
+        return TrainingCoordinatorAssembly(dependencies: dependencies)
     }
 }

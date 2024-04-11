@@ -24,8 +24,8 @@
 		49CAC30A2BB978D500A09571 /* CommonUI in Frameworks */ = {isa = PBXBuildFile; productRef = 49CAC3092BB978D500A09571 /* CommonUI */; };
 		49CAC30C2BB978D500A09571 /* Dictionary in Frameworks */ = {isa = PBXBuildFile; productRef = 49CAC30B2BB978D500A09571 /* Dictionary */; };
 		49CAC30E2BB978D500A09571 /* OnBoarding in Frameworks */ = {isa = PBXBuildFile; productRef = 49CAC30D2BB978D500A09571 /* OnBoarding */; };
+		49D2DE602BC6F7F4007ED922 /* WidgetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E385252BC31680004EBCEF /* WidgetType.swift */; };
 		49D3FF892BC4778F005E2CCA /* GetRememberedWordCountUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D3FF882BC4778F005E2CCA /* GetRememberedWordCountUseCase.swift */; };
-		49D3FF8B2BC487E5005E2CCA /* GetDictionaryWordCountUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D3FF8A2BC487E5005E2CCA /* GetDictionaryWordCountUseCase.swift */; };
 		49D3FF8E2BC488F5005E2CCA /* UseCaseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D3FF8D2BC488F5005E2CCA /* UseCaseFactory.swift */; };
 		49E385072BC311B6004EBCEF /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E385062BC311B6004EBCEF /* WidgetKit.framework */; };
 		49E385092BC311B6004EBCEF /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E385082BC311B6004EBCEF /* SwiftUI.framework */; };
@@ -37,7 +37,6 @@
 		49E385202BC312C1004EBCEF /* View+WidgetBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E3851F2BC312C1004EBCEF /* View+WidgetBackground.swift */; };
 		49E385222BC312DF004EBCEF /* DictionaryWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E385212BC312DF004EBCEF /* DictionaryWidgetEntryView.swift */; };
 		49E385242BC3134A004EBCEF /* DictionaryWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E385232BC3134A004EBCEF /* DictionaryWidget.swift */; };
-		49E385262BC31680004EBCEF /* WidgetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E385252BC31680004EBCEF /* WidgetType.swift */; };
 		49E385282BC31846004EBCEF /* CommonUI in Frameworks */ = {isa = PBXBuildFile; productRef = 49E385272BC31846004EBCEF /* CommonUI */; };
 		49E3852A2BC31AED004EBCEF /* WordModule in Frameworks */ = {isa = PBXBuildFile; productRef = 49E385292BC31AED004EBCEF /* WordModule */; };
 		49E3852D2BC31C97004EBCEF /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 49E3852C2BC31C97004EBCEF /* Networking */; };
@@ -94,7 +93,6 @@
 		49CAC3062BB9771700A09571 /* Training */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Training; sourceTree = "<group>"; };
 		49CDBECA2BC12C0E00762BBD /* MainTabBar */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MainTabBar; sourceTree = "<group>"; };
 		49D3FF882BC4778F005E2CCA /* GetRememberedWordCountUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRememberedWordCountUseCase.swift; sourceTree = "<group>"; };
-		49D3FF8A2BC487E5005E2CCA /* GetDictionaryWordCountUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDictionaryWordCountUseCase.swift; sourceTree = "<group>"; };
 		49D3FF8D2BC488F5005E2CCA /* UseCaseFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseFactory.swift; sourceTree = "<group>"; };
 		49E385052BC311B6004EBCEF /* WidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		49E385062BC311B6004EBCEF /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -304,7 +302,6 @@
 			isa = PBXGroup;
 			children = (
 				49D3FF882BC4778F005E2CCA /* GetRememberedWordCountUseCase.swift */,
-				49D3FF8A2BC487E5005E2CCA /* GetDictionaryWordCountUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -510,12 +507,11 @@
 			files = (
 				49E385242BC3134A004EBCEF /* DictionaryWidget.swift in Sources */,
 				49E3850C2BC311B6004EBCEF /* WidgetsBundle.swift in Sources */,
-				49D3FF8B2BC487E5005E2CCA /* GetDictionaryWordCountUseCase.swift in Sources */,
 				49E385222BC312DF004EBCEF /* DictionaryWidgetEntryView.swift in Sources */,
 				49D3FF892BC4778F005E2CCA /* GetRememberedWordCountUseCase.swift in Sources */,
 				49E3851B2BC3127E004EBCEF /* DictionaryWidgetProvider.swift in Sources */,
-				49E385262BC31680004EBCEF /* WidgetType.swift in Sources */,
 				49E3851D2BC3128E004EBCEF /* DictionaryWidgetEntry.swift in Sources */,
+				49D2DE602BC6F7F4007ED922 /* WidgetType.swift in Sources */,
 				49D3FF8E2BC488F5005E2CCA /* UseCaseFactory.swift in Sources */,
 				49E385202BC312C1004EBCEF /* View+WidgetBackground.swift in Sources */,
 			);

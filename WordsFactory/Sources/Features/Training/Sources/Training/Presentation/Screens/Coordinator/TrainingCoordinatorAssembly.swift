@@ -13,9 +13,12 @@ public struct TrainingCoordinatorAssembly: TrainingCoordinatorAssemblyProtocol {
     private let coordinatorFactory: CoordinatorFactory
 
     public init(dependencies: ModuleDependencies) {
-        let useCaseFactory = UseCaseFactory(wordRepository: dependencies.wordRepository)
-        let screenFactory = ScreenFactory(useCaseFactory: useCaseFactory)
+        let useCaseFactory = UseCaseFactory(
+            wordRepository: dependencies.wordRepository,
+            getDictionaryWordCountUseCaseProvider: dependencies.getDictionaryWordCountUseCaseProvider
+        )
 
+        let screenFactory = ScreenFactory(useCaseFactory: useCaseFactory)
         coordinatorFactory = CoordinatorFactory(screenFactory: screenFactory)
     }
 

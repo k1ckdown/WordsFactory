@@ -6,6 +6,7 @@
 //
 
 import WidgetKit
+import WordModule
 
 struct DictionaryWidgetProvider: TimelineProvider {
 
