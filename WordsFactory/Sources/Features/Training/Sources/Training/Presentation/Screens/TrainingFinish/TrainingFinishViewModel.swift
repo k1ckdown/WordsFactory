@@ -46,7 +46,6 @@ final class TrainingFinishViewModel: ObservableObject {
 private extension TrainingFinishViewModel {
 
     func handleOnAppear() {
-        WidgetCenter.shared.reloadTimelines(ofKind: WidgetType.dictionary.kind)
         TrainingNotificationManager.shared.removeForToday()
         getTestResult()
     }
@@ -61,6 +60,7 @@ private extension TrainingFinishViewModel {
     func handleTestResult(_ result: WordTestResult) async {
         do {
             try await handleWordTestResultUseCase.execute(result)
+            WidgetCenter.shared.reloadTimelines(ofKind: WidgetType.dictionary.kind)
         } catch {
             await MainActor.run { coordinator.showError(message: error.localizedDescription) }
         }
