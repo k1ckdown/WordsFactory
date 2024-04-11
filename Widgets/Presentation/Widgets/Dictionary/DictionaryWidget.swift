@@ -12,15 +12,12 @@ import WordModuleAPI
 struct DictionaryWidget: Widget {
 
     private let kind = WidgetType.dictionary.kind
-    private let factory = UseCaseFactory()
+    private let providerAssembly = DictionaryWidgetProviderAssembly()
 
     var body: some WidgetConfiguration {
         StaticConfiguration(
             kind: kind,
-            provider: DictionaryWidgetProvider(
-                getDictionaryWordCountUseCase: factory.makeGetDictionaryWordCountUseCase(),
-                getRememberedWordCountUseCase: factory.makeGetRememberedWordCountUseCase()
-            )
+            provider: providerAssembly.assemble()
         ) {
             DictionaryWidgetEntryView(entry: $0)
         }
