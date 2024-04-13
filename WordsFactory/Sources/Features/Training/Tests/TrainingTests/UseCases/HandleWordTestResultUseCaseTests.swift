@@ -26,8 +26,13 @@ final class HandleWordTestResultUseCaseTests: XCTestCase {
 
         super.tearDown()
     }
+}
 
-    func test_execute_whenWordsIncorrect_thenUpdateCoefficients() async throws {
+// MARK: - Tests
+
+extension HandleWordTestResultUseCaseTests {
+
+    func test_execute_whenWordsIncorrect_thenUpdateCoefficients() async {
         //Given:
         let incorrectWords: [TestWord] = [
             .init(answerKey: "A", text: "word1", definition: "definition1", studyCoefficient: 1),
@@ -51,7 +56,7 @@ final class HandleWordTestResultUseCaseTests: XCTestCase {
         }
     }
 
-    func test_execute_whenWordsCorrect_thenUpdateCoefficients() async throws {
+    func test_execute_whenWordsCorrect_thenUpdateCoefficients() async {
         //Given:
         let correctWords: [TestWord] = [
             .init(answerKey: "A", text: "word1", definition: "definition1", studyCoefficient: 1),

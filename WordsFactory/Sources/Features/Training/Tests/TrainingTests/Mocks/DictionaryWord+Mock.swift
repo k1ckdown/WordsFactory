@@ -8,12 +8,33 @@
 import WordModuleAPI
 
 extension DictionaryWord {
-    static let mock = DictionaryWord(
-        text: "cooking",
-        studyCoefficient: 2,
-        definitions: [
-            .init(phonetic: "/ˈkʊ.kɪŋ/", meanings: [], phonetics: [])
-        ]
-    )
+
+    static func mock(text: String, studyCoefficient: Int = 0) -> Self {
+        DictionaryWord(
+            text: text,
+            studyCoefficient: studyCoefficient,
+            definitions: [
+                .init(
+                    phonetic: "/ˈkʊ.kɪŋ/",
+                    meanings: [
+                        .init(
+                            partOfSpeech: "verb",
+                            synonyms: [],
+                            antonyms: [],
+                            definitions: [
+                                .init(
+                                    definition: "To prepare (food) for eating by heating it, often by combining it with other ingredients.",
+                                    synonyms: [],
+                                    antonyms: [],
+                                    example: nil
+                                )
+                            ]
+                        )
+                    ],
+                    phonetics: []
+                )
+            ]
+        )
+    }
 }
 

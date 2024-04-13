@@ -61,7 +61,7 @@ private extension GetWordQuestionsUseCase {
 
 // MARK: - Constants
 
-private extension GetWordQuestionsUseCase {
+extension GetWordQuestionsUseCase {
 
     enum Constants {
         static let numberOfQuestions = 10
