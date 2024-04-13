@@ -29,6 +29,7 @@ struct OnBoardingView: View {
                         Text(viewModel.state.style.title)
                             .font(Fonts.headline4)
                             .foregroundStyle(Colors.appDark.swiftUIColor)
+                            .frame(height: Constants.Titles.height, alignment: .bottom)
 
                         Text(viewModel.state.style.subtitle)
                             .font(Fonts.paragraphMedium)
@@ -86,6 +87,7 @@ private extension OnBoardingView {
         }
 
         enum Titles {
+            static let height: CGFloat = 70
             static let spacing: CGFloat = 13
             static let insetTop: CGFloat = 25
             static let lineSpacing: CGFloat = 3
@@ -97,7 +99,7 @@ private extension OnBoardingView {
         }
 
         enum Button {
-            static let offsetY: CGFloat = -15
+            static let offsetY: CGFloat = -20
             static let insetHorizontal: CGFloat = 32
         }
     }
