@@ -47,6 +47,8 @@ private extension TrainingStartView {
                 titlesView(wordCount: viewData.wordCount)
                 countdownView(viewData.countdown, isShowing: viewData.isCountdownShowing)
             }
+            .frame(maxHeight: .infinity, alignment: .bottom)
+            .padding(.bottom, Constants.startViewInsetBottom)
         }
     }
 
@@ -77,7 +79,7 @@ private extension TrainingStartView {
                 .padding(.horizontal, Constants.startButtonHorizontalInset)
             }
         }
-        .frame(height: Constants.countdownHeight)
+        .frame(height: Constants.countdownHeight, alignment: .bottom)
         .padding(.top, Constants.countdownTopInset)
     }
 }
@@ -90,7 +92,8 @@ private extension TrainingStartView {
         static let subtitleInsetTop: CGFloat = 35
         static let titlesHorizontalInset: CGFloat = 50
         static let countdownHeight: CGFloat = 120
-        static let countdownTopInset: CGFloat = 190
+        static let countdownTopInset: CGFloat = 160
+        static let startViewInsetBottom: CGFloat = 120
         static let startButtonHorizontalInset: CGFloat = 33
     }
 }
