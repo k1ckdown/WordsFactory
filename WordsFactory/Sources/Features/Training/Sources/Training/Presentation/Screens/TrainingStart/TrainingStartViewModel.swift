@@ -43,9 +43,7 @@ private extension TrainingStartViewModel {
         guard case .loaded(let viewData) = state else { return }
 
         state = state.showCountdown()
-        DispatchQueue.main.asyncAfter(deadline: .now() + Constants.delayShowCountdown) {
-            viewData.countdown.startTimer()
-        }
+        viewData.countdown.startTimer()
     }
 
     func getWordCount() async {
@@ -70,14 +68,5 @@ private extension TrainingStartViewModel {
             .store(in: &subscriptions)
 
         return timer
-    }
-}
-
-// MARK: - Constants
-
-private extension TrainingStartViewModel {
-
-    enum Constants {
-        static let delayShowCountdown = 0.25
     }
 }

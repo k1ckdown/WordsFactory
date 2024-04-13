@@ -12,9 +12,9 @@ final class QuestionViewModel: ObservableObject {
 
     @Published private(set) var state = ViewState.idle
 
+    private var questionNumber = 1
     private var answers: [WordTestAnswer] = []
     private var subscriptions: Set<AnyCancellable> = []
-    private var questionNumber = Constants.initialQuestionNumber
 
     private let coordinator: QuestionCoordinatorProtocol
     private let getWordQuestionsUseCase: GetWordQuestionsUseCase
@@ -59,16 +59,13 @@ private extension QuestionViewModel {
     func handleChoiceTap(key: String, questionNumber: Int) {
         answers[questionNumber - 1].key = key
         state = state.disableChoice()
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + Constants.delayNextQuestion) {
-            self.updateQuestionState()
-        }
+        updateQuestionState()
     }
 
     func handleQuestions(_ questions: [WordTestQuestion]) async {
         guard questions.isEmpty == false else { return }
 
-        questionNumber = Constants.initialQuestionNumber
+        questionNumber = 1
         answers = questions.map { .init(question: $0) }
         await startTest(with: makeViewData())
     }
@@ -122,15 +119,5 @@ private extension QuestionViewModel {
         }
 
         return .init(number: number, definition: question.answerWord.definition, choices: choices)
-    }
-}
-
-// MARK: - Constants
-
-private extension QuestionViewModel {
-
-    enum Constants {
-        static let delayNextQuestion = 0.3
-        static let initialQuestionNumber = 1
     }
 }

@@ -14,38 +14,47 @@ struct AnswerChoiceView: View {
     @State private var isChosen = false
 
     var body: some View {
-        HStack(spacing: .zero) {
-            Text("\(viewModel.key).")
-
-            Text(viewModel.value.capitalized)
-                .padding(.leading)
-        }
-        .font(Fonts.paragraphLarge)
-        .foregroundStyle(Colors.appDark.swiftUIColor)
-        .padding(.vertical, Constants.insetVertical)
-        .padding(.horizontal, Constants.insetHorizontal)
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .background(background)
-        .contentShape(.rect)
-        .onTapGesture {
-            isChosen.toggle()
+        Button {
             viewModel.chooseHandler()
+        } label: {
+            HStack(spacing: .zero) {
+                Text("\(viewModel.key).")
+
+                Text(viewModel.value.capitalized)
+                    .padding(.leading)
+            }
         }
+        .buttonStyle(AnswerChoiceButtonStyle())
+    }
+}
+
+fileprivate struct AnswerChoiceButtonStyle: ButtonStyle {
+
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .font(Fonts.paragraphLarge)
+            .foregroundStyle(Colors.appDark.swiftUIColor)
+            .padding(.vertical, Constants.insetVertical)
+            .padding(.horizontal, Constants.insetHorizontal)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(background(isPressed: configuration.isPressed))
+            .contentShape(.rect)
+            .animation(.easeOut, value: configuration.isPressed)
     }
 
     @ViewBuilder
-    private var background: some View {
+    private func background(isPressed: Bool) -> some View {
         let rectangle = RoundedRectangle(cornerRadius: Constants.cornerRadius)
 
         rectangle
-            .stroke(isChosen ? Colors.appOrange.swiftUIColor : Colors.appGray.swiftUIColor, lineWidth: Constants.borderWidth)
-            .background(rectangle.fill(isChosen ? Colors.appOrange.swiftUIColor.opacity(Constants.chosenOpacity) : .clear))
+            .stroke(isPressed ? Colors.appOrange.swiftUIColor : Colors.appGray.swiftUIColor, lineWidth: Constants.borderWidth)
+            .background(rectangle.fill(isPressed ? Colors.appOrange.swiftUIColor.opacity(Constants.chosenOpacity) : .clear))
     }
 }
 
 // MARK: - Constants
 
-private extension AnswerChoiceView {
+private extension AnswerChoiceButtonStyle {
 
     enum Constants {
         static let chosenOpacity = 0.1
