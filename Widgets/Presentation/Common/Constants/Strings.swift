@@ -8,12 +8,13 @@
 import SwiftUI
 
 enum Strings {
-    static let appName = "WordsFactory"
-    static let dictionary = "Dictionary"
-    static let myDictionary = "MyDictionary"
-    static let alreadyRemember = "AlreadyRemember"
-    static let dictionaryOverview = "DictionaryOverview"
-    
+    static let appName = String(localized: "WordsFactory")
+    static let dictionary = String(localized: "Dictionary")
+    static let myDictionary = String(localized: "MyDictionary")
+    static let alreadyRemember = String(localized: "AlreadyRemember")
+    static let dictionaryIsEmpty = String(localized: "DictionaryIsEmpty")
+    static let dictionaryOverview = String(localized: "DictionaryOverview")
+
     static func words(_ count: Int) -> String {
         String(format: NSLocalizedString("Words", comment: ""), count)
     }

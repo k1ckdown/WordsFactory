@@ -35,6 +35,23 @@
         }
       }
     },
+    "DictionaryIsEmpty" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your dictionary is empty.\nAdd any word 📒"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Ваш словарь пуст.\nДобавьте любое слово 📒"
+          }
+        }
+      }
+    },
     "DictionaryOverview" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -121,6 +138,9 @@
           }
         }
       }
+    },
+    "WordsFactory" : {
+
     }
   },
   "version" : "1.0"
