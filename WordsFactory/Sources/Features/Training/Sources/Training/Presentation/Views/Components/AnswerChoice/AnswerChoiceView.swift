@@ -11,7 +11,6 @@ import CommonUI
 struct AnswerChoiceView: View {
 
     let viewModel: AnswerChoiceViewModel
-    @State private var isChosen = false
 
     var body: some View {
         Button {
@@ -47,7 +46,10 @@ fileprivate struct AnswerChoiceButtonStyle: ButtonStyle {
         let rectangle = RoundedRectangle(cornerRadius: Constants.cornerRadius)
 
         rectangle
-            .stroke(isPressed ? Colors.appOrange.swiftUIColor : Colors.appGray.swiftUIColor, lineWidth: Constants.borderWidth)
+            .stroke(
+                isPressed ? Colors.appOrange.swiftUIColor : Colors.appGray.swiftUIColor,
+                lineWidth: isPressed ? Constants.chosenBorderWidth : Constants.borderWidth
+            )
             .background(rectangle.fill(isPressed ? Colors.appOrange.swiftUIColor.opacity(Constants.chosenOpacity) : .clear))
     }
 }
@@ -58,9 +60,10 @@ private extension AnswerChoiceButtonStyle {
 
     enum Constants {
         static let chosenOpacity = 0.1
-        static let borderWidth: CGFloat = 2
         static let cornerRadius: CGFloat = 8
         static let insetVertical: CGFloat = 21
         static let insetHorizontal: CGFloat = 24
+        static let borderWidth: CGFloat = 1.5
+        static let chosenBorderWidth: CGFloat = 2
     }
 }
