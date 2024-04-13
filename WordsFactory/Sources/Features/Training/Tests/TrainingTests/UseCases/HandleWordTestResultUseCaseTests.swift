@@ -34,10 +34,7 @@ extension HandleWordTestResultUseCaseTests {
 
     func test_execute_whenWordsIncorrect_thenUpdateCoefficients() async {
         //Given:
-        let incorrectWords: [TestWord] = [
-            .init(answerKey: "A", text: "word1", definition: "definition1", studyCoefficient: 1),
-            .init(answerKey: "B", text: "word2", definition: "definition2", studyCoefficient: 6)
-        ]
+        let incorrectWords = createTestWords(count: 1)
         let testResult = WordTestResult(correct: [], incorrect: incorrectWords)
 
         //When:
@@ -58,10 +55,7 @@ extension HandleWordTestResultUseCaseTests {
 
     func test_execute_whenWordsCorrect_thenUpdateCoefficients() async {
         //Given:
-        let correctWords: [TestWord] = [
-            .init(answerKey: "A", text: "word1", definition: "definition1", studyCoefficient: 1),
-            .init(answerKey: "B", text: "word2", definition: "definition2", studyCoefficient: 6)
-        ]
+        let correctWords = createTestWords(count: 1)
         let testResult = WordTestResult(correct: correctWords, incorrect: [])
 
         //When:
@@ -77,6 +71,22 @@ extension HandleWordTestResultUseCaseTests {
             }
         } catch {
             XCTFail(error.localizedDescription)
+        }
+    }
+}
+
+// MARK: - Private methods
+
+private extension HandleWordTestResultUseCaseTests {
+
+    func createTestWords(count: Int) -> [TestWord] {
+        (1...count).map {
+            .init(
+                answerKey: "\($0)",
+                text: "word \($0)",
+                definition: "definition \($0)",
+                studyCoefficient: 0
+            )
         }
     }
 }
