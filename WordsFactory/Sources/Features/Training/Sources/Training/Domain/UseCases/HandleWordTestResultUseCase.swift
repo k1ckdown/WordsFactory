@@ -42,7 +42,7 @@ private extension HandleWordTestResultUseCase {
 
 // MARK: - Constants
 
-private extension HandleWordTestResultUseCase {
+extension HandleWordTestResultUseCase {
 
     enum Constants {
         static let correctCoefAmount = 1
