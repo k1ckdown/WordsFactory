@@ -21,7 +21,7 @@ struct DictionaryView: View {
             SearchBar { word in
                 viewModel.handle(.searchWordChanged(word))
             }
-            .padding(.horizontal)
+            .padding([.top, .horizontal])
 
             contentView
                 .frame(maxHeight: .infinity)
@@ -49,6 +49,7 @@ private extension DictionaryView {
 
     var placeholderView: some View {
         PlaceholderView(title: Strings.noWord, subtitle: Strings.findInDictionary)
+            .offset(y: Constants.Placeholder.offsetY)
     }
 
     @ViewBuilder
@@ -96,6 +97,10 @@ private extension DictionaryView {
 private extension DictionaryView {
 
     enum Constants {
+
+        enum Placeholder {
+            static let offsetY: CGFloat = -30
+        }
 
         enum DictionaryButton {
             static let offsetY: CGFloat = -115
