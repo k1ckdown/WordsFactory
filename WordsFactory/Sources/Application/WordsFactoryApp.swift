@@ -9,13 +9,17 @@ import SwiftUI
 
 @main
 struct WordsFactoryApp: App {
-    
+
     @UIApplicationDelegateAdaptor(AppDelegate.self)
     private var appDelegate
+    private let appCoordinator = AppCoordinator()
 
     var body: some Scene {
         WindowGroup {
-            AppCoordinator(factory: AppFactory())
+            AppCoordinatorView(coordinator: appCoordinator)
+                .onAppear {
+                    appDelegate.appCoordinator = appCoordinator
+                }
         }
     }
 }
