@@ -13,6 +13,7 @@ public struct VideoCoordinatorAssembly: VideoCoordinatorAssemblyProtocol {
     public init() {}
 
     public func assemble() -> AnyView {
-        AnyView(VideoCoordinatorView())
+        let coordinatorView = VideoCoordinatorView()
+        return AnyView(coordinatorView)
     }
 }

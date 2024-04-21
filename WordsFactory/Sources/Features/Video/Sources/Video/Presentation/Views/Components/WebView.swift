@@ -44,7 +44,11 @@ extension WebView {
             self.url = url
         }
 
-        func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        func webView(
+            _ webView: WKWebView,
+            decidePolicyFor navigationAction: WKNavigationAction,
+            decisionHandler: @escaping (WKNavigationActionPolicy
+            ) -> Void) {
             guard let redirectedUrl = navigationAction.request.url else { return }
 
             let policy: WKNavigationActionPolicy = redirectedUrl.absoluteString.hasPrefix(url.absoluteString) ? .allow : .cancel

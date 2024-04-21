@@ -25,7 +25,3 @@ private extension VideoView {
         static let urlString = "https://learnenglish.britishcouncil.org/general-english/video-zone"
     }
 }
-
-#Preview {
-    VideoView()
-}
