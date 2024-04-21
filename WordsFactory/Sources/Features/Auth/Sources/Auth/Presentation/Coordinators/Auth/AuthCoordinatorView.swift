@@ -9,13 +9,25 @@ import SwiftUI
 
 struct AuthCoordinatorView: View {
 
+    private let factory: CoordinatorFactory
     @StateObject private var coordinator: AuthCoordinator
 
-    init(coordinator: AuthCoordinator) {
+    init(factory: CoordinatorFactory, coordinator: AuthCoordinator) {
+        self.factory = factory
         _coordinator = StateObject(wrappedValue: coordinator)
     }
 
     var body: some View {
-        coordinator.rootView
+        rootView
+    }
+
+    @ViewBuilder
+    private var rootView: some View {
+        switch coordinator.scene {
+        case .signIn:
+            factory.makeSignInCoordinator(showSignUpHandler: coordinator.showSignUp)
+        case .signUp:
+            factory.makeSignUpCoordinator(showSignInHandler: coordinator.showSignIn)
+        }
     }
 }
