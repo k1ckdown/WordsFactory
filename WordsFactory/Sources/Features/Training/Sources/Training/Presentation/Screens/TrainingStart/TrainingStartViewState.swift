@@ -22,6 +22,7 @@ extension TrainingStartViewModel {
 
     enum Event {
         case onAppear
+        case onDisappear
         case startTapped
     }
 }

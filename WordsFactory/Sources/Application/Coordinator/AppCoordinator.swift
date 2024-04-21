@@ -16,7 +16,7 @@ final class AppCoordinator: ObservableObject {
         case mainTabBar
     }
 
-    @Published private(set) var scene = Scene.onBoarding
+    @Published private(set) var scene = Scene.mainTabBar
 }
 
 // MARK: - Public methods

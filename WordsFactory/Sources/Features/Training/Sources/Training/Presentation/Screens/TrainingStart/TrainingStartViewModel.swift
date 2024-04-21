@@ -29,6 +29,8 @@ final class TrainingStartViewModel: ObservableObject {
         switch event {
         case .onAppear:
             Task { await getWordCount() }
+        case .onDisappear:
+            handleOnDisappear()
         case .startTapped:
             handleStartTap()
         }
@@ -38,6 +40,16 @@ final class TrainingStartViewModel: ObservableObject {
 // MARK: - Private methods
 
 private extension TrainingStartViewModel {
+
+    func handleOnDisappear() {
+        stopCountdown()
+        subscriptions.removeAll()
+    }
+
+    func stopCountdown() {
+        guard case .loaded(let viewData) = state else { return }
+        viewData.countdown.pauseTimer()
+    }
 
     func handleStartTap() {
         guard case .loaded(let viewData) = state else { return }

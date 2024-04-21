@@ -21,6 +21,9 @@ struct TrainingStartView: View {
             .onAppear {
                 viewModel.handle(.onAppear)
             }
+            .onDisappear {
+                viewModel.handle(.onDisappear)
+            }
     }
 
     @ViewBuilder
