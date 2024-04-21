@@ -33,7 +33,7 @@ struct AppCoordinatorView: View {
         case .auth:
             factory.makeAuthCoordinator(flowFinishHandler: coordinator.finishAuth)
         case .onboarding:
-            factory.makeOnBoardingCoordinator(flowFinishHandler: coordinator.finishOnBoarding)
+            factory.makeOnboardingCoordinator(flowFinishHandler: coordinator.finishOnboarding)
         case .mainTabBar:
             factory.makeMainTabBarCoordinator().onAppear(perform: coordinator.onAppearMainTabBar)
         }

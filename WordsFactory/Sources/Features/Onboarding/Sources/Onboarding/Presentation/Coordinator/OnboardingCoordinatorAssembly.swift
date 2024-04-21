@@ -1,5 +1,5 @@
 //
-//  OnBoardingCoordinatorAssembly.swift
+//  OnboardingCoordinatorAssembly.swift
 //
 //
 //  Created by Ivan Semenov on 29.03.2024.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct OnBoardingCoordinatorAssembly {
+public struct OnboardingCoordinatorAssembly {
 
     private let screenFactory: ScreenFactory
 
@@ -16,9 +16,9 @@ public struct OnBoardingCoordinatorAssembly {
     }
 
     public func assemble(flowFinishHandler: @escaping () -> Void) -> some View {
-        let coordinator = OnBoardingCoordinator(flowFinishHandler: flowFinishHandler)
-        let coordinatorView = OnBoardingCoordinatorView(
-            content: screenFactory.makeOnBoardingScreen(coordinator: coordinator),
+        let coordinator = OnboardingCoordinator(flowFinishHandler: flowFinishHandler)
+        let coordinatorView = OnboardingCoordinatorView(
+            content: screenFactory.makeOnboardingScreen(coordinator: coordinator),
             coordinator: coordinator
         )
 

@@ -1,5 +1,5 @@
 //
-//  OnBoardingView.swift
+//  OnboardingView.swift
 //
 //
 //  Created by Ivan Semenov on 29.03.2024.
@@ -8,11 +8,11 @@
 import SwiftUI
 import CommonUI
 
-struct OnBoardingView: View {
+struct OnboardingView: View {
 
-    @StateObject private var viewModel: OnBoardingViewModel
+    @StateObject private var viewModel: OnboardingViewModel
 
-    init(viewModel: OnBoardingViewModel) {
+    init(viewModel: OnboardingViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
 
@@ -78,7 +78,7 @@ struct OnBoardingView: View {
 
 // MARK: - Constants
 
-private extension OnBoardingView {
+private extension OnboardingView {
 
     enum Constants {
 

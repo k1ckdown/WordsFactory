@@ -29,7 +29,7 @@ extension AppCoordinator {
         scene = showOnboarding ? .onboarding : .auth
     }
 
-    func finishOnBoarding() {
+    func finishOnboarding() {
         scene = .auth
         showOnboarding = false
     }

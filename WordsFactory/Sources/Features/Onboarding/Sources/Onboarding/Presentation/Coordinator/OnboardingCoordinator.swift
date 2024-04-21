@@ -1,5 +1,5 @@
 //
-//  OnBoardingCoordinator.swift
+//  OnboardingCoordinator.swift
 //
 //
 //  Created by Ivan Semenov on 29.03.2024.
@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol OnBoardingCoordinatorProtocol: AnyObject {
+protocol OnboardingCoordinatorProtocol: AnyObject {
     func finish()
 }
 
-final class OnBoardingCoordinator: ObservableObject {
+final class OnboardingCoordinator: ObservableObject {
 
     private let flowFinishHandler: () -> Void
 
@@ -20,9 +20,9 @@ final class OnBoardingCoordinator: ObservableObject {
     }
 }
 
-// MARK: - OnBoardingCoordinatorProtocol
+// MARK: - OnboardingCoordinatorProtocol
 
-extension OnBoardingCoordinator: OnBoardingCoordinatorProtocol {
+extension OnboardingCoordinator: OnboardingCoordinatorProtocol {
 
     func finish() {
         flowFinishHandler()

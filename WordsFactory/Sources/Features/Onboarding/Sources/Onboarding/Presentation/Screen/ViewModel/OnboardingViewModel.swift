@@ -1,5 +1,5 @@
 //
-//  OnBoardingViewModel.swift
+//  OnboardingViewModel.swift
 //
 //
 //  Created by Ivan Semenov on 29.03.2024.
@@ -7,12 +7,12 @@
 
 import Foundation
 
-final class OnBoardingViewModel: ObservableObject {
+final class OnboardingViewModel: ObservableObject {
 
     @Published private(set) var state = ViewState()
-    private let coordinator: OnBoardingCoordinatorProtocol
+    private let coordinator: OnboardingCoordinatorProtocol
 
-    init(coordinator: OnBoardingCoordinatorProtocol) {
+    init(coordinator: OnboardingCoordinatorProtocol) {
         self.coordinator = coordinator
     }
 
@@ -28,7 +28,7 @@ final class OnBoardingViewModel: ObservableObject {
 
 // MARK: - Private methods
 
-private extension OnBoardingViewModel {
+private extension OnboardingViewModel {
 
     func handleNextTap() {
         switch state.style {

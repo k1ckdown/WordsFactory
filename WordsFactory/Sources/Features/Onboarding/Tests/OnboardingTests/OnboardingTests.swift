@@ -1,7 +1,7 @@
 import XCTest
-@testable import OnBoarding
+@testable import Onboarding
 
-final class OnBoardingTests: XCTestCase {
+final class OnboardingTests: XCTestCase {
     func testExample() throws {
         // XCTest Documentation
         // https://developer.apple.com/documentation/xctest

@@ -7,7 +7,7 @@
 
 import SwiftUI
 import Networking
-import OnBoarding
+import Onboarding
 import Auth
 import Video
 import Dictionary
@@ -28,8 +28,8 @@ extension AppFactory {
         AuthCoordinatorAssembly(flowFinishHandler: flowFinishHandler).assemble()
     }
 
-    func makeOnBoardingCoordinator(flowFinishHandler: @escaping () -> Void) -> some View {
-        OnBoardingCoordinatorAssembly().assemble(flowFinishHandler: flowFinishHandler)
+    func makeOnboardingCoordinator(flowFinishHandler: @escaping () -> Void) -> some View {
+        OnboardingCoordinatorAssembly().assemble(flowFinishHandler: flowFinishHandler)
     }
 
     func makeMainTabBarCoordinator() -> some View {

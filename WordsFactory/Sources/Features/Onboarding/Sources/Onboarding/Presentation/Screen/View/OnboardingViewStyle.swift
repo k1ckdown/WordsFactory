@@ -1,5 +1,5 @@
 //
-//  OnBoardingViewStyle.swift
+//  OnboardingViewStyle.swift
 //
 //
 //  Created by Ivan Semenov on 29.03.2024.
@@ -8,7 +8,7 @@
 import SwiftUI
 import CommonUI
 
-enum OnBoardingViewStyle: Int {
+enum OnboardingViewStyle: Int {
     case learnAnytime
     case findCourse
     case improveSkills

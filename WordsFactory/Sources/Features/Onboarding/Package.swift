@@ -4,13 +4,13 @@
 import PackageDescription
 
 let package = Package(
-    name: "OnBoarding",
+    name: "Onboarding",
     defaultLocalization: "en",
     platforms: [.iOS(.v15)],
     products: [
         .library(
-            name: "OnBoarding",
-            targets: ["OnBoarding"]),
+            name: "Onboarding",
+            targets: ["Onboarding"]),
     ],
     dependencies: [
         .package(path: "../../Core/CommonUI"),
@@ -18,7 +18,7 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "OnBoarding",
+            name: "Onboarding",
             dependencies: [
                 .product(name: "CommonUI", package: "CommonUI")
             ],
@@ -27,7 +27,7 @@ let package = Package(
             ]
         ),
         .testTarget(
-            name: "OnBoardingTests",
-            dependencies: ["OnBoarding"]),
+            name: "OnboardingTests",
+            dependencies: ["Onboarding"]),
     ]
 )

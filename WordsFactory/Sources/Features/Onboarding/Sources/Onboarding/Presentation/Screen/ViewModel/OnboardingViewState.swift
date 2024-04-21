@@ -1,14 +1,14 @@
 //
-//  OnBoardingViewState.swift
+//  OnboardingViewState.swift
 //
 //
 //  Created by Ivan Semenov on 29.03.2024.
 //
 
-extension OnBoardingViewModel {
+extension OnboardingViewModel {
 
     struct ViewState {
-        var style = OnBoardingViewStyle.learnAnytime
+        var style = OnboardingViewStyle.learnAnytime
     }
 
     enum Event {

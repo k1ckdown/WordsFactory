@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4900A2A52BC13E780067FE0D /* MainTabBar in Frameworks */ = {isa = PBXBuildFile; productRef = 4900A2A42BC13E780067FE0D /* MainTabBar */; };
 		4903F7332BB9799100578062 /* Training in Frameworks */ = {isa = PBXBuildFile; productRef = 4903F7322BB9799100578062 /* Training */; };
+		491017952BD590AB004C076E /* Onboarding in Frameworks */ = {isa = PBXBuildFile; productRef = 491017942BD590AB004C076E /* Onboarding */; };
 		4915A0DB2BB97A4500751B6C /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 4915A0DA2BB97A4500751B6C /* Networking */; };
 		4915A0DD2BB97A5700751B6C /* Video in Frameworks */ = {isa = PBXBuildFile; productRef = 4915A0DC2BB97A5700751B6C /* Video */; };
 		492C5B992BA981E40018E008 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 492C5B982BA981E40018E008 /* Images.xcassets */; };
@@ -27,7 +28,6 @@
 		49CAC3082BB978D500A09571 /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 49CAC3072BB978D500A09571 /* Auth */; };
 		49CAC30A2BB978D500A09571 /* CommonUI in Frameworks */ = {isa = PBXBuildFile; productRef = 49CAC3092BB978D500A09571 /* CommonUI */; };
 		49CAC30C2BB978D500A09571 /* Dictionary in Frameworks */ = {isa = PBXBuildFile; productRef = 49CAC30B2BB978D500A09571 /* Dictionary */; };
-		49CAC30E2BB978D500A09571 /* OnBoarding in Frameworks */ = {isa = PBXBuildFile; productRef = 49CAC30D2BB978D500A09571 /* OnBoarding */; };
 		49D3FF892BC4778F005E2CCA /* GetRememberedWordCountUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D3FF882BC4778F005E2CCA /* GetRememberedWordCountUseCase.swift */; };
 		49D3FF8E2BC488F5005E2CCA /* UseCaseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D3FF8D2BC488F5005E2CCA /* UseCaseFactory.swift */; };
 		49E385072BC311B6004EBCEF /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E385062BC311B6004EBCEF /* WidgetKit.framework */; };
@@ -73,7 +73,7 @@
 /* Begin PBXFileReference section */
 		490BF2072BB28D6D0023C80C /* Dictionary */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Dictionary; sourceTree = "<group>"; };
 		490C6FDD2BAA1C66002A8BC6 /* CommonUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = CommonUI; sourceTree = "<group>"; };
-		490C6FDE2BAA1C68002A8BC6 /* OnBoarding */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = OnBoarding; sourceTree = "<group>"; };
+		491017912BD58FCC004C076E /* Onboarding */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Onboarding; sourceTree = "<group>"; };
 		492C5B982BA981E40018E008 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4933AA4C2BB0996300515FAC /* Networking */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Networking; sourceTree = "<group>"; };
 		4946D6B82BA814E500558F8A /* WordsFactory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordsFactory.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,11 +125,11 @@
 				4915A0DB2BB97A4500751B6C /* Networking in Frameworks */,
 				4903F7332BB9799100578062 /* Training in Frameworks */,
 				49CAC3082BB978D500A09571 /* Auth in Frameworks */,
-				49CAC30E2BB978D500A09571 /* OnBoarding in Frameworks */,
 				4990F6E52BBC193F009F5086 /* WordModule in Frameworks */,
 				494D55852BC682660044982F /* Notifications in Frameworks */,
 				4900A2A52BC13E780067FE0D /* MainTabBar in Frameworks */,
 				49CAC30C2BB978D500A09571 /* Dictionary in Frameworks */,
+				491017952BD590AB004C076E /* Onboarding in Frameworks */,
 				49CAC30A2BB978D500A09571 /* CommonUI in Frameworks */,
 				4915A0DD2BB97A5700751B6C /* Video in Frameworks */,
 			);
@@ -302,7 +302,7 @@
 				49CAC3012BB935CF00A09571 /* Video */,
 				490BF2072BB28D6D0023C80C /* Dictionary */,
 				49F733512BADB2C40012AF9B /* Auth */,
-				490C6FDE2BAA1C68002A8BC6 /* OnBoarding */,
+				491017912BD58FCC004C076E /* Onboarding */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -430,13 +430,13 @@
 				49CAC3072BB978D500A09571 /* Auth */,
 				49CAC3092BB978D500A09571 /* CommonUI */,
 				49CAC30B2BB978D500A09571 /* Dictionary */,
-				49CAC30D2BB978D500A09571 /* OnBoarding */,
 				4903F7322BB9799100578062 /* Training */,
 				4915A0DA2BB97A4500751B6C /* Networking */,
 				4915A0DC2BB97A5700751B6C /* Video */,
 				4990F6E42BBC193F009F5086 /* WordModule */,
 				4900A2A42BC13E780067FE0D /* MainTabBar */,
 				494D55842BC682660044982F /* Notifications */,
+				491017942BD590AB004C076E /* Onboarding */,
 			);
 			productName = WordsFactory;
 			productReference = 4946D6B82BA814E500558F8A /* WordsFactory.app */;
@@ -854,6 +854,10 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = Training;
 		};
+		491017942BD590AB004C076E /* Onboarding */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Onboarding;
+		};
 		4915A0DA2BB97A4500751B6C /* Networking */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Networking;
@@ -881,10 +885,6 @@
 		49CAC30B2BB978D500A09571 /* Dictionary */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Dictionary;
-		};
-		49CAC30D2BB978D500A09571 /* OnBoarding */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = OnBoarding;
 		};
 		49E385272BC31846004EBCEF /* CommonUI */ = {
 			isa = XCSwiftPackageProductDependency;
