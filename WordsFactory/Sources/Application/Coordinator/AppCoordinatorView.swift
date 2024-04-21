@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AppCoordinatorView: View {
 
+    private let factory = AppFactory()
     @ObservedObject private var coordinator: AppCoordinator
 
     init(coordinator: AppCoordinator) {
@@ -17,13 +18,21 @@ struct AppCoordinatorView: View {
 
     var body: some View {
         NavigationView {
-            coordinator.view
+            rootView
         }
         .navigationViewStyle(.stack)
         .preferredColorScheme(.light)
     }
-}
 
-#Preview {
-    AppCoordinatorView(coordinator: .init())
+    @ViewBuilder
+    private var rootView: some View {
+        switch coordinator.scene {
+        case .auth:
+            factory.makeAuthCoordinator(flowFinishHandler: coordinator.finishAuth)
+        case .onBoarding:
+            factory.makeOnBoardingCoordinator(flowFinishHandler: coordinator.finishOnBoarding)
+        case .mainTabBar:
+            factory.makeMainTabBarCoordinator().onAppear(perform: coordinator.onAppearMainTabBar)
+        }
+    }
 }

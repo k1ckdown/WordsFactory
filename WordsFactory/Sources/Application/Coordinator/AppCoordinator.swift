@@ -5,58 +5,35 @@
 //  Created by Ivan Semenov on 13.04.2024.
 //
 
-import SwiftUI
 import Foundation
 import Notifications
 
 final class AppCoordinator: ObservableObject {
 
-    private enum Scene {
+    enum Scene {
         case auth
         case onBoarding
         case mainTabBar
     }
 
-    private let factory = AppFactory()
-    @Published private var scene = Scene.onBoarding
-
-    @ViewBuilder
-    var view: some View {
-        switch scene {
-        case .auth:
-            authCoordinator()
-        case .onBoarding:
-            onBoardingCoordinator()
-        case .mainTabBar:
-            mainTabBarCoordinator()
-        }
-    }
+    @Published private(set) var scene = Scene.onBoarding
 }
 
-// MARK: - Scene Coordinators
+// MARK: - Public methods
 
-private extension AppCoordinator {
+extension AppCoordinator {
 
-    func onBoardingCoordinator() -> some View {
-        factory.makeOnBoardingCoordinator { [weak self] in
-            self?.scene = .auth
-        }
+    func finishOnBoarding() {
+        scene = .auth
     }
 
-    func mainTabBarCoordinator() -> some View {
-        factory.makeMainTabBarCoordinator()
-            .onAppear {
-                TrainingNotificationManager.shared.scheduleForWeek(includeToday: false)
-            }
+    func finishAuth() {
+        scene = .mainTabBar
+        Task { await self.scheduleNotificationsAfterAuth() }
     }
 
-    func authCoordinator() -> some View {
-        factory.makeAuthCoordinator { [weak self] in
-            guard let self else { return }
-
-            scene = .mainTabBar
-            Task { await self.scheduleNotificationsAfterAuth() }
-        }
+    func onAppearMainTabBar() {
+        TrainingNotificationManager.shared.scheduleForWeek(includeToday: false)
     }
 }
 

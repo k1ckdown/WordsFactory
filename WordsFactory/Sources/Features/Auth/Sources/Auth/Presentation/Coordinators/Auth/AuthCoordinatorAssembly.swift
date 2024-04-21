@@ -20,8 +20,8 @@ public struct AuthCoordinatorAssembly {
     }
 
     public func assemble() -> some View {
-        let coordinator = AuthCoordinator(factory: coordinatorFactory)
-        let coordinatorView = AuthCoordinatorView(coordinator: coordinator)
+        let coordinator = AuthCoordinator()
+        let coordinatorView = AuthCoordinatorView(factory: coordinatorFactory, coordinator: coordinator)
 
         return coordinatorView
     }
