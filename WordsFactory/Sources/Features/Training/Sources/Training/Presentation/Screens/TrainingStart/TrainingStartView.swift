@@ -28,6 +28,8 @@ struct TrainingStartView: View {
         switch viewModel.state {
         case .idle, .failed:
             ZStack { EmptyView() }
+        case .loading:
+            ProgressView().tintColor()
         case .loaded(let viewData):
             loadedView(viewData)
         }

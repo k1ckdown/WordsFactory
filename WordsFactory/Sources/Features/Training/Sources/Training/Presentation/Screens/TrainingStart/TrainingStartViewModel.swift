@@ -47,7 +47,9 @@ private extension TrainingStartViewModel {
     }
 
     func getWordCount() async {
+        await MainActor.run { state = .loading }
         let viewState: ViewState
+
         do {
             let wordCount = try await getDictionaryWordCountUseCase.execute()
             viewState = .loaded(.init(wordCount: wordCount, countdown: makeTimer()))

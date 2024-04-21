@@ -5,13 +5,12 @@
 //  Created by Ivan Semenov on 31.03.2024.
 //
 
-import Foundation
-
 extension TrainingStartViewModel {
 
     enum ViewState: Equatable {
         case idle
         case failed
+        case loading
         case loaded(ViewData)
 
         struct ViewData: Equatable {
