@@ -18,11 +18,11 @@ final class SignInCoordinator: ObservableObject {
 
     @Published var errorMessage: String?
 
-    private let onFlowFinish: () -> Void
+    private let flowFinishHandler: () -> Void
     private let showSignUpHandler: () -> Void
 
-    init(onFlowFinish: @escaping () -> Void, showSignUpHandler: @escaping () -> Void) {
-        self.onFlowFinish = onFlowFinish
+    init(flowFinishHandler: @escaping () -> Void, showSignUpHandler: @escaping () -> Void) {
+        self.flowFinishHandler = flowFinishHandler
         self.showSignUpHandler = showSignUpHandler
     }
 }
@@ -32,7 +32,7 @@ final class SignInCoordinator: ObservableObject {
 extension SignInCoordinator: SignInCoordinatorProtocol {
 
     func finish() {
-        onFlowFinish()
+        flowFinishHandler()
     }
 
     func showSignUp() {

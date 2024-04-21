@@ -15,10 +15,10 @@ final class AuthCoordinator: ObservableObject {
     }
 
     @Published private(set) var scene = Scene.signIn
-    private let onFlowFinish: () -> Void
+    private let flowFinishHandler: () -> Void
 
-    init(onFlowFinish: @escaping () -> Void) {
-        self.onFlowFinish = onFlowFinish
+    init(flowFinishHandler: @escaping () -> Void) {
+        self.flowFinishHandler = flowFinishHandler
     }
 }
 
@@ -28,14 +28,14 @@ extension AuthCoordinator {
     
     var signInCoordinator: SignInCoordinator {
         SignInCoordinator(
-            onFlowFinish: onFlowFinish,
+            flowFinishHandler: flowFinishHandler,
             showSignUpHandler: { [weak self] in self?.scene = .signUp }
         )
     }
 
     var signUpCoordinator: SignUpCoordinator {
         SignUpCoordinator(
-            onFlowFinish: onFlowFinish,
+            flowFinishHandler: flowFinishHandler,
             showSignInHandler: { [weak self] in self?.scene = .signIn }
         )
     }

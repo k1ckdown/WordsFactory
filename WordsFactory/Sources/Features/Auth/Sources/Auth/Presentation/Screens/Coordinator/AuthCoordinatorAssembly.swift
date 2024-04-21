@@ -11,12 +11,12 @@ public struct AuthCoordinatorAssembly {
 
     public init() {}
 
-    public func assemble(onFlowFinish: @escaping () -> Void) -> some View {
+    public func assemble(flowFinishHandler: @escaping () -> Void) -> some View {
         let repositoryFactory = RepositoryFactory()
         let useCaseFactory = UseCaseFactory(repositoryFactory: repositoryFactory)
         let screenFactory = ScreenFactory(useCaseFactory: useCaseFactory)
 
-        let coordinator = AuthCoordinator(onFlowFinish: onFlowFinish)
+        let coordinator = AuthCoordinator(flowFinishHandler: flowFinishHandler)
         let coordinatorView = AuthCoordinatorView(coordinator: coordinator, screenFactory: screenFactory)
 
         return coordinatorView

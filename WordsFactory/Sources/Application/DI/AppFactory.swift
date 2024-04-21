@@ -24,12 +24,12 @@ final class AppFactory {
 
 extension AppFactory {
 
-    func makeAuthCoordinator(onFlowFinish: @escaping () -> Void) -> some View {
-        AuthCoordinatorAssembly().assemble(onFlowFinish: onFlowFinish)
+    func makeAuthCoordinator(flowFinishHandler: @escaping () -> Void) -> some View {
+        AuthCoordinatorAssembly().assemble(flowFinishHandler: flowFinishHandler)
     }
 
-    func makeOnBoardingCoordinator(onFlowFinish: @escaping () -> Void) -> some View {
-        OnBoardingCoordinatorAssembly().assemble(onFlowFinish: onFlowFinish)
+    func makeOnBoardingCoordinator(flowFinishHandler: @escaping () -> Void) -> some View {
+        OnBoardingCoordinatorAssembly().assemble(flowFinishHandler: flowFinishHandler)
     }
 
     func makeMainTabBarCoordinator() -> some View {

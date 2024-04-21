@@ -7,16 +7,16 @@
 
 import Foundation
 
-protocol OnBoardingCoordinatorProtocol {
+protocol OnBoardingCoordinatorProtocol: AnyObject {
     func finish()
 }
 
 final class OnBoardingCoordinator: ObservableObject {
 
-    private let onFlowFinish: () -> Void
+    private let flowFinishHandler: () -> Void
 
-    init(onFlowFinish: @escaping () -> Void) {
-        self.onFlowFinish = onFlowFinish
+    init(flowFinishHandler: @escaping () -> Void) {
+        self.flowFinishHandler = flowFinishHandler
     }
 }
 
@@ -25,6 +25,6 @@ final class OnBoardingCoordinator: ObservableObject {
 extension OnBoardingCoordinator: OnBoardingCoordinatorProtocol {
 
     func finish() {
-        onFlowFinish()
+        flowFinishHandler()
     }
 }

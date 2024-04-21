@@ -9,11 +9,14 @@ import SwiftUI
 
 public struct OnBoardingCoordinatorAssembly {
 
-    public init() {}
+    private let screenFactory: ScreenFactory
 
-    public func assemble(onFlowFinish: @escaping () -> Void) -> some View {
-        let screenFactory = ScreenFactory()
-        let coordinator = OnBoardingCoordinator(onFlowFinish: onFlowFinish)
+    public init() {
+        screenFactory = ScreenFactory()
+    }
+
+    public func assemble(flowFinishHandler: @escaping () -> Void) -> some View {
+        let coordinator = OnBoardingCoordinator(flowFinishHandler: flowFinishHandler)
         let coordinatorView = OnBoardingCoordinatorView(factory: screenFactory, coordinator: coordinator)
 
         return coordinatorView
