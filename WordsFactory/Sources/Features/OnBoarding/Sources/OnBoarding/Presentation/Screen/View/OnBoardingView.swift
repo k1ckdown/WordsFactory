@@ -104,7 +104,3 @@ private extension OnBoardingView {
         }
     }
 }
-
-#Preview {
-    OnBoardingCoordinatorView(factory: .init(), coordinator: .init(flowFinishHandler: {}))
-}

@@ -7,17 +7,17 @@
 
 import SwiftUI
 
-struct OnBoardingCoordinatorView: View {
+struct OnBoardingCoordinatorView<Content: View>: View {
 
-    private let factory: ScreenFactory
+    private let content: () -> Content
     @ObservedObject private var coordinator: OnBoardingCoordinator
 
-    init(factory: ScreenFactory, coordinator: OnBoardingCoordinator) {
-        self.factory = factory
+    init(content: @autoclosure @escaping () -> Content, coordinator: OnBoardingCoordinator) {
+        self.content = content
         self.coordinator = coordinator
     }
 
     var body: some View {
-        factory.makeOnBoardingScreen(coordinator: coordinator)
+        content()
     }
 }

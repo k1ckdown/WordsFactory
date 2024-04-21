@@ -17,7 +17,10 @@ public struct OnBoardingCoordinatorAssembly {
 
     public func assemble(flowFinishHandler: @escaping () -> Void) -> some View {
         let coordinator = OnBoardingCoordinator(flowFinishHandler: flowFinishHandler)
-        let coordinatorView = OnBoardingCoordinatorView(factory: screenFactory, coordinator: coordinator)
+        let coordinatorView = OnBoardingCoordinatorView(
+            content: screenFactory.makeOnBoardingScreen(coordinator: coordinator),
+            coordinator: coordinator
+        )
 
         return coordinatorView
     }
