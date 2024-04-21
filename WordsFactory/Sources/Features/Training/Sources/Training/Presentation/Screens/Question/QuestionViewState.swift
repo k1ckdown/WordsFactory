@@ -10,6 +10,7 @@ extension QuestionViewModel {
     enum ViewState: Equatable {
         case idle
         case failed
+        case loading
         case loaded(ViewData)
 
         struct ViewData: Equatable {

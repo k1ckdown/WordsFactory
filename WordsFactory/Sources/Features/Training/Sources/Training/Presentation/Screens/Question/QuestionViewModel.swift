@@ -71,6 +71,7 @@ private extension QuestionViewModel {
     }
 
     func getQuestions() async {
+        await MainActor.run { state = .loading }
         do {
             let questions = try await getWordQuestionsUseCase.execute()
             await handleQuestions(questions)
