@@ -23,6 +23,7 @@
 		498BBF3F2BC34EF300F60508 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 498BBF3E2BC34E2A00F60508 /* GoogleService-Info.plist */; };
 		498C9CEB2BC59A3C0039D63E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498C9CEA2BC59A3C0039D63E /* AppDelegate.swift */; };
 		4990F6E52BBC193F009F5086 /* WordModule in Frameworks */ = {isa = PBXBuildFile; productRef = 4990F6E42BBC193F009F5086 /* WordModule */; };
+		49BF58AD2BD5821800867B07 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BF58AC2BD5821800867B07 /* AppSettings.swift */; };
 		49CAC3082BB978D500A09571 /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 49CAC3072BB978D500A09571 /* Auth */; };
 		49CAC30A2BB978D500A09571 /* CommonUI in Frameworks */ = {isa = PBXBuildFile; productRef = 49CAC3092BB978D500A09571 /* CommonUI */; };
 		49CAC30C2BB978D500A09571 /* Dictionary in Frameworks */ = {isa = PBXBuildFile; productRef = 49CAC30B2BB978D500A09571 /* Dictionary */; };
@@ -93,6 +94,7 @@
 		498C9CE92BC587720039D63E /* Notifications */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Notifications; sourceTree = "<group>"; };
 		498C9CEA2BC59A3C0039D63E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4991A2CC2BBC268A005EC551 /* WordModuleAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = WordModuleAPI; sourceTree = "<group>"; };
+		49BF58AC2BD5821800867B07 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		49CAC3012BB935CF00A09571 /* Video */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Video; sourceTree = "<group>"; };
 		49CAC3042BB9583C00A09571 /* VideoAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = VideoAPI; sourceTree = "<group>"; };
 		49CAC3052BB9755900A09571 /* TrainingAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = TrainingAPI; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				49F0A2882BCAE802007499CC /* Coordinator */,
 				4946D6BB2BA814E500558F8A /* WordsFactoryApp.swift */,
 				498C9CEA2BC59A3C0039D63E /* AppDelegate.swift */,
+				49BF58AC2BD5821800867B07 /* AppSettings.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -530,6 +533,7 @@
 			files = (
 				498C9CEB2BC59A3C0039D63E /* AppDelegate.swift in Sources */,
 				495876412BB6CB5C008D7A1D /* AppCoordinatorView.swift in Sources */,
+				49BF58AD2BD5821800867B07 /* AppSettings.swift in Sources */,
 				49F0A28A2BCAE823007499CC /* AppCoordinator.swift in Sources */,
 				4958763F2BB6B2F7008D7A1D /* AppFactory.swift in Sources */,
 				4946D6BC2BA814E500558F8A /* WordsFactoryApp.swift in Sources */,

@@ -5,26 +5,33 @@
 //  Created by Ivan Semenov on 13.04.2024.
 //
 
-import Foundation
+import SwiftUI
 import Notifications
 
 final class AppCoordinator: ObservableObject {
 
     enum Scene {
+        case idle
         case auth
-        case onBoarding
+        case onboarding
         case mainTabBar
     }
 
-    @Published private(set) var scene = Scene.mainTabBar
+    @Published private(set) var scene = Scene.idle
+    @AppStorage(AppSettings.showOnboarding.key) var showOnboarding = true
 }
 
 // MARK: - Public methods
 
 extension AppCoordinator {
 
+    func onAppear() {
+        scene = showOnboarding ? .onboarding : .auth
+    }
+
     func finishOnBoarding() {
         scene = .auth
+        showOnboarding = false
     }
 
     func finishAuth() {

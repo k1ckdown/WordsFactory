@@ -22,14 +22,17 @@ struct AppCoordinatorView: View {
         }
         .navigationViewStyle(.stack)
         .preferredColorScheme(.light)
+        .onAppear(perform: coordinator.onAppear)
     }
 
     @ViewBuilder
     private var rootView: some View {
         switch coordinator.scene {
+        case .idle:
+            EmptyView()
         case .auth:
             factory.makeAuthCoordinator(flowFinishHandler: coordinator.finishAuth)
-        case .onBoarding:
+        case .onboarding:
             factory.makeOnBoardingCoordinator(flowFinishHandler: coordinator.finishOnBoarding)
         case .mainTabBar:
             factory.makeMainTabBarCoordinator().onAppear(perform: coordinator.onAppearMainTabBar)
