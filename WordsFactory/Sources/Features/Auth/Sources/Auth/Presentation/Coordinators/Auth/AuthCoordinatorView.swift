@@ -16,6 +16,6 @@ struct AuthCoordinatorView: View {
     }
 
     var body: some View {
-        coordinator.view
+        coordinator.rootView
     }
 }

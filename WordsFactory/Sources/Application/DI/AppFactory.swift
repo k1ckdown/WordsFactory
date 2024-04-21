@@ -20,7 +20,7 @@ final class AppFactory {
     private lazy var wordRepository = WordRepositoryAssembly.assemble(networkService: networkService)
 }
 
-// MARK: - Public methods
+// MARK: - Coordinators
 
 extension AppFactory {
 
@@ -43,20 +43,25 @@ extension AppFactory {
     }
 }
 
-// MARK: - Private methods
+// MARK: - Use Cases
 
 private extension AppFactory {
 
     func makeGetDictionaryWordCountUseCase() -> GetDictionaryWordCountUseCase {
         GetDictionaryWordCountUseCase(wordRepository: wordRepository)
     }
+}
+
+// MARK: - Coordinator Assemblies
+
+private extension AppFactory {
 
     func makeVideoCoordinatorAssembly() -> VideoCoordinatorAssembly {
         VideoCoordinatorAssembly()
     }
 
     func makeDictionaryCoordinatorAssembly() -> DictionaryCoordinatorAssembly {
-        let dependencies = ModuleDependencies(networkService: networkService, wordRepository: wordRepository)
+        let dependencies = ModuleDependencies(wordRepository: wordRepository)
         return DictionaryCoordinatorAssembly(dependencies: dependencies)
     }
 

@@ -22,7 +22,7 @@ final class AuthCoordinator: ObservableObject {
     }
 
     @ViewBuilder
-    var view: some View {
+    var rootView: some View {
         switch scene {
         case .signIn: signInCoordinatorView()
         case .signUp: signUpCoordinatorView()

@@ -10,15 +10,19 @@ import DictionaryAPI
 
 public struct DictionaryCoordinatorAssembly: DictionaryCoordinatorAssemblyProtocol {
 
-    private let factory: DictionaryFactory
+    private let screenFactory: ScreenFactory
 
     public init(dependencies: ModuleDependencies) {
-        factory = DictionaryFactory(dependencies: dependencies)
+        let useCaseFactory = UseCaseFactory(wordRepository: dependencies.wordRepository)
+        screenFactory = ScreenFactory(useCaseFactory: useCaseFactory)
     }
 
     public func assemble() -> AnyView {
         let coordinator = DictionaryCoordinator()
-        let coordinatorView = DictionaryCoordinatorView(factory: factory, coordinator: coordinator)
+        let coordinatorView = DictionaryCoordinatorView(
+            content: screenFactory.makeDictionaryScreen(coordinator: coordinator),
+            coordinator: coordinator
+        )
 
         return AnyView(coordinatorView)
     }

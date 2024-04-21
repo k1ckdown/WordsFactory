@@ -7,19 +7,18 @@
 
 import SwiftUI
 
-struct DictionaryCoordinatorView: View {
-    typealias Factory = DictionaryScreenFactory
+struct DictionaryCoordinatorView<Content: View>: View {
 
-    private let factory: Factory
+    private let content: () -> Content
     @ObservedObject private var coordinator: DictionaryCoordinator
 
-    init(factory: Factory, coordinator: DictionaryCoordinator) {
-        self.factory = factory
+    init(content: @autoclosure @escaping () -> Content, coordinator: DictionaryCoordinator) {
+        self.content = content
         self.coordinator = coordinator
     }
 
     var body: some View {
-        factory.makeDictionaryScreen(coordinator: coordinator)
+        content()
             .errorAlert($coordinator.errorMessage)
             .navigationBarHidden(true)
     }

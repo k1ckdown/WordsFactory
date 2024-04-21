@@ -10,7 +10,7 @@ import CommonUI
 
 struct SearchBar: View {
 
-    let action: (String) -> Void
+    let handler: (String) -> Void
     @State private var text = ""
 
     var body: some View {
@@ -20,10 +20,10 @@ struct SearchBar: View {
                 .submitLabel(.search)
                 .font(Fonts.paragraphMedium)
                 .foregroundStyle(Colors.appDarkGray.swiftUIColor)
-                .onSubmit { action(text) }
+                .onSubmit { handler(text) }
 
             Button {
-                action(text)
+                handler(text)
             } label: {
                 Images.magnifierIcon.swiftUIImage
             }
