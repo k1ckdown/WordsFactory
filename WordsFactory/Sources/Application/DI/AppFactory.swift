@@ -25,7 +25,7 @@ final class AppFactory {
 extension AppFactory {
 
     func makeAuthCoordinator(flowFinishHandler: @escaping () -> Void) -> some View {
-        AuthCoordinatorAssembly().assemble(flowFinishHandler: flowFinishHandler)
+        AuthCoordinatorAssembly(flowFinishHandler: flowFinishHandler).assemble()
     }
 
     func makeOnBoardingCoordinator(flowFinishHandler: @escaping () -> Void) -> some View {

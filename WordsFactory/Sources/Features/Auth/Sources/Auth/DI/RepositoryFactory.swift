@@ -7,27 +7,27 @@
 
 final class RepositoryFactory {
 
-    private lazy var userRepository: UserRepositoryImpl = {
+    private lazy var userRepository: UserRepository = {
         let remoteDataSource = UserRemoteDataSource()
-        return UserRepositoryImpl(remoteDataSource: remoteDataSource)
+        return UserRepository(remoteDataSource: remoteDataSource)
     }()
 
-    private lazy var authRepository: AuthRepositoryImpl = {
-        let repository = AuthRepositoryImpl()
+    private lazy var authRepository: AuthRepository = {
+        let repository = AuthRepository()
         repository.delegate = userRepository
         return repository
     }()
 }
 
-// MARK: - Factory methods
+// MARK: - Public methods
 
 extension RepositoryFactory {
 
-    func makeAuthRepository() -> AuthRepository {
+    func makeAuthRepository() -> AuthRepositoryProtocol {
         authRepository
     }
 
-    func makeUserRepository() -> UserRepository {
+    func makeUserRepository() -> UserRepositoryProtocol {
         userRepository
     }
 }

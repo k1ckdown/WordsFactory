@@ -36,7 +36,7 @@ final class SignUpViewModel: ObservableObject {
         case .signUpTapped:
             Task { await handleSignUpTap() }
         case .signInTapped:
-            Task { await coordinator.showSignIn() }
+            coordinator.showSignIn()
         case .emailChanged(let email):
             state.email = email
         case .passwordChanged(let password):
@@ -72,9 +72,9 @@ private extension SignUpViewModel {
             try validateForm()
             await isLoading(true)
             try await signUp()
-            await coordinator.finish()
+            await MainActor.run { coordinator.finish() }
         } catch {
-            await coordinator.showError(message: error.localizedDescription)
+            await MainActor.run { coordinator.showError(message: error.localizedDescription) }
         }
         await isLoading(false)
     }

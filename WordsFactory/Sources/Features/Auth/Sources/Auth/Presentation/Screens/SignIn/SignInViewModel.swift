@@ -33,7 +33,7 @@ final class SignInViewModel: ObservableObject {
         case .signInTapped:
             Task { await handleSignInTap() }
         case .signUpTapped:
-            Task { await coordinator.showSignUp() }
+            coordinator.showSignUp()
         case .emailChanged(let email):
             state.email = email
         case .passwordChanged(let password):
@@ -55,7 +55,7 @@ private extension SignInViewModel {
         let credentials = LoginCredentials(email: state.email, password: state.password)
         try await signInUseCase.execute(credentials)
     }
-    
+
     func validateForm() throws {
         try validateEmailUseCase.execute(state.email)
         try validatePasswordUseCase.execute(state.password)
@@ -66,9 +66,9 @@ private extension SignInViewModel {
             try validateForm()
             await isLoading(true)
             try await signIn()
-            await coordinator.finish()
+            await MainActor.run { coordinator.finish() }
         } catch {
-            await coordinator.showError(message: error.localizedDescription)
+            await MainActor.run { coordinator.showError(message: error.localizedDescription) }
         }
         await isLoading(false)
     }

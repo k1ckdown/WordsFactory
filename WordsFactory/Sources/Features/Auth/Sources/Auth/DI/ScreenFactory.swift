@@ -14,9 +14,9 @@ final class ScreenFactory {
     }
 }
 
-// MARK: - SignInScreenFactory
+// MARK: - Public methods
 
-extension ScreenFactory: SignInScreenFactory {
+extension ScreenFactory {
 
     func makeSignInScreen(coordinator: SignInCoordinatorProtocol) -> SignInView {
         let viewModel = SignInViewModel(
@@ -29,11 +29,6 @@ extension ScreenFactory: SignInScreenFactory {
         let view = SignInView(viewModel: viewModel)
         return view
     }
-}
-
-// MARK: - SignUpScreenFactory
-
-extension ScreenFactory: SignUpScreenFactory {
 
     func makeSignUpScreen(coordinator: SignUpCoordinatorProtocol) -> SignUpView {
         let viewModel = SignUpViewModel(

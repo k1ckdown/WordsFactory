@@ -7,7 +7,7 @@
 
 extension SignInViewModel {
 
-    struct ViewState {
+    struct ViewState: Equatable {
         var email = ""
         var password = ""
         var isLoading = false

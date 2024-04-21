@@ -7,8 +7,7 @@
 
 import Foundation
 
-@MainActor
-protocol SignUpCoordinatorProtocol {
+protocol SignUpCoordinatorProtocol: AnyObject {
     func finish()
     func showSignIn()
     func showError(message: String)

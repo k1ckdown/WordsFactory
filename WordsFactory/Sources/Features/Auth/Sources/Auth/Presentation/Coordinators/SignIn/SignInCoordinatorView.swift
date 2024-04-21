@@ -7,19 +7,18 @@
 
 import SwiftUI
 
-struct SignInCoordinatorView: View {
-    typealias Factory = SignInScreenFactory
+struct SignInCoordinatorView<Content: View>: View {
 
-    private let factory: Factory
+    private let content: () -> Content
     @ObservedObject private var coordinator: SignInCoordinator
 
-    init(factory: Factory, coordinator: SignInCoordinator) {
-        self.factory = factory
+    init(content: @autoclosure @escaping () -> Content, coordinator: SignInCoordinator) {
+        self.content = content
         self.coordinator = coordinator
     }
 
     var body: some View {
-        factory.makeSignInScreen(coordinator: coordinator)
+        content()
             .errorAlert($coordinator.errorMessage)
     }
 }

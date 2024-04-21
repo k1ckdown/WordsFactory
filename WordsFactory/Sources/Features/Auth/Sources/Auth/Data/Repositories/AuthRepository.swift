@@ -1,5 +1,5 @@
 //
-//  AuthRepositoryImpl.swift
+//  AuthRepository.swift
 //
 //
 //  Created by Ivan Semenov on 24.03.2024.
@@ -11,15 +11,14 @@ protocol AuthRepositoryDelegate: AnyObject {
     func saveUser(_ user: User) async throws
 }
 
-final class AuthRepositoryImpl {
-
+final class AuthRepository {
     weak var delegate: AuthRepositoryDelegate?
     private let auth = Auth.auth()
 }
 
-// MARK: - AuthRepository
+// MARK: - AuthRepositoryProtocol
 
-extension AuthRepositoryImpl: AuthRepository {
+extension AuthRepository: AuthRepositoryProtocol {
 
     func signIn(credentials: LoginCredentials) async throws {
         try await auth.signIn(withEmail: credentials.email, password: credentials.password)
