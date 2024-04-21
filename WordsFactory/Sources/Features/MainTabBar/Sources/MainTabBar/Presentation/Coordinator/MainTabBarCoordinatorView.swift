@@ -30,14 +30,12 @@ struct MainTabBarCoordinatorView: View {
 
     var body: some View {
         MainTabView(selection: $selectedTab) {
-            ForEach(Tab.allCases) { tab in
-                sceneView(tab)
-            }
+            ForEach(Tab.allCases, content: makeTabView)
         }
     }
-
+    
     @ViewBuilder
-    private func sceneView(_ tab: Tab) -> some View {
+    private func makeTabView(_ tab: Tab) -> some View {
         Group {
             switch tab {
             case .dictionary:
