@@ -9,18 +9,18 @@ import WordModuleAPI
 
 extension CDWord {
 
-    func toDomain() -> Word {
+    func toDomain(isDictionary: Bool) -> Word {
         Word(
             text: text,
-            isDictionary: true,
+            isDictionary: isDictionary,
             definitions: definitions.toArray(of: CDWordDefinition.self).map { $0.toDomain() }
         )
     }
 
-    func toDomainDictionary() -> DictionaryWord {
+    func toDomainDictionary(studyCoefficient: Int) -> DictionaryWord {
         DictionaryWord(
             text: text,
-            studyCoefficient: Int(studyCoefficient),
+            studyCoefficient: studyCoefficient,
             definitions: definitions.toArray(of: CDWordDefinition.self).map { $0.toDomain() }
         )
     }

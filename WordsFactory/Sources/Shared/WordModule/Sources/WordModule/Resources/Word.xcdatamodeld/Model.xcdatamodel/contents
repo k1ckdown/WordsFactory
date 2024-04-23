@@ -19,15 +19,19 @@
         <attribute name="text" optional="YES" attributeType="String"/>
         <relationship name="wordDefinition" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDWordDefinition" inverseName="phonetics" inverseEntity="CDWordDefinition"/>
     </entity>
-    <entity name="CDUserWords" representedClassName="CDUserWords" syncable="YES">
-        <attribute name="userId" attributeType="String"/>
-        <relationship name="words" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDWord" inverseName="users" inverseEntity="CDWord"/>
-    </entity>
-    <entity name="CDWord" representedClassName="CDWord" syncable="YES">
+    <entity name="CDUserWord" representedClassName="CDUserWord" syncable="YES">
         <attribute name="studyCoefficient" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="text" attributeType="String"/>
+        <attribute name="userId" attributeType="String"/>
+    </entity>
+    <entity name="CDWord" representedClassName="CDWord" syncable="YES">
+        <attribute name="text" attributeType="String"/>
         <relationship name="definitions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDWordDefinition" inverseName="word" inverseEntity="CDWordDefinition"/>
-        <relationship name="users" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDUserWords" inverseName="words" inverseEntity="CDUserWords"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="text"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
     <entity name="CDWordDefinition" representedClassName="CDWordDefinition" syncable="YES">
         <attribute name="phonetic" optional="YES" attributeType="String"/>

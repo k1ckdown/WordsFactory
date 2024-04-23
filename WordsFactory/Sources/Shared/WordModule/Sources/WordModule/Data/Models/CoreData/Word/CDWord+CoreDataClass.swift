@@ -17,7 +17,6 @@ public class CDWord: NSManagedObject {
         self.init(context: context)
 
         text = word.text
-        studyCoefficient = 0
         definitions = NSSet(array: word.definitions.map { CDWordDefinition($0, context: context) })
     }
 }

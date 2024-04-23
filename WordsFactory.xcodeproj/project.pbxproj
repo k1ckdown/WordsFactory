@@ -19,6 +19,7 @@
 		4958763F2BB6B2F7008D7A1D /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4958763E2BB6B2F7008D7A1D /* AppFactory.swift */; };
 		495876412BB6CB5C008D7A1D /* AppCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495876402BB6CB5C008D7A1D /* AppCoordinatorView.swift */; };
 		4960EE752BD76F8800EED61B /* UserModule in Frameworks */ = {isa = PBXBuildFile; productRef = 4960EE742BD76F8800EED61B /* UserModule */; };
+		4960EE7F2BD7821400EED61B /* UserModule in Frameworks */ = {isa = PBXBuildFile; productRef = 4960EE7E2BD7821400EED61B /* UserModule */; };
 		4979DAC72BC82FC100AA2235 /* DictionaryWidgetProviderAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4979DAC62BC82FC100AA2235 /* DictionaryWidgetProviderAssembly.swift */; };
 		4979DACE2BC832BC00AA2235 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 4979DACD2BC832BC00AA2235 /* Localizable.xcstrings */; };
 		4979DAD22BC8338A00AA2235 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4979DAD12BC8338A00AA2235 /* Strings.swift */; };
@@ -146,6 +147,7 @@
 				49E3852A2BC31AED004EBCEF /* WordModule in Frameworks */,
 				49E385282BC31846004EBCEF /* CommonUI in Frameworks */,
 				49E385092BC311B6004EBCEF /* SwiftUI.framework in Frameworks */,
+				4960EE7F2BD7821400EED61B /* UserModule in Frameworks */,
 				49E3852D2BC31C97004EBCEF /* Networking in Frameworks */,
 				49E385072BC311B6004EBCEF /* WidgetKit.framework in Frameworks */,
 			);
@@ -466,6 +468,7 @@
 				49E385272BC31846004EBCEF /* CommonUI */,
 				49E385292BC31AED004EBCEF /* WordModule */,
 				49E3852C2BC31C97004EBCEF /* Networking */,
+				4960EE7E2BD7821400EED61B /* UserModule */,
 			);
 			productName = WidgetsExtension;
 			productReference = 49E385052BC311B6004EBCEF /* WidgetsExtension.appex */;
@@ -878,6 +881,10 @@
 			productName = Notifications;
 		};
 		4960EE742BD76F8800EED61B /* UserModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = UserModule;
+		};
+		4960EE7E2BD7821400EED61B /* UserModule */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = UserModule;
 		};

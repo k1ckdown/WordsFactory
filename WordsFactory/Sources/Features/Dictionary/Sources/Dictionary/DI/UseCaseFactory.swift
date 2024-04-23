@@ -5,14 +5,12 @@
 //  Created by Ivan Semenov on 21.04.2024.
 //
 
-import WordModuleAPI
-
 final class UseCaseFactory {
 
-    private let wordRepository: WordRepositoryProtocol
+    private let repositoryFactory: RepositoryFactory
 
-    init(wordRepository: WordRepositoryProtocol) {
-        self.wordRepository = wordRepository
+    init(repositoryFactory: RepositoryFactory) {
+        self.repositoryFactory = repositoryFactory
     }
 }
 
@@ -21,14 +19,14 @@ final class UseCaseFactory {
 extension UseCaseFactory {
 
     func makeGetWordUseCase() -> GetWordUseCase {
-        GetWordUseCase(wordRepository: wordRepository)
+        GetWordUseCase(wordRepository: repositoryFactory.makeWordRepository())
     }
 
     func makeSaveDictionaryWordUseCase() -> SaveDictionaryWordUseCase {
-        SaveDictionaryWordUseCase(wordRepository: wordRepository)
+        SaveDictionaryWordUseCase(wordRepository: repositoryFactory.makeWordRepository())
     }
 
     func makeRemoveDictionaryWordUseCase() -> RemoveDictionaryWordUseCase {
-        RemoveDictionaryWordUseCase(wordRepository: wordRepository)
+        RemoveDictionaryWordUseCase(wordRepository: repositoryFactory.makeWordRepository())
     }
 }

@@ -13,7 +13,9 @@ public struct DictionaryCoordinatorAssembly: DictionaryCoordinatorAssemblyProtoc
     private let screenFactory: ScreenFactory
 
     public init(dependencies: ModuleDependencies) {
-        let useCaseFactory = UseCaseFactory(wordRepository: dependencies.wordRepository)
+        let repositoryFactory = RepositoryFactory(wordRepository: dependencies.wordRepository)
+        let useCaseFactory = UseCaseFactory(repositoryFactory: repositoryFactory)
+
         screenFactory = ScreenFactory(useCaseFactory: useCaseFactory)
     }
 

@@ -19,7 +19,10 @@ import MainTabBar
 final class AppFactory {
     private lazy var networkService = NetworkService()
     private lazy var userRepository = UserRepositoryAssembly.assemble()
-    private lazy var wordRepository = WordRepositoryAssembly.assemble(networkService: networkService)
+    private lazy var wordRepository = WordRepositoryAssembly.assemble(
+        userIdProvider: { try await self.userRepository.getUserId() },
+        networkService: networkService
+    )
 }
 
 // MARK: - Coordinators

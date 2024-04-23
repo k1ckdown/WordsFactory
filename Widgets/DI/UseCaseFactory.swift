@@ -6,11 +6,16 @@
 //
 
 import Networking
+import UserModule
 import WordModule
 
 final class UseCaseFactory {
     private lazy var networkService = NetworkService()
-    private lazy var wordRepository = WordRepositoryAssembly.assemble(networkService: networkService)
+    private lazy var userRepository = UserRepositoryAssembly.assemble()
+    private lazy var wordRepository = WordRepositoryAssembly.assemble(
+        userIdProvider: { try await self.userRepository.getUserId() },
+        networkService: networkService
+    )
 }
 
 // MARK: - Public methods

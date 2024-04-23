@@ -10,33 +10,39 @@ import WordModuleAPI
 
 final class WordRepository {
 
+    private let userIdProvider: UserIdProvider
     private let localDataSource: WordLocalDataSource
     private let remoteDataSource: WordRemoteDataSource
 
-    init(localDataSource: WordLocalDataSource, remoteDataSource: WordRemoteDataSource) {
+    init(
+        userIdProvider: @escaping UserIdProvider,
+        localDataSource: WordLocalDataSource,
+        remoteDataSource: WordRemoteDataSource
+    ) {
+        self.userIdProvider = userIdProvider
         self.localDataSource = localDataSource
         self.remoteDataSource = remoteDataSource
     }
 }
 
-// MARK: - WordRepository
+// MARK: - WordRepositoryProtocol
 
 extension WordRepository: WordRepositoryProtocol {
 
     func saveDictionary(_ word: Word) async throws {
-        try await localDataSource.saveDictionary(word)
+        try await localDataSource.saveDictionary(userIdProvider(), word: word)
     }
 
     func removeDictionary(by text: String) async throws {
-        try await localDataSource.removeDictionary(by: text)
+        try await localDataSource.removeDictionary(userIdProvider(), by: text)
     }
 
     func getAllDictionary() async throws -> [DictionaryWord] {
-        try await localDataSource.fetchAllDictionary()
+        try await localDataSource.fetchAllDictionary(userIdProvider())
     }
 
     func updateStudyCoefficient(_ coefficient: Int, of wordText: String) async throws {
-        try await localDataSource.updateStudyCoefficient(coefficient, of: wordText)
+        try await localDataSource.updateStudyCoefficient(userIdProvider(), coefficient: coefficient, wordText: wordText)
     }
 
     func get(by text: String) async throws -> Word? {
@@ -45,7 +51,7 @@ extension WordRepository: WordRepositoryProtocol {
         } catch NetworkError.requestFailed(.notFound, _) {
             return nil
         } catch NetworkError.notConnected {
-            return try await fetchLocalWord(by: text)
+            return try await localDataSource.fetch(userIdProvider(), by: text)
         } catch {
             throw error
         }
@@ -56,12 +62,8 @@ extension WordRepository: WordRepositoryProtocol {
 
 private extension WordRepository {
 
-    func fetchLocalWord(by text: String) async throws -> Word? {
-        try await localDataSource.fetch(by: text)
-    }
-
     func fetchRemoteWord(by text: String) async throws -> Word? {
-        let isDictionary = try await localDataSource.fetch(by: text) != nil
+        let isDictionary = try await localDataSource.isDictionary(userIdProvider(), wordText: text)
         let remoteDefinitions = try await remoteDataSource.fetchAll(by: text)
 
         return remoteDefinitions.toWord(isDictionary: isDictionary)
