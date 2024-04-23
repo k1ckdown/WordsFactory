@@ -5,8 +5,14 @@
 //  Created by Ivan Semenov on 23.04.2024.
 //
 
-struct User {
-    let id: String
-    let name: String
-    let email: String
+public struct User {
+    public let id: String
+    public let name: String
+    public let email: String
+
+    public init(id: String, name: String, email: String) {
+        self.id = id
+        self.name = name
+        self.email = email
+    }
 }
