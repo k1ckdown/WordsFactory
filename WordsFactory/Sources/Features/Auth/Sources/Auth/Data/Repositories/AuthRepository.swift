@@ -6,13 +6,9 @@
 //
 
 import FirebaseAuth
-
-protocol AuthRepositoryDelegate: AnyObject {
-    func saveUser(_ user: User) async throws
-}
+import UserModuleAPI
 
 final class AuthRepository {
-    weak var delegate: AuthRepositoryDelegate?
     private let auth = Auth.auth()
 }
 
@@ -24,9 +20,10 @@ extension AuthRepository: AuthRepositoryProtocol {
         try await auth.signIn(withEmail: credentials.email, password: credentials.password)
     }
 
-    func signUp(userRegister: UserRegister) async throws {
+    func signUp(userRegister: UserRegister) async throws -> UserModuleAPI.User {
         let result = try await auth.createUser(withEmail: userRegister.email, password: userRegister.password)
         let user = User(id: result.user.uid, name: userRegister.name, email: userRegister.email)
-        try await delegate?.saveUser(user)
+
+        return user
     }
 }

@@ -8,21 +8,24 @@
 import SwiftUI
 
 public struct AuthCoordinatorAssembly {
-
+    
     private let coordinatorFactory: CoordinatorFactory
-
-    public init(flowFinishHandler: @escaping () -> Void) {
-        let repositoryFactory = RepositoryFactory()
+    
+    public init(dependencies: ModuleDependencies) {
+        let repositoryFactory = RepositoryFactory(userRepository: dependencies.userRepository)
         let useCaseFactory = UseCaseFactory(repositoryFactory: repositoryFactory)
-
+        
         let screenFactory = ScreenFactory(useCaseFactory: useCaseFactory)
-        coordinatorFactory = CoordinatorFactory(screenFactory: screenFactory, flowFinishHandler: flowFinishHandler)
+        coordinatorFactory = CoordinatorFactory(
+            screenFactory: screenFactory,
+            flowFinishHandler: dependencies.flowFinishHandler
+        )
     }
-
+    
     public func assemble() -> some View {
         let coordinator = AuthCoordinator()
         let coordinatorView = AuthCoordinatorView(factory: coordinatorFactory, coordinator: coordinator)
-
+        
         return coordinatorView
     }
 }

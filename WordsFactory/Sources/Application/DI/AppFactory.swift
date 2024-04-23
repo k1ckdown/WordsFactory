@@ -7,16 +7,18 @@
 
 import SwiftUI
 import Networking
+import WordModule
+import UserModule
 import Onboarding
 import Auth
 import Video
 import Dictionary
-import WordModule
 import Training
 import MainTabBar
 
 final class AppFactory {
     private lazy var networkService = NetworkService()
+    private lazy var userRepository = UserRepositoryAssembly.assemble()
     private lazy var wordRepository = WordRepositoryAssembly.assemble(networkService: networkService)
 }
 
@@ -24,12 +26,17 @@ final class AppFactory {
 
 extension AppFactory {
 
-    func makeAuthCoordinator(flowFinishHandler: @escaping () -> Void) -> some View {
-        AuthCoordinatorAssembly(flowFinishHandler: flowFinishHandler).assemble()
-    }
-
     func makeOnboardingCoordinator(flowFinishHandler: @escaping () -> Void) -> some View {
         OnboardingCoordinatorAssembly().assemble(flowFinishHandler: flowFinishHandler)
+    }
+
+    func makeAuthCoordinator(flowFinishHandler: @escaping () -> Void) -> some View {
+        let dependencies = Auth.ModuleDependencies(
+            flowFinishHandler: flowFinishHandler,
+            userRepository: userRepository
+        )
+
+        return AuthCoordinatorAssembly(dependencies: dependencies).assemble()
     }
 
     func makeMainTabBarCoordinator() -> some View {

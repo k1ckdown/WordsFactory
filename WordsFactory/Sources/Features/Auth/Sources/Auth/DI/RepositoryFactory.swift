@@ -5,18 +5,16 @@
 //  Created by Ivan Semenov on 24.03.2024.
 //
 
+import UserModuleAPI
+
 final class RepositoryFactory {
 
-    private lazy var userRepository: UserRepository = {
-        let remoteDataSource = UserRemoteDataSource()
-        return UserRepository(remoteDataSource: remoteDataSource)
-    }()
+    private lazy var authRepository = AuthRepository()
+    private let userRepository: UserRepositoryProtocol
 
-    private lazy var authRepository: AuthRepository = {
-        let repository = AuthRepository()
-        repository.delegate = userRepository
-        return repository
-    }()
+    init(userRepository: UserRepositoryProtocol) {
+        self.userRepository = userRepository
+    }
 }
 
 // MARK: - Public methods
