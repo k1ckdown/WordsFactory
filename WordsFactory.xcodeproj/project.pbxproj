@@ -84,6 +84,8 @@
 		4958763E2BB6B2F7008D7A1D /* AppFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
 		495876402BB6CB5C008D7A1D /* AppCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorView.swift; sourceTree = "<group>"; };
 		495876422BB70B9F008D7A1D /* DictionaryAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DictionaryAPI; sourceTree = "<group>"; };
+		4960EE722BD7642A00EED61B /* UserModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = UserModule; sourceTree = "<group>"; };
+		4960EE732BD7651D00EED61B /* UserModuleAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = UserModuleAPI; sourceTree = "<group>"; };
 		4964B44F2BBC131600D849FC /* WordModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = WordModule; sourceTree = "<group>"; };
 		4979DAC62BC82FC100AA2235 /* DictionaryWidgetProviderAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryWidgetProviderAssembly.swift; sourceTree = "<group>"; };
 		4979DACD2BC832BC00AA2235 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				4991A2CB2BBC2675005EC551 /* API */,
+				4960EE722BD7642A00EED61B /* UserModule */,
 				4964B44F2BBC131600D849FC /* WordModule */,
 			);
 			path = Shared;
@@ -277,6 +280,7 @@
 		4991A2CB2BBC2675005EC551 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				4960EE732BD7651D00EED61B /* UserModuleAPI */,
 				4991A2CC2BBC268A005EC551 /* WordModuleAPI */,
 			);
 			path = API;

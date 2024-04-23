@@ -4,18 +4,18 @@
 import PackageDescription
 
 let package = Package(
-    name: "WordModuleAPI",
+    name: "UserModuleAPI",
     platforms: [.iOS(.v15)],
     products: [
         .library(
-            name: "WordModuleAPI",
-            targets: ["WordModuleAPI"]),
+            name: "UserModuleAPI",
+            targets: ["UserModuleAPI"]),
     ],
     targets: [
         .target(
-            name: "WordModuleAPI"),
+            name: "UserModuleAPI"),
         .testTarget(
-            name: "WordModuleAPITests",
-            dependencies: ["WordModuleAPI"]),
+            name: "UserModuleAPITests",
+            dependencies: ["UserModuleAPI"]),
     ]
 )
