@@ -9,10 +9,21 @@ import WidgetKit
 
 struct DictionaryWidgetEntry: TimelineEntry {
     var date = Date.now
-    let totalWordCount: Int
-    let rememberedWordCount: Int
+    let state: ViewState
 }
 
 extension DictionaryWidgetEntry {
-    static let placeholder = DictionaryWidgetEntry(totalWordCount: 3125, rememberedWordCount: 41)
+    enum ViewState {
+        case failed(Error)
+        case loaded(ViewData)
+
+        struct ViewData {
+            let totalWordCount: Int
+            let rememberedWordCount: Int
+        }
+    }
+}
+
+extension DictionaryWidgetEntry {
+    static let placeholder = DictionaryWidgetEntry(state: .loaded(.init(totalWordCount: 3125, rememberedWordCount: 41)))
 }

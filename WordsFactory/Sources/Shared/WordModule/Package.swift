@@ -13,12 +13,14 @@ let package = Package(
     ],
     dependencies: [
         .package(path: "../API/WordModuleAPI"),
+        .package(path: "../../Core/AppGroup"),
         .package(path: "../../Core/API/NetworkingAPI"),
     ],
     targets: [
         .target(
             name: "WordModule",
             dependencies: [
+                .product(name: "AppGroup", package: "AppGroup"),
                 .product(name: "WordModuleAPI", package: "WordModuleAPI"),
                 .product(name: "NetworkingAPI", package: "NetworkingAPI")
             ]

@@ -6,6 +6,7 @@
 //
 
 import CoreData
+import AppGroup
 
 final class CoreDataStack {
 
@@ -13,7 +14,7 @@ final class CoreDataStack {
 
     private lazy var persistentContainer: NSPersistentContainer = {
         guard
-            let containerUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: Constants.appGroupId),
+            let containerUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: AppGroup.Constants.appGroupId),
             let modelUrl = Bundle.module.url(forResource: Constants.modelName, withExtension: Constants.modelExtension),
             let model = NSManagedObjectModel(contentsOf: modelUrl)
         else { fatalError("Failed to create ManagedObjectModel") }
@@ -51,7 +52,6 @@ private extension CoreDataStack {
     enum Constants {
         static let modelName = "Word"
         static let modelExtension = "momd"
-        static let appGroupId = "group.com.WordsFactory"
         static let storePath = Constants.modelName + ".sqlite"
     }
 }

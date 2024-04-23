@@ -7,7 +7,7 @@
 
 import Foundation
 import WidgetKit
-import WordModuleAPI
+import AppGroup
 import Notifications
 
 final class TrainingFinishViewModel: ObservableObject {

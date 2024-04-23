@@ -13,23 +13,17 @@ struct DictionaryWidgetEntryView: View {
     let entry: DictionaryWidgetProvider.Entry
 
     var body: some View {
-        VStack(spacing: .zero) {
-            headerView
-
-            contentView
-                .padding(.top, Constants.contentInsetTop)
-                .padding([.bottom, .horizontal])
-                .frame(maxHeight: .infinity)
-        }
-        .widgetBackground()
+        contentView
+            .widgetBackground()
     }
 
     @ViewBuilder
     private var contentView: some View {
-        if entry.totalWordCount > 0 {
-            wordCountView
-        } else {
-            placeholderView
+        switch entry.state {
+        case .failed(let error):
+            errorView(error)
+        case .loaded(let viewData):
+            loadedView(viewData)
         }
     }
 }
@@ -38,7 +32,43 @@ struct DictionaryWidgetEntryView: View {
 
 private extension DictionaryWidgetEntryView {
 
-    var headerView: some View {
+    func errorView(_ error: Error) -> some View {
+        Text("An error has occurred❗️\nData is not available.")
+            .font(Fonts.headline5)
+            .multilineTextAlignment(.center)
+            .foregroundStyle(Color(.label))
+            .padding()
+    }
+
+    func loadedView(_ viewData: DictionaryWidgetEntry.ViewState.ViewData) -> some View {
+        VStack(spacing: .zero) {
+            headerView()
+
+            overviewView(totalWordCount: viewData.totalWordCount, rememberedWordCount: viewData.rememberedWordCount)
+                .padding(.top, Constants.contentInsetTop)
+                .padding([.bottom, .horizontal])
+                .frame(maxHeight: .infinity)
+        }
+    }
+
+    @ViewBuilder
+    func overviewView(totalWordCount: Int, rememberedWordCount: Int) -> some View {
+        if totalWordCount > 0 {
+            VStack {
+                totalWordsView(name: Strings.myDictionary, count: totalWordCount)
+                totalWordsView(name: Strings.alreadyRemember, count: rememberedWordCount)
+            }
+        } else {
+            placeholderView()
+        }
+    }
+    func placeholderView() -> some View {
+        Text(Strings.dictionaryIsEmpty)
+            .font(Fonts.headline5)
+            .multilineTextAlignment(.center)
+    }
+
+    func headerView() -> some View {
         ZStack(alignment: .leading) {
             LinearGradient(
                 colors: [Colors.appOrange.swiftUIColor, Colors.appYellow.swiftUIColor],
@@ -54,18 +84,6 @@ private extension DictionaryWidgetEntryView {
         .frame(height: Constants.titleHeight)
     }
 
-    var placeholderView: some View {
-        Text(Strings.dictionaryIsEmpty)
-            .font(Fonts.headline5)
-            .multilineTextAlignment(.center)
-    }
-
-    var wordCountView: some View {
-        VStack {
-            totalWordsView(name: Strings.myDictionary, count: entry.totalWordCount)
-            totalWordsView(name: Strings.alreadyRemember, count: entry.rememberedWordCount)
-        }
-    }
 
     func totalWordsView(name: String, count: Int) -> some View {
         HStack(alignment: .firstTextBaseline, spacing: .zero) {

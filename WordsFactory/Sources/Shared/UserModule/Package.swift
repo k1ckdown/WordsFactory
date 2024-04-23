@@ -13,12 +13,14 @@ let package = Package(
     ],
     dependencies: [
         .package(path: "../API/UserModuleAPI"),
+        .package(path: "../../Core/AppGroup"),
         .package(url: "https://github.com/firebase/firebase-ios-sdk", from: .init(10, 23, 0))
     ],
     targets: [
         .target(
             name: "UserModule",
             dependencies: [
+                .product(name: "AppGroup", package: "AppGroup"),
                 .product(name: "UserModuleAPI", package: "UserModuleAPI"),
                 .product(name: "FirebaseAuth", package: "firebase-ios-sdk"),
                 .product(name: "FirebaseFirestore", package: "firebase-ios-sdk")

@@ -31,13 +31,9 @@ struct DictionaryWidgetProvider: TimelineProvider {
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<DictionaryWidgetEntry>) -> Void) {
         Task {
-            do {
-                let entry = try await getTimelineEntry()
-                let timeline = Timeline(entries: [entry], policy: .never)
-                completion(timeline)
-            } catch {
-                print(error)
-            }
+            let entry = await getTimelineEntry()
+            let timeline = Timeline(entries: [entry], policy: .never)
+            completion(timeline)
         }
     }
 }
@@ -46,10 +42,17 @@ struct DictionaryWidgetProvider: TimelineProvider {
 
 private extension DictionaryWidgetProvider {
 
-    func getTimelineEntry() async throws -> DictionaryWidgetEntry {
-        let totalWordCount = try await getDictionaryWordCountUseCase.execute()
-        let rememberedWordCount = try await getRememberedWordCountUseCase.execute()
+    func getTimelineEntry() async -> DictionaryWidgetEntry {
+        let state: DictionaryWidgetEntry.ViewState
 
-        return .init(totalWordCount: totalWordCount, rememberedWordCount: rememberedWordCount)
+        do {
+            let totalWordCount = try await getDictionaryWordCountUseCase.execute()
+            let rememberedWordCount = try await getRememberedWordCountUseCase.execute()
+            state = .loaded(.init(totalWordCount: totalWordCount, rememberedWordCount: rememberedWordCount))
+        } catch {
+            state = .failed(error)
+        }
+
+        return DictionaryWidgetEntry(state: state)
     }
 }

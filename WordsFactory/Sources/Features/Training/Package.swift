@@ -16,6 +16,7 @@ let package = Package(
         .package(path: "../API/TrainingAPI"),
         .package(path: "../../Shared/API/WordModuleAPI"),
         .package(path: "../../Core/CommonUI"),
+        .package(path: "../../Core/AppGroup"),
         .package(path: "../../Core/Notifications"),
         .package(url: "https://github.com/SwiftGen/SwiftGenPlugin", from: .init(6, 6, 2))
     ],
@@ -26,6 +27,7 @@ let package = Package(
                 .product(name: "TrainingAPI", package: "TrainingAPI"),
                 .product(name: "WordModuleAPI", package: "WordModuleAPI"),
                 .product(name: "CommonUI", package: "CommonUI"),
+                .product(name: "AppGroup", package: "AppGroup"),
                 .product(name: "Notifications", package: "Notifications")
             ],
             plugins: [

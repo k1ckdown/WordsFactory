@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WidgetKit
 import Notifications
 
 final class AppCoordinator: ObservableObject {
@@ -36,6 +37,7 @@ extension AppCoordinator {
 
     func finishAuth() {
         scene = .mainTabBar
+        WidgetCenter.shared.reloadAllTimelines()
         Task { await self.scheduleNotificationsAfterAuth() }
     }
 

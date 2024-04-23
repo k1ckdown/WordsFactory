@@ -5,6 +5,7 @@
 //  Created by Ivan Semenov on 23.04.2024.
 //
 
+import AppGroup
 import FirebaseAuth
 import FirebaseFirestore
 
@@ -39,7 +40,7 @@ extension UserRemoteDataSource {
     }
 
     func fetchUserId() throws -> String {
-        guard let userId = Auth.auth().currentUser?.uid else {
+        guard let userId = try Auth.auth().getStoredUser(forAccessGroup: AppGroup.Constants.appGroupId)?.uid else {
             throw UserRemoteDataSourceError.unauthorized
         }
 

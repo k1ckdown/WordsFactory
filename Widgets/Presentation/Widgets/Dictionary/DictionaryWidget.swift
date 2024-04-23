@@ -7,7 +7,7 @@
 
 import SwiftUI
 import WidgetKit
-import WordModuleAPI
+import AppGroup
 
 struct DictionaryWidget: Widget {
 

@@ -6,17 +6,19 @@
 //
 
 import UIKit
+import AppGroup
+import FirebaseAuth
 import FirebaseCore
 
 class AppDelegate: NSObject, UIApplicationDelegate {
 
     weak var appCoordinator: AppCoordinator?
-    
+
     func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil
     ) -> Bool {
-        FirebaseApp.configure()
+        configureFirebase()
         UNUserNotificationCenter.current().delegate = self
 
         return true
@@ -29,5 +31,16 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) async -> UNNotificationPresentationOptions {
         .banner
+    }
+}
+
+// MARK: - Configure
+
+extension AppDelegate {
+
+    func configureFirebase() {
+        FirebaseApp.configure()
+        Auth.auth().shareAuthStateAcrossDevices = true
+        try? Auth.auth().useUserAccessGroup(AppGroup.Constants.appGroupId)
     }
 }

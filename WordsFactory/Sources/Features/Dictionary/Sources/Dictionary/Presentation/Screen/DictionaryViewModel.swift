@@ -7,6 +7,7 @@
 
 import Foundation
 import WidgetKit
+import AppGroup
 import WordModuleAPI
 
 final class DictionaryViewModel: ObservableObject {

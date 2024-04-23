@@ -16,6 +16,7 @@ let package = Package(
         .package(path: "../API/DictionaryAPI"),
         .package(path: "../../Shared/API/WordModuleAPI"),
         .package(path: "../../Core/CommonUI"),
+        .package(path: "../../Core/AppGroup"),
         .package(url: "https://github.com/SwiftGen/SwiftGenPlugin", from: .init(6, 6, 2))
     ],
     targets: [
@@ -24,7 +25,8 @@ let package = Package(
             dependencies: [
                 .product(name: "DictionaryAPI", package: "DictionaryAPI"),
                 .product(name: "WordModuleAPI", package: "WordModuleAPI"),
-                .product(name: "CommonUI", package: "CommonUI")
+                .product(name: "CommonUI", package: "CommonUI"),
+                .product(name: "AppGroup", package: "AppGroup")
             ],
             plugins: [
                 .plugin(name: "SwiftGenPlugin", package: "SwiftGenPlugin")

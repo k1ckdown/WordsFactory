@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4900A2A52BC13E780067FE0D /* MainTabBar in Frameworks */ = {isa = PBXBuildFile; productRef = 4900A2A42BC13E780067FE0D /* MainTabBar */; };
 		4903F7332BB9799100578062 /* Training in Frameworks */ = {isa = PBXBuildFile; productRef = 4903F7322BB9799100578062 /* Training */; };
+		490E009A2BD81C16003C860A /* AppGroup in Frameworks */ = {isa = PBXBuildFile; productRef = 490E00992BD81C16003C860A /* AppGroup */; };
 		491017952BD590AB004C076E /* Onboarding in Frameworks */ = {isa = PBXBuildFile; productRef = 491017942BD590AB004C076E /* Onboarding */; };
 		4915A0DB2BB97A4500751B6C /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 4915A0DA2BB97A4500751B6C /* Networking */; };
 		4915A0DD2BB97A5700751B6C /* Video in Frameworks */ = {isa = PBXBuildFile; productRef = 4915A0DC2BB97A5700751B6C /* Video */; };
@@ -26,6 +27,7 @@
 		498BBF3F2BC34EF300F60508 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 498BBF3E2BC34E2A00F60508 /* GoogleService-Info.plist */; };
 		498C9CEB2BC59A3C0039D63E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498C9CEA2BC59A3C0039D63E /* AppDelegate.swift */; };
 		4990F6E52BBC193F009F5086 /* WordModule in Frameworks */ = {isa = PBXBuildFile; productRef = 4990F6E42BBC193F009F5086 /* WordModule */; };
+		49BB9A1F2BD8107300A25EAE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49BB9A1E2BD8107300A25EAE /* GoogleService-Info.plist */; };
 		49BF58AD2BD5821800867B07 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BF58AC2BD5821800867B07 /* AppSettings.swift */; };
 		49CAC3082BB978D500A09571 /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 49CAC3072BB978D500A09571 /* Auth */; };
 		49CAC30A2BB978D500A09571 /* CommonUI in Frameworks */ = {isa = PBXBuildFile; productRef = 49CAC3092BB978D500A09571 /* CommonUI */; };
@@ -75,6 +77,7 @@
 /* Begin PBXFileReference section */
 		490BF2072BB28D6D0023C80C /* Dictionary */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Dictionary; sourceTree = "<group>"; };
 		490C6FDD2BAA1C66002A8BC6 /* CommonUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = CommonUI; sourceTree = "<group>"; };
+		490E00982BD81A5D003C860A /* AppGroup */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = AppGroup; sourceTree = "<group>"; };
 		491017912BD58FCC004C076E /* Onboarding */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Onboarding; sourceTree = "<group>"; };
 		492C5B982BA981E40018E008 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4933AA4C2BB0996300515FAC /* Networking */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Networking; sourceTree = "<group>"; };
@@ -98,6 +101,7 @@
 		498C9CE92BC587720039D63E /* Notifications */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Notifications; sourceTree = "<group>"; };
 		498C9CEA2BC59A3C0039D63E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4991A2CC2BBC268A005EC551 /* WordModuleAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = WordModuleAPI; sourceTree = "<group>"; };
+		49BB9A1E2BD8107300A25EAE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		49BF58AC2BD5821800867B07 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		49CAC3012BB935CF00A09571 /* Video */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Video; sourceTree = "<group>"; };
 		49CAC3042BB9583C00A09571 /* VideoAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = VideoAPI; sourceTree = "<group>"; };
@@ -148,6 +152,7 @@
 				49E385282BC31846004EBCEF /* CommonUI in Frameworks */,
 				49E385092BC311B6004EBCEF /* SwiftUI.framework in Frameworks */,
 				4960EE7F2BD7821400EED61B /* UserModule in Frameworks */,
+				490E009A2BD81C16003C860A /* AppGroup in Frameworks */,
 				49E3852D2BC31C97004EBCEF /* Networking in Frameworks */,
 				49E385072BC311B6004EBCEF /* WidgetKit.framework in Frameworks */,
 			);
@@ -294,6 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				495876312BB69F2B008D7A1D /* API */,
+				490E00982BD81A5D003C860A /* AppGroup */,
 				498C9CE92BC587720039D63E /* Notifications */,
 				4933AA4C2BB0996300515FAC /* Networking */,
 				490C6FDD2BAA1C66002A8BC6 /* CommonUI */,
@@ -400,6 +406,7 @@
 		49E3852B2BC31C63004EBCEF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				49BB9A1E2BD8107300A25EAE /* GoogleService-Info.plist */,
 				49E385112BC311B7004EBCEF /* Info.plist */,
 				49E3850F2BC311B7004EBCEF /* Assets.xcassets */,
 				4979DACD2BC832BC00AA2235 /* Localizable.xcstrings */,
@@ -469,6 +476,7 @@
 				49E385292BC31AED004EBCEF /* WordModule */,
 				49E3852C2BC31C97004EBCEF /* Networking */,
 				4960EE7E2BD7821400EED61B /* UserModule */,
+				490E00992BD81C16003C860A /* AppGroup */,
 			);
 			productName = WidgetsExtension;
 			productReference = 49E385052BC311B6004EBCEF /* WidgetsExtension.appex */;
@@ -531,6 +539,7 @@
 			files = (
 				4979DACE2BC832BC00AA2235 /* Localizable.xcstrings in Resources */,
 				49E385102BC311B7004EBCEF /* Assets.xcassets in Resources */,
+				49BB9A1F2BD8107300A25EAE /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -863,6 +872,10 @@
 		4903F7322BB9799100578062 /* Training */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Training;
+		};
+		490E00992BD81C16003C860A /* AppGroup */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AppGroup;
 		};
 		491017942BD590AB004C076E /* Onboarding */ = {
 			isa = XCSwiftPackageProductDependency;
