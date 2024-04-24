@@ -17,6 +17,7 @@
 		4946D6BC2BA814E500558F8A /* WordsFactoryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4946D6BB2BA814E500558F8A /* WordsFactoryApp.swift */; };
 		4946D6C32BA814E600558F8A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4946D6C22BA814E600558F8A /* Preview Assets.xcassets */; };
 		494D55852BC682660044982F /* Notifications in Frameworks */ = {isa = PBXBuildFile; productRef = 494D55842BC682660044982F /* Notifications */; };
+		494DCA512BD960BF0085744B /* DictionaryWordWidgetEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494DCA502BD960BF0085744B /* DictionaryWordWidgetEntry.swift */; };
 		4958763F2BB6B2F7008D7A1D /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4958763E2BB6B2F7008D7A1D /* AppFactory.swift */; };
 		495876412BB6CB5C008D7A1D /* AppCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495876402BB6CB5C008D7A1D /* AppCoordinatorView.swift */; };
 		495929AF2BD95F6A00ECD8F3 /* DictionaryOverviewWidgetProviderAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495929AE2BD95F6A00ECD8F3 /* DictionaryOverviewWidgetProviderAssembly.swift */; };
@@ -85,6 +86,7 @@
 		4946D6BB2BA814E500558F8A /* WordsFactoryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsFactoryApp.swift; sourceTree = "<group>"; };
 		4946D6C22BA814E600558F8A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4949DEC02BAB5FDA0094AD9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		494DCA502BD960BF0085744B /* DictionaryWordWidgetEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryWordWidgetEntry.swift; sourceTree = "<group>"; };
 		495876332BB6A1AF008D7A1D /* NetworkingAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = NetworkingAPI; sourceTree = "<group>"; };
 		4958763E2BB6B2F7008D7A1D /* AppFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
 		495876402BB6CB5C008D7A1D /* AppCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorView.swift; sourceTree = "<group>"; };
@@ -241,6 +243,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		494DCA4F2BD960A80085744B /* DictionaryWord */ = {
+			isa = PBXGroup;
+			children = (
+				494DCA502BD960BF0085744B /* DictionaryWordWidgetEntry.swift */,
+			);
+			path = DictionaryWord;
+			sourceTree = "<group>";
+		};
 		495876312BB69F2B008D7A1D /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -365,6 +375,7 @@
 		49D3FF8F2BC48C46005E2CCA /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
+				494DCA4F2BD960A80085744B /* DictionaryWord */,
 				49E385192BC31221004EBCEF /* DictionaryOverview */,
 			);
 			path = Widgets;
@@ -556,6 +567,7 @@
 				49F0A28A2BCAE823007499CC /* AppCoordinator.swift in Sources */,
 				4958763F2BB6B2F7008D7A1D /* AppFactory.swift in Sources */,
 				4946D6BC2BA814E500558F8A /* WordsFactoryApp.swift in Sources */,
+				494DCA512BD960BF0085744B /* DictionaryWordWidgetEntry.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
