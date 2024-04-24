@@ -9,19 +9,23 @@ import WordModuleAPI
 
 final class GetRandomWordUseCase {
 
+    enum GetRandomWordUseCaseError: Error {
+        case dictionaryIsEmpty
+    }
+
     private let wordRepository: WordRepositoryProtocol
 
     init(wordRepository: WordRepositoryProtocol) {
         self.wordRepository = wordRepository
     }
 
-    func execute() async throws -> WordShort? {
+    func execute() async throws -> WordShort {
         let dictionaryWords = try await wordRepository.getAllDictionary()
 
         guard
             let selectedWord = dictionaryWords.randomElement(),
             let definition = selectedWord.definitions.randomElement()?.meanings.randomElement()?.definitions.randomElement()?.definition
-        else { return nil }
+        else { throw GetRandomWordUseCaseError.dictionaryIsEmpty }
 
         let wordShort = WordShort(text: selectedWord.text, definition: definition)
         return wordShort

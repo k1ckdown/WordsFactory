@@ -18,6 +18,7 @@ final class GetRememberedWordCountUseCase {
     func execute() async throws -> Int {
         let dictionaryWords = try await wordRepository.getAllDictionary()
         let rememberedWords = dictionaryWords.filter { $0.studyCoefficient >= Constants.minRememberCoef }
+
         return rememberedWords.count
     }
 }
