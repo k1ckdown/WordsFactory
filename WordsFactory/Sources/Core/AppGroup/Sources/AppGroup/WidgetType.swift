@@ -6,7 +6,8 @@
 //
 
 public enum WidgetType: String {
-    case dictionary
+    case dictionaryWord
+    case dictionaryOverview
 
     public var kind: String {
         rawValue + "Widget"

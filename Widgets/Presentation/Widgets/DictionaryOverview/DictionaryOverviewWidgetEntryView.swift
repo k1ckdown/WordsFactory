@@ -20,8 +20,8 @@ struct DictionaryOverviewWidgetEntryView: View {
     @ViewBuilder
     private var contentView: some View {
         switch entry.state {
-        case .failed(let error):
-            errorView(error)
+        case .failed:
+            ErrorView(message: Strings.occurredError)
         case .loaded(let viewData):
             loadedView(viewData)
         }
@@ -31,14 +31,6 @@ struct DictionaryOverviewWidgetEntryView: View {
 // MARK: - Content
 
 private extension DictionaryOverviewWidgetEntryView {
-
-    func errorView(_ error: Error) -> some View {
-        Text("An error has occurred❗️\nData is not available.")
-            .font(Fonts.headline5)
-            .multilineTextAlignment(.center)
-            .foregroundStyle(Color(.label))
-            .padding()
-    }
 
     func loadedView(_ viewData: DictionaryOverviewWidgetEntry.ViewState.ViewData) -> some View {
         VStack(spacing: .zero) {

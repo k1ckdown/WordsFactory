@@ -21,6 +21,10 @@
 		494DCA562BD963480085744B /* GetRandomWordUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494DCA552BD963480085744B /* GetRandomWordUseCase.swift */; };
 		494DCA582BD965F60085744B /* DictionaryWordWidgetProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494DCA572BD965F60085744B /* DictionaryWordWidgetProvider.swift */; };
 		494DCA592BD9663A0085744B /* DictionaryWordWidgetEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494DCA502BD960BF0085744B /* DictionaryWordWidgetEntry.swift */; };
+		494DCA5B2BD96AA50085744B /* DictionaryWordWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494DCA5A2BD96AA50085744B /* DictionaryWordWidgetEntryView.swift */; };
+		494DCA5E2BD96AFF0085744B /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494DCA5D2BD96AFF0085744B /* ErrorView.swift */; };
+		494DCA602BD96C3C0085744B /* DictionaryWordWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494DCA5F2BD96C3C0085744B /* DictionaryWordWidget.swift */; };
+		494DCA622BD96CD30085744B /* DictionaryWordWidgetProviderAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494DCA612BD96CD30085744B /* DictionaryWordWidgetProviderAssembly.swift */; };
 		4958763F2BB6B2F7008D7A1D /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4958763E2BB6B2F7008D7A1D /* AppFactory.swift */; };
 		495876412BB6CB5C008D7A1D /* AppCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495876402BB6CB5C008D7A1D /* AppCoordinatorView.swift */; };
 		495929AF2BD95F6A00ECD8F3 /* DictionaryOverviewWidgetProviderAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495929AE2BD95F6A00ECD8F3 /* DictionaryOverviewWidgetProviderAssembly.swift */; };
@@ -93,6 +97,10 @@
 		494DCA532BD963070085744B /* WordShort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordShort.swift; sourceTree = "<group>"; };
 		494DCA552BD963480085744B /* GetRandomWordUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRandomWordUseCase.swift; sourceTree = "<group>"; };
 		494DCA572BD965F60085744B /* DictionaryWordWidgetProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryWordWidgetProvider.swift; sourceTree = "<group>"; };
+		494DCA5A2BD96AA50085744B /* DictionaryWordWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryWordWidgetEntryView.swift; sourceTree = "<group>"; };
+		494DCA5D2BD96AFF0085744B /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		494DCA5F2BD96C3C0085744B /* DictionaryWordWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryWordWidget.swift; sourceTree = "<group>"; };
+		494DCA612BD96CD30085744B /* DictionaryWordWidgetProviderAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryWordWidgetProviderAssembly.swift; sourceTree = "<group>"; };
 		495876332BB6A1AF008D7A1D /* NetworkingAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = NetworkingAPI; sourceTree = "<group>"; };
 		4958763E2BB6B2F7008D7A1D /* AppFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
 		495876402BB6CB5C008D7A1D /* AppCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorView.swift; sourceTree = "<group>"; };
@@ -254,6 +262,9 @@
 			children = (
 				494DCA502BD960BF0085744B /* DictionaryWordWidgetEntry.swift */,
 				494DCA572BD965F60085744B /* DictionaryWordWidgetProvider.swift */,
+				494DCA5A2BD96AA50085744B /* DictionaryWordWidgetEntryView.swift */,
+				494DCA5F2BD96C3C0085744B /* DictionaryWordWidget.swift */,
+				494DCA612BD96CD30085744B /* DictionaryWordWidgetProviderAssembly.swift */,
 			);
 			path = DictionaryWord;
 			sourceTree = "<group>";
@@ -264,6 +275,14 @@
 				494DCA532BD963070085744B /* WordShort.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		494DCA5C2BD96AF60085744B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				494DCA5D2BD96AFF0085744B /* ErrorView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		495876312BB69F2B008D7A1D /* API */ = {
@@ -297,6 +316,7 @@
 		4979DACF2BC8335E00AA2235 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				494DCA5C2BD96AF60085744B /* Views */,
 				4979DAD02BC8336300AA2235 /* Constants */,
 				49E3851E2BC312AA004EBCEF /* Extensions */,
 			);
@@ -593,10 +613,12 @@
 			files = (
 				49E385242BC3134A004EBCEF /* DictionaryOverviewWidget.swift in Sources */,
 				49E3850C2BC311B6004EBCEF /* WidgetsBundle.swift in Sources */,
+				494DCA622BD96CD30085744B /* DictionaryWordWidgetProviderAssembly.swift in Sources */,
 				494DCA592BD9663A0085744B /* DictionaryWordWidgetEntry.swift in Sources */,
 				4979DAD22BC8338A00AA2235 /* Strings.swift in Sources */,
 				49E385222BC312DF004EBCEF /* DictionaryOverviewWidgetEntryView.swift in Sources */,
 				495929AF2BD95F6A00ECD8F3 /* DictionaryOverviewWidgetProviderAssembly.swift in Sources */,
+				494DCA602BD96C3C0085744B /* DictionaryWordWidget.swift in Sources */,
 				494DCA582BD965F60085744B /* DictionaryWordWidgetProvider.swift in Sources */,
 				49D3FF892BC4778F005E2CCA /* GetRememberedWordCountUseCase.swift in Sources */,
 				49E3851B2BC3127E004EBCEF /* DictionaryOverviewWidgetProvider.swift in Sources */,
@@ -604,7 +626,9 @@
 				49D3FF8E2BC488F5005E2CCA /* UseCaseFactory.swift in Sources */,
 				49E385202BC312C1004EBCEF /* View+WidgetBackground.swift in Sources */,
 				494DCA542BD963070085744B /* WordShort.swift in Sources */,
+				494DCA5B2BD96AA50085744B /* DictionaryWordWidgetEntryView.swift in Sources */,
 				494DCA562BD963480085744B /* GetRandomWordUseCase.swift in Sources */,
+				494DCA5E2BD96AFF0085744B /* ErrorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

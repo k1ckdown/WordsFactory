@@ -83,7 +83,7 @@ private extension TrainingFinishViewModel {
                 try await taskGroup.waitForAll()
             }
 
-            WidgetCenter.shared.reloadTimelines(ofKind: WidgetType.dictionary.kind)
+            WidgetCenter.shared.reloadTimelines(ofKind: WidgetType.dictionaryOverview.kind)
         } catch {
             await MainActor.run { coordinator.showError(message: error.localizedDescription) }
         }

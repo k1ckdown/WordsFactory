@@ -18,9 +18,6 @@
         }
       }
     },
-    "An error has occurred❗️\nData is not available." : {
-
-    },
     "Dictionary" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -49,7 +46,7 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Ваш словарь пуст.\nДобавьте любое слово 📒"
           }
         }
@@ -72,6 +69,40 @@
         }
       }
     },
+    "DictionaryWord" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dictionary Word"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Словарное слово"
+          }
+        }
+      }
+    },
+    "DictionaryWordDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A random word from your dictionary"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Случайное слово из вашего словаря"
+          }
+        }
+      }
+    },
     "MyDictionary" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -85,6 +116,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Мой словарь"
+          }
+        }
+      }
+    },
+    "OccurredError" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An error has occurred.\nData is not available 😔"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Произошла ошибка.\nДанные недоступны 😔"
           }
         }
       }
@@ -143,7 +191,20 @@
       }
     },
     "WordsFactory" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "WordsFactory"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "WordsFactory"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

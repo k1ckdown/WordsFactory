@@ -19,6 +19,7 @@ struct WidgetsBundle: WidgetBundle {
     }
 
     var body: some Widget {
+        DictionaryWordWidget()
         DictionaryOverviewWidget()
     }
 

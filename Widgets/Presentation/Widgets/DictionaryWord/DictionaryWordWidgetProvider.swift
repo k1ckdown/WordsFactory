@@ -45,7 +45,7 @@ private extension DictionaryWordWidgetProvider {
 
         do {
             let word = try await getRandomWordUseCase.execute()
-            state = .loaded(.init(word: word.text, definition: word.definition))
+            state = .loaded(.init(word: word.text.capitalized, definition: word.definition))
         } catch {
             state = .failed(error)
         }

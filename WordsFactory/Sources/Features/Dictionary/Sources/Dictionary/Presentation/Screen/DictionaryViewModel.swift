@@ -7,7 +7,6 @@
 
 import Foundation
 import WidgetKit
-import AppGroup
 import WordModuleAPI
 
 final class DictionaryViewModel: ObservableObject {
@@ -69,7 +68,7 @@ private extension DictionaryViewModel {
 
         do {
             try await word.isDictionary ? removeWord(word) : saveWord(word)
-            WidgetCenter.shared.reloadTimelines(ofKind: WidgetType.dictionary.kind)
+            WidgetCenter.shared.reloadAllTimelines()
         } catch {
             await MainActor.run { coordinator.showError(message: error.localizedDescription) }
         }

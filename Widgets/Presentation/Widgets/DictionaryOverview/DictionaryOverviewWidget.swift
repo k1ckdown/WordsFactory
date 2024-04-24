@@ -11,7 +11,7 @@ import AppGroup
 
 struct DictionaryOverviewWidget: Widget {
 
-    private let kind = WidgetType.dictionary.kind
+    private let kind = WidgetType.dictionaryOverview.kind
     private let providerAssembly = DictionaryOverviewWidgetProviderAssembly()
 
     var body: some WidgetConfiguration {
