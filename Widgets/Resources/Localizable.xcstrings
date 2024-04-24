@@ -120,6 +120,23 @@
         }
       }
     },
+    "NeedLogIn" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The data is not available.\nYou need to log in to your account 👨🏻‍💻"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Данные недоступны.\nВам нужно войти в свой аккаунт 👨🏻‍💻"
+          }
+        }
+      }
+    },
     "OccurredError" : {
       "extractionState" : "manual",
       "localizations" : {

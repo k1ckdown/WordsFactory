@@ -14,7 +14,7 @@ struct DictionaryOverviewWidgetEntry: TimelineEntry {
 
 extension DictionaryOverviewWidgetEntry {
     enum ViewState {
-        case failed(Error)
+        case failed(String)
         case loaded(ViewData)
 
         struct ViewData {

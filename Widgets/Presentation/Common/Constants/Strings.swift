@@ -9,6 +9,7 @@ import SwiftUI
 
 enum Strings {
     static let appName = String(localized: "WordsFactory")
+    static let needLogIn = String(localized: "NeedLogIn")
     static let dictionary = String(localized: "Dictionary")
     static let myDictionary = String(localized: "MyDictionary")
     static let occurredError = String(localized: "OccurredError")

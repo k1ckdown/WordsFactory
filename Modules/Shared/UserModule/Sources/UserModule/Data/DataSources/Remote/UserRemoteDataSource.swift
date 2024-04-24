@@ -6,14 +6,11 @@
 //
 
 import AppGroup
+import UserModuleAPI
 import FirebaseAuth
 import FirebaseFirestore
 
 final class UserRemoteDataSource {
-
-    enum UserRemoteDataSourceError: Error {
-        case unauthorized
-    }
 
     private let database = Firestore.firestore()
     private var collection: CollectionReference {
@@ -41,7 +38,7 @@ extension UserRemoteDataSource {
 
     func fetchUserId() throws -> String {
         guard let userId = try Auth.auth().getStoredUser(forAccessGroup: AppGroup.Constants.appGroupId)?.uid else {
-            throw UserRemoteDataSourceError.unauthorized
+            throw AuthError.unauthorized
         }
 
         return userId

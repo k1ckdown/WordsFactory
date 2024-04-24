@@ -6,6 +6,7 @@
 //
 
 import WidgetKit
+import UserModuleAPI
 
 struct DictionaryWordWidgetProvider: TimelineProvider {
 
@@ -47,9 +48,20 @@ private extension DictionaryWordWidgetProvider {
             let word = try await getRandomWordUseCase.execute()
             state = .loaded(.init(word: word.text.capitalized, definition: word.definition))
         } catch {
-            state = .failed(error)
+            state = .failed(getErrorMessage(error))
         }
 
         return DictionaryWordWidgetEntry(date: .now, state: state)
+    }
+
+    func getErrorMessage(_ error: Error) -> String {
+        switch error {
+        case AuthError.unauthorized:
+            Strings.needLogIn
+        case GetRandomWordUseCase.GetRandomWordUseCaseError.dictionaryIsEmpty:
+            Strings.dictionaryIsEmpty
+        default:
+            Strings.occurredError
+        }
     }
 }

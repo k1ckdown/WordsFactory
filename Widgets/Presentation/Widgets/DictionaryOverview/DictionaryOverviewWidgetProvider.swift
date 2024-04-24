@@ -7,6 +7,7 @@
 
 import WidgetKit
 import WordModule
+import UserModuleAPI
 
 struct DictionaryOverviewWidgetProvider: TimelineProvider {
 
@@ -50,9 +51,18 @@ private extension DictionaryOverviewWidgetProvider {
             let rememberedWordCount = try await getRememberedWordCountUseCase.execute()
             state = .loaded(.init(totalWordCount: totalWordCount, rememberedWordCount: rememberedWordCount))
         } catch {
-            state = .failed(error)
+            state = .failed(getErrorMessage(error))
         }
 
         return DictionaryOverviewWidgetEntry(state: state)
+    }
+
+    func getErrorMessage(_ error: Error) -> String {
+        switch error {
+        case AuthError.unauthorized:
+            Strings.needLogIn
+        default:
+            Strings.occurredError
+        }
     }
 }

@@ -20,8 +20,8 @@ struct DictionaryWordWidgetEntryView: View {
     @ViewBuilder
     private var contentView: some View {
         switch entry.state {
-        case .failed:
-            ErrorView(message: Strings.occurredError)
+        case .failed(let message):
+            ErrorView(message: message)
         case .loaded(let viewData):
             loadedView(viewData)
         }
