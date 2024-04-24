@@ -189,17 +189,6 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
-		492C5B962BA981BD0018E008 /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				492C5B952BA981930018E008 /* Application */,
-				4964B44E2BBC12EE00D849FC /* Shared */,
-				4998964E2BAA1FF00078B41B /* Core */,
-				4998964F2BAA1FF50078B41B /* Features */,
-			);
-			path = Sources;
-			sourceTree = "<group>";
-		};
 		492C5B972BA981C90018E008 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +212,7 @@
 		4946D6AF2BA814E500558F8A = {
 			isa = PBXGroup;
 			children = (
+				494DCA632BD98F7E0085744B /* Modules */,
 				4946D6BA2BA814E500558F8A /* WordsFactory */,
 				49E3850A2BC311B6004EBCEF /* Widgets */,
 				4946D6B92BA814E500558F8A /* Products */,
@@ -244,7 +234,7 @@
 			children = (
 				498BBF3C2BC34B3400F60508 /* WordsFactory.entitlements */,
 				492C5B972BA981C90018E008 /* Resources */,
-				492C5B962BA981BD0018E008 /* Sources */,
+				492C5B952BA981930018E008 /* Application */,
 			);
 			path = WordsFactory;
 			sourceTree = "<group>";
@@ -283,6 +273,16 @@
 				494DCA5D2BD96AFF0085744B /* ErrorView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		494DCA632BD98F7E0085744B /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				4964B44E2BBC12EE00D849FC /* Shared */,
+				4998964E2BAA1FF00078B41B /* Core */,
+				4998964F2BAA1FF50078B41B /* Features */,
+			);
+			path = Modules;
 			sourceTree = "<group>";
 		};
 		495876312BB69F2B008D7A1D /* API */ = {
