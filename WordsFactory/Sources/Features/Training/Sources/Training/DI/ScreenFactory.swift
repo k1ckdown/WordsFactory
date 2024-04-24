@@ -43,7 +43,8 @@ extension ScreenFactory {
             answers: answers,
             coordinator: coordinator,
             getWordTestResultUseCase: useCaseFactory.makeGetWordTestResultUseCase(),
-            handleWordTestResultUseCase: useCaseFactory.makeHandleWordTestResultUseCase()
+            updateWordCoefficientUseCase: useCaseFactory.makeUpdateStudyCoefficientUseCase(),
+            computeWordCoefficientUseCase: useCaseFactory.makeComputeWordCoefficientUseCase()
         )
 
         let view = TrainingFinishView(viewModel: viewModel)

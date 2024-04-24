@@ -8,7 +8,6 @@
 import WordModuleAPI
 
 extension DictionaryWord {
-
     static func mock(text: String, studyCoefficient: Int = 0) -> Self {
         DictionaryWord(
             text: text,

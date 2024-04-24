@@ -7,15 +7,13 @@
 
 final class GetWordTestResultUseCase {
 
-    func execute(_ answers: [WordTestAnswer]) -> WordTestResult {
-        var correct: [TestWord] = []
-        var incorrect: [TestWord] = []
-
-        answers.forEach { answer in
+    func execute(_ answers: [WordTestAnswer]) -> [TestWordResult] {
+        answers.reduce(into: [TestWordResult]()) { partialResult, answer in
             let testWord = answer.question.answerWord
-            testWord.answerKey == answer.key ? correct.append(testWord) : incorrect.append(testWord)
-        }
+            let isCorrect = answer.key == testWord.answerKey
 
-        return WordTestResult(correct: correct, incorrect: incorrect)
+            let result = TestWordResult(isCorrect: isCorrect, testWord: testWord)
+            partialResult.append(result)
+        }
     }
 }

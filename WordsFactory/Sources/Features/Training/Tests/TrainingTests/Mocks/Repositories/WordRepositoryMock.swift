@@ -14,15 +14,6 @@ final class WordRepositoryMock: WordRepositoryProtocol {
     private(set) var updatedWordCoefficients: [String: Int] = [:]
     private let queue = DispatchQueue(label: "lock.queue")
 
-    func get(by text: String) async throws -> Word? {
-        guard let dictionaryWord = dictionaryWords.first(where: { $0.text == text }) else {
-            return nil
-        }
-        
-        let word = Word(text: dictionaryWord.text, isDictionary: true, definitions: dictionaryWord.definitions)
-        return word
-    }
-
     func saveDictionary(_ word: Word) async throws {
         let dictionaryWord = DictionaryWord(text: word.text, studyCoefficient: 0, definitions: word.definitions)
         dictionaryWords.append(dictionaryWord)
@@ -40,5 +31,14 @@ final class WordRepositoryMock: WordRepositoryProtocol {
         queue.sync {
             updatedWordCoefficients[word] = coefficient
         }
+    }
+
+    func get(by text: String) async throws -> Word? {
+        guard let dictionaryWord = dictionaryWords.first(where: { $0.text == text }) else {
+            return nil
+        }
+
+        let word = Word(text: dictionaryWord.text, isDictionary: true, definitions: dictionaryWord.definitions)
+        return word
     }
 }

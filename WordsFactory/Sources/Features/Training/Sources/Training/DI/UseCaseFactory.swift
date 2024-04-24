@@ -29,15 +29,19 @@ extension UseCaseFactory {
         GetWordTestResultUseCase()
     }
 
-    func makeGetWordQuestionsUseCase() -> GetWordQuestionsUseCase {
-        GetWordQuestionsUseCase(wordRepository: repositoryFactory.makeWordRepository())
-    }
-
-    func makeHandleWordTestResultUseCase() -> HandleWordTestResultUseCase {
-        HandleWordTestResultUseCase(wordRepository: repositoryFactory.makeWordRepository())
+    func makeComputeWordCoefficientUseCase() -> ComputeWordCoefficientUseCase {
+        ComputeWordCoefficientUseCase()
     }
 
     func makeGetDictionaryWordCountUseCase() -> GetDictionaryWordCountUseCaseProtocol {
         getDictionaryWordCountUseCaseProvider()
+    }
+
+    func makeGetWordQuestionsUseCase() -> GetWordQuestionsUseCase {
+        GetWordQuestionsUseCase(wordRepository: repositoryFactory.makeWordRepository())
+    }
+
+    func makeUpdateStudyCoefficientUseCase() -> UpdateStudyCoefficientUseCase {
+        UpdateStudyCoefficientUseCase(wordRepository: repositoryFactory.makeWordRepository())
     }
 }

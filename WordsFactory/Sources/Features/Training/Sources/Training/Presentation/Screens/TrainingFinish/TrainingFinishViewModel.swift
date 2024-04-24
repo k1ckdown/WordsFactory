@@ -17,18 +17,21 @@ final class TrainingFinishViewModel: ObservableObject {
     private let answers: [WordTestAnswer]
     private let coordinator: TrainingFinishCoordinatorProtocol
     private let getWordTestResultUseCase: GetWordTestResultUseCase
-    private let handleWordTestResultUseCase: HandleWordTestResultUseCase
+    private let updateWordCoefficientUseCase: UpdateStudyCoefficientUseCase
+    private let computeWordCoefficientUseCase: ComputeWordCoefficientUseCase
 
     init(
         answers: [WordTestAnswer],
         coordinator: TrainingFinishCoordinatorProtocol,
         getWordTestResultUseCase: GetWordTestResultUseCase,
-        handleWordTestResultUseCase: HandleWordTestResultUseCase
+        updateWordCoefficientUseCase: UpdateStudyCoefficientUseCase,
+        computeWordCoefficientUseCase: ComputeWordCoefficientUseCase
     ) {
         self.answers = answers
         self.coordinator = coordinator
         self.getWordTestResultUseCase = getWordTestResultUseCase
-        self.handleWordTestResultUseCase = handleWordTestResultUseCase
+        self.updateWordCoefficientUseCase = updateWordCoefficientUseCase
+        self.computeWordCoefficientUseCase = computeWordCoefficientUseCase
     }
 
     func handle(_ event: Event) {
@@ -51,15 +54,35 @@ private extension TrainingFinishViewModel {
     }
 
     func getTestResult() {
-        let testResult = getWordTestResultUseCase.execute(answers)
-        Task { await handleTestResult(testResult) }
-
-        state = .loaded(.init(correct: testResult.correct.count, incorrect: testResult.incorrect.count))
+        let testResults = getWordTestResultUseCase.execute(answers)
+        Task { await handleTestResults(testResults) }
     }
 
-    func handleTestResult(_ result: WordTestResult) async {
+    func handleTestResults(_ results: [TestWordResult]) async {
+        await updateResultState(results)
+        await updateStudyCoefficients(results)
+    }
+
+    @MainActor
+    func updateResultState(_ results: [TestWordResult]) {
+        let correctCount = results.filter { $0.isCorrect }.count
+        let incorrectCount = results.count - correctCount
+        state = .loaded(.init(correct: correctCount, incorrect: incorrectCount))
+    }
+
+    func updateStudyCoefficients(_ results: [TestWordResult]) async {
         do {
-            try await handleWordTestResultUseCase.execute(result)
+            try await withThrowingTaskGroup(of: Void.self) { taskGroup in
+                for result in results {
+                    let newCoef = computeWordCoefficientUseCase.execute(word: result.testWord, isCorrect: result.isCorrect)
+                    taskGroup.addTask {
+                        try await self.updateWordCoefficientUseCase.execute(wordText: result.testWord.text, coefficient: newCoef)
+                    }
+                }
+
+                try await taskGroup.waitForAll()
+            }
+
             WidgetCenter.shared.reloadTimelines(ofKind: WidgetType.dictionary.kind)
         } catch {
             await MainActor.run { coordinator.showError(message: error.localizedDescription) }
