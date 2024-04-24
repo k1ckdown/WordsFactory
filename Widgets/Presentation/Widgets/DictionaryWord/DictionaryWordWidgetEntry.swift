@@ -20,7 +20,7 @@ extension DictionaryWordWidgetEntry {
 
         struct ViewData {
             let word: String
-            let meaning: String
+            let definition: String
         }
     }
 }
@@ -30,7 +30,7 @@ extension DictionaryWordWidgetEntry {
         date: .now,
         state: .loaded(.init(
             word: "Cooking",
-            meaning: "The practice or skill of preparing food by combining, mixing, and heating ingredients."
+            definition: "The practice or skill of preparing food by combining, mixing, and heating ingredients."
         ))
     )
 }

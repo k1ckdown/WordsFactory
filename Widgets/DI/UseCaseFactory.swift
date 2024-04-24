@@ -22,6 +22,10 @@ final class UseCaseFactory {
 
 extension UseCaseFactory {
 
+    func makeGetRandomWordUseCase() -> GetRandomWordUseCase {
+        GetRandomWordUseCase(wordRepository: wordRepository)
+    }
+
     func makeGetDictionaryWordCountUseCase() -> GetDictionaryWordCountUseCase {
         GetDictionaryWordCountUseCase(wordRepository: wordRepository)
     }
