@@ -17,7 +17,7 @@ let package = Package(
         .package(path: "../../Core/AppGroup"),
         .package(path: "../../Shared/API/UserModuleAPI"),
         .package(url: "https://github.com/SwiftGen/SwiftGenPlugin", from: .init(6, 6, 2)),
-        .package(url: "https://github.com/firebase/firebase-ios-sdk", from: .init(10, 23, 0))
+        .package(url: "https://github.com/firebase/firebase-ios-sdk", from: .init(10, 24, 0))
     ],
     targets: [
         .target(

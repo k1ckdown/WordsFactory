@@ -1,5 +1,5 @@
 //
-//  DictionaryWidgetEntryView.swift
+//  DictionaryOverviewWidgetEntryView.swift
 //  WidgetsExtension
 //
 //  Created by Ivan Semenov on 08.04.2024.
@@ -8,9 +8,9 @@
 import SwiftUI
 import CommonUI
 
-struct DictionaryWidgetEntryView: View {
+struct DictionaryOverviewWidgetEntryView: View {
 
-    let entry: DictionaryWidgetProvider.Entry
+    let entry: DictionaryOverviewWidgetProvider.Entry
 
     var body: some View {
         contentView
@@ -30,7 +30,7 @@ struct DictionaryWidgetEntryView: View {
 
 // MARK: - Content
 
-private extension DictionaryWidgetEntryView {
+private extension DictionaryOverviewWidgetEntryView {
 
     func errorView(_ error: Error) -> some View {
         Text("An error has occurred❗️\nData is not available.")
@@ -40,7 +40,7 @@ private extension DictionaryWidgetEntryView {
             .padding()
     }
 
-    func loadedView(_ viewData: DictionaryWidgetEntry.ViewState.ViewData) -> some View {
+    func loadedView(_ viewData: DictionaryOverviewWidgetEntry.ViewState.ViewData) -> some View {
         VStack(spacing: .zero) {
             headerView()
 
@@ -101,7 +101,7 @@ private extension DictionaryWidgetEntryView {
 
 // MARK: - Constants
 
-private extension DictionaryWidgetEntryView {
+private extension DictionaryOverviewWidgetEntryView {
 
     enum Constants {
         static let titleHeight: CGFloat = 51

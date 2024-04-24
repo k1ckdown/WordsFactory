@@ -1,5 +1,5 @@
 //
-//  DictionaryWidgetProvider.swift
+//  DictionaryOverviewWidgetProvider.swift
 //  WidgetsExtension
 //
 //  Created by Ivan Semenov on 08.04.2024.
@@ -8,7 +8,7 @@
 import WidgetKit
 import WordModule
 
-struct DictionaryWidgetProvider: TimelineProvider {
+struct DictionaryOverviewWidgetProvider: TimelineProvider {
 
     private let getDictionaryWordCountUseCase: GetDictionaryWordCountUseCase
     private let getRememberedWordCountUseCase: GetRememberedWordCountUseCase
@@ -21,15 +21,15 @@ struct DictionaryWidgetProvider: TimelineProvider {
         self.getRememberedWordCountUseCase = getRememberedWordCountUseCase
     }
 
-    func placeholder(in context: Context) -> DictionaryWidgetEntry {
+    func placeholder(in context: Context) -> DictionaryOverviewWidgetEntry {
         .placeholder
     }
 
-    func getSnapshot(in context: Context, completion: @escaping (DictionaryWidgetEntry) -> Void) {
+    func getSnapshot(in context: Context, completion: @escaping (DictionaryOverviewWidgetEntry) -> Void) {
         completion(.placeholder)
     }
 
-    func getTimeline(in context: Context, completion: @escaping (Timeline<DictionaryWidgetEntry>) -> Void) {
+    func getTimeline(in context: Context, completion: @escaping (Timeline<DictionaryOverviewWidgetEntry>) -> Void) {
         Task {
             let entry = await getTimelineEntry()
             let timeline = Timeline(entries: [entry], policy: .never)
@@ -40,10 +40,10 @@ struct DictionaryWidgetProvider: TimelineProvider {
 
 // MARK: - Private methods
 
-private extension DictionaryWidgetProvider {
+private extension DictionaryOverviewWidgetProvider {
 
-    func getTimelineEntry() async -> DictionaryWidgetEntry {
-        let state: DictionaryWidgetEntry.ViewState
+    func getTimelineEntry() async -> DictionaryOverviewWidgetEntry {
+        let state: DictionaryOverviewWidgetEntry.ViewState
 
         do {
             let totalWordCount = try await getDictionaryWordCountUseCase.execute()
@@ -53,6 +53,6 @@ private extension DictionaryWidgetProvider {
             state = .failed(error)
         }
 
-        return DictionaryWidgetEntry(state: state)
+        return DictionaryOverviewWidgetEntry(state: state)
     }
 }

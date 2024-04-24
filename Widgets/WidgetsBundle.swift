@@ -19,7 +19,7 @@ struct WidgetsBundle: WidgetBundle {
     }
 
     var body: some Widget {
-        DictionaryWidget()
+        DictionaryOverviewWidget()
     }
 
     func configureFirebase() {

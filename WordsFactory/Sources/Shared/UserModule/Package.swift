@@ -14,7 +14,7 @@ let package = Package(
     dependencies: [
         .package(path: "../API/UserModuleAPI"),
         .package(path: "../../Core/AppGroup"),
-        .package(url: "https://github.com/firebase/firebase-ios-sdk", from: .init(10, 23, 0))
+        .package(url: "https://github.com/firebase/firebase-ios-sdk", from: .init(10, 24, 0))
     ],
     targets: [
         .target(

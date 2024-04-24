@@ -19,9 +19,9 @@
 		494D55852BC682660044982F /* Notifications in Frameworks */ = {isa = PBXBuildFile; productRef = 494D55842BC682660044982F /* Notifications */; };
 		4958763F2BB6B2F7008D7A1D /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4958763E2BB6B2F7008D7A1D /* AppFactory.swift */; };
 		495876412BB6CB5C008D7A1D /* AppCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495876402BB6CB5C008D7A1D /* AppCoordinatorView.swift */; };
+		495929AF2BD95F6A00ECD8F3 /* DictionaryOverviewWidgetProviderAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495929AE2BD95F6A00ECD8F3 /* DictionaryOverviewWidgetProviderAssembly.swift */; };
 		4960EE752BD76F8800EED61B /* UserModule in Frameworks */ = {isa = PBXBuildFile; productRef = 4960EE742BD76F8800EED61B /* UserModule */; };
 		4960EE7F2BD7821400EED61B /* UserModule in Frameworks */ = {isa = PBXBuildFile; productRef = 4960EE7E2BD7821400EED61B /* UserModule */; };
-		4979DAC72BC82FC100AA2235 /* DictionaryWidgetProviderAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4979DAC62BC82FC100AA2235 /* DictionaryWidgetProviderAssembly.swift */; };
 		4979DACE2BC832BC00AA2235 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 4979DACD2BC832BC00AA2235 /* Localizable.xcstrings */; };
 		4979DAD22BC8338A00AA2235 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4979DAD12BC8338A00AA2235 /* Strings.swift */; };
 		498BBF3F2BC34EF300F60508 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 498BBF3E2BC34E2A00F60508 /* GoogleService-Info.plist */; };
@@ -39,11 +39,11 @@
 		49E3850C2BC311B6004EBCEF /* WidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E3850B2BC311B6004EBCEF /* WidgetsBundle.swift */; };
 		49E385102BC311B7004EBCEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49E3850F2BC311B7004EBCEF /* Assets.xcassets */; };
 		49E385142BC311B7004EBCEF /* WidgetsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 49E385052BC311B6004EBCEF /* WidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		49E3851B2BC3127E004EBCEF /* DictionaryWidgetProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E3851A2BC3127E004EBCEF /* DictionaryWidgetProvider.swift */; };
-		49E3851D2BC3128E004EBCEF /* DictionaryWidgetEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E3851C2BC3128E004EBCEF /* DictionaryWidgetEntry.swift */; };
+		49E3851B2BC3127E004EBCEF /* DictionaryOverviewWidgetProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E3851A2BC3127E004EBCEF /* DictionaryOverviewWidgetProvider.swift */; };
+		49E3851D2BC3128E004EBCEF /* DictionaryOverviewWidgetEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E3851C2BC3128E004EBCEF /* DictionaryOverviewWidgetEntry.swift */; };
 		49E385202BC312C1004EBCEF /* View+WidgetBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E3851F2BC312C1004EBCEF /* View+WidgetBackground.swift */; };
-		49E385222BC312DF004EBCEF /* DictionaryWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E385212BC312DF004EBCEF /* DictionaryWidgetEntryView.swift */; };
-		49E385242BC3134A004EBCEF /* DictionaryWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E385232BC3134A004EBCEF /* DictionaryWidget.swift */; };
+		49E385222BC312DF004EBCEF /* DictionaryOverviewWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E385212BC312DF004EBCEF /* DictionaryOverviewWidgetEntryView.swift */; };
+		49E385242BC3134A004EBCEF /* DictionaryOverviewWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E385232BC3134A004EBCEF /* DictionaryOverviewWidget.swift */; };
 		49E385282BC31846004EBCEF /* CommonUI in Frameworks */ = {isa = PBXBuildFile; productRef = 49E385272BC31846004EBCEF /* CommonUI */; };
 		49E3852A2BC31AED004EBCEF /* WordModule in Frameworks */ = {isa = PBXBuildFile; productRef = 49E385292BC31AED004EBCEF /* WordModule */; };
 		49E3852D2BC31C97004EBCEF /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 49E3852C2BC31C97004EBCEF /* Networking */; };
@@ -89,10 +89,10 @@
 		4958763E2BB6B2F7008D7A1D /* AppFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
 		495876402BB6CB5C008D7A1D /* AppCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorView.swift; sourceTree = "<group>"; };
 		495876422BB70B9F008D7A1D /* DictionaryAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DictionaryAPI; sourceTree = "<group>"; };
+		495929AE2BD95F6A00ECD8F3 /* DictionaryOverviewWidgetProviderAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryOverviewWidgetProviderAssembly.swift; sourceTree = "<group>"; };
 		4960EE722BD7642A00EED61B /* UserModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = UserModule; sourceTree = "<group>"; };
 		4960EE732BD7651D00EED61B /* UserModuleAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = UserModuleAPI; sourceTree = "<group>"; };
 		4964B44F2BBC131600D849FC /* WordModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = WordModule; sourceTree = "<group>"; };
-		4979DAC62BC82FC100AA2235 /* DictionaryWidgetProviderAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryWidgetProviderAssembly.swift; sourceTree = "<group>"; };
 		4979DACD2BC832BC00AA2235 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		4979DAD12BC8338A00AA2235 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		498BBF3C2BC34B3400F60508 /* WordsFactory.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WordsFactory.entitlements; sourceTree = "<group>"; };
@@ -116,11 +116,11 @@
 		49E3850B2BC311B6004EBCEF /* WidgetsBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsBundle.swift; sourceTree = "<group>"; };
 		49E3850F2BC311B7004EBCEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		49E385112BC311B7004EBCEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		49E3851A2BC3127E004EBCEF /* DictionaryWidgetProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryWidgetProvider.swift; sourceTree = "<group>"; };
-		49E3851C2BC3128E004EBCEF /* DictionaryWidgetEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryWidgetEntry.swift; sourceTree = "<group>"; };
+		49E3851A2BC3127E004EBCEF /* DictionaryOverviewWidgetProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryOverviewWidgetProvider.swift; sourceTree = "<group>"; };
+		49E3851C2BC3128E004EBCEF /* DictionaryOverviewWidgetEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryOverviewWidgetEntry.swift; sourceTree = "<group>"; };
 		49E3851F2BC312C1004EBCEF /* View+WidgetBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+WidgetBackground.swift"; sourceTree = "<group>"; };
-		49E385212BC312DF004EBCEF /* DictionaryWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryWidgetEntryView.swift; sourceTree = "<group>"; };
-		49E385232BC3134A004EBCEF /* DictionaryWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryWidget.swift; sourceTree = "<group>"; };
+		49E385212BC312DF004EBCEF /* DictionaryOverviewWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryOverviewWidgetEntryView.swift; sourceTree = "<group>"; };
+		49E385232BC3134A004EBCEF /* DictionaryOverviewWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryOverviewWidget.swift; sourceTree = "<group>"; };
 		49F0A2892BCAE823007499CC /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		49F733512BADB2C40012AF9B /* Auth */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Auth; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -365,7 +365,7 @@
 		49D3FF8F2BC48C46005E2CCA /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
-				49E385192BC31221004EBCEF /* Dictionary */,
+				49E385192BC31221004EBCEF /* DictionaryOverview */,
 			);
 			path = Widgets;
 			sourceTree = "<group>";
@@ -383,16 +383,16 @@
 			path = Widgets;
 			sourceTree = "<group>";
 		};
-		49E385192BC31221004EBCEF /* Dictionary */ = {
+		49E385192BC31221004EBCEF /* DictionaryOverview */ = {
 			isa = PBXGroup;
 			children = (
-				49E3851A2BC3127E004EBCEF /* DictionaryWidgetProvider.swift */,
-				49E3851C2BC3128E004EBCEF /* DictionaryWidgetEntry.swift */,
-				49E385212BC312DF004EBCEF /* DictionaryWidgetEntryView.swift */,
-				49E385232BC3134A004EBCEF /* DictionaryWidget.swift */,
-				4979DAC62BC82FC100AA2235 /* DictionaryWidgetProviderAssembly.swift */,
+				495929AE2BD95F6A00ECD8F3 /* DictionaryOverviewWidgetProviderAssembly.swift */,
+				49E3851A2BC3127E004EBCEF /* DictionaryOverviewWidgetProvider.swift */,
+				49E3851C2BC3128E004EBCEF /* DictionaryOverviewWidgetEntry.swift */,
+				49E385212BC312DF004EBCEF /* DictionaryOverviewWidgetEntryView.swift */,
+				49E385232BC3134A004EBCEF /* DictionaryOverviewWidget.swift */,
 			);
-			path = Dictionary;
+			path = DictionaryOverview;
 			sourceTree = "<group>";
 		};
 		49E3851E2BC312AA004EBCEF /* Extensions */ = {
@@ -563,15 +563,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49E385242BC3134A004EBCEF /* DictionaryWidget.swift in Sources */,
+				49E385242BC3134A004EBCEF /* DictionaryOverviewWidget.swift in Sources */,
 				49E3850C2BC311B6004EBCEF /* WidgetsBundle.swift in Sources */,
 				4979DAD22BC8338A00AA2235 /* Strings.swift in Sources */,
-				49E385222BC312DF004EBCEF /* DictionaryWidgetEntryView.swift in Sources */,
+				49E385222BC312DF004EBCEF /* DictionaryOverviewWidgetEntryView.swift in Sources */,
+				495929AF2BD95F6A00ECD8F3 /* DictionaryOverviewWidgetProviderAssembly.swift in Sources */,
 				49D3FF892BC4778F005E2CCA /* GetRememberedWordCountUseCase.swift in Sources */,
-				49E3851B2BC3127E004EBCEF /* DictionaryWidgetProvider.swift in Sources */,
-				49E3851D2BC3128E004EBCEF /* DictionaryWidgetEntry.swift in Sources */,
+				49E3851B2BC3127E004EBCEF /* DictionaryOverviewWidgetProvider.swift in Sources */,
+				49E3851D2BC3128E004EBCEF /* DictionaryOverviewWidgetEntry.swift in Sources */,
 				49D3FF8E2BC488F5005E2CCA /* UseCaseFactory.swift in Sources */,
-				4979DAC72BC82FC100AA2235 /* DictionaryWidgetProviderAssembly.swift in Sources */,
 				49E385202BC312C1004EBCEF /* View+WidgetBackground.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
