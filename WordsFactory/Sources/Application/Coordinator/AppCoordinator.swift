@@ -38,11 +38,10 @@ extension AppCoordinator {
     func finishAuth() {
         scene = .mainTabBar
         WidgetCenter.shared.reloadAllTimelines()
-        Task { await self.scheduleNotificationsAfterAuth() }
     }
 
-    func onAppearMainTabBar() {
-        TrainingNotificationManager.shared.scheduleForWeek(includeToday: false)
+    func mainTabBarDidLoad() {
+        Task { await scheduleNotifications() }
     }
 }
 
@@ -51,12 +50,12 @@ extension AppCoordinator {
 private extension AppCoordinator {
 
     @MainActor
-    func scheduleNotificationsAfterAuth() async {
+    func scheduleNotifications() async {
         guard
             let isGranted = try? await LocalNotificationManager.shared.requestAuthorization(),
             isGranted
         else { return }
 
-        TrainingNotificationManager.shared.scheduleForWeek(includeToday: true)
+        await TrainingNotificationManager.shared.scheduleForWeek()
     }
 }

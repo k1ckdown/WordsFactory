@@ -35,7 +35,7 @@ struct AppCoordinatorView: View {
         case .onboarding:
             factory.makeOnboardingCoordinator(flowFinishHandler: coordinator.finishOnboarding)
         case .mainTabBar:
-            factory.makeMainTabBarCoordinator().onAppear(perform: coordinator.onAppearMainTabBar)
+            factory.makeMainTabBarCoordinator().didLoad(perform: coordinator.mainTabBarDidLoad)
         }
     }
 }

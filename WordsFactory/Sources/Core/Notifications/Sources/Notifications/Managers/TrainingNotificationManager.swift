@@ -24,8 +24,8 @@ public extension TrainingNotificationManager {
         notificationCenter.removePendingNotificationRequests(withIdentifiers: [identifier])
     }
 
-    func scheduleForWeek(includeToday: Bool) {
-        let startDay = includeToday ? 0 : 1
+    func scheduleForWeek() async {
+        let startDay = await isRemovedForToday() ? 1 : 0
         for dayOffset in startDay...7 {
             guard
                 let notificationDate = getNotificationDate(of: dayOffset),
@@ -36,7 +36,7 @@ public extension TrainingNotificationManager {
             let identifier = getNotificationIdentifier(for: notificationDate)
             let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
 
-            notificationCenter.add(request)
+            try? await notificationCenter.add(request)
         }
     }
 }
@@ -44,6 +44,13 @@ public extension TrainingNotificationManager {
 // MARK: - Private methods
 
 private extension TrainingNotificationManager {
+
+    func isRemovedForToday() async -> Bool {
+        let todayIdentifier = getNotificationIdentifier(for: .now)
+        let pendingRequests = await notificationCenter.pendingNotificationRequests()
+
+        return pendingRequests.isEmpty ? false : pendingRequests.contains(where: { $0.identifier == todayIdentifier }) == false
+    }
 
     func getNotificationIdentifier(for date: Date) -> String {
         let formattedDate = DateFormatter.dateOnly.string(from: date)

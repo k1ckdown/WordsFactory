@@ -9,14 +9,14 @@ import SwiftUI
 
 struct DidLoadViewModifier: ViewModifier {
 
-    let perform: () -> Void
+    let action: () -> Void
     @State private var isLoaded = false
 
     func body(content: Content) -> some View {
         content
             .onAppear {
                 if isLoaded == false {
-                    perform()
+                    action()
                     isLoaded = true
                 }
             }
@@ -24,7 +24,7 @@ struct DidLoadViewModifier: ViewModifier {
 }
 
 public extension View {
-    func didLoad(_ perform: @escaping () -> Void) -> some View {
-        modifier(DidLoadViewModifier(perform: perform))
+    func didLoad(perform action: @escaping () -> Void) -> some View {
+        modifier(DidLoadViewModifier(action: action))
     }
 }
