@@ -41,8 +41,8 @@ final class SignUpViewModel: ObservableObject {
             state.email = email
         case .passwordChanged(let password):
             state.password = password
-        case .nameChanged(let username):
-            state.name = username
+        case .nameChanged(let name):
+            state.name = name
         }
     }
 }
