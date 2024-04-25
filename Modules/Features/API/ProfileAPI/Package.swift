@@ -4,21 +4,20 @@
 import PackageDescription
 
 let package = Package(
-    name: "VideoAPI",
+    name: "ProfileAPI",
     platforms: [.iOS(.v15)],
     products: [
         .library(
-            name: "VideoAPI",
-            targets: ["VideoAPI"]
+            name: "ProfileAPI",
+            targets: ["ProfileAPI"]
         ),
     ],
     targets: [
         .target(
-            name: "VideoAPI"
-        ),
+            name: "ProfileAPI"),
         .testTarget(
-            name: "VideoAPITests",
-            dependencies: ["VideoAPI"]
+            name: "ProfileAPITests",
+            dependencies: ["ProfileAPI"]
         ),
     ]
 )

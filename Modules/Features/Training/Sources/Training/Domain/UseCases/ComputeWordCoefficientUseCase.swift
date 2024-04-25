@@ -14,7 +14,7 @@ final class ComputeWordCoefficientUseCase {
 
 // MARK: - Constants
 
-extension ComputeWordCoefficientUseCase {
+private extension ComputeWordCoefficientUseCase {
 
     enum Constants {
         static let correctCoefAmount = 1

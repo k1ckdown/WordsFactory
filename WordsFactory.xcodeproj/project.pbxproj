@@ -7,16 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4900A2A52BC13E780067FE0D /* MainTabBar in Frameworks */ = {isa = PBXBuildFile; productRef = 4900A2A42BC13E780067FE0D /* MainTabBar */; };
-		4903F7332BB9799100578062 /* Training in Frameworks */ = {isa = PBXBuildFile; productRef = 4903F7322BB9799100578062 /* Training */; };
-		490E009A2BD81C16003C860A /* AppGroup in Frameworks */ = {isa = PBXBuildFile; productRef = 490E00992BD81C16003C860A /* AppGroup */; };
-		491017952BD590AB004C076E /* Onboarding in Frameworks */ = {isa = PBXBuildFile; productRef = 491017942BD590AB004C076E /* Onboarding */; };
-		4915A0DB2BB97A4500751B6C /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 4915A0DA2BB97A4500751B6C /* Networking */; };
-		4915A0DD2BB97A5700751B6C /* Video in Frameworks */ = {isa = PBXBuildFile; productRef = 4915A0DC2BB97A5700751B6C /* Video */; };
+		490BC6962BDA651800DEF97C /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 490BC6952BDA651800DEF97C /* Auth */; };
+		490BC6982BDA651800DEF97C /* Dictionary in Frameworks */ = {isa = PBXBuildFile; productRef = 490BC6972BDA651800DEF97C /* Dictionary */; };
+		490BC69A2BDA651800DEF97C /* MainTabBar in Frameworks */ = {isa = PBXBuildFile; productRef = 490BC6992BDA651800DEF97C /* MainTabBar */; };
+		490BC69C2BDA651800DEF97C /* Notifications in Frameworks */ = {isa = PBXBuildFile; productRef = 490BC69B2BDA651800DEF97C /* Notifications */; };
+		490BC69E2BDA651800DEF97C /* Onboarding in Frameworks */ = {isa = PBXBuildFile; productRef = 490BC69D2BDA651800DEF97C /* Onboarding */; };
+		490BC6A02BDA651800DEF97C /* Training in Frameworks */ = {isa = PBXBuildFile; productRef = 490BC69F2BDA651800DEF97C /* Training */; };
 		492C5B992BA981E40018E008 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 492C5B982BA981E40018E008 /* Images.xcassets */; };
 		4946D6BC2BA814E500558F8A /* WordsFactoryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4946D6BB2BA814E500558F8A /* WordsFactoryApp.swift */; };
 		4946D6C32BA814E600558F8A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4946D6C22BA814E600558F8A /* Preview Assets.xcassets */; };
-		494D55852BC682660044982F /* Notifications in Frameworks */ = {isa = PBXBuildFile; productRef = 494D55842BC682660044982F /* Notifications */; };
 		494DCA542BD963070085744B /* WordShort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494DCA532BD963070085744B /* WordShort.swift */; };
 		494DCA562BD963480085744B /* GetRandomWordUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494DCA552BD963480085744B /* GetRandomWordUseCase.swift */; };
 		494DCA582BD965F60085744B /* DictionaryWordWidgetProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494DCA572BD965F60085744B /* DictionaryWordWidgetProvider.swift */; };
@@ -28,18 +27,12 @@
 		4958763F2BB6B2F7008D7A1D /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4958763E2BB6B2F7008D7A1D /* AppFactory.swift */; };
 		495876412BB6CB5C008D7A1D /* AppCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495876402BB6CB5C008D7A1D /* AppCoordinatorView.swift */; };
 		495929AF2BD95F6A00ECD8F3 /* DictionaryOverviewWidgetProviderAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495929AE2BD95F6A00ECD8F3 /* DictionaryOverviewWidgetProviderAssembly.swift */; };
-		4960EE752BD76F8800EED61B /* UserModule in Frameworks */ = {isa = PBXBuildFile; productRef = 4960EE742BD76F8800EED61B /* UserModule */; };
-		4960EE7F2BD7821400EED61B /* UserModule in Frameworks */ = {isa = PBXBuildFile; productRef = 4960EE7E2BD7821400EED61B /* UserModule */; };
 		4979DACE2BC832BC00AA2235 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 4979DACD2BC832BC00AA2235 /* Localizable.xcstrings */; };
 		4979DAD22BC8338A00AA2235 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4979DAD12BC8338A00AA2235 /* Strings.swift */; };
 		498BBF3F2BC34EF300F60508 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 498BBF3E2BC34E2A00F60508 /* GoogleService-Info.plist */; };
 		498C9CEB2BC59A3C0039D63E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498C9CEA2BC59A3C0039D63E /* AppDelegate.swift */; };
-		4990F6E52BBC193F009F5086 /* WordModule in Frameworks */ = {isa = PBXBuildFile; productRef = 4990F6E42BBC193F009F5086 /* WordModule */; };
 		49BB9A1F2BD8107300A25EAE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49BB9A1E2BD8107300A25EAE /* GoogleService-Info.plist */; };
 		49BF58AD2BD5821800867B07 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BF58AC2BD5821800867B07 /* AppSettings.swift */; };
-		49CAC3082BB978D500A09571 /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 49CAC3072BB978D500A09571 /* Auth */; };
-		49CAC30A2BB978D500A09571 /* CommonUI in Frameworks */ = {isa = PBXBuildFile; productRef = 49CAC3092BB978D500A09571 /* CommonUI */; };
-		49CAC30C2BB978D500A09571 /* Dictionary in Frameworks */ = {isa = PBXBuildFile; productRef = 49CAC30B2BB978D500A09571 /* Dictionary */; };
 		49D3FF892BC4778F005E2CCA /* GetRememberedWordsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D3FF882BC4778F005E2CCA /* GetRememberedWordsUseCase.swift */; };
 		49D3FF8E2BC488F5005E2CCA /* UseCaseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D3FF8D2BC488F5005E2CCA /* UseCaseFactory.swift */; };
 		49E385072BC311B6004EBCEF /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E385062BC311B6004EBCEF /* WidgetKit.framework */; };
@@ -52,10 +45,16 @@
 		49E385202BC312C1004EBCEF /* View+WidgetBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E3851F2BC312C1004EBCEF /* View+WidgetBackground.swift */; };
 		49E385222BC312DF004EBCEF /* DictionaryOverviewWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E385212BC312DF004EBCEF /* DictionaryOverviewWidgetEntryView.swift */; };
 		49E385242BC3134A004EBCEF /* DictionaryOverviewWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E385232BC3134A004EBCEF /* DictionaryOverviewWidget.swift */; };
-		49E385282BC31846004EBCEF /* CommonUI in Frameworks */ = {isa = PBXBuildFile; productRef = 49E385272BC31846004EBCEF /* CommonUI */; };
-		49E3852A2BC31AED004EBCEF /* WordModule in Frameworks */ = {isa = PBXBuildFile; productRef = 49E385292BC31AED004EBCEF /* WordModule */; };
-		49E3852D2BC31C97004EBCEF /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 49E3852C2BC31C97004EBCEF /* Networking */; };
 		49F0A28A2BCAE823007499CC /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F0A2892BCAE823007499CC /* AppCoordinator.swift */; };
+		49FAD9F32BDA667B00FA0DDB /* Profile in Frameworks */ = {isa = PBXBuildFile; productRef = 49FAD9F22BDA667B00FA0DDB /* Profile */; };
+		49FAD9F52BDA667B00FA0DDB /* UserModule in Frameworks */ = {isa = PBXBuildFile; productRef = 49FAD9F42BDA667B00FA0DDB /* UserModule */; };
+		49FAD9F72BDA667B00FA0DDB /* Video in Frameworks */ = {isa = PBXBuildFile; productRef = 49FAD9F62BDA667B00FA0DDB /* Video */; };
+		49FAD9F92BDA667B00FA0DDB /* WordModule in Frameworks */ = {isa = PBXBuildFile; productRef = 49FAD9F82BDA667B00FA0DDB /* WordModule */; };
+		49FAD9FB2BDA66A100FA0DDB /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 49FAD9FA2BDA66A100FA0DDB /* Networking */; };
+		49FAD9FD2BDA670200FA0DDB /* CommonUI in Frameworks */ = {isa = PBXBuildFile; productRef = 49FAD9FC2BDA670200FA0DDB /* CommonUI */; };
+		49FAD9FF2BDA670200FA0DDB /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 49FAD9FE2BDA670200FA0DDB /* Networking */; };
+		49FADA012BDA670200FA0DDB /* UserModule in Frameworks */ = {isa = PBXBuildFile; productRef = 49FADA002BDA670200FA0DDB /* UserModule */; };
+		49FADA032BDA670200FA0DDB /* WordModule in Frameworks */ = {isa = PBXBuildFile; productRef = 49FADA022BDA670200FA0DDB /* WordModule */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +82,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		490339B82BDA618400B1582A /* Profile */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Profile; sourceTree = "<group>"; };
+		490339B92BDA61C300B1582A /* ProfileAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = ProfileAPI; sourceTree = "<group>"; };
 		490BF2072BB28D6D0023C80C /* Dictionary */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Dictionary; sourceTree = "<group>"; };
 		490C6FDD2BAA1C66002A8BC6 /* CommonUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = CommonUI; sourceTree = "<group>"; };
 		490E00982BD81A5D003C860A /* AppGroup */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = AppGroup; sourceTree = "<group>"; };
@@ -146,17 +147,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4915A0DB2BB97A4500751B6C /* Networking in Frameworks */,
-				4903F7332BB9799100578062 /* Training in Frameworks */,
-				49CAC3082BB978D500A09571 /* Auth in Frameworks */,
-				4990F6E52BBC193F009F5086 /* WordModule in Frameworks */,
-				494D55852BC682660044982F /* Notifications in Frameworks */,
-				4900A2A52BC13E780067FE0D /* MainTabBar in Frameworks */,
-				49CAC30C2BB978D500A09571 /* Dictionary in Frameworks */,
-				491017952BD590AB004C076E /* Onboarding in Frameworks */,
-				49CAC30A2BB978D500A09571 /* CommonUI in Frameworks */,
-				4960EE752BD76F8800EED61B /* UserModule in Frameworks */,
-				4915A0DD2BB97A5700751B6C /* Video in Frameworks */,
+				49FAD9F32BDA667B00FA0DDB /* Profile in Frameworks */,
+				490BC6982BDA651800DEF97C /* Dictionary in Frameworks */,
+				49FAD9F92BDA667B00FA0DDB /* WordModule in Frameworks */,
+				490BC6962BDA651800DEF97C /* Auth in Frameworks */,
+				490BC6A02BDA651800DEF97C /* Training in Frameworks */,
+				490BC69E2BDA651800DEF97C /* Onboarding in Frameworks */,
+				490BC69A2BDA651800DEF97C /* MainTabBar in Frameworks */,
+				49FAD9F72BDA667B00FA0DDB /* Video in Frameworks */,
+				490BC69C2BDA651800DEF97C /* Notifications in Frameworks */,
+				49FAD9F52BDA667B00FA0DDB /* UserModule in Frameworks */,
+				49FAD9FB2BDA66A100FA0DDB /* Networking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,12 +165,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49E3852A2BC31AED004EBCEF /* WordModule in Frameworks */,
-				49E385282BC31846004EBCEF /* CommonUI in Frameworks */,
+				49FADA032BDA670200FA0DDB /* WordModule in Frameworks */,
+				49FAD9FD2BDA670200FA0DDB /* CommonUI in Frameworks */,
 				49E385092BC311B6004EBCEF /* SwiftUI.framework in Frameworks */,
-				4960EE7F2BD7821400EED61B /* UserModule in Frameworks */,
-				490E009A2BD81C16003C860A /* AppGroup in Frameworks */,
-				49E3852D2BC31C97004EBCEF /* Networking in Frameworks */,
+				49FAD9FF2BDA670200FA0DDB /* Networking in Frameworks */,
+				49FADA012BDA670200FA0DDB /* UserModule in Frameworks */,
 				49E385072BC311B6004EBCEF /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,6 +296,7 @@
 		495876382BB6AEB0008D7A1D /* API */ = {
 			isa = PBXGroup;
 			children = (
+				490339B92BDA61C300B1582A /* ProfileAPI */,
 				49CAC3052BB9755900A09571 /* TrainingAPI */,
 				49CAC3042BB9583C00A09571 /* VideoAPI */,
 				495876422BB70B9F008D7A1D /* DictionaryAPI */,
@@ -356,6 +357,7 @@
 			isa = PBXGroup;
 			children = (
 				495876382BB6AEB0008D7A1D /* API */,
+				490339B82BDA618400B1582A /* Profile */,
 				49CDBECA2BC12C0E00762BBD /* MainTabBar */,
 				49CAC3062BB9771700A09571 /* Training */,
 				49CAC3012BB935CF00A09571 /* Video */,
@@ -490,17 +492,17 @@
 			);
 			name = WordsFactory;
 			packageProductDependencies = (
-				49CAC3072BB978D500A09571 /* Auth */,
-				49CAC3092BB978D500A09571 /* CommonUI */,
-				49CAC30B2BB978D500A09571 /* Dictionary */,
-				4903F7322BB9799100578062 /* Training */,
-				4915A0DA2BB97A4500751B6C /* Networking */,
-				4915A0DC2BB97A5700751B6C /* Video */,
-				4990F6E42BBC193F009F5086 /* WordModule */,
-				4900A2A42BC13E780067FE0D /* MainTabBar */,
-				494D55842BC682660044982F /* Notifications */,
-				491017942BD590AB004C076E /* Onboarding */,
-				4960EE742BD76F8800EED61B /* UserModule */,
+				490BC6952BDA651800DEF97C /* Auth */,
+				490BC6972BDA651800DEF97C /* Dictionary */,
+				490BC6992BDA651800DEF97C /* MainTabBar */,
+				490BC69B2BDA651800DEF97C /* Notifications */,
+				490BC69D2BDA651800DEF97C /* Onboarding */,
+				490BC69F2BDA651800DEF97C /* Training */,
+				49FAD9F22BDA667B00FA0DDB /* Profile */,
+				49FAD9F42BDA667B00FA0DDB /* UserModule */,
+				49FAD9F62BDA667B00FA0DDB /* Video */,
+				49FAD9F82BDA667B00FA0DDB /* WordModule */,
+				49FAD9FA2BDA66A100FA0DDB /* Networking */,
 			);
 			productName = WordsFactory;
 			productReference = 4946D6B82BA814E500558F8A /* WordsFactory.app */;
@@ -520,11 +522,10 @@
 			);
 			name = WidgetsExtension;
 			packageProductDependencies = (
-				49E385272BC31846004EBCEF /* CommonUI */,
-				49E385292BC31AED004EBCEF /* WordModule */,
-				49E3852C2BC31C97004EBCEF /* Networking */,
-				4960EE7E2BD7821400EED61B /* UserModule */,
-				490E00992BD81C16003C860A /* AppGroup */,
+				49FAD9FC2BDA670200FA0DDB /* CommonUI */,
+				49FAD9FE2BDA670200FA0DDB /* Networking */,
+				49FADA002BDA670200FA0DDB /* UserModule */,
+				49FADA022BDA670200FA0DDB /* WordModule */,
 			);
 			productName = WidgetsExtension;
 			productReference = 49E385052BC311B6004EBCEF /* WidgetsExtension.appex */;
@@ -921,69 +922,65 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4900A2A42BC13E780067FE0D /* MainTabBar */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = MainTabBar;
-		};
-		4903F7322BB9799100578062 /* Training */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Training;
-		};
-		490E00992BD81C16003C860A /* AppGroup */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = AppGroup;
-		};
-		491017942BD590AB004C076E /* Onboarding */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Onboarding;
-		};
-		4915A0DA2BB97A4500751B6C /* Networking */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Networking;
-		};
-		4915A0DC2BB97A5700751B6C /* Video */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Video;
-		};
-		494D55842BC682660044982F /* Notifications */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Notifications;
-		};
-		4960EE742BD76F8800EED61B /* UserModule */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = UserModule;
-		};
-		4960EE7E2BD7821400EED61B /* UserModule */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = UserModule;
-		};
-		4990F6E42BBC193F009F5086 /* WordModule */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = WordModule;
-		};
-		49CAC3072BB978D500A09571 /* Auth */ = {
+		490BC6952BDA651800DEF97C /* Auth */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Auth;
 		};
-		49CAC3092BB978D500A09571 /* CommonUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = CommonUI;
-		};
-		49CAC30B2BB978D500A09571 /* Dictionary */ = {
+		490BC6972BDA651800DEF97C /* Dictionary */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Dictionary;
 		};
-		49E385272BC31846004EBCEF /* CommonUI */ = {
+		490BC6992BDA651800DEF97C /* MainTabBar */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = CommonUI;
+			productName = MainTabBar;
 		};
-		49E385292BC31AED004EBCEF /* WordModule */ = {
+		490BC69B2BDA651800DEF97C /* Notifications */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Notifications;
+		};
+		490BC69D2BDA651800DEF97C /* Onboarding */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Onboarding;
+		};
+		490BC69F2BDA651800DEF97C /* Training */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Training;
+		};
+		49FAD9F22BDA667B00FA0DDB /* Profile */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Profile;
+		};
+		49FAD9F42BDA667B00FA0DDB /* UserModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = UserModule;
+		};
+		49FAD9F62BDA667B00FA0DDB /* Video */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Video;
+		};
+		49FAD9F82BDA667B00FA0DDB /* WordModule */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = WordModule;
 		};
-		49E3852C2BC31C97004EBCEF /* Networking */ = {
+		49FAD9FA2BDA66A100FA0DDB /* Networking */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Networking;
+		};
+		49FAD9FC2BDA670200FA0DDB /* CommonUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CommonUI;
+		};
+		49FAD9FE2BDA670200FA0DDB /* Networking */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Networking;
+		};
+		49FADA002BDA670200FA0DDB /* UserModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = UserModule;
+		};
+		49FADA022BDA670200FA0DDB /* WordModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = WordModule;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
