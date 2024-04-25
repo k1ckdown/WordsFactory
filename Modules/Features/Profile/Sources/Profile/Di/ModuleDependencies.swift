@@ -7,10 +7,12 @@
 
 import UserModuleAPI
 
-public struct ModuleDependencies {
-    let userRepository: UserRepositoryProtocol
+public typealias GetUserUseCaseProvider = () -> GetUserUseCaseProtocol
 
-    public init(userRepository: UserRepositoryProtocol) {
-        self.userRepository = userRepository
+public struct ModuleDependencies {
+    let getUserUseCaseProvider: GetUserUseCaseProvider
+
+    public init(getUserUseCase: @autoclosure @escaping GetUserUseCaseProvider) {
+        self.getUserUseCaseProvider = getUserUseCase
     }
 }

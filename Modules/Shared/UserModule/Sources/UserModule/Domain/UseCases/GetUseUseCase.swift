@@ -1,5 +1,5 @@
 //
-//  RepositoryFactory.swift
+//  GetUserUseCase.swift
 //
 //
 //  Created by Ivan Semenov on 25.04.2024.
@@ -7,20 +7,15 @@
 
 import UserModuleAPI
 
-final class RepositoryFactory {
+final class GetUserUseCase: GetUserUseCaseProtocol {
 
     private let userRepository: UserRepositoryProtocol
 
     init(userRepository: UserRepositoryProtocol) {
         self.userRepository = userRepository
     }
-}
 
-// MARK: - Public methods
-
-extension RepositoryFactory {
-
-    func makeUserRepository() -> UserRepositoryProtocol {
-        userRepository
+    func execute() async throws -> User {
+        try await userRepository.getUser()
     }
 }
