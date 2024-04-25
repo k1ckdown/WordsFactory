@@ -11,8 +11,8 @@ struct DictionaryOverviewWidgetProviderAssembly {
 
     func assemble() -> DictionaryOverviewWidgetProvider {
         DictionaryOverviewWidgetProvider(
-            getDictionaryWordCountUseCase: useCaseFactory.makeGetDictionaryWordCountUseCase(),
-            getRememberedWordCountUseCase: useCaseFactory.makeGetRememberedWordCountUseCase()
+            getAllDictionaryUseCase: useCaseFactory.makeGetAllDictionaryUseCase(),
+            getRememberedWordsUseCase: useCaseFactory.makeGetRememberedWordsUseCase()
         )
     }
 }

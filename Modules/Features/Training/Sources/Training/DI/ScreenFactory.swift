@@ -21,6 +21,7 @@ extension ScreenFactory {
     func makeQuestionScreen(coordinator: QuestionCoordinatorProtocol) -> QuestionView {
         let viewModel = QuestionViewModel(
             coordinator: coordinator,
+            getAllDictionaryUseCase: useCaseFactory.makeGetAllDictionaryUseCase(),
             getWordTestQuestionsUseCase: useCaseFactory.makeGetWordQuestionsUseCase()
         )
 
@@ -31,7 +32,7 @@ extension ScreenFactory {
     func makeTrainingStartScreen(coordinator: TrainingStartCoordinatorProtocol) -> TrainingStartView {
         let viewModel = TrainingStartViewModel(
             coordinator: coordinator,
-            getDictionaryWordCountUseCase: useCaseFactory.makeGetDictionaryWordCountUseCase()
+            getAllDictionaryUseCase: useCaseFactory.makeGetAllDictionaryUseCase()
         )
 
         let view = TrainingStartView(viewModel: viewModel)

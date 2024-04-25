@@ -57,8 +57,8 @@ extension AppFactory {
 
 private extension AppFactory {
 
-    func makeGetDictionaryWordCountUseCase() -> GetDictionaryWordCountUseCase {
-        GetDictionaryWordCountUseCase(wordRepository: wordRepository)
+    func makeGetAllDictionaryUseCase() -> GetAllDictionaryUseCase {
+        GetAllDictionaryUseCase(wordRepository: wordRepository)
     }
 }
 
@@ -78,7 +78,7 @@ private extension AppFactory {
     func makeTrainingCoordinatorAssembly() -> TrainingCoordinatorAssembly {
         let dependencies = Training.ModuleDependencies(
             wordRepository: wordRepository,
-            getDictionaryWordCountUseCase: self.makeGetDictionaryWordCountUseCase()
+            getAllDictionaryUseCase: self.makeGetAllDictionaryUseCase()
         )
 
         return TrainingCoordinatorAssembly(dependencies: dependencies)

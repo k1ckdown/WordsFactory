@@ -12,19 +12,14 @@ import WordModuleAPI
 final class GetWordTestQuestionsUseCaseTests: XCTestCase {
 
     private var sut: GetWordTestQuestionsUseCase!
-    private var wordRepository: WordRepositoryMock!
 
     override func setUp() {
         super.setUp()
-
-        wordRepository = WordRepositoryMock()
-        sut = GetWordTestQuestionsUseCase(wordRepository: wordRepository)
+        sut = GetWordTestQuestionsUseCase()
     }
 
     override func tearDown() {
         sut = nil
-        wordRepository = nil
-
         super.tearDown()
     }
 }
@@ -33,80 +28,60 @@ final class GetWordTestQuestionsUseCaseTests: XCTestCase {
 
 extension GetWordTestQuestionsUseCaseTests {
 
-    func test_execute_whenSelectingChoices_thenChoicesContainsAnswer() async {
+    func test_execute_whenQuestionsSelected_thenChoicesContainsAnswer() async {
         //Given:
         let dictionaryWords = createDictionaryWords(count: 2)
-        wordRepository.dictionaryWords = dictionaryWords
 
         //When:
-        do {
-            let questions = try await sut.execute()
+        let questions = sut.execute(dictionaryWords)
 
-            //Then:
-            for question in questions {
-                let answerKey = question.answerWord.answerKey
-                XCTAssertTrue(question.choices.keys.contains(answerKey))
-            }
-        } catch {
-            XCTFail(error.localizedDescription)
+        //Then:
+        for question in questions {
+            let answerKey = question.answerWord.answerKey
+            XCTAssertTrue(question.choices.keys.contains(answerKey))
         }
     }
 
     func test_execute_whenWordCountIsGreaterThan10_thenQuestionCountIs10() async {
         //Given:
         let dictionaryWords = createDictionaryWords(count: 11)
-        wordRepository.dictionaryWords = dictionaryWords
 
         //When:
-        do {
-            let questions = try await sut.execute()
+        let questions = sut.execute(dictionaryWords)
 
-            //Then:
-            let expectedQuestionCount = 10
-            XCTAssertEqual(questions.count, expectedQuestionCount)
-        } catch {
-            XCTFail(error.localizedDescription)
-        }
+        //Then:
+        let expectedQuestionCount = 10
+        XCTAssertEqual(questions.count, expectedQuestionCount)
     }
 
     func test_execute_whenWordCountIsLessThan10_thenQuestionCountIsEqualToWordCount() async {
         //Given:
         let dictionaryWords = createDictionaryWords(count: 7)
-        wordRepository.dictionaryWords = dictionaryWords
 
         //When:
-        do {
-            let questions = try await sut.execute()
+        let questions = sut.execute(dictionaryWords)
 
-            //Then:
-            let expectedQuestionCount = dictionaryWords.count
-            XCTAssertEqual(questions.count, expectedQuestionCount)
-        } catch {
-            XCTFail(error.localizedDescription)
-        }
+        //Then:
+        let expectedQuestionCount = dictionaryWords.count
+        XCTAssertEqual(questions.count, expectedQuestionCount)
     }
 
     func test_execute_whenSortingByStudyCoef_thenCorrectTestWordsSelected() async {
         //Given:
         let dictionaryWords = createDictionaryWords(count: 20)
-        wordRepository.dictionaryWords = dictionaryWords
 
         //When:
-        do {
-            let questions = try await sut.execute()
-            let wordsTexts = questions.map { $0.answerWord.text }.sorted()
+        let questions = sut.execute(dictionaryWords)
+        let wordsTexts = questions.map { $0.answerWord.text }.sorted()
 
-            //Then:
-            let expectedWordsTexts = dictionaryWords
-                .sorted { $0.studyCoefficient < $1.studyCoefficient }
-                .prefix(GetWordTestQuestionsUseCase.Constants.numberOfQuestions)
-                .map { $0.text }
-                .sorted()
+        //Then:
+        let expectedWordsTexts = dictionaryWords
+            .sorted { $0.studyCoefficient < $1.studyCoefficient }
+            .prefix(GetWordTestQuestionsUseCase.Constants.numberOfQuestions)
+            .map { $0.text }
+            .sorted()
 
-            XCTAssertEqual(wordsTexts, expectedWordsTexts)
-        } catch {
-            XCTFail(error.localizedDescription)
-        }
+        XCTAssertEqual(wordsTexts, expectedWordsTexts)
     }
 }
 

@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import WordModuleAPI
 
 final class QuestionViewModel: ObservableObject {
 
@@ -17,10 +18,16 @@ final class QuestionViewModel: ObservableObject {
     private var subscriptions: Set<AnyCancellable> = []
 
     private let coordinator: QuestionCoordinatorProtocol
+    private let getAllDictionaryUseCase: GetAllDictionaryUseCaseProtocol
     private let getWordTestQuestionsUseCase: GetWordTestQuestionsUseCase
 
-    init(coordinator: QuestionCoordinatorProtocol, getWordTestQuestionsUseCase: GetWordTestQuestionsUseCase) {
+    init(
+        coordinator: QuestionCoordinatorProtocol,
+        getAllDictionaryUseCase: GetAllDictionaryUseCaseProtocol,
+        getWordTestQuestionsUseCase: GetWordTestQuestionsUseCase
+    ) {
         self.coordinator = coordinator
+        self.getAllDictionaryUseCase = getAllDictionaryUseCase
         self.getWordTestQuestionsUseCase = getWordTestQuestionsUseCase
     }
 
@@ -73,7 +80,8 @@ private extension QuestionViewModel {
     func getQuestions() async {
         await MainActor.run { state = .loading }
         do {
-            let questions = try await getWordTestQuestionsUseCase.execute()
+            let dictionaryWords = try await getAllDictionaryUseCase.execute()
+            let questions = getWordTestQuestionsUseCase.execute(dictionaryWords)
             await handleQuestions(questions)
         } catch {
             await MainActor.run {

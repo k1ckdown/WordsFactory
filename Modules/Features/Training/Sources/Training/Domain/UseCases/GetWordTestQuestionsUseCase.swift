@@ -9,20 +9,16 @@ import WordModuleAPI
 
 final class GetWordTestQuestionsUseCase {
 
-    private let wordRepository: WordRepositoryProtocol
-
-    init(wordRepository: WordRepositoryProtocol) {
-        self.wordRepository = wordRepository
-    }
-
-    func execute() async throws -> [WordTestQuestion] {
-        let words = try await wordRepository.getAllDictionary()
-        let testWords = words
+    func execute(_ dictionaryWords: [DictionaryWord]) -> [WordTestQuestion] {
+        let testWords = dictionaryWords
             .sorted { $0.studyCoefficient < $1.studyCoefficient }
             .prefix(Constants.numberOfQuestions)
             .shuffled()
 
-        let dictionary = words.count >= Constants.keys.count ? words.map { $0.text } : Constants.defaultDictionary
+        let dictionary = dictionaryWords.count >= Constants.keys.count
+        ? dictionaryWords.map { $0.text }
+        : Constants.defaultDictionary
+
         return testWords.compactMap { makeQuestion(for: $0, from: dictionary) }
     }
 }

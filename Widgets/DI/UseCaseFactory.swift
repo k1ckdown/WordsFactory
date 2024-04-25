@@ -22,15 +22,15 @@ final class UseCaseFactory {
 
 extension UseCaseFactory {
 
+    func makeGetRememberedWordsUseCase() -> GetRememberedWordsUseCase {
+        GetRememberedWordsUseCase()
+    }
+
     func makeGetRandomWordUseCase() -> GetRandomWordUseCase {
         GetRandomWordUseCase(wordRepository: wordRepository)
     }
 
-    func makeGetDictionaryWordCountUseCase() -> GetDictionaryWordCountUseCase {
-        GetDictionaryWordCountUseCase(wordRepository: wordRepository)
-    }
-
-    func makeGetRememberedWordCountUseCase() -> GetRememberedWordCountUseCase {
-        GetRememberedWordCountUseCase(wordRepository: wordRepository)
+    func makeGetAllDictionaryUseCase() -> GetAllDictionaryUseCase {
+        GetAllDictionaryUseCase(wordRepository: wordRepository)
     }
 }

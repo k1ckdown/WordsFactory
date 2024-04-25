@@ -11,15 +11,15 @@ import UserModuleAPI
 
 struct DictionaryOverviewWidgetProvider: TimelineProvider {
 
-    private let getDictionaryWordCountUseCase: GetDictionaryWordCountUseCase
-    private let getRememberedWordCountUseCase: GetRememberedWordCountUseCase
+    private let getAllDictionaryUseCase: GetAllDictionaryUseCase
+    private let getRememberedWordsUseCase: GetRememberedWordsUseCase
 
     init(
-        getDictionaryWordCountUseCase: GetDictionaryWordCountUseCase,
-        getRememberedWordCountUseCase: GetRememberedWordCountUseCase
+        getAllDictionaryUseCase: GetAllDictionaryUseCase,
+        getRememberedWordsUseCase: GetRememberedWordsUseCase
     ) {
-        self.getDictionaryWordCountUseCase = getDictionaryWordCountUseCase
-        self.getRememberedWordCountUseCase = getRememberedWordCountUseCase
+        self.getAllDictionaryUseCase = getAllDictionaryUseCase
+        self.getRememberedWordsUseCase = getRememberedWordsUseCase
     }
 
     func placeholder(in context: Context) -> DictionaryOverviewWidgetEntry {
@@ -47,8 +47,9 @@ private extension DictionaryOverviewWidgetProvider {
         let state: DictionaryOverviewWidgetEntry.ViewState
 
         do {
-            let totalWordCount = try await getDictionaryWordCountUseCase.execute()
-            let rememberedWordCount = try await getRememberedWordCountUseCase.execute()
+            let dictionaryWords = try await getAllDictionaryUseCase.execute()
+            let totalWordCount = dictionaryWords.count
+            let rememberedWordCount = getRememberedWordsUseCase.execute(dictionaryWords).count
             state = .loaded(.init(totalWordCount: totalWordCount, rememberedWordCount: rememberedWordCount))
         } catch {
             state = .failed(getErrorMessage(error))

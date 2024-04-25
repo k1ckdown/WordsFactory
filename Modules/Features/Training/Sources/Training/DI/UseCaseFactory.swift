@@ -10,20 +10,24 @@ import WordModuleAPI
 final class UseCaseFactory {
 
     private let repositoryFactory: RepositoryFactory
-    private let getDictionaryWordCountUseCaseProvider: GetDictionaryWordCountUseCaseProvider
+    private let getAllDictionaryUseCaseProvider: GetAllDictionaryUseCaseProvider
 
     init(
         repositoryFactory: RepositoryFactory,
-        getDictionaryWordCountUseCaseProvider: @escaping GetDictionaryWordCountUseCaseProvider
+        getAllDictionaryUseCaseProvider: @escaping GetAllDictionaryUseCaseProvider
     ) {
         self.repositoryFactory = repositoryFactory
-        self.getDictionaryWordCountUseCaseProvider = getDictionaryWordCountUseCaseProvider
+        self.getAllDictionaryUseCaseProvider = getAllDictionaryUseCaseProvider
     }
 }
 
 // MARK: - Public methods
 
 extension UseCaseFactory {
+
+    func makeGetWordQuestionsUseCase() -> GetWordTestQuestionsUseCase {
+        GetWordTestQuestionsUseCase()
+    }
 
     func makeGetWordTestResultUseCase() -> GetWordTestResultUseCase {
         GetWordTestResultUseCase()
@@ -33,14 +37,10 @@ extension UseCaseFactory {
         ComputeWordCoefficientUseCase()
     }
 
-    func makeGetDictionaryWordCountUseCase() -> GetDictionaryWordCountUseCaseProtocol {
-        getDictionaryWordCountUseCaseProvider()
+    func makeGetAllDictionaryUseCase() -> GetAllDictionaryUseCaseProtocol {
+        getAllDictionaryUseCaseProvider()
     }
-
-    func makeGetWordQuestionsUseCase() -> GetWordTestQuestionsUseCase {
-        GetWordTestQuestionsUseCase(wordRepository: repositoryFactory.makeWordRepository())
-    }
-
+    
     func makeUpdateStudyCoefficientUseCase() -> UpdateStudyCoefficientUseCase {
         UpdateStudyCoefficientUseCase(wordRepository: repositoryFactory.makeWordRepository())
     }

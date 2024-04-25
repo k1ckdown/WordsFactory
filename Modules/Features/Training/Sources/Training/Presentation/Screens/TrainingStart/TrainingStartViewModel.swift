@@ -15,14 +15,14 @@ final class TrainingStartViewModel: ObservableObject {
 
     private var subscriptions: Set<AnyCancellable> = []
     private let coordinator: TrainingStartCoordinatorProtocol
-    private let getDictionaryWordCountUseCase: GetDictionaryWordCountUseCaseProtocol
+    private let getAllDictionaryUseCase: GetAllDictionaryUseCaseProtocol
 
     init(
         coordinator: TrainingStartCoordinatorProtocol,
-        getDictionaryWordCountUseCase: GetDictionaryWordCountUseCaseProtocol
+        getAllDictionaryUseCase: GetAllDictionaryUseCaseProtocol
     ) {
         self.coordinator = coordinator
-        self.getDictionaryWordCountUseCase = getDictionaryWordCountUseCase
+        self.getAllDictionaryUseCase = getAllDictionaryUseCase
     }
 
     func handle(_ event: Event) {
@@ -63,8 +63,8 @@ private extension TrainingStartViewModel {
         let viewState: ViewState
 
         do {
-            let wordCount = try await getDictionaryWordCountUseCase.execute()
-            viewState = .loaded(.init(wordCount: wordCount, countdown: makeTimer()))
+            let dictionaryWords = try await getAllDictionaryUseCase.execute()
+            viewState = .loaded(.init(wordCount: dictionaryWords.count, countdown: makeTimer()))
         } catch {
             viewState = .failed
         }

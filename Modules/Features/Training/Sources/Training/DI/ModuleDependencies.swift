@@ -7,17 +7,17 @@
 
 import WordModuleAPI
 
-public typealias GetDictionaryWordCountUseCaseProvider = () -> GetDictionaryWordCountUseCaseProtocol
+public typealias GetAllDictionaryUseCaseProvider = () -> GetAllDictionaryUseCaseProtocol
 
 public struct ModuleDependencies {
     let wordRepository: WordRepositoryProtocol
-    let getDictionaryWordCountUseCaseProvider: GetDictionaryWordCountUseCaseProvider
+    let getAllDictionaryUseCaseProvider: GetAllDictionaryUseCaseProvider
 
     public init(
         wordRepository: WordRepositoryProtocol,
-        getDictionaryWordCountUseCase: @autoclosure @escaping GetDictionaryWordCountUseCaseProvider
+        getAllDictionaryUseCase: @autoclosure @escaping GetAllDictionaryUseCaseProvider
     ) {
         self.wordRepository = wordRepository
-        self.getDictionaryWordCountUseCaseProvider = getDictionaryWordCountUseCase
+        self.getAllDictionaryUseCaseProvider = getAllDictionaryUseCase
     }
 }

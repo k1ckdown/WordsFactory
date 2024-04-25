@@ -40,7 +40,7 @@
 		49CAC3082BB978D500A09571 /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 49CAC3072BB978D500A09571 /* Auth */; };
 		49CAC30A2BB978D500A09571 /* CommonUI in Frameworks */ = {isa = PBXBuildFile; productRef = 49CAC3092BB978D500A09571 /* CommonUI */; };
 		49CAC30C2BB978D500A09571 /* Dictionary in Frameworks */ = {isa = PBXBuildFile; productRef = 49CAC30B2BB978D500A09571 /* Dictionary */; };
-		49D3FF892BC4778F005E2CCA /* GetRememberedWordCountUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D3FF882BC4778F005E2CCA /* GetRememberedWordCountUseCase.swift */; };
+		49D3FF892BC4778F005E2CCA /* GetRememberedWordsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D3FF882BC4778F005E2CCA /* GetRememberedWordsUseCase.swift */; };
 		49D3FF8E2BC488F5005E2CCA /* UseCaseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D3FF8D2BC488F5005E2CCA /* UseCaseFactory.swift */; };
 		49E385072BC311B6004EBCEF /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E385062BC311B6004EBCEF /* WidgetKit.framework */; };
 		49E385092BC311B6004EBCEF /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E385082BC311B6004EBCEF /* SwiftUI.framework */; };
@@ -124,7 +124,7 @@
 		49CAC3052BB9755900A09571 /* TrainingAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = TrainingAPI; sourceTree = "<group>"; };
 		49CAC3062BB9771700A09571 /* Training */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Training; sourceTree = "<group>"; };
 		49CDBECA2BC12C0E00762BBD /* MainTabBar */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MainTabBar; sourceTree = "<group>"; };
-		49D3FF882BC4778F005E2CCA /* GetRememberedWordCountUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRememberedWordCountUseCase.swift; sourceTree = "<group>"; };
+		49D3FF882BC4778F005E2CCA /* GetRememberedWordsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRememberedWordsUseCase.swift; sourceTree = "<group>"; };
 		49D3FF8D2BC488F5005E2CCA /* UseCaseFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseFactory.swift; sourceTree = "<group>"; };
 		49E385052BC311B6004EBCEF /* WidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		49E385062BC311B6004EBCEF /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -395,7 +395,7 @@
 		49D3FF872BC47718005E2CCA /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				49D3FF882BC4778F005E2CCA /* GetRememberedWordCountUseCase.swift */,
+				49D3FF882BC4778F005E2CCA /* GetRememberedWordsUseCase.swift */,
 				494DCA552BD963480085744B /* GetRandomWordUseCase.swift */,
 			);
 			path = UseCases;
@@ -620,7 +620,7 @@
 				495929AF2BD95F6A00ECD8F3 /* DictionaryOverviewWidgetProviderAssembly.swift in Sources */,
 				494DCA602BD96C3C0085744B /* DictionaryWordWidget.swift in Sources */,
 				494DCA582BD965F60085744B /* DictionaryWordWidgetProvider.swift in Sources */,
-				49D3FF892BC4778F005E2CCA /* GetRememberedWordCountUseCase.swift in Sources */,
+				49D3FF892BC4778F005E2CCA /* GetRememberedWordsUseCase.swift in Sources */,
 				49E3851B2BC3127E004EBCEF /* DictionaryOverviewWidgetProvider.swift in Sources */,
 				49E3851D2BC3128E004EBCEF /* DictionaryOverviewWidgetEntry.swift in Sources */,
 				49D3FF8E2BC488F5005E2CCA /* UseCaseFactory.swift in Sources */,
