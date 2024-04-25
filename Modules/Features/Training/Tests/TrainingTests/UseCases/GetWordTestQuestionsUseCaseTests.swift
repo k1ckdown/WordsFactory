@@ -28,7 +28,19 @@ final class GetWordTestQuestionsUseCaseTests: XCTestCase {
 
 extension GetWordTestQuestionsUseCaseTests {
 
-    func test_execute_whenQuestionsSelected_thenChoicesContainsAnswer() async {
+    func test_execute_whenQuestionsSelected_thenAllQuestionsUnique() {
+        //Given:
+        let dictionaryWords = createDictionaryWords(count: 10)
+
+        //When:
+        let questions = sut.execute(dictionaryWords)
+
+        //Then:
+        let uniqueQuestions = Set(questions.map { $0.answerWord.text })
+        XCTAssertEqual(questions.count, uniqueQuestions.count)
+    }
+
+    func test_execute_whenQuestionsSelected_thenChoicesContainsAnswer() {
         //Given:
         let dictionaryWords = createDictionaryWords(count: 2)
 
@@ -42,7 +54,7 @@ extension GetWordTestQuestionsUseCaseTests {
         }
     }
 
-    func test_execute_whenWordCountIsGreaterThan10_thenQuestionCountIs10() async {
+    func test_execute_whenWordCountIsGreaterThan10_thenQuestionCountIs10() {
         //Given:
         let dictionaryWords = createDictionaryWords(count: 11)
 
@@ -54,7 +66,7 @@ extension GetWordTestQuestionsUseCaseTests {
         XCTAssertEqual(questions.count, expectedQuestionCount)
     }
 
-    func test_execute_whenWordCountIsLessThan10_thenQuestionCountIsEqualToWordCount() async {
+    func test_execute_whenWordCountIsLessThan10_thenQuestionCountIsEqualToWordCount() {
         //Given:
         let dictionaryWords = createDictionaryWords(count: 7)
 
@@ -66,7 +78,7 @@ extension GetWordTestQuestionsUseCaseTests {
         XCTAssertEqual(questions.count, expectedQuestionCount)
     }
 
-    func test_execute_whenSortingByStudyCoef_thenCorrectTestWordsSelected() async {
+    func test_execute_whenSortingByStudyCoef_thenCorrectTestWordsSelected() {
         //Given:
         let dictionaryWords = createDictionaryWords(count: 20)
 
@@ -77,7 +89,7 @@ extension GetWordTestQuestionsUseCaseTests {
         //Then:
         let expectedWordsTexts = dictionaryWords
             .sorted { $0.studyCoefficient < $1.studyCoefficient }
-            .prefix(GetWordTestQuestionsUseCase.Constants.numberOfQuestions)
+            .prefix(10)
             .map { $0.text }
             .sorted()
 

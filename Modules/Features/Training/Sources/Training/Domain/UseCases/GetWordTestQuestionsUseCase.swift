@@ -57,7 +57,7 @@ private extension GetWordTestQuestionsUseCase {
 
 // MARK: - Constants
 
-extension GetWordTestQuestionsUseCase {
+private extension GetWordTestQuestionsUseCase {
 
     enum Constants {
         static let numberOfQuestions = 10
