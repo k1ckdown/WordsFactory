@@ -12,6 +12,7 @@ public extension Fonts {
     static let buttonMedium = Rubik.medium.swiftUIFont(size: 16)
     static let buttonSmall = Rubik.medium.swiftUIFont(size: 14)
 
+    static let paragraphExtraLarge = Rubik.regular.swiftUIFont(size: 17)
     static let paragraphLarge = Rubik.regular.swiftUIFont(size: 16)
     static let paragraphMedium = Rubik.regular.swiftUIFont(size: 14)
     static let paragraphSmall = Rubik.medium.swiftUIFont(size: 12)

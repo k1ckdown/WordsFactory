@@ -16,10 +16,8 @@ struct SearchBar: View {
     var body: some View {
         HStack {
             TextField("", text: $text)
-                .tintColor()
+                .mainTextFieldStyle()
                 .submitLabel(.search)
-                .font(Fonts.paragraphMedium)
-                .foregroundStyle(Colors.appDarkGray.swiftUIColor)
                 .onSubmit { handler(text) }
 
             Button {

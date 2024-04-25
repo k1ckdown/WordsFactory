@@ -12,11 +12,8 @@ struct AuthTextFieldStyle: TextFieldStyle {
 
     func _body(configuration: TextField<Self._Label>) -> some View {
         configuration
-            .font(Fonts.paragraphMedium)
-            .tintColor()
-            .foregroundStyle(Colors.appDarkGray.swiftUIColor)
+            .mainTextFieldStyle()
             .frame(height: Constants.height)
-            .frame(maxWidth: .infinity)
     }
 }
 

@@ -9,26 +9,26 @@ import Foundation
 import UserModuleAPI
 
 final class ProfileViewModel: ObservableObject {
-
+    
     @Published private(set) var state = ViewState.idle
+    
+    private var user: User?
     private let getUserUseCase: GetUserUseCaseProtocol
-
+    
     init(getUserUseCase: GetUserUseCaseProtocol) {
         self.getUserUseCase = getUserUseCase
     }
-
+    
     func handle(_ event: Event) {
         switch event {
         case .didLoad:
             Task { await getUser() }
-        case .saveTapped:
+        case .signOutTapped:
             break
-        case .deleteAccountTapped:
+        case .personalInfoTapped:
             break
-        case .nameChanged(let name):
-            state = state.changeName(name)
-        case .emailChanged(let email):
-            state = state.changeEmail(email)
+        case .myDictionaryTapped:
+            break
         }
     }
 }
@@ -36,13 +36,14 @@ final class ProfileViewModel: ObservableObject {
 // MARK: Private methods
 
 private extension ProfileViewModel {
-
+    
     @MainActor
     func handleUser(_ user: User) {
-        let viewData = ViewState.ViewData(name: user.name, email: user.email)
+        self.user = user
+        let viewData = ViewState.ViewData(name: user.name, joinDate: "")
         state = .loaded(viewData)
     }
-
+    
     func getUser() async {
         await MainActor.run { state = .loading }
         do {
