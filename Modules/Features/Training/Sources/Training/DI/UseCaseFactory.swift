@@ -37,8 +37,8 @@ extension UseCaseFactory {
         getDictionaryWordCountUseCaseProvider()
     }
 
-    func makeGetWordQuestionsUseCase() -> GetWordQuestionsUseCase {
-        GetWordQuestionsUseCase(wordRepository: repositoryFactory.makeWordRepository())
+    func makeGetWordQuestionsUseCase() -> GetWordTestQuestionsUseCase {
+        GetWordTestQuestionsUseCase(wordRepository: repositoryFactory.makeWordRepository())
     }
 
     func makeUpdateStudyCoefficientUseCase() -> UpdateStudyCoefficientUseCase {

@@ -1,5 +1,5 @@
 //
-//  GetWordQuestionsUseCase.swift
+//  GetWordTestQuestionsUseCase.swift
 //
 //
 //  Created by Ivan Semenov on 03.04.2024.
@@ -7,7 +7,7 @@
 
 import WordModuleAPI
 
-final class GetWordQuestionsUseCase {
+final class GetWordTestQuestionsUseCase {
 
     private let wordRepository: WordRepositoryProtocol
 
@@ -29,7 +29,7 @@ final class GetWordQuestionsUseCase {
 
 // MARK: - Private methods
 
-private extension GetWordQuestionsUseCase {
+private extension GetWordTestQuestionsUseCase {
 
     func makeTestWord(from word: DictionaryWord, answerKey: String, definition: String) -> TestWord {
         TestWord(
@@ -61,7 +61,7 @@ private extension GetWordQuestionsUseCase {
 
 // MARK: - Constants
 
-extension GetWordQuestionsUseCase {
+extension GetWordTestQuestionsUseCase {
 
     enum Constants {
         static let numberOfQuestions = 10

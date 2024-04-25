@@ -278,8 +278,8 @@
 		494DCA632BD98F7E0085744B /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				4964B44E2BBC12EE00D849FC /* Shared */,
 				4998964E2BAA1FF00078B41B /* Core */,
+				4964B44E2BBC12EE00D849FC /* Shared */,
 				4998964F2BAA1FF50078B41B /* Features */,
 			);
 			path = Modules;
@@ -421,10 +421,10 @@
 		49E3850A2BC311B6004EBCEF /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
+				498BBF3D2BC34B4500F60508 /* WidgetsExtension.entitlements */,
 				49D3FF8C2BC488E5005E2CCA /* DI */,
 				49D3FF862BC4767B005E2CCA /* Domain */,
 				49D3FF852BC47648005E2CCA /* Presentation */,
-				498BBF3D2BC34B4500F60508 /* WidgetsExtension.entitlements */,
 				49E3852B2BC31C63004EBCEF /* Resources */,
 				49E3850B2BC311B6004EBCEF /* WidgetsBundle.swift */,
 			);

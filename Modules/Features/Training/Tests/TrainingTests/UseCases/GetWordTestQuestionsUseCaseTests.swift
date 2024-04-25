@@ -9,16 +9,16 @@ import XCTest
 import WordModuleAPI
 @testable import Training
 
-final class GetWordQuestionsUseCaseTests: XCTestCase {
+final class GetWordTestQuestionsUseCaseTests: XCTestCase {
 
-    private var sut: GetWordQuestionsUseCase!
+    private var sut: GetWordTestQuestionsUseCase!
     private var wordRepository: WordRepositoryMock!
 
     override func setUp() {
         super.setUp()
 
         wordRepository = WordRepositoryMock()
-        sut = GetWordQuestionsUseCase(wordRepository: wordRepository)
+        sut = GetWordTestQuestionsUseCase(wordRepository: wordRepository)
     }
 
     override func tearDown() {
@@ -31,7 +31,7 @@ final class GetWordQuestionsUseCaseTests: XCTestCase {
 
 // MARK: - Tests
 
-extension GetWordQuestionsUseCaseTests {
+extension GetWordTestQuestionsUseCaseTests {
 
     func test_execute_whenSelectingChoices_thenChoicesContainsAnswer() async {
         //Given:
@@ -99,7 +99,7 @@ extension GetWordQuestionsUseCaseTests {
             //Then:
             let expectedWordsTexts = dictionaryWords
                 .sorted { $0.studyCoefficient < $1.studyCoefficient }
-                .prefix(GetWordQuestionsUseCase.Constants.numberOfQuestions)
+                .prefix(GetWordTestQuestionsUseCase.Constants.numberOfQuestions)
                 .map { $0.text }
                 .sorted()
 
@@ -112,7 +112,7 @@ extension GetWordQuestionsUseCaseTests {
 
 // MARK: - Private methods
 
-private extension GetWordQuestionsUseCaseTests {
+private extension GetWordTestQuestionsUseCaseTests {
 
     func createDictionaryWords(count: Int) -> [DictionaryWord] {
         (1...count).map { .mock(text: "word \($0)", studyCoefficient: Int.random(in: -20...20)) }

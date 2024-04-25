@@ -21,7 +21,7 @@ extension ScreenFactory {
     func makeQuestionScreen(coordinator: QuestionCoordinatorProtocol) -> QuestionView {
         let viewModel = QuestionViewModel(
             coordinator: coordinator,
-            getWordQuestionsUseCase: useCaseFactory.makeGetWordQuestionsUseCase()
+            getWordTestQuestionsUseCase: useCaseFactory.makeGetWordQuestionsUseCase()
         )
 
         let view = QuestionView(viewModel: viewModel)

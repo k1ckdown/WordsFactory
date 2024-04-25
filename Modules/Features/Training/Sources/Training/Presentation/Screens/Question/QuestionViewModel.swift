@@ -17,11 +17,11 @@ final class QuestionViewModel: ObservableObject {
     private var subscriptions: Set<AnyCancellable> = []
 
     private let coordinator: QuestionCoordinatorProtocol
-    private let getWordQuestionsUseCase: GetWordQuestionsUseCase
+    private let getWordTestQuestionsUseCase: GetWordTestQuestionsUseCase
 
-    init(coordinator: QuestionCoordinatorProtocol, getWordQuestionsUseCase: GetWordQuestionsUseCase) {
+    init(coordinator: QuestionCoordinatorProtocol, getWordTestQuestionsUseCase: GetWordTestQuestionsUseCase) {
         self.coordinator = coordinator
-        self.getWordQuestionsUseCase = getWordQuestionsUseCase
+        self.getWordTestQuestionsUseCase = getWordTestQuestionsUseCase
     }
 
     func handle(_ event: Event) {
@@ -73,7 +73,7 @@ private extension QuestionViewModel {
     func getQuestions() async {
         await MainActor.run { state = .loading }
         do {
-            let questions = try await getWordQuestionsUseCase.execute()
+            let questions = try await getWordTestQuestionsUseCase.execute()
             await handleQuestions(questions)
         } catch {
             await MainActor.run {
