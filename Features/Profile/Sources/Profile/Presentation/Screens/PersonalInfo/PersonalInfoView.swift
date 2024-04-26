@@ -26,13 +26,11 @@ struct PersonalInfoView: View {
                     .roundedBorderField()
                     .labeled(Strings.name)
 
-                TextField("", text: email)
-                    .keyboardType(.emailAddress)
-                    .textContentType(.emailAddress)
-                    .textInputAutocapitalization(.never)
+                TextField("", text: .constant(viewModel.state.email))
                     .frame(height: Constants.textFieldHeight)
                     .roundedBorderField()
                     .labeled(Strings.email)
+                    .disabled(true)
             }
             .submitLabel(.return)
             .mainTextFieldStyle()
@@ -65,13 +63,6 @@ private extension PersonalInfoView {
         Binding(
             get: { viewModel.state.name },
             set: { viewModel.handle(.nameChanged($0)) }
-        )
-    }
-
-    var email: Binding<String> {
-        Binding(
-            get: { viewModel.state.email },
-            set: { viewModel.handle(.emailChanged($0)) }
         )
     }
 }

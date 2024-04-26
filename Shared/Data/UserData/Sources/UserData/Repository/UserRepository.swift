@@ -37,11 +37,11 @@ extension UserRepository: UserRepositoryProtocol {
         let userEditDto = userEdit.toDto()
         try await remoteDataSource.updateUser(userEditDto)
 
-        self.loadedUser = User(id: loadedUser.id, name: userEdit.name, email: userEdit.email, joinDate: loadedUser.joinDate)
+        self.loadedUser = User(id: loadedUser.id, name: userEdit.name, email: loadedUser.email, joinDate: loadedUser.joinDate)
     }
 
     func getUser() async throws -> User {
-        if let loadedUser { return loadedUser }
+        if let loadedUser, try getUserId() == loadedUser.id { return loadedUser }
 
         let userDto = try await remoteDataSource.fetchUser()
         let user = userDto.toDomain()

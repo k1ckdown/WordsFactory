@@ -29,8 +29,6 @@ final class PersonalInfoViewModel: ObservableObject {
             Task { await handleSaveTap() }
         case .nameChanged(let name):
             handleNameChange(name)
-        case .emailChanged(let email):
-            state.email = email
         }
     }
 }
@@ -45,7 +43,7 @@ private extension PersonalInfoViewModel {
     }
 
     func checkDataChanged() {
-        state.isSaveDisabled = state.email == user.email && state.name == user.name
+        state.isSaveDisabled = state.name == user.name
     }
 
     func handleNameChange(_ name: String) {
@@ -53,13 +51,8 @@ private extension PersonalInfoViewModel {
         checkDataChanged()
     }
 
-    func handleEmailChange(_ email: String) {
-        state.email = email
-        checkDataChanged()
-    }
-
     func handleSaveTap() async {
-        let userEdit = UserEdit(name: state.name, email: state.email)
+        let userEdit = UserEdit(name: state.name)
         await isUpdating(true)
 
         do {

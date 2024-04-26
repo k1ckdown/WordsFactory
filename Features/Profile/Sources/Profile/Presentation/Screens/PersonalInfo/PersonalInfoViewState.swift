@@ -9,7 +9,7 @@ extension PersonalInfoViewModel {
 
     struct ViewState: Equatable {
         var name: String
-        var email: String
+        let email: String
         var isUpdating = false
         var isSaveDisabled = true
     }
@@ -17,6 +17,5 @@ extension PersonalInfoViewModel {
     enum Event {
         case saveTapped
         case nameChanged(String)
-        case emailChanged(String)
     }
 }
