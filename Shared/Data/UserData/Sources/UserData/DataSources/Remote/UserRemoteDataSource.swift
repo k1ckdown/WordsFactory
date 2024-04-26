@@ -22,11 +22,12 @@ final class UserRemoteDataSource {
 
 extension UserRemoteDataSource {
 
-    func saveUser(_ user: UserDTO) async throws {
-        let document = collection.document(user.id)
-        let data = try Firestore.Encoder().encode(user)
+    func fetchUserId() throws -> String {
+        guard let userId = try Auth.auth().getStoredUser(forAccessGroup: AppGroup.Constants.appGroupId)?.uid else {
+            throw AuthError.unauthorized
+        }
 
-        try await document.setData(data)
+        return userId
     }
 
     func fetchUser() async throws -> UserDTO {
@@ -35,13 +36,20 @@ extension UserRemoteDataSource {
 
         return try document.data(as: UserDTO.self)
     }
+    
+    func saveUser(_ user: UserDTO) async throws {
+        let documentRef = collection.document(user.id)
+        let data = try Firestore.Encoder().encode(user)
 
-    func fetchUserId() throws -> String {
-        guard let userId = try Auth.auth().getStoredUser(forAccessGroup: AppGroup.Constants.appGroupId)?.uid else {
-            throw AuthError.unauthorized
-        }
+        try await documentRef.setData(data)
+    }
 
-        return userId
+    func updateUser(_ user: UserEditDTO) async throws {
+        let userId = try fetchUserId()
+        let documentRef = collection.document(userId)
+        let data = try Firestore.Encoder().encode(user)
+
+        try await documentRef.updateData(data)
     }
 }
 

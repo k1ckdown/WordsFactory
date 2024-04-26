@@ -5,6 +5,8 @@
 //  Created by Ivan Semenov on 25.04.2024.
 //
 
+import UserDomain
+
 public final class GetUserUseCase {
 
     private let userRepository: UserRepositoryProtocol

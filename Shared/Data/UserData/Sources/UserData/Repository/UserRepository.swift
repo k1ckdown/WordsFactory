@@ -33,4 +33,9 @@ extension UserRepository: UserRepositoryProtocol {
         let userDto = user.toDto()
         try await remoteDataSource.saveUser(userDto)
     }
+
+    func updateUser(_ user: UserEdit) async throws {
+        let userDto = user.toDto()
+        try await remoteDataSource.updateUser(userDto)
+    }
 }
