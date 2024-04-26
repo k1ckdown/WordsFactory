@@ -7,8 +7,10 @@
 
 public struct UserEdit {
     public let name: String
+    public let email: String
 
-    public init(name: String) {
+    public init(name: String, email: String) {
         self.name = name
+        self.email = email
     }
 }
