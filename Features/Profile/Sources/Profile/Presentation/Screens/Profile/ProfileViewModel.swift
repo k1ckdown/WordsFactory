@@ -9,18 +9,24 @@ import Foundation
 import UserDomain
 
 final class ProfileViewModel: ObservableObject {
-
+    
     @Published private(set) var state = ViewState.idle
-
+    
     private var user: User?
     private let getUserUseCase: GetUserUseCase
     private let signOutUseCase: SignOutUseCase
-
-    init(getUserUseCase: GetUserUseCase, signOutUseCase: SignOutUseCase) {
+    private let coordinator: ProfileCoordinatorProtocol
+    
+    init(
+        getUserUseCase: GetUserUseCase,
+        signOutUseCase: SignOutUseCase,
+        coordinator: ProfileCoordinatorProtocol
+    ) {
         self.getUserUseCase = getUserUseCase
         self.signOutUseCase = signOutUseCase
+        self.coordinator = coordinator
     }
-
+    
     func handle(_ event: Event) {
         switch event {
         case .didLoad:
@@ -38,11 +44,11 @@ final class ProfileViewModel: ObservableObject {
 // MARK: Private methods
 
 private extension ProfileViewModel {
-
+    
     func handlePersonalInfoTap() {
-
+        
     }
-
+    
     func handleSignOutTap() async {
         do {
             try await signOutUseCase.execute()
@@ -50,14 +56,14 @@ private extension ProfileViewModel {
             print(error)
         }
     }
-
+    
     @MainActor
     func handleUser(_ user: User) {
         self.user = user
         let viewData = ViewState.ViewData(name: user.name, joinDate: Date.now.formatted(.dateTime.day().month().year()))
         state = .loaded(viewData)
     }
-
+    
     func getUser() async {
         await MainActor.run { state = .loading }
         do {

@@ -9,8 +9,8 @@ import AuthDomain
 import UserDomain
 
 public struct ModuleDependencies {
-    private let userRepository: UserRepositoryProtocol
-    private let authRepository: AuthRepositoryProtocol
+    let userRepository: UserRepositoryProtocol
+    let authRepository: AuthRepositoryProtocol
 
     public init(userRepository: UserRepositoryProtocol, authRepository: AuthRepositoryProtocol) {
         self.userRepository = userRepository

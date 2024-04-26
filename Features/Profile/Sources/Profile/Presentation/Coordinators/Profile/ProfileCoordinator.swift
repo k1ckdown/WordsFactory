@@ -22,7 +22,9 @@ final class ProfileCoordinator: ObservableObject {
     @Published var screen: Screen?
 }
 
-extension ProfileCoordinator {
+// MARK: - ProfileCoordinatorProtocol
+
+extension ProfileCoordinator: ProfileCoordinatorProtocol {
 
     func showPersonalInfo() {
         screen = .personalInfo
