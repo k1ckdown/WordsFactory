@@ -10,6 +10,6 @@ import UserDomain
 extension User {
     
     func toDto() -> UserDTO {
-        UserDTO(id: id, name: name, email: email)
+        UserDTO(id: id, name: name, email: email, joinDate: joinDate)
     }
 }

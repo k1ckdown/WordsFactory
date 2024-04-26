@@ -17,10 +17,10 @@ final class SignUpUseCase {
         self.authRepository = authRepository
         self.userRepository = userRepository
     }
-
+    
     func execute(_ userRegister: UserRegister) async throws {
         let userId = try await authRepository.signUp(userRegister: userRegister)
-        let user = User(id: userId, name: userRegister.name, email: userRegister.email)
+        let user = User(id: userId, name: userRegister.name, email: userRegister.email, joinDate: .now)
         try await userRepository.saveUser(user)
     }
 }

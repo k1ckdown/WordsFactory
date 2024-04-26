@@ -41,12 +41,14 @@ struct SignInView: View {
                     .keyboardType(.emailAddress)
                     .textContentType(.emailAddress)
                     .authBorderedTextFieldStyle()
+                    .textInputAutocapitalization(.never)
                     .focused($focusedField, equals: .email)
                     .onSubmit { focusedField = .password }
 
                 SecureTextField(Strings.password, text: password)
                     .submitLabel(.done)
                     .textContentType(.password)
+                    .textInputAutocapitalization(.never)
                     .focused($focusedField, equals: .password)
             }
         )

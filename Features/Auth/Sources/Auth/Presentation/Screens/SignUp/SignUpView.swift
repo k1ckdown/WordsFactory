@@ -39,12 +39,14 @@ struct SignUpView: View {
                 Group {
                     TextField(Strings.name, text: username)
                         .textContentType(.username)
+                        .textInputAutocapitalization(.words)
                         .focused($focusedField, equals: .username)
                         .onSubmit { focusedField = .email }
 
                     TextField(Strings.email, text: email)
                         .keyboardType(.emailAddress)
                         .textContentType(.emailAddress)
+                        .textInputAutocapitalization(.never)
                         .focused($focusedField, equals: .email)
                         .onSubmit { focusedField = .password }
                 }

@@ -20,7 +20,6 @@ import MainTabBar
 import Profile
 
 final class AppFactory {
-
     private lazy var networkService = NetworkService()
     private lazy var authRepository = AuthRepositoryAssembly.assemble()
     private lazy var userRepository = UserRepositoryAssembly.assemble()

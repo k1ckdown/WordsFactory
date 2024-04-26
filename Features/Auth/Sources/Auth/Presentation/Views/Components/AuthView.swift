@@ -40,9 +40,7 @@ struct AuthView<Content: View>: View {
                         .foregroundStyle(Colors.appDarkGray.swiftUIColor)
                 }
 
-                content
-                    .autocorrectionDisabled()
-                    .textInputAutocapitalization(.never)
+                content.autocorrectionDisabled()
 
                 if isLoading {
                     ProgressView()
