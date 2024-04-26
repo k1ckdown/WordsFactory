@@ -60,7 +60,7 @@ private extension ProfileViewModel {
     @MainActor
     func handleUser(_ user: User) {
         self.user = user
-        let viewData = ViewState.ViewData(name: user.name, joinDate: Date.now.formatted(.dateTime.day().month().year()))
+        let viewData = ViewState.ViewData(name: user.name.capitalized, joinDate: Date.now.formatted(.dateTime.day().month().year()))
         state = .loaded(viewData)
     }
     

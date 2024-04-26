@@ -19,8 +19,10 @@ struct TabBarItem<Tab: TabProtocol>: View {
         } label: {
             VStack {
                 tag.icon
+                    .resizable()
                     .renderingMode(.template)
-                    .frame(width: Constants.iconSize, height: Constants.iconSize)
+                    .scaledToFill()
+                    .frame(width: Constants.iconWidth, height: Constants.iconHeight)
 
                 Text(tag.title)
                     .font(Fonts.paragraphMedium)
@@ -37,7 +39,8 @@ struct TabBarItem<Tab: TabProtocol>: View {
 private extension TabBarItem {
 
     enum Constants {
-        static var offsetY: CGFloat { -7 }
-        static var iconSize: CGFloat { 20 }
+        static var offsetY: CGFloat { -12 }
+        static var iconWidth: CGFloat { 20 }
+        static var iconHeight: CGFloat { 18 }
     }
 }

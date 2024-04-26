@@ -14,23 +14,24 @@ extension MainTabBarCoordinatorView {
         case dictionary
         case training
         case video
+        case profile
 
         var title: String {
             switch self {
             case .dictionary: Strings.dictionary
             case .training: Strings.training
             case .video: Strings.video
+            case .profile: Strings.profile
             }
         }
 
         var icon: Image {
-            let asset = switch self {
-            case .dictionary: Images.dictionaryIcon
-            case .training: Images.trainingIcon
-            case .video: Images.videoIcon
+            switch self {
+            case .dictionary: Images.dictionaryIcon.swiftUIImage
+            case .training: Images.trainingIcon.swiftUIImage
+            case .video: Images.videoIcon.swiftUIImage
+            case .profile: Image(systemName: "person.fill")
             }
-
-            return asset.swiftUIImage
         }
     }
 }

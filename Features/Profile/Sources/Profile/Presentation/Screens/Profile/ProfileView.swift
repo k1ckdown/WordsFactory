@@ -18,6 +18,9 @@ struct ProfileView: View {
 
     var body: some View {
         contentView
+            .didLoad {
+                viewModel.handle(.didLoad)
+            }
     }
 
     @ViewBuilder
@@ -110,7 +113,7 @@ private extension ProfileView {
         enum Avatar {
             static let imageSize: CGFloat = 90
             static let borderWidth: CGFloat = 10
-            static let personImage = "person.circle"
+            static let personImage = "person.circle.fill"
 
             static let insetTop: CGFloat = -42
             static let nameInsetTop: CGFloat = -2

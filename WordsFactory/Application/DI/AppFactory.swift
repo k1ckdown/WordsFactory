@@ -16,6 +16,7 @@ import Video
 import DictionarySearch
 import Training
 import MainTabBar
+import Profile
 
 final class AppFactory {
     private lazy var networkService = NetworkService()
@@ -48,6 +49,7 @@ extension AppFactory {
     func makeMainTabBarCoordinator() -> some View {
         let dependencies = MainTabBar.ModuleDependencies(
             videoCoordinatorAssembly: makeVideoCoordinatorAssembly(),
+            profileCoordinatorAssembly: makeProfileCoordinatorAssembly(),
             trainingCoordinatorAssembly: makeTrainingCoordinatorAssembly(),
             dictionaryCoordinatorAssembly: makeDictionaryCoordinatorAssembly()
         )
@@ -68,9 +70,18 @@ private extension AppFactory {
         let dependencies = DictionarySearch.ModuleDependencies(wordRepository: wordRepository)
         return DictionaryCoordinatorAssembly(dependencies: dependencies)
     }
-
+    
     func makeTrainingCoordinatorAssembly() -> TrainingCoordinatorAssembly {
         let dependencies = Training.ModuleDependencies(wordRepository: wordRepository)
         return TrainingCoordinatorAssembly(dependencies: dependencies)
+    }
+
+    func makeProfileCoordinatorAssembly() -> ProfileCoordinatorAssembly {
+        let dependencies = Profile.ModuleDependencies(
+            userRepository: userRepository,
+            authRepository: authRepository
+        )
+
+        return ProfileCoordinatorAssembly(dependencies: dependencies)
     }
 }

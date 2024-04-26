@@ -14,6 +14,7 @@ let package = Package(
     ],
     dependencies: [
         .package(path: "../API/VideoAPI"),
+        .package(path: "../API/ProfileAPI"),
         .package(path: "../API/TrainingAPI"),
         .package(path: "../API/DictionarySearchAPI"),
         .package(path: "../../Shared/Core/CommonUI"),
@@ -24,6 +25,7 @@ let package = Package(
             name: "MainTabBar",
             dependencies: [
                 .product(name: "VideoAPI", package: "VideoAPI"),
+                .product(name: "ProfileAPI", package: "ProfileAPI"),
                 .product(name: "TrainingAPI", package: "TrainingAPI"),
                 .product(name: "DictionarySearchAPI", package: "DictionarySearchAPI"),
                 .product(name: "CommonUI", package: "CommonUI")

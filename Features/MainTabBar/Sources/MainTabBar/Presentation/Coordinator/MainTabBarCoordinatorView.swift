@@ -7,27 +7,31 @@
 
 import SwiftUI
 import VideoAPI
+import ProfileAPI
 import TrainingAPI
 import DictionarySearchAPI
 
 struct MainTabBarCoordinatorView: View {
-
+    
     @State private var selectedTab = Tab.dictionary
-
+    
     private let videoCoordinatorAssembly: VideoCoordinatorAssemblyProtocol
+    private let profileCoordinatorAssembly: ProfileCoordinatorAssemblyProtocol
     private let trainingCoordinatorAssembly: TrainingCoordinatorAssemblyProtocol
     private let dictionaryCoordinatorAssembly: DictionaryCoordinatorAssemblyProtocol
-
+    
     init(
         videoCoordinatorAssembly: VideoCoordinatorAssemblyProtocol,
+        profileCoordinatorAssembly: ProfileCoordinatorAssemblyProtocol,
         trainingCoordinatorAssembly: TrainingCoordinatorAssemblyProtocol,
         dictionaryCoordinatorAssembly: DictionaryCoordinatorAssemblyProtocol
     ) {
         self.videoCoordinatorAssembly = videoCoordinatorAssembly
+        self.profileCoordinatorAssembly = profileCoordinatorAssembly
         self.trainingCoordinatorAssembly = trainingCoordinatorAssembly
         self.dictionaryCoordinatorAssembly = dictionaryCoordinatorAssembly
     }
-
+    
     var body: some View {
         MainTabView(selection: $selectedTab) {
             ForEach(Tab.allCases, content: makeTabView)
@@ -44,6 +48,8 @@ struct MainTabBarCoordinatorView: View {
                 trainingCoordinatorAssembly.assemble()
             case .video:
                 videoCoordinatorAssembly.assemble()
+            case .profile:
+                profileCoordinatorAssembly.assemble()
             }
         }
         .tag(tab)
