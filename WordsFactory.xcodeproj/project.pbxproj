@@ -202,6 +202,7 @@
 		492C5B952BA981930018E008 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				496D7AEE2BDC1F5D0023EF40 /* UseCases */,
 				49D1E2F92BCBA3CD007F5A94 /* DI */,
 				49F0A2882BCAE802007499CC /* Coordinator */,
 				4946D6BB2BA814E500558F8A /* WordsFactoryApp.swift */,
@@ -296,6 +297,13 @@
 				494DCA5D2BD96AFF0085744B /* ErrorView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		496D7AEE2BDC1F5D0023EF40 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UseCases;
 			sourceTree = "<group>";
 		};
 		4979DACF2BC8335E00AA2235 /* Common */ = {

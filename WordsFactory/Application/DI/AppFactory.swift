@@ -22,21 +22,25 @@ import Profile
 final class AppFactory {
 
     private lazy var networkService = NetworkService()
-    private let authRepository: AuthRepositoryProtocol
+    private lazy var authRepository = AuthRepositoryAssembly.assemble()
     private lazy var userRepository = UserRepositoryAssembly.assemble()
     private lazy var wordRepository = WordRepositoryAssembly.assemble(
         userIdProvider: userRepository.getUserId,
         networkService: networkService
     )
-
-    init(signOutHandler: (() -> Void)? = nil) {
-        authRepository = AuthRepositoryAssembly.assemble(signOutHandler: signOutHandler)
-    }
 }
 
 // MARK: - Coordinators
 
 extension AppFactory {
+
+    func makeAppCoordinator() -> some View {
+        let coordinator = AppCoordinator(isSignedIn: authRepository.isSignedIn())
+        authRepository.signOutHandler = { Task { @MainActor in coordinator.showAuth() } }
+
+        let coordinatorView = AppCoordinatorView(factory: self, coordinator: coordinator)
+        return coordinatorView
+    }
 
     func makeOnboardingCoordinator(flowFinishHandler: @escaping () -> Void) -> some View {
         OnboardingCoordinatorAssembly().assemble(flowFinishHandler: flowFinishHandler)

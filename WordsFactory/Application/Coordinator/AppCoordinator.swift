@@ -18,8 +18,15 @@ final class AppCoordinator: ObservableObject {
         case mainTabBar
     }
 
+    private let isSignedIn: Bool
     @Published private(set) var scene = Scene.idle
-    @AppStorage(AppSettings.showOnboarding.key) var showOnboarding = true
+
+    @AppStorage(AppSettings.showOnboarding.key)
+    private var showOnboarding = true
+
+    init(isSignedIn: Bool) {
+        self.isSignedIn = isSignedIn
+    }
 }
 
 // MARK: - Public methods
@@ -27,7 +34,7 @@ final class AppCoordinator: ObservableObject {
 extension AppCoordinator {
 
     func onAppear() {
-        scene = showOnboarding ? .onboarding : .auth
+        scene = if isSignedIn { .mainTabBar } else { showOnboarding ? .onboarding : .auth }
     }
 
     func mainTabBarDidLoad() {

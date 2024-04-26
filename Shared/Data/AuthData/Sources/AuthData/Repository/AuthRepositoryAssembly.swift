@@ -9,7 +9,7 @@ import AuthDomain
 
 public enum AuthRepositoryAssembly {
 
-    public static func assemble(signOutHandler: (() -> Void)? = nil) -> AuthRepositoryProtocol {
-        AuthRepository(signOutHandler: signOutHandler)
+    public static func assemble() -> AuthRepositoryProtocol {
+        AuthRepository()
     }
 }

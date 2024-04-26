@@ -10,11 +10,11 @@ import SwiftUI
 struct AppCoordinatorView: View {
 
     private let factory: AppFactory
-    @ObservedObject private var coordinator: AppCoordinator
+    @StateObject private var coordinator: AppCoordinator
 
     init(factory: AppFactory, coordinator: AppCoordinator) {
         self.factory = factory
-        self.coordinator = coordinator
+        _coordinator = StateObject(wrappedValue: coordinator)
     }
 
     var body: some View {
@@ -25,7 +25,7 @@ struct AppCoordinatorView: View {
         .preferredColorScheme(.light)
         .onAppear(perform: coordinator.onAppear)
     }
-
+    
     @ViewBuilder
     private var rootView: some View {
         switch coordinator.scene {

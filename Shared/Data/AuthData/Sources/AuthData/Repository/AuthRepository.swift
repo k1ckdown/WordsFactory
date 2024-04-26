@@ -10,17 +10,17 @@ import FirebaseAuth
 
 final class AuthRepository {
 
+    var signOutHandler: (() -> Void)?
     private let auth = Auth.auth()
-    private let signOutHandler: (() -> Void)?
-
-    init(signOutHandler: (() -> Void)? = nil) {
-        self.signOutHandler = signOutHandler
-    }
 }
 
 // MARK: - AuthRepositoryProtocol
 
 extension AuthRepository: AuthRepositoryProtocol {
+
+    func isSignedIn() -> Bool {
+        auth.currentUser?.uid != nil
+    }
 
     func signOut() async throws {
         try auth.signOut()

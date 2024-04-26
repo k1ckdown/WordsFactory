@@ -6,6 +6,9 @@
 //
 
 public protocol AuthRepositoryProtocol: AnyObject {
+    var signOutHandler: (() -> Void)? { get set }
+
+    func isSignedIn() -> Bool
     func signOut() async throws
     func signIn(credentials: LoginCredentials) async throws
     func signUp(userRegister: UserRegister) async throws -> String
