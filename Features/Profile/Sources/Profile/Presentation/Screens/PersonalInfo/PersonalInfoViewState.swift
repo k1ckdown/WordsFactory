@@ -11,7 +11,7 @@ extension PersonalInfoViewModel {
         var name: String
         var email: String
         var isUpdating = false
-        var isSaveEnabled = false
+        var isSaveDisabled = true
     }
 
     enum Event {

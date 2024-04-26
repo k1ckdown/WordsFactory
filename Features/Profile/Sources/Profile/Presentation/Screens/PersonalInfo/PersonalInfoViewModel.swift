@@ -45,7 +45,7 @@ private extension PersonalInfoViewModel {
     }
 
     func checkDataChanged() {
-        state.isSaveEnabled = state.email != user.email || state.name != user.name
+        state.isSaveDisabled = state.email == user.email && state.name == user.name
     }
 
     func handleNameChange(_ name: String) {

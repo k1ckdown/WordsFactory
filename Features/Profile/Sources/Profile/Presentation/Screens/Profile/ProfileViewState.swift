@@ -20,7 +20,7 @@ extension ProfileViewModel {
     }
     
     enum Event {
-        case didLoad
+        case onAppear
         case signOutTapped
         case personalInfoTapped
         case myDictionaryTapped

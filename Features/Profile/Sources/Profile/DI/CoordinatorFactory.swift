@@ -16,6 +16,21 @@ final class CoordinatorFactory {
     }
 }
 
+// MARK: - ProfileCoordinatorFactory
+
+extension CoordinatorFactory: ProfileCoordinatorFactory {
+    func makeProfileCoordinator() -> ProfileCoordinatorView<ProfileView> {
+        let coordinator = ProfileCoordinator()
+        let coordinatorView = ProfileCoordinatorView(
+            factory: self,
+            content: self.screenFactory.makeProfileScreen(coordinator: coordinator),
+            coordinator: coordinator
+        )
+        
+        return coordinatorView
+    }
+}
+
 // MARK: - PersonalInfoCoordinatorFactory
 
 extension CoordinatorFactory: PersonalInfoCoordinatorFactory {

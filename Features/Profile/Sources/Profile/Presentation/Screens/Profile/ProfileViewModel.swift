@@ -29,7 +29,7 @@ final class ProfileViewModel: ObservableObject {
 
     func handle(_ event: Event) {
         switch event {
-        case .didLoad:
+        case .onAppear:
             Task { await getUser() }
         case .signOutTapped:
             Task { await handleSignOutTap() }
@@ -46,14 +46,15 @@ final class ProfileViewModel: ObservableObject {
 private extension ProfileViewModel {
 
     func handlePersonalInfoTap() {
-
+        guard let user else { return }
+        coordinator.showPersonalInfo(with: user)
     }
 
     func handleSignOutTap() async {
         do {
             try await signOutUseCase.execute()
         } catch {
-            print(error)
+            await MainActor.run { coordinator.showError(message: error.localizedDescription) }
         }
     }
 
@@ -70,12 +71,15 @@ private extension ProfileViewModel {
 
     func getUser() async {
         await MainActor.run { state = .loading }
+
         do {
             let user = try await getUserUseCase.execute()
             await handleUser(user)
         } catch {
-            print(error)
-            await MainActor.run { state = .failed }
+            await MainActor.run {
+                state = .failed
+                coordinator.showError(message: error.localizedDescription)
+            }
         }
     }
 }

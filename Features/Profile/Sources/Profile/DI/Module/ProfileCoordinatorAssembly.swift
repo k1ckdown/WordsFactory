@@ -10,7 +10,7 @@ import ProfileAPI
 
 public struct ProfileCoordinatorAssembly: ProfileCoordinatorAssemblyProtocol {
 
-    private let screenFactory: ScreenFactory
+    private let coordinatorFactory: CoordinatorFactory
 
     public init(dependencies: ModuleDependencies) {
         let useCaseFactory = UseCaseFactory(
@@ -18,16 +18,12 @@ public struct ProfileCoordinatorAssembly: ProfileCoordinatorAssemblyProtocol {
             authRepository: dependencies.authRepository
         )
 
-        screenFactory = ScreenFactory(useCaseFactory: useCaseFactory)
+        let screenFactory = ScreenFactory(useCaseFactory: useCaseFactory)
+        coordinatorFactory = CoordinatorFactory(screenFactory: screenFactory)
     }
 
     public func assemble() -> AnyView {
-        let coordinator = ProfileCoordinator()
-        let coordinatorView = ProfileCoordinatorView(
-            content: screenFactory.makeProfileScreen(coordinator: coordinator),
-            coordinator: coordinator
-        )
-
-        return AnyView(coordinatorView)
+        let coordinator = coordinatorFactory.makeProfileCoordinator()
+        return AnyView(coordinator)
     }
 }

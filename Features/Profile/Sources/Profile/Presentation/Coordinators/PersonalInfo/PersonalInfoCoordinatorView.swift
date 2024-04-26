@@ -20,6 +20,8 @@ struct PersonalInfoCoordinatorView<Content: View>: View {
 
     var body: some View {
         content()
+            .appBackButton()
+            .navigationTitle(Strings.personalInfo)
             .errorAlert($coordinator.errorMessage)
     }
 }

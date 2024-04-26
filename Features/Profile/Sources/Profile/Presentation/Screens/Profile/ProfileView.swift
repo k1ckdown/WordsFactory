@@ -18,8 +18,8 @@ struct ProfileView: View {
 
     var body: some View {
         contentView
-            .didLoad {
-                viewModel.handle(.didLoad)
+            .onAppear {
+                viewModel.handle(.onAppear)
             }
     }
 

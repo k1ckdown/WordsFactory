@@ -43,7 +43,7 @@ private extension MainButtonStyle {
         static let scaleEffectPressed: CGFloat = 0.98
 
         static let opacityPressed = 0.05
-        static let opacityDisabled = 0.4
+        static let opacityDisabled = 0.7
         static let opacityEnabled: Double = 1
 
         static let animationDuration: TimeInterval = 0.07

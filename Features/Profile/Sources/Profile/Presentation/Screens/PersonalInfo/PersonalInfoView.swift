@@ -37,19 +37,23 @@ struct PersonalInfoView: View {
             .submitLabel(.return)
             .mainTextFieldStyle()
             .autocorrectionDisabled()
+            .frame(maxHeight: .infinity, alignment: .top)
+            .padding(.top, Constants.textFieldInsetTop)
 
-            if viewModel.state.isUpdating {
-                ProgressView().tintColor()
-            } else {
-                Button(Strings.save) {
-                    viewModel.handle(.saveTapped)
+            Group {
+                if viewModel.state.isUpdating {
+                    ProgressView().tintColor()
+                } else {
+                    Button(Strings.save) {
+                        viewModel.handle(.saveTapped)
+                    }
+                    .mainButtonStyle()
+                    .disabled(viewModel.state.isSaveDisabled)
                 }
-                .mainButtonStyle()
-                .padding(.top, Constants.saveButtonInsetTop)
             }
+            .padding(.bottom, Constants.saveButtonInsetBottom)
         }
         .padding(.horizontal, Constants.insetHorizontal)
-        .navigationTitle(Strings.personalInfo)
     }
 }
 
@@ -80,6 +84,7 @@ private extension PersonalInfoView {
         static let insetHorizontal: CGFloat = 20
         static let textFieldHeight: CGFloat = 50
         static let textFieldSpacing: CGFloat = 40
-        static let saveButtonInsetTop: CGFloat = 350
+        static let textFieldInsetTop: CGFloat = 50
+        static let saveButtonInsetBottom: CGFloat = 55
     }
 }
