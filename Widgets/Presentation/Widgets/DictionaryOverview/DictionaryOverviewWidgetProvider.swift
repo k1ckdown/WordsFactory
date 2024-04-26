@@ -6,8 +6,8 @@
 //
 
 import WidgetKit
-import WordModule
-import UserModuleAPI
+import UserDomain
+import DictionaryDomain
 
 struct DictionaryOverviewWidgetProvider: TimelineProvider {
 

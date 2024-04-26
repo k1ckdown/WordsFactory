@@ -7,7 +7,7 @@
 
 enum AppSettings: String {
     case showOnboarding
-
+    
     var key: String {
         rawValue
     }

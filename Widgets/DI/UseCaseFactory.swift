@@ -6,8 +6,9 @@
 //
 
 import Networking
-import UserModule
-import WordModule
+import UserData
+import DictionaryData
+import DictionaryDomain
 
 final class UseCaseFactory {
     private lazy var networkService = NetworkService()

@@ -7,12 +7,12 @@
 
 import SwiftUI
 import Networking
-import WordModule
-import UserModule
+import DictionaryData
+import UserData
 import Onboarding
 import Auth
 import Video
-import Dictionary
+import DictionarySearch
 import Training
 import MainTabBar
 
@@ -53,15 +53,6 @@ extension AppFactory {
     }
 }
 
-// MARK: - Use Cases
-
-private extension AppFactory {
-
-    func makeGetAllDictionaryUseCase() -> GetAllDictionaryUseCase {
-        GetAllDictionaryUseCase(wordRepository: wordRepository)
-    }
-}
-
 // MARK: - Coordinator Assemblies
 
 private extension AppFactory {
@@ -71,16 +62,12 @@ private extension AppFactory {
     }
 
     func makeDictionaryCoordinatorAssembly() -> DictionaryCoordinatorAssembly {
-        let dependencies = ModuleDependencies(wordRepository: wordRepository)
+        let dependencies = DictionarySearch.ModuleDependencies(wordRepository: wordRepository)
         return DictionaryCoordinatorAssembly(dependencies: dependencies)
     }
 
     func makeTrainingCoordinatorAssembly() -> TrainingCoordinatorAssembly {
-        let dependencies = Training.ModuleDependencies(
-            wordRepository: wordRepository,
-            getAllDictionaryUseCase: self.makeGetAllDictionaryUseCase()
-        )
-
+        let dependencies = Training.ModuleDependencies(wordRepository: wordRepository)
         return TrainingCoordinatorAssembly(dependencies: dependencies)
     }
 }

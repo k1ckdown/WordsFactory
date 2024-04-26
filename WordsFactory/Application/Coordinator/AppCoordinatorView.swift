@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct AppCoordinatorView: View {
-
+    
     private let factory = AppFactory()
     @ObservedObject private var coordinator: AppCoordinator
-
+    
     init(coordinator: AppCoordinator) {
         self.coordinator = coordinator
     }
-
+    
     var body: some View {
         NavigationView {
             rootView
@@ -24,7 +24,7 @@ struct AppCoordinatorView: View {
         .preferredColorScheme(.light)
         .onAppear(perform: coordinator.onAppear)
     }
-
+    
     @ViewBuilder
     private var rootView: some View {
         switch coordinator.scene {

@@ -5,7 +5,7 @@
 //  Created by Ivan Semenov on 24.04.2024.
 //
 
-import WordModuleAPI
+import DictionaryDomain
 
 final class GetRandomWordUseCase {
 

@@ -9,11 +9,11 @@ import SwiftUI
 
 @main
 struct WordsFactoryApp: App {
-
+    
     @UIApplicationDelegateAdaptor(AppDelegate.self)
     private var appDelegate
     private let appCoordinator = AppCoordinator()
-
+    
     var body: some Scene {
         WindowGroup {
             AppCoordinatorView(coordinator: appCoordinator)
