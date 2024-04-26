@@ -8,6 +8,7 @@
 import UserModuleAPI
 
 protocol AuthRepositoryProtocol: AnyObject {
+    func signOut() async throws
     func signIn(credentials: LoginCredentials) async throws
     func signUp(userRegister: UserRegister) async throws -> User
 }

@@ -56,7 +56,7 @@ private extension ProfileView {
         .frame(maxHeight: Constants.topBackgroundHeight)
     }
 
-    func avatarView(name: String, joinDate: Date) -> some View {
+    func avatarView(name: String, joinDate: String) -> some View {
         VStack {
             Image(systemName: Constants.Avatar.personImage)
                 .resizable()
@@ -71,7 +71,7 @@ private extension ProfileView {
                     .font(Fonts.headline4)
                     .foregroundStyle(Colors.appDark.swiftUIColor)
 
-                Text("\(Strings.joined) \(joinDate.formatted(.dateTime.day().month().year()))")
+                Text("\(Strings.joined) \(joinDate)")
                     .font(Fonts.paragraphSmall)
                     .foregroundStyle(Colors.appDarkGray.swiftUIColor)
                     .padding(.top, Constants.Avatar.joinDateInsetTop)
@@ -84,15 +84,15 @@ private extension ProfileView {
     func sectionButtons() -> some View {
         VStack(spacing: Constants.SectionButtons.spacing) {
             SectionButton(title: Strings.personalInfo, systemImage: Constants.SectionButtons.personImage) {
-
+                viewModel.handle(.personalInfoTapped)
             }
 
             SectionButton(title: Strings.myDictionary, systemImage: Constants.SectionButtons.bookImage) {
-
+                viewModel.handle(.myDictionaryTapped)
             }
 
             SectionButton(title: Strings.signOut, systemImage: Constants.SectionButtons.doorImage, showsChevron: false) {
-
+                viewModel.handle(.signOutTapped)
             }
         }
         .padding(.horizontal, Constants.SectionButtons.insetHorizontal)

@@ -15,7 +15,7 @@ extension ProfileViewModel {
 
         struct ViewData: Equatable {
             let name: String
-            let joinDate: Date
+            let joinDate: String
         }
     }
     

@@ -16,6 +16,10 @@ final class AuthRepository {
 
 extension AuthRepository: AuthRepositoryProtocol {
 
+    func signOut() async throws {
+        try auth.signOut()
+    }
+
     func signIn(credentials: LoginCredentials) async throws {
         try await auth.signIn(withEmail: credentials.email, password: credentials.password)
     }
