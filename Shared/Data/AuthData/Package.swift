@@ -4,32 +4,31 @@
 import PackageDescription
 
 let package = Package(
-    name: "UserData",
+    name: "AuthData",
     platforms: [.iOS(.v15)],
     products: [
         .library(
-            name: "UserData",
-            targets: ["UserData"]
+            name: "AuthData",
+            targets: ["AuthData"]
         ),
     ],
     dependencies: [
-        .package(path: "../../Domain/UserDomain"),
-        .package(path: "../../Shared/Core/AppGroup"),
+        .package(path: "../../Domain/AuthDomain"),
+        .package(path: "../../Core/AppGroup"),
         .package(url: "https://github.com/firebase/firebase-ios-sdk", from: .init(10, 24, 0))
     ],
     targets: [
         .target(
-            name: "UserData",
+            name: "AuthData",
             dependencies: [
-                .product(name: "UserDomain", package: "UserDomain"),
+                .product(name: "AuthDomain", package: "AuthDomain"),
                 .product(name: "AppGroup", package: "AppGroup"),
-                .product(name: "FirebaseAuth", package: "firebase-ios-sdk"),
-                .product(name: "FirebaseFirestore", package: "firebase-ios-sdk")
+                .product(name: "FirebaseAuth", package: "firebase-ios-sdk")
             ]
         ),
         .testTarget(
-            name: "UserDataTests",
-            dependencies: ["UserData"]
+            name: "AuthDataTests",
+            dependencies: ["AuthData"]
         ),
     ]
 )

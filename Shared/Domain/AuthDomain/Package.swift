@@ -4,20 +4,19 @@
 import PackageDescription
 
 let package = Package(
-    name: "UserDomain",
+    name: "AuthDomain",
     products: [
         .library(
-            name: "UserDomain",
-            targets: ["UserDomain"]
-        ),
+            name: "AuthDomain",
+            targets: ["AuthDomain"]),
     ],
     targets: [
         .target(
-            name: "UserDomain"
+            name: "AuthDomain"
         ),
         .testTarget(
-            name: "UserDomainTests",
-            dependencies: ["UserDomain"]
+            name: "AuthDomainTests",
+            dependencies: ["AuthDomain"]
         ),
     ]
 )

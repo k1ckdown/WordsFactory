@@ -10,24 +10,22 @@ let package = Package(
     products: [
         .library(
             name: "Auth",
-            targets: ["Auth"]),
+            targets: ["Auth"]
+        ),
     ],
     dependencies: [
-        .package(path: "../../Core/CommonUI"),
-        .package(path: "../../Core/AppGroup"),
-        .package(path: "../../Shared/API/UserDomain"),
-        .package(url: "https://github.com/SwiftGen/SwiftGenPlugin", from: .init(6, 6, 2)),
-        .package(url: "https://github.com/firebase/firebase-ios-sdk", from: .init(10, 24, 0))
+        .package(path: "../../Shared/Core/CommonUI"),
+        .package(path: "../../Shared/Domain/AuthDomain"),
+        .package(path: "../../Shared/Domain/UserDomain"),
+        .package(url: "https://github.com/SwiftGen/SwiftGenPlugin", from: .init(6, 6, 2))
     ],
     targets: [
         .target(
             name: "Auth",
             dependencies: [
-                .product(name: "AppGroup", package: "AppGroup"),
                 .product(name: "CommonUI", package: "CommonUI"),
-                .product(name: "UserDomain", package: "UserDomain"),
-                .product(name: "FirebaseAuth", package: "firebase-ios-sdk"),
-                .product(name: "FirebaseFirestore", package: "firebase-ios-sdk")
+                .product(name: "AuthDomain", package: "AuthDomain"),
+                .product(name: "UserDomain", package: "UserDomain")
             ],
             plugins: [
                 .plugin(name: "SwiftGenPlugin", package: "SwiftGenPlugin")

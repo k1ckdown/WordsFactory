@@ -13,7 +13,7 @@ let package = Package(
             targets: ["Onboarding"]),
     ],
     dependencies: [
-        .package(path: "../../Core/CommonUI"),
+        .package(path: "../../Shared/Core/CommonUI"),
         .package(url: "https://github.com/SwiftGen/SwiftGenPlugin", from: .init(6, 6, 2))
     ],
     targets: [

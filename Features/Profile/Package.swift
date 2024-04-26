@@ -15,8 +15,8 @@ let package = Package(
     ],
     dependencies: [
         .package(path: "../API/ProfileAPI"),
-        .package(path: "../../Core/CommonUI"),
-        .package(path: "../../Shared/API/UserDomain"),
+        .package(path: "../../Shared/Core/CommonUI"),
+        .package(path: "../../Shared/Domain/UserDomain"),
         .package(url: "https://github.com/SwiftGen/SwiftGenPlugin", from: .init(6, 6, 2))
     ],
     targets: [

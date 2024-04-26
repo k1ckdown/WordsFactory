@@ -12,9 +12,11 @@ public struct AuthCoordinatorAssembly {
     private let coordinatorFactory: CoordinatorFactory
     
     public init(dependencies: ModuleDependencies) {
-        let repositoryFactory = RepositoryFactory(userRepository: dependencies.userRepository)
-        let useCaseFactory = UseCaseFactory(repositoryFactory: repositoryFactory)
-        
+        let useCaseFactory = UseCaseFactory(
+            userRepository: dependencies.userRepository,
+            authRepository: dependencies.authRepository
+        )
+
         let screenFactory = ScreenFactory(useCaseFactory: useCaseFactory)
         coordinatorFactory = CoordinatorFactory(
             screenFactory: screenFactory,

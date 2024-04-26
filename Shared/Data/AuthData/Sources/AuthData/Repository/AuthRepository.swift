@@ -5,8 +5,8 @@
 //  Created by Ivan Semenov on 24.03.2024.
 //
 
+import AuthDomain
 import FirebaseAuth
-import UserDomain
 
 final class AuthRepository {
     private let auth = Auth.auth()
@@ -24,10 +24,8 @@ extension AuthRepository: AuthRepositoryProtocol {
         try await auth.signIn(withEmail: credentials.email, password: credentials.password)
     }
 
-    func signUp(userRegister: UserRegister) async throws -> UserDomain.User {
-        let result = try await auth.createUser(withEmail: userRegister.email, password: userRegister.password)
-        let user = User(id: result.user.uid, name: userRegister.name, email: userRegister.email)
-
-        return user
+    func signUp(userRegister: UserRegister) async throws -> String {
+        let authResult = try await auth.createUser(withEmail: userRegister.email, password: userRegister.password)
+        return authResult.user.uid
     }
 }

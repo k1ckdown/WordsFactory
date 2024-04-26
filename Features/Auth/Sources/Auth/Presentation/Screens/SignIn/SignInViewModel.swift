@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AuthDomain
 
 final class SignInViewModel: ObservableObject {
 

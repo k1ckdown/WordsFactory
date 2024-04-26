@@ -23,6 +23,7 @@
 		4958763F2BB6B2F7008D7A1D /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4958763E2BB6B2F7008D7A1D /* AppFactory.swift */; };
 		495876412BB6CB5C008D7A1D /* AppCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495876402BB6CB5C008D7A1D /* AppCoordinatorView.swift */; };
 		495929AF2BD95F6A00ECD8F3 /* DictionaryOverviewWidgetProviderAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495929AE2BD95F6A00ECD8F3 /* DictionaryOverviewWidgetProviderAssembly.swift */; };
+		496474FD2BDBDFE200892B4B /* AuthData in Frameworks */ = {isa = PBXBuildFile; productRef = 496474FC2BDBDFE200892B4B /* AuthData */; };
 		4979DACE2BC832BC00AA2235 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 4979DACD2BC832BC00AA2235 /* Localizable.xcstrings */; };
 		4979DAD22BC8338A00AA2235 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4979DAD12BC8338A00AA2235 /* Strings.swift */; };
 		497D6AE12BDBB7F700B26872 /* NetworkingAPI in Resources */ = {isa = PBXBuildFile; fileRef = 497D6ADA2BDBB7F700B26872 /* NetworkingAPI */; };
@@ -123,6 +124,8 @@
 		497D6ADF2BDBB7F700B26872 /* Notifications */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Notifications; sourceTree = "<group>"; };
 		497D6AE72BDBBA7800B26872 /* DictionaryDomain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DictionaryDomain; sourceTree = "<group>"; };
 		497D6AE92BDBBAF600B26872 /* DictionaryData */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DictionaryData; sourceTree = "<group>"; };
+		4982774F2BDBCAE9009E5E1D /* AuthDomain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = AuthDomain; sourceTree = "<group>"; };
+		498277502BDBCC14009E5E1D /* AuthData */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = AuthData; sourceTree = "<group>"; };
 		498BBF3C2BC34B3400F60508 /* WordsFactory.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WordsFactory.entitlements; sourceTree = "<group>"; };
 		498BBF3D2BC34B4500F60508 /* WidgetsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetsExtension.entitlements; sourceTree = "<group>"; };
 		498BBF3E2BC34E2A00F60508 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -167,6 +170,7 @@
 				498277482BDBC6B8009E5E1D /* Profile in Frameworks */,
 				4982774C2BDBC6B8009E5E1D /* UserData in Frameworks */,
 				4982773C2BDBC6B8009E5E1D /* DictionaryData in Frameworks */,
+				496474FD2BDBDFE200892B4B /* AuthData in Frameworks */,
 				4982774A2BDBC6B8009E5E1D /* Training in Frameworks */,
 				498277442BDBC6B8009E5E1D /* Notifications in Frameworks */,
 				4982773E2BDBC6B8009E5E1D /* DictionarySearch in Frameworks */,
@@ -335,6 +339,7 @@
 		497D6AE62BDBBA3600B26872 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				4982774F2BDBCAE9009E5E1D /* AuthDomain */,
 				49C296222BDBBC160085056B /* UserDomain */,
 				497D6AE72BDBBA7800B26872 /* DictionaryDomain */,
 			);
@@ -344,6 +349,7 @@
 		497D6AE82BDBBAE300B26872 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				498277502BDBCC14009E5E1D /* AuthData */,
 				49C296232BDBBC760085056B /* UserData */,
 				497D6AE92BDBBAF600B26872 /* DictionaryData */,
 			);
@@ -521,6 +527,7 @@
 				498277492BDBC6B8009E5E1D /* Training */,
 				4982774B2BDBC6B8009E5E1D /* UserData */,
 				4982774D2BDBC6B8009E5E1D /* Video */,
+				496474FC2BDBDFE200892B4B /* AuthData */,
 			);
 			productName = WordsFactory;
 			productReference = 4946D6B82BA814E500558F8A /* WordsFactory.app */;
@@ -963,6 +970,10 @@
 		49207D322BDBC63D00907C35 /* UserData */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = UserData;
+		};
+		496474FC2BDBDFE200892B4B /* AuthData */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AuthData;
 		};
 		498277312BDBC687009E5E1D /* DictionaryDomain */ = {
 			isa = XCSwiftPackageProductDependency;

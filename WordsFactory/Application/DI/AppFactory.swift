@@ -8,6 +8,7 @@
 import SwiftUI
 import Networking
 import DictionaryData
+import AuthData
 import UserData
 import Onboarding
 import Auth
@@ -19,6 +20,7 @@ import MainTabBar
 final class AppFactory {
     private lazy var networkService = NetworkService()
     private lazy var userRepository = UserRepositoryAssembly.assemble()
+    private lazy var authRepository = AuthRepositoryAssembly.assemble()
     private lazy var wordRepository = WordRepositoryAssembly.assemble(
         userIdProvider: userRepository.getUserId,
         networkService: networkService
@@ -35,8 +37,9 @@ extension AppFactory {
 
     func makeAuthCoordinator(flowFinishHandler: @escaping () -> Void) -> some View {
         let dependencies = Auth.ModuleDependencies(
-            flowFinishHandler: flowFinishHandler,
-            userRepository: userRepository
+            authRepository: authRepository,
+            userRepository: userRepository,
+            flowFinishHandler: flowFinishHandler
         )
 
         return AuthCoordinatorAssembly(dependencies: dependencies).assemble()

@@ -14,10 +14,10 @@ let package = Package(
     ],
     dependencies: [
         .package(path: "../API/TrainingAPI"),
-        .package(path: "../../Shared/API/DictionaryDomain"),
-        .package(path: "../../Core/CommonUI"),
-        .package(path: "../../Core/AppGroup"),
-        .package(path: "../../Core/Notifications"),
+        .package(path: "../../Shared/Domain/DictionaryDomain"),
+        .package(path: "../../Shared/Core/CommonUI"),
+        .package(path: "../../Shared/Core/AppGroup"),
+        .package(path: "../../Shared/Core/Notifications"),
         .package(url: "https://github.com/SwiftGen/SwiftGenPlugin", from: .init(6, 6, 2))
     ],
     targets: [

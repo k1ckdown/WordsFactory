@@ -5,6 +5,8 @@
 //  Created by Ivan Semenov on 24.03.2024.
 //
 
+import AuthDomain
+
 final class SignInUseCase {
 
     private let authRepository: AuthRepositoryProtocol

@@ -12,9 +12,9 @@ let package = Package(
             targets: ["DictionaryData"]),
     ],
     dependencies: [
-        .package(path: "../Domain/DictionaryDomain"),
-        .package(path: "../../Core/AppGroup"),
-        .package(path: "../../Core/API/NetworkingAPI"),
+        .package(path: "../../Domain/DictionaryDomain"),
+        .package(path: "../../Shared/Core/AppGroup"),
+        .package(path: "../../Shared/Core/API/NetworkingAPI"),
     ],
     targets: [
         .target(
