@@ -14,10 +14,12 @@ final class PersonalInfoViewModel: ObservableObject {
 
     private var user: User
     private let updateUserUseCase: UpdateUserUseCase
+    private let coordinator: PersonalInfoCoordinatorProtocol
 
-    init(user: User, updateUserUseCase: UpdateUserUseCase) {
+    init(user: User, updateUserUseCase: UpdateUserUseCase, coordinator: PersonalInfoCoordinatorProtocol) {
         self.user = user
         self.updateUserUseCase = updateUserUseCase
+        self.coordinator = coordinator
         state = ViewState(name: user.name, email: user.email)
     }
 
@@ -63,7 +65,7 @@ private extension PersonalInfoViewModel {
         do {
             try await updateUserUseCase.execute(userEdit)
         } catch {
-            print(error)
+            await MainActor.run { coordinator.showError(error.localizedDescription) }
         }
         await isUpdating(false)
     }
