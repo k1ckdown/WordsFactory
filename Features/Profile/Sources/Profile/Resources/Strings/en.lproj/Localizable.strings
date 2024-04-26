@@ -6,6 +6,9 @@
   
 */
 
+"Name" = "Name";
+"Email" = "Email";
+"Save" = "Save";
 "Joined" = "Joined";
 "SignOut" = "Sign Out";
 "PersonalInfo" = "Personal Info";
