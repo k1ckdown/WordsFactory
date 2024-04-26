@@ -9,12 +9,12 @@ import AuthDomain
 import FirebaseAuth
 
 final class AuthRepository {
-    private let auth = Auth.auth()
 
-    init() {
-        auth.addStateDidChangeListener { auth, user in
-            print(user?.uid)
-        }
+    private let auth = Auth.auth()
+    private let signOutHandler: (() -> Void)?
+
+    init(signOutHandler: (() -> Void)? = nil) {
+        self.signOutHandler = signOutHandler
     }
 }
 
@@ -24,6 +24,7 @@ extension AuthRepository: AuthRepositoryProtocol {
 
     func signOut() async throws {
         try auth.signOut()
+        signOutHandler?()
     }
 
     func signIn(credentials: LoginCredentials) async throws {

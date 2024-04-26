@@ -30,18 +30,23 @@ extension AppCoordinator {
         scene = showOnboarding ? .onboarding : .auth
     }
 
-    func finishOnboarding() {
-        scene = .auth
-        showOnboarding = false
+    func mainTabBarDidLoad() {
+        Task { await scheduleNotifications() }
     }
 
-    func finishAuth() {
+    func showMainTabBar() {
         scene = .mainTabBar
         WidgetCenter.shared.reloadAllTimelines()
     }
 
-    func mainTabBarDidLoad() {
-        Task { await scheduleNotifications() }
+    func showAuth() {
+        switch scene {
+        case .onboarding: showOnboarding = false
+        case .mainTabBar: WidgetCenter.shared.reloadAllTimelines()
+        default: break
+        }
+
+        scene = .auth
     }
 }
 

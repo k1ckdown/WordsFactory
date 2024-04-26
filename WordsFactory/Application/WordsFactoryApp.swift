@@ -9,17 +9,22 @@ import SwiftUI
 
 @main
 struct WordsFactoryApp: App {
-    
+
     @UIApplicationDelegateAdaptor(AppDelegate.self)
     private var appDelegate
     private let appCoordinator = AppCoordinator()
-    
+
     var body: some Scene {
         WindowGroup {
-            AppCoordinatorView(coordinator: appCoordinator)
-                .onAppear {
-                    appDelegate.appCoordinator = appCoordinator
-                }
+            AppCoordinatorView(
+                factory: AppFactory(signOutHandler: {
+                    Task { @MainActor in appCoordinator.showAuth() }
+                }),
+                coordinator: appCoordinator
+            )
+            .onAppear {
+                appDelegate.appCoordinator = appCoordinator
+            }
         }
     }
 }

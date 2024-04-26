@@ -99,7 +99,8 @@ private extension ProfileView {
             }
         }
         .padding(.horizontal, Constants.SectionButtons.insetHorizontal)
-        .padding(.vertical, Constants.SectionButtons.insetVertical)
+        .padding(.top, Constants.SectionButtons.insetTop)
+        .padding(.bottom, Constants.SectionButtons.insetBottom)
     }
 }
 
@@ -122,7 +123,8 @@ private extension ProfileView {
 
         enum SectionButtons {
             static let spacing: CGFloat = 30
-            static let insetVertical: CGFloat = 35
+            static let insetTop: CGFloat = 35
+            static let insetBottom: CGFloat = 75
             static let insetHorizontal: CGFloat = 20
             static let doorImage = "door.left.hand.open"
             static let bookImage = "text.book.closed.fill"

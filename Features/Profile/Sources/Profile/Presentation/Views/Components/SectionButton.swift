@@ -65,7 +65,7 @@ struct SectionButton: View {
 private extension SectionButton {
     
     enum Constants {
-        static let height: CGFloat = 90
+        static let height: CGFloat = 85
         static let insetLeading: CGFloat = 30
         static let cornerRadius: CGFloat = 14
         

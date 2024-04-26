@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct AppCoordinatorView: View {
-    
-    private let factory = AppFactory()
+
+    private let factory: AppFactory
     @ObservedObject private var coordinator: AppCoordinator
-    
-    init(coordinator: AppCoordinator) {
+
+    init(factory: AppFactory, coordinator: AppCoordinator) {
+        self.factory = factory
         self.coordinator = coordinator
     }
-    
+
     var body: some View {
         NavigationView {
             rootView
@@ -24,16 +25,16 @@ struct AppCoordinatorView: View {
         .preferredColorScheme(.light)
         .onAppear(perform: coordinator.onAppear)
     }
-    
+
     @ViewBuilder
     private var rootView: some View {
         switch coordinator.scene {
         case .idle:
             EmptyView()
         case .auth:
-            factory.makeAuthCoordinator(flowFinishHandler: coordinator.finishAuth)
+            factory.makeAuthCoordinator(flowFinishHandler: coordinator.showMainTabBar)
         case .onboarding:
-            factory.makeOnboardingCoordinator(flowFinishHandler: coordinator.finishOnboarding)
+            factory.makeOnboardingCoordinator(flowFinishHandler: coordinator.showMainTabBar)
         case .mainTabBar:
             factory.makeMainTabBarCoordinator().didLoad(perform: coordinator.mainTabBarDidLoad)
         }

@@ -12,6 +12,7 @@ import AuthData
 import UserData
 import Onboarding
 import Auth
+import AuthDomain
 import Video
 import DictionarySearch
 import Training
@@ -19,13 +20,18 @@ import MainTabBar
 import Profile
 
 final class AppFactory {
+
     private lazy var networkService = NetworkService()
+    private let authRepository: AuthRepositoryProtocol
     private lazy var userRepository = UserRepositoryAssembly.assemble()
-    private lazy var authRepository = AuthRepositoryAssembly.assemble()
     private lazy var wordRepository = WordRepositoryAssembly.assemble(
         userIdProvider: userRepository.getUserId,
         networkService: networkService
     )
+
+    init(signOutHandler: (() -> Void)? = nil) {
+        authRepository = AuthRepositoryAssembly.assemble(signOutHandler: signOutHandler)
+    }
 }
 
 // MARK: - Coordinators
@@ -70,7 +76,7 @@ private extension AppFactory {
         let dependencies = DictionarySearch.ModuleDependencies(wordRepository: wordRepository)
         return DictionaryCoordinatorAssembly(dependencies: dependencies)
     }
-    
+
     func makeTrainingCoordinatorAssembly() -> TrainingCoordinatorAssembly {
         let dependencies = Training.ModuleDependencies(wordRepository: wordRepository)
         return TrainingCoordinatorAssembly(dependencies: dependencies)
