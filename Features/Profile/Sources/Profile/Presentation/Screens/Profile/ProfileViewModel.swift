@@ -9,24 +9,26 @@ import Foundation
 import UserDomain
 
 final class ProfileViewModel: ObservableObject {
-    
+
     @Published private(set) var state = ViewState.idle
-    
+
     private var user: User?
     private let getUserUseCase: GetUserUseCase
-    
-    init(getUserUseCase: GetUserUseCase) {
+    private let signOutUseCase: SignOutUseCase
+
+    init(getUserUseCase: GetUserUseCase, signOutUseCase: SignOutUseCase) {
         self.getUserUseCase = getUserUseCase
+        self.signOutUseCase = signOutUseCase
     }
-    
+
     func handle(_ event: Event) {
         switch event {
         case .didLoad:
             Task { await getUser() }
         case .signOutTapped:
-            break
+            Task { await handleSignOutTap() }
         case .personalInfoTapped:
-            break
+            handlePersonalInfoTap()
         case .myDictionaryTapped:
             break
         }
@@ -36,14 +38,26 @@ final class ProfileViewModel: ObservableObject {
 // MARK: Private methods
 
 private extension ProfileViewModel {
-    
+
+    func handlePersonalInfoTap() {
+
+    }
+
+    func handleSignOutTap() async {
+        do {
+            try await signOutUseCase.execute()
+        } catch {
+            print(error)
+        }
+    }
+
     @MainActor
     func handleUser(_ user: User) {
         self.user = user
-        let viewData = ViewState.ViewData(name: user.name, joinDate: "")
+        let viewData = ViewState.ViewData(name: user.name, joinDate: Date.now.formatted(.dateTime.day().month().year()))
         state = .loaded(viewData)
     }
-    
+
     func getUser() async {
         await MainActor.run { state = .loading }
         do {

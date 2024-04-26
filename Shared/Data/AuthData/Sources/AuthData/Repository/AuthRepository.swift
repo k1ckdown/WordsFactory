@@ -10,6 +10,12 @@ import FirebaseAuth
 
 final class AuthRepository {
     private let auth = Auth.auth()
+
+    init() {
+        auth.addStateDidChangeListener { auth, user in
+            print(user?.uid)
+        }
+    }
 }
 
 // MARK: - AuthRepositoryProtocol
