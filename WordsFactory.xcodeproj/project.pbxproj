@@ -130,6 +130,24 @@
 		498BBF3D2BC34B4500F60508 /* WidgetsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetsExtension.entitlements; sourceTree = "<group>"; };
 		498BBF3E2BC34E2A00F60508 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		498C9CEA2BC59A3C0039D63E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		49B7BCCA2BDFC05400F4EB94 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		49B7BCCC2BDFF23100F4EB94 /* TrainingNotification.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TrainingNotification.png; sourceTree = "<group>"; };
+		49B7BCCD2BDFF23100F4EB94 /* PersonalInfo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PersonalInfo.png; sourceTree = "<group>"; };
+		49B7BCCE2BDFF23100F4EB94 /* SignUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SignUp.png; sourceTree = "<group>"; };
+		49B7BCCF2BDFF23100F4EB94 /* WordWidget.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WordWidget.png; sourceTree = "<group>"; };
+		49B7BCD02BDFF23100F4EB94 /* TrainingFinish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TrainingFinish.png; sourceTree = "<group>"; };
+		49B7BCD12BDFF23100F4EB94 /* DictionaryWidget.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DictionaryWidget.png; sourceTree = "<group>"; };
+		49B7BCD22BDFF23100F4EB94 /* Onboarding3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Onboarding3.png; sourceTree = "<group>"; };
+		49B7BCD32BDFF23100F4EB94 /* Question.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Question.png; sourceTree = "<group>"; };
+		49B7BCD42BDFF23100F4EB94 /* Dictionary.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dictionary.png; sourceTree = "<group>"; };
+		49B7BCD52BDFF23100F4EB94 /* SignIn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SignIn.png; sourceTree = "<group>"; };
+		49B7BCD62BDFF23100F4EB94 /* DictionaryPlaceholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DictionaryPlaceholder.png; sourceTree = "<group>"; };
+		49B7BCD72BDFF23100F4EB94 /* TrainingStart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TrainingStart.png; sourceTree = "<group>"; };
+		49B7BCD82BDFF23100F4EB94 /* TrainingCountdown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TrainingCountdown.png; sourceTree = "<group>"; };
+		49B7BCD92BDFF23100F4EB94 /* Onboarding1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Onboarding1.png; sourceTree = "<group>"; };
+		49B7BCDA2BDFF23200F4EB94 /* Video.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Video.png; sourceTree = "<group>"; };
+		49B7BCDB2BDFF23200F4EB94 /* Profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Profile.png; sourceTree = "<group>"; };
+		49B7BCDC2BDFF23200F4EB94 /* Onboarding2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Onboarding2.png; sourceTree = "<group>"; };
 		49BB9A1E2BD8107300A25EAE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		49BF58AC2BD5821800867B07 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		49C2960B2BDBBBFB0085056B /* ProfileAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = ProfileAPI; sourceTree = "<group>"; };
@@ -235,6 +253,8 @@
 		4946D6AF2BA814E500558F8A = {
 			isa = PBXGroup;
 			children = (
+				49B7BCCB2BDFF21600F4EB94 /* Images */,
+				49B7BCCA2BDFC05400F4EB94 /* README.md */,
 				49F2EF4B2BDBB7C000C84010 /* Shared */,
 				49C296162BDBBBFB0085056B /* Features */,
 				4946D6BA2BA814E500558F8A /* WordsFactory */,
@@ -362,6 +382,30 @@
 				497D6AE92BDBBAF600B26872 /* DictionaryData */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		49B7BCCB2BDFF21600F4EB94 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				49B7BCD42BDFF23100F4EB94 /* Dictionary.png */,
+				49B7BCD62BDFF23100F4EB94 /* DictionaryPlaceholder.png */,
+				49B7BCD12BDFF23100F4EB94 /* DictionaryWidget.png */,
+				49B7BCD92BDFF23100F4EB94 /* Onboarding1.png */,
+				49B7BCDC2BDFF23200F4EB94 /* Onboarding2.png */,
+				49B7BCD22BDFF23100F4EB94 /* Onboarding3.png */,
+				49B7BCCD2BDFF23100F4EB94 /* PersonalInfo.png */,
+				49B7BCDB2BDFF23200F4EB94 /* Profile.png */,
+				49B7BCD32BDFF23100F4EB94 /* Question.png */,
+				49B7BCD52BDFF23100F4EB94 /* SignIn.png */,
+				49B7BCCE2BDFF23100F4EB94 /* SignUp.png */,
+				49B7BCD82BDFF23100F4EB94 /* TrainingCountdown.png */,
+				49B7BCD02BDFF23100F4EB94 /* TrainingFinish.png */,
+				49B7BCCC2BDFF23100F4EB94 /* TrainingNotification.png */,
+				49B7BCD72BDFF23100F4EB94 /* TrainingStart.png */,
+				49B7BCDA2BDFF23200F4EB94 /* Video.png */,
+				49B7BCCF2BDFF23100F4EB94 /* WordWidget.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 		49C2960E2BDBBBFB0085056B /* API */ = {
