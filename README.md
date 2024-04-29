@@ -22,6 +22,8 @@ Built with SwiftUI and Modular Architecture.
 - WidgetKit
 - User Notifications
 - Swift Package Manager
+- Firebase Authentication
+- Firebase Cloud Firestore
 
 ## Onboarding
 
@@ -61,17 +63,11 @@ Built with SwiftUI and Modular Architecture.
     <image src="Images/PersonalInfo.png" width=200 height=435>
 </p>
 
-## Video
-
-<p align="center">
-    <image src="Images/Video.png" width=200 height=435>
-</p>
-
 ## Widgets & Notifications
 
 <p align="center">
-    <image src="Images/WordWidget.png" width=200 height=435>
     <image src="Images/DictionaryWidget.png" width=200 height=435>
+    <image src="Images/WordWidget.png" width=200 height=435>
     <image src="Images/TrainingNotification.png" width=200 height=435>
 </p>
 
