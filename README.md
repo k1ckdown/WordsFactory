@@ -5,7 +5,7 @@
 [![Swift](https://img.shields.io/badge/Swift-5.10-F05138.svg?style=flat)](https://developer.apple.com/swift/)
 [![Xcode](https://img.shields.io/badge/Xcode-15-147EFB.svg?style=flat)](https://developer.apple.com/swift/)
 
-Education iOS app for learning words. Includes storing words in the dictionary and training.</br>
+Education iOS app for learning words. Includes saving words to a dictionary and training.</br>
 Built with SwiftUI and Modular Architecture.
 
 ## 🛠 Tech stack
