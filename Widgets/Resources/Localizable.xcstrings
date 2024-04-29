@@ -92,13 +92,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A random word from your dictionary"
+            "value" : "Shows a random word from your dictionary"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Случайное слово из вашего словаря"
+            "value" : "Показывает лучайное слово из вашего словаря"
           }
         }
       }
